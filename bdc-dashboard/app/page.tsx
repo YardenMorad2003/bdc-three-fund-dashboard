@@ -1474,16 +1474,18 @@ function Panel({
   subtitle,
   icon: Icon,
   children,
-  action
+  action,
+  id
 }: {
   title: string;
   subtitle?: string;
   icon?: LucideIcon;
   children: React.ReactNode;
   action?: React.ReactNode;
+  id?: string;
 }) {
   return (
-    <section className="panel">
+    <section className="panel" id={id}>
       <div className="panel-header">
         <div>
           <h2 className="panel-title">{Icon ? <Icon /> : null}{title}</h2>
@@ -2661,6 +2663,19 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
 
   return (
     <div className="grid">
+      <nav className="jump-links" aria-label="Financials tables">
+        <a href="#financials-snapshot">Financial snapshot</a>
+        <a href="#income-quality-bridge">Income quality</a>
+        <a href="#dividend-declarations">Dividends</a>
+        <a href="#income-expense-facts">Income / expense</a>
+        <a href="#non-accrual-summary">Non-accrual summary</a>
+        <a href="#issuer-watchlist">Issuer watchlist</a>
+        <a href="#non-accrual-issuers">Non-accrual issuers</a>
+        <a href="#quarterly-market-facts">Market facts</a>
+        <a href="#portfolio-quality-screeners">Portfolio quality</a>
+        <a href="#originations-repayments">Originations / repayments</a>
+      </nav>
+
       <div className="grid kpi-grid">
         <MetricCard
           title="Q1 NII"
@@ -2723,7 +2738,12 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
         </Panel>
       </div>
 
-      <Panel title="Latest Financial Snapshot" subtitle="Latest presentation and filing metrics loaded into the quarterly facts table." icon={WalletCards}>
+      <Panel
+        id="financials-snapshot"
+        title="Latest Financial Snapshot"
+        subtitle="Latest presentation and filing metrics loaded into the quarterly facts table."
+        icon={WalletCards}
+      >
         <div className="table-wrap">
           <table className="compact-wide-table">
             <thead>
@@ -2763,6 +2783,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
       </Panel>
 
       <Panel
+        id="income-quality-bridge"
         title="Income Quality Bridge"
         subtitle={`${incomeQualityRows.length} presentation-sourced rows from reported NII to conservative cash-like recurring NII.`}
         icon={Gauge}
@@ -2879,6 +2900,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
       </Panel>
 
       <Panel
+        id="dividend-declarations"
         title="Dividend Declarations"
         subtitle={`${dividendDeclarationRows.length} sourced base and supplemental rows extracted from presentation dividend disclosures.`}
         icon={Calendar}
@@ -2931,6 +2953,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
       </Panel>
 
       <Panel
+        id="income-expense-facts"
         title="Income / Expense Facts"
         subtitle="Filing-sourced statement-of-operations rows. BXSL, FSK, and TSLX are backfilled from Q1 2025 through Q1 2026."
         icon={WalletCards}
@@ -2983,6 +3006,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
       </Panel>
 
       <Panel
+        id="non-accrual-summary"
         title="Non-Accrual Summary"
         subtitle="Issuer-level rows are grouped from schedule footnotes; reported FV percentage comes from the portfolio composition table."
         icon={ShieldCheck}
@@ -3057,6 +3081,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
       </Panel>
 
       <Panel
+        id="issuer-watchlist"
         title="Issuer Watchlist"
         subtitle={`${latestWatchlistRows.length} filtered latest-period flagged issuers; ${latestShadowRows.length} are accruing shadow rows below 90. Showing ${watchlistTableRows.length} issuer-period rows with period-level instrument context.`}
         icon={Activity}
@@ -3157,6 +3182,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
       </Panel>
 
       <Panel
+        id="non-accrual-issuers"
         title="Non-Accrual Issuers"
         subtitle={`${nonAccrualIssuerRows.length} issuer-period rows from schedule footnotes.`}
         icon={AlertTriangle}
@@ -3217,7 +3243,12 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
         />
       </Panel>
 
-      <Panel title="Quarterly Market Facts" subtitle="Quarter-end and average public closes paired with sourced NAV/share marks." icon={LineChart}>
+      <Panel
+        id="quarterly-market-facts"
+        title="Quarterly Market Facts"
+        subtitle="Quarter-end and average public closes paired with sourced NAV/share marks."
+        icon={LineChart}
+      >
         <div className="table-wrap">
           <table className="compact-wide-table">
             <thead>
@@ -3257,6 +3288,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
 
       <div className="grid two-col">
         <Panel
+          id="portfolio-quality-screeners"
           title="Portfolio Quality Screeners"
           subtitle="Holdings-derived first-pass metrics by fund and period."
           icon={ShieldCheck}
@@ -3332,7 +3364,12 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
           </dl>
         </Panel>
 
-        <Panel title="Originations / Repayments" subtitle="Presentation-derived activity values, Q1 2025 through Q1 2026." icon={TrendingUp}>
+        <Panel
+          id="originations-repayments"
+          title="Originations / Repayments"
+          subtitle="Presentation-derived activity values, Q1 2025 through Q1 2026."
+          icon={TrendingUp}
+        >
           <div className="table-wrap">
             <table className="compact-table activity-table">
               <thead>
