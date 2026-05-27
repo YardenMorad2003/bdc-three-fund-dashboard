@@ -10,6 +10,12 @@ Live site: [yardenmorad2003.github.io/bdc-three-fund-dashboard](https://yardenmo
 
 The dashboard is built from holding-level and filing-level data work products. It is meant to make the portfolio, financial, credit quality, liability, and issuer-level comparisons easier to inspect in one place.
 
+## Project Aim
+
+The aim of this project is to transform unclear Excel and PDF filings into a readable, structured database that is easy to query. In that sense, the project is mainly data engineering plus data analysis: collecting messy source material, normalizing it, preserving source context, and turning it into usable tables.
+
+The usefulness can go beyond the dashboard itself. Once the data is structured and queryable, it can potentially support more advanced data science and machine learning work, including issuer comparison, anomaly detection, portfolio risk screening, trend analysis, and automated source reconciliation.
+
 ## What It Covers
 
 The current dashboard scope is intentionally narrow. It covers BXSL, FSK, and TSLX only, with a latest common dashboard period of March 31, 2026.
