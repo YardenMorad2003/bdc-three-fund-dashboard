@@ -2106,6 +2106,102 @@ function BdcPrimer({ selectedFund }: { selectedFund: Fund | "All" }) {
   );
 }
 
+function ProjectMotivation() {
+  const timelineSecurityRows = data.loan_timeline_securities;
+  const fundedTimelineRows = timelineSecurityRows.filter((row) => row.exposure_type === "funded").length;
+  const unfundedTimelineRows = timelineSecurityRows.filter((row) => row.exposure_type === "unfunded_commitment").length;
+  const fskUnfundedTimelineRows = timelineSecurityRows.filter(
+    (row) => row.fund === "FSK" && row.exposure_type === "unfunded_commitment"
+  ).length;
+
+  const rawSampleRows = [
+    ["48Forty Solutions LLC", "(e)(k)(n)", "Commercial & Professional Services", "SP + 6.0%", "1.0%", "11/2029", "$19.1mm", "$19.0mm"],
+    ["Areon AG", "(e)(h)(i)(m)", "Software & Services", "E + 4.5%", "0.0%", "09/2031", "EUR", "66.1mm"],
+    ["Advania Sverige AB", "(e)(h)(i)(m)", "Software & Services", "SA + 5.0%", "0.0%", "06/2031", "SEK", "66.9mm"],
+    ["Affordable Care Inc", "(e)(h)", "Health Care Equipment & Services", "SF + 6.0%", "0.8%", "08/2028", "$78.1mm", "77.8mm"]
+  ];
+
+  return (
+    <Panel
+      title="Project Motivation"
+      subtitle="Why the dashboard starts with data engineering before analysis."
+      icon={Database}
+    >
+      <div className="motivation-layout">
+        <div className="motivation-copy">
+          <p>
+            BDC filings contain valuable holding-level information, but the raw schedules are not analysis-ready. A page from
+            FSK&apos;s 2025 Form 10-K, for example, arrives as a dense portfolio table with issuer names, footnote tokens,
+            industries, rate text, base-rate floors, maturities, principal amounts, cost, and fair value packed into a layout
+            designed for disclosure rather than querying.
+          </p>
+          <p>
+            The first job is therefore processing: parse the filing, preserve the as-filed rows, normalize fields, tag source
+            context, separate funded exposure from unfunded commitments, and only then aggregate the data. Once the rows are
+            structured, the same database can support dashboard views, issuer timelines, reconciliation checks, and eventually
+            more advanced data science or machine learning workflows.
+          </p>
+        </div>
+
+        <div className="raw-filing-sample" aria-label="Sample FSK 2025 10-K portfolio schedule rows">
+          <div className="raw-filing-topline">
+            <span>FSK 2025 Form 10-K</span>
+            <strong>Portfolio schedule excerpt</strong>
+          </div>
+          <div className="raw-filing-grid" role="table" aria-label="Raw portfolio holdings sample">
+            <div className="raw-filing-row raw-filing-header" role="row">
+              <span>Company</span>
+              <span>Footnotes</span>
+              <span>Industry</span>
+              <span>Interest rate</span>
+              <span>Floor</span>
+              <span>Maturity</span>
+              <span>Principal</span>
+              <span>Cost</span>
+            </div>
+            {rawSampleRows.map((row) => (
+              <div className="raw-filing-row" role="row" key={row.join("|")}>
+                {row.map((cell, index) => (
+                  <span role="cell" key={`${cell}-${index}`}>{cell}</span>
+                ))}
+              </div>
+            ))}
+          </div>
+          <p>
+            This is the kind of source shape the pipeline turns into normalized, queryable holdings rows.
+          </p>
+        </div>
+      </div>
+
+      <div className="processing-strip">
+        <div>
+          <span className="step-label">1. Preserve</span>
+          <strong>As-filed rows stay visible</strong>
+          <p>Schedule rows are kept for review, including separate tranches, revolvers, delayed draws, and commitments.</p>
+        </div>
+        <div>
+          <span className="step-label">2. Tag</span>
+          <strong>Funded versus unfunded</strong>
+          <p>For FSK, footnote <code>(x)</code> rows are tagged as unfunded commitments and carried with explicit exposure flags.</p>
+        </div>
+        <div>
+          <span className="step-label">3. Analyze</span>
+          <strong>Clean funded aggregates</strong>
+          <p>Timeline period totals use funded rows, while unfunded commitments remain in the security detail table.</p>
+        </div>
+      </div>
+
+      <div className="timeline-count-strip" aria-label="Timeline processing counts">
+        <span><strong>{formatNumber(data.loan_timeline_issuers.length)}</strong> timeline issuers</span>
+        <span><strong>{formatNumber(data.loan_timeline_periods.length)}</strong> fund-period aggregates</span>
+        <span><strong>{formatNumber(fundedTimelineRows)}</strong> funded security rows</span>
+        <span><strong>{formatNumber(unfundedTimelineRows)}</strong> unfunded commitments retained in detail</span>
+        <span><strong>{formatNumber(fskUnfundedTimelineRows)}</strong> FSK footnote <code>(x)</code> rows tagged</span>
+      </div>
+    </Panel>
+  );
+}
+
 function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
   const isAllFunds = selectedFund === "All";
   const visibleLatest = data.latest_by_fund.filter((item) => isAllFunds || item.fund === selectedFund);
@@ -2139,6 +2235,8 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
 
   return (
     <div className="grid">
+      <ProjectMotivation />
+
       <div className="grid kpi-grid">
         <MetricCard
           title="Latest fair value"
