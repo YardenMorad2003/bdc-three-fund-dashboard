@@ -2000,8 +2000,6 @@ function OverviewTrendCharts({ selectedFund }: { selectedFund: Fund | "All" }) {
   const periods = data.time_series.map((point) => point.filing_period_end);
   const periodMap = new Map(data.period_summary.map((row) => [`${row.fund}|${row.filing_period_end}`, row]));
   const spreadMap = new Map((data.spread_time_series || []).map((row) => [`${row.fund}|${row.filing_period_end}`, row]));
-  const visibleSpreadRows = (data.spread_time_series || []).filter((row) => selectedFund === "All" || row.fund === selectedFund);
-  const maxSpread = Math.max(...visibleSpreadRows.map((row) => Number(row.weighted_avg_spread_bps || 0)), 1);
 
   const markToCost = (fund: Fund, period: string) => {
     const row = periodMap.get(`${fund}|${period}`);
@@ -2048,7 +2046,9 @@ function OverviewTrendCharts({ selectedFund }: { selectedFund: Fund | "All" }) {
             periods={periods}
             getValue={weightedSpread}
             yLabel="Weighted-avg spread (bps)"
-            yMax={Math.max(800, niceAxisMax(maxSpread))}
+            yMax={750}
+            yMin={250}
+            yTicks={[750, 500, 250]}
             tickFormatter={(value) => formatAxisNumber(value)}
             valueFormatter={(value) => formatBps(value)}
             visibleFunds={visibleFunds}
