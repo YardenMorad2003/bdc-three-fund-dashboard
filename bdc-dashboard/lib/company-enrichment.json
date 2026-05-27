@@ -1,0 +1,2637 @@
+[
+  {
+    "issuer_match_key": "MEDALLIA",
+    "display_name": "Medallia",
+    "mapped_company": "Medallia, Inc.",
+    "description": "Medallia provides an AI-driven experience management platform that helps enterprises collect customer, employee, contact-center, and market feedback signals, analyze them, and turn them into operational actions.",
+    "current_sponsor": "Thoma Bravo (latest company-confirmed owner); 2026 reports indicate a possible creditor-control transition",
+    "sponsor_history": [
+      {
+        "date": "2021-10",
+        "event": "Thoma Bravo completed the take-private acquisition of Medallia.",
+        "source_url": "https://www.medallia.com/es/comunicado-de-prensa/thoma-bravo-completes-acquisition-of-medallia/"
+      },
+      {
+        "date": "2026-04",
+        "event": "Secondary reports said lender control could shift to creditors including Blackstone, KKR, Apollo, and Antares; this was treated as not company-confirmed.",
+        "source_url": "https://www.corpdev.org/2026/04/23/thoma-bravo-nears-handover-of-medallia-to-creditors-after-5-1-billion-equity-wipeout/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Medallia products",
+        "url": "https://www.medallia.com/products/"
+      },
+      {
+        "title": "Thoma Bravo completes acquisition of Medallia",
+        "url": "https://www.medallia.com/es/comunicado-de-prensa/thoma-bravo-completes-acquisition-of-medallia/"
+      },
+      {
+        "title": "Reported Medallia creditor transition",
+        "url": "https://www.corpdev.org/2026/04/23/thoma-bravo-nears-handover-of-medallia-to-creditors-after-5-1-billion-equity-wipeout/"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The Thoma Bravo ownership is company-confirmed; the 2026 lender-control item is sourced from secondary reporting and should be refreshed before formal use."
+  },
+  {
+    "issuer_match_key": "MB2 DENTAL SOLUTIONS",
+    "display_name": "MB2 Dental",
+    "mapped_company": "MB2 Dental Solutions",
+    "description": "MB2 Dental is a dental partnership organization that supports affiliated doctor-owned practices with shared services while preserving clinical autonomy and partner economics.",
+    "current_sponsor": "Charlesbank Capital Partners, with Warburg Pincus as a newer minority investor and doctor partners retaining ownership",
+    "sponsor_history": [
+      {
+        "date": "2017-09",
+        "event": "Sentinel Capital Partners invested in MB2 Dental.",
+        "source_url": "https://www.sentinelpartners.com/case-study/mb2-dental-helping-diversify-an-owners-holdings/"
+      },
+      {
+        "date": "2021-01",
+        "event": "Charlesbank invested and took a controlling interest.",
+        "source_url": "https://www.charlesbank.com/investments/mb2-dental/"
+      },
+      {
+        "date": "2024-11",
+        "event": "Warburg Pincus made a $525 million recapitalization investment; Charlesbank continued its partnership.",
+        "source_url": "https://www.businesswire.com/news/home/20241113108475/en/MB2-Dental-Announces-Recapitalization-Event-With-New-Investor-Warburg-Pincus-Solidifying-Company-Growth-Milestone"
+      }
+    ],
+    "sources": [
+      {
+        "title": "MB2 Dental partner model",
+        "url": "https://partners.mb2dental.com/"
+      },
+      {
+        "title": "Charlesbank MB2 Dental portfolio page",
+        "url": "https://www.charlesbank.com/investments/mb2-dental/"
+      },
+      {
+        "title": "MB2 Dental Warburg Pincus recapitalization",
+        "url": "https://www.businesswire.com/news/home/20241113108475/en/MB2-Dental-Announces-Recapitalization-Event-With-New-Investor-Warburg-Pincus-Solidifying-Company-Growth-Milestone"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "FRONTLINE ROAD SAFETY",
+    "display_name": "Frontline Road Safety",
+    "mapped_company": "Frontline Road Safety Group",
+    "description": "Frontline Road Safety is a U.S. pavement marking and roadway safety services platform serving public infrastructure, airports, highways, roads, and private-sector customers through regional operating companies.",
+    "current_sponsor": "Bain Capital, based on its 2025 agreement to acquire Frontline from The Sterling Group",
+    "sponsor_history": [
+      {
+        "date": "2020",
+        "event": "The Sterling Group launched and backed the Frontline platform.",
+        "source_url": "https://www.baincapital.com/news/frontline-road-safety-secures-strategic-investment-bain-capital"
+      },
+      {
+        "date": "2025-01",
+        "event": "Bain Capital entered into a definitive agreement to acquire Frontline from The Sterling Group.",
+        "source_url": "https://www.baincapital.com/news/frontline-road-safety-secures-strategic-investment-bain-capital"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bain Capital Frontline Road Safety announcement",
+        "url": "https://www.baincapital.com/news/frontline-road-safety-secures-strategic-investment-bain-capital"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Source confirms the definitive agreement; refresh for a closing announcement if legal ownership precision is required."
+  },
+  {
+    "issuer_match_key": "FOUNDATION RISK PARTNERS",
+    "display_name": "Foundation Risk Partners",
+    "mapped_company": "Foundation Risk Partners",
+    "description": "Foundation Risk Partners is a U.S. insurance brokerage and consulting platform focused on commercial insurance, employee benefits, personal insurance, and risk management services.",
+    "current_sponsor": "Partners Group controlling stake; Warburg Pincus retained a minority position",
+    "sponsor_history": [
+      {
+        "date": "2017",
+        "event": "Warburg Pincus launched FRP with senior insurance brokerage executives.",
+        "source_url": "https://warburgpincus.com/investments/foundation-risk-partners/"
+      },
+      {
+        "date": "2022-08",
+        "event": "Partners Group agreed to acquire a controlling stake from Warburg Pincus; management and Warburg Pincus retained stakes.",
+        "source_url": "https://www.eqs-news.com/news/corporate/partners-group-to-acquire-foundation-risk-partners-a-specialist-insurance-broker-in-the-us-from-warburg-pincus/8276f427-2c01-4cfd-9d94-5539bd300c57_de"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Foundation Risk Partners overview",
+        "url": "https://foundationrp.com/overview/"
+      },
+      {
+        "title": "Warburg Pincus FRP portfolio page",
+        "url": "https://warburgpincus.com/investments/foundation-risk-partners/"
+      },
+      {
+        "title": "Partners Group FRP transaction",
+        "url": "https://www.eqs-news.com/news/corporate/partners-group-to-acquire-foundation-risk-partners-a-specialist-insurance-broker-in-the-us-from-warburg-pincus/8276f427-2c01-4cfd-9d94-5539bd300c57_de"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "OXFORD GLOBAL RESOURCES",
+    "display_name": "Oxford Global Resources",
+    "mapped_company": "Oxford Global Resources, LLC",
+    "description": "Oxford Global Resources provides specialty staffing and consulting services, matching clients in IT, engineering, life sciences, healthcare, and other technical markets with specialized consultants and project support.",
+    "current_sponsor": "H.I.G. Capital",
+    "sponsor_history": [
+      {
+        "date": "2007",
+        "event": "Oxford operated within ASGN after ASGN's acquisition period.",
+        "source_url": "https://investors.asgn.com/news/news-details/2021/ASGN-Announces-Agreement-to-Sell-Oxford-Global-Resources/default.aspx"
+      },
+      {
+        "date": "2021-08",
+        "event": "H.I.G. Capital completed the acquisition of Oxford from ASGN.",
+        "source_url": "https://hig.com/news/h-i-g-capital-completes-acquisition-of-oxford-global-resources/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Oxford Global Resources about",
+        "url": "https://www.oxfordcorp.com/en/about-us/?switch_language=en"
+      },
+      {
+        "title": "H.I.G. completes acquisition of Oxford",
+        "url": "https://hig.com/news/h-i-g-capital-completes-acquisition-of-oxford-global-resources/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "CREWLINE",
+    "display_name": "New Relic",
+    "mapped_company": "Crewline Buyer, Inc. d/b/a New Relic",
+    "description": "New Relic is an observability software platform used by engineering teams to monitor applications, infrastructure, user experience, logs, traces, and other telemetry in one operating view.",
+    "current_sponsor": "Francisco Partners and TPG",
+    "sponsor_history": [
+      {
+        "date": "2023-11",
+        "event": "Francisco Partners and TPG completed the take-private acquisition of New Relic.",
+        "source_url": "https://newrelic.com/press-release/20231108"
+      }
+    ],
+    "sources": [
+      {
+        "title": "New Relic acquisition by Francisco Partners and TPG",
+        "url": "https://newrelic.com/press-release/20231108"
+      },
+      {
+        "title": "New Relic platform",
+        "url": "https://newrelic.com/platform"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Loan issuer names use the Crewline buyer vehicle; SEC schedules identify Crewline Buyer as d/b/a New Relic."
+  },
+  {
+    "issuer_match_key": "GIGAMON",
+    "display_name": "Gigamon",
+    "mapped_company": "Gigamon Inc.",
+    "description": "Gigamon provides a deep observability pipeline that delivers network-derived telemetry to cloud, security, and observability tools, helping enterprises secure and manage hybrid-cloud infrastructure.",
+    "current_sponsor": "Elliott Investment Management controlling interest, with Siris as a significant strategic investor",
+    "sponsor_history": [
+      {
+        "date": "2017-12",
+        "event": "Elliott Management and Qatar Investment Authority completed the acquisition of Gigamon.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1484504/000119312517379621/d464998dex991.htm"
+      },
+      {
+        "date": "2023-12",
+        "event": "Siris completed a significant strategic investment; Elliott maintained controlling interest.",
+        "source_url": "https://www.gigamon.com/company/news-and-events/newsroom/gigamon-announces-significant-strategic-investment-from-siris.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gigamon company information",
+        "url": "https://www.gigamon.com/company/company-information/"
+      },
+      {
+        "title": "Gigamon Siris investment",
+        "url": "https://www.gigamon.com/company/news-and-events/newsroom/gigamon-announces-significant-strategic-investment-from-siris.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "HORIZON CTS",
+    "display_name": "Acron Aviation",
+    "mapped_company": "Horizon CTS Buyer, LLC / Acron Aviation",
+    "description": "Acron Aviation provides commercial aviation solutions spanning avionics, pilot training, simulation, and flight-data intelligence for airlines, operators, and manufacturers.",
+    "current_sponsor": "TJC LP, formerly The Jordan Company",
+    "sponsor_history": [
+      {
+        "date": "2023-11",
+        "event": "TJC agreed to acquire L3Harris Commercial Aviation Solutions.",
+        "source_url": "https://tjclp.com/wp-content/uploads/2023/11/2023-11-27-TJC-Agrees-to-Acquire-L3Harris-Commercial-Aviation-Solutions-Business.pdf"
+      },
+      {
+        "date": "2025-03",
+        "event": "L3Harris completed the sale to TJC; the business was rebranded Acron Aviation.",
+        "source_url": "https://www.globenewswire.com/news-release/2025/03/31/3052169/0/en/l3harris-commercial-aviation-solutions-cas-business-now-known-as-acron-aviation.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Acron Aviation about",
+        "url": "https://acronaviation.com/about-us/"
+      },
+      {
+        "title": "Acron Aviation rebrand after TJC acquisition",
+        "url": "https://www.globenewswire.com/news-release/2025/03/31/3052169/0/en/l3harris-commercial-aviation-solutions-cas-business-now-known-as-acron-aviation.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The dashboard issuer name is a loan-buyer vehicle; public credit schedules map related Horizon entities to Acron Aviation."
+  },
+  {
+    "issuer_match_key": "FLEXERA SOFTWARE",
+    "display_name": "Flexera",
+    "mapped_company": "Flexera Software",
+    "description": "Flexera provides software for technology asset management, software monetization, SaaS management, and IT cost optimization, helping organizations manage the technology they buy and build.",
+    "current_sponsor": "Thoma Bravo majority owner; TA Associates and Ontario Teachers retained meaningful stakes",
+    "sponsor_history": [
+      {
+        "date": "2017",
+        "event": "Flexera closed an investment partnership with TA Associates.",
+        "source_url": "https://www.flexera.com/blog/it-visibility/flexera-investment-partnership-with-ta-associates-has-closed/"
+      },
+      {
+        "date": "2020-12",
+        "event": "Flexera agreed to sell a majority interest to Thoma Bravo; TA Associates and Ontario Teachers retained stakes.",
+        "source_url": "https://www.flexera.com/about-us/press-center/flexera-agrees-to-sell-majority-interest-to-thoma-bravo"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Flexera majority sale to Thoma Bravo",
+        "url": "https://www.flexera.com/about-us/press-center/flexera-agrees-to-sell-majority-interest-to-thoma-bravo"
+      },
+      {
+        "title": "TA Associates Flexera portfolio",
+        "url": "https://www.ta.com/portfolio/investments/flexera/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "NETSMART TECHNOLOGIES",
+    "display_name": "Netsmart",
+    "mapped_company": "Netsmart Technologies, Inc.",
+    "description": "Netsmart develops healthcare technology for behavioral health, human services, care-at-home, senior living, and social-services providers, including EHR, billing, analytics, and care coordination products.",
+    "current_sponsor": "GI Partners majority owner, with TA Associates and management as investors",
+    "sponsor_history": [
+      {
+        "date": "2016-04",
+        "event": "GI Partners and Allscripts acquired Netsmart and combined it with Allscripts' homecare software business.",
+        "source_url": "https://www.gipartners.com/news/gi-partners-to-acquire-netsmart-technologies"
+      },
+      {
+        "date": "2018-12",
+        "event": "GI Partners and TA Associates acquired Allscripts' stake; GI became majority owner.",
+        "source_url": "https://www.gipartners.com/news/gi-partners-and-ta-associates-to-acquire-allscripts-stake-in-netsmart-technologies"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Netsmart strategic investment from TA and GI",
+        "url": "https://www.ntst.com/company/news/news-release-netsmart-announces-strategic-investment-from-ta-associates-and-gi-partners"
+      },
+      {
+        "title": "GI and TA acquire Allscripts stake in Netsmart",
+        "url": "https://www.gipartners.com/news/gi-partners-and-ta-associates-to-acquire-allscripts-stake-in-netsmart-technologies"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "ARCWOOD ENVIRONMENTAL",
+    "display_name": "Arcwood Environmental",
+    "mapped_company": "Arcwood Environmental",
+    "description": "Arcwood Environmental is a U.S. industrial waste management and environmental services platform with permitted facilities, transportation assets, emergency response, technical services, and waste treatment capabilities.",
+    "current_sponsor": "EQT Infrastructure VI",
+    "sponsor_history": [
+      {
+        "date": "2023",
+        "event": "EQT Infrastructure agreed to acquire a majority position in Heritage Environmental Services.",
+        "source_url": "https://eqtgroup.com/news/2023/eqt-infrastructure-to-acquire-a-majority-position-in-heritage-environmental-services-a-leading-provider-of-industrial-waste-management/"
+      },
+      {
+        "date": "2025-03",
+        "event": "Heritage Environmental Services rebranded as Arcwood Environmental after EQT Infrastructure ownership.",
+        "source_url": "https://www.prnewswire.com/news-releases/heritage-environmental-services-rebrands-to-arcwood-environmental-a-new-name-a-continued-commitment-to-excellence-302403690.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "EQT Arcwood portfolio page",
+        "url": "https://eqtgroup.com/en/about/current-portfolio/arcwood-environmental"
+      },
+      {
+        "title": "Heritage rebrands to Arcwood",
+        "url": "https://www.prnewswire.com/news-releases/heritage-environmental-services-rebrands-to-arcwood-environmental-a-new-name-a-continued-commitment-to-excellence-302403690.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "ZENDESK",
+    "display_name": "Zendesk",
+    "mapped_company": "Zendesk, Inc.",
+    "description": "Zendesk is a customer service and customer engagement software company whose products help businesses manage support, service operations, messaging, and customer relationships.",
+    "current_sponsor": "Investor group led by Hellman & Friedman and Permira",
+    "sponsor_history": [
+      {
+        "date": "2022-11",
+        "event": "A consortium led by Hellman & Friedman and Permira completed the take-private acquisition of Zendesk.",
+        "source_url": "https://www.zendesk.com/newsroom/press-releases/consortium-led-by-hellman-friedman-and-permira-completes-acquisition-of-zendesk/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Zendesk acquisition completion",
+        "url": "https://www.zendesk.com/newsroom/press-releases/consortium-led-by-hellman-friedman-and-permira-completes-acquisition-of-zendesk/"
+      },
+      {
+        "title": "Zendesk Ventures coverage",
+        "url": "https://www.axios.com/2024/06/20/zendesk-vc-ai-startups"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "AZURITE",
+    "display_name": "Alteryx",
+    "mapped_company": "Azurite Intermediate Holdings, Inc. / Alteryx",
+    "description": "Alteryx provides an AI and analytics platform that helps business users and data teams automate data workflows, prepare and analyze data, and produce actionable insights.",
+    "current_sponsor": "Clearlake Capital Group and Insight Partners",
+    "sponsor_history": [
+      {
+        "date": "2024-03",
+        "event": "Clearlake Capital Group and Insight Partners completed the acquisition of Alteryx.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1689923/000119312524070837/d784352dex991.htm"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Alteryx about",
+        "url": "https://www.alteryx.com/about-us"
+      },
+      {
+        "title": "Alteryx acquisition completion",
+        "url": "https://www.sec.gov/Archives/edgar/data/1689923/000119312524070837/d784352dex991.htm"
+      },
+      {
+        "title": "Azurite change-of-control offer",
+        "url": "https://www.prnewswire.com/news-releases/azurite-intermediate-holdings-inc-announces-termination-of-tender-offer-and-consent-solicitation-and-commencement-of-change-of-control-offer-302102149.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Loan issuer names use the Azurite acquisition vehicle."
+  },
+  {
+    "issuer_match_key": "ELEMENTS FINCO",
+    "display_name": "Element Materials Technology",
+    "mapped_company": "Elements Finco Limited / Element Materials Technology",
+    "description": "Element Materials Technology is a testing, inspection, and certification company that provides materials testing, product qualification, calibration, and advisory services across highly regulated industries.",
+    "current_sponsor": "Temasek",
+    "sponsor_history": [
+      {
+        "date": "2016-03",
+        "event": "Bridgepoint acquired a majority shareholding in Element Materials Technology.",
+        "source_url": "https://www.element.com/about-element/news/2016/03/22/element-continues-growth-trajectory-with-new-majority-shareholder-bridgepoint-ca"
+      },
+      {
+        "date": "2022-07",
+        "event": "Temasek completed the acquisition of Element from Bridgepoint.",
+        "source_url": "https://www.element.com/about-element/news/2022/07/05/element-announces-completion-of-its-acquisition-by-temasek"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Element acquisition by Temasek",
+        "url": "https://www.element.com/about-element/news/2022/07/05/element-announces-completion-of-its-acquisition-by-temasek"
+      },
+      {
+        "title": "Bridgepoint majority investment in Element",
+        "url": "https://www.element.com/about-element/news/2016/03/22/element-continues-growth-trajectory-with-new-majority-shareholder-bridgepoint-ca"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "PDI TA",
+    "display_name": "PDI Technologies",
+    "mapped_company": "PDI TA Holdings, Inc. / PDI Technologies",
+    "description": "PDI Technologies provides enterprise software and data solutions for convenience retailers, petroleum wholesalers, fuel logistics operators, and related brands across retail operations, logistics, pricing, loyalty, analytics, and security.",
+    "current_sponsor": "Insight Partners, with Genstar Capital and TA Associates retaining stakes",
+    "sponsor_history": [
+      {
+        "date": "2016-05",
+        "event": "TA Associates completed a majority investment in PDI.",
+        "source_url": "https://www.marketscreener.com/news/latest/TA-Associates-Announces-Strategic-Growth-Investment-in-PDI-22408101/"
+      },
+      {
+        "date": "2017-08",
+        "event": "Genstar Capital made a strategic investment; TA Associates continued as a shareholder.",
+        "source_url": "https://pditechnologies.com/archive/pdi-strategic-investment-by-genstar-capital/"
+      },
+      {
+        "date": "2019-03",
+        "event": "Insight Venture Partners invested; Genstar and TA retained stakes.",
+        "source_url": "https://www.insightpartners.com/ideas/pdi-receives-investment-from-insight-venture-partners-to-fuel-continued-global-growth/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "PDI Technologies story",
+        "url": "https://pditechnologies.com/our-story/"
+      },
+      {
+        "title": "Insight investment in PDI",
+        "url": "https://www.insightpartners.com/ideas/pdi-receives-investment-from-insight-venture-partners-to-fuel-continued-global-growth/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Loan issuer names use the PDI TA holding vehicle."
+  },
+  {
+    "issuer_match_key": "JEPPESEN",
+    "display_name": "Jeppesen ForeFlight",
+    "mapped_company": "Jeppesen Holdings, LLC / Jeppesen ForeFlight",
+    "description": "Jeppesen ForeFlight provides aviation navigation, flight planning, charting, operational data, and digital aviation software used by commercial, business, military, and general aviation customers.",
+    "current_sponsor": "Thoma Bravo",
+    "sponsor_history": [
+      {
+        "date": "2000",
+        "event": "Boeing acquired Jeppesen.",
+        "source_url": "https://en.wikipedia.org/wiki/Jeppesen"
+      },
+      {
+        "date": "2025-04",
+        "event": "Boeing agreed to sell Jeppesen, ForeFlight, AerData, and OzRunways assets to Thoma Bravo.",
+        "source_url": "https://boeing.mediaroom.com/2025-04-22-Boeing-to-Sell-Portions-of-Digital-Aviation-Solutions-to-Thoma-Bravo-for-10-55-Billion?asPDF=1&sf277030038=1"
+      },
+      {
+        "date": "2025-11",
+        "event": "The sale closed and the standalone Jeppesen ForeFlight entity launched under Thoma Bravo ownership.",
+        "source_url": "https://www.ainonline.com/aviation-news/air-transport/2025-11-04/boeing-sells-digital-aviation-solutions-thoma-bravo"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Boeing sale announcement",
+        "url": "https://boeing.mediaroom.com/2025-04-22-Boeing-to-Sell-Portions-of-Digital-Aviation-Solutions-to-Thoma-Bravo-for-10-55-Billion?asPDF=1&sf277030038=1"
+      },
+      {
+        "title": "Boeing completes sale coverage",
+        "url": "https://www.ainonline.com/aviation-news/air-transport/2025-11-04/boeing-sells-digital-aviation-solutions-thoma-bravo"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "BELK",
+    "display_name": "Belk",
+    "mapped_company": "Belk, Inc.",
+    "description": "Belk is a department store retailer with a historic focus on apparel, shoes, beauty, accessories, and home goods, especially across the southeastern United States.",
+    "current_sponsor": "Sycamore Partners retained control after the 2021 recapitalization, with lenders including KKR and Blackstone Credit participating in the capital structure",
+    "sponsor_history": [
+      {
+        "date": "2015",
+        "event": "The Belk family sold the business to Sycamore Partners.",
+        "source_url": "https://www.axios.com/local/charlotte/2021/07/10/whats-next-for-belk-after-new-ceo-takes-the-helm-264760"
+      },
+      {
+        "date": "2021-01",
+        "event": "Belk entered a restructuring support agreement with Sycamore and lenders; Sycamore retained control and new capital came from Sycamore, KKR, Blackstone Credit, and lenders.",
+        "source_url": "https://www.nasdaq.com/press-release/sycamore-partners-reaches-agreement-to-recapitalize-and-retain-control-of-belk-2021"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Belk recapitalization with Sycamore",
+        "url": "https://www.nasdaq.com/press-release/sycamore-partners-reaches-agreement-to-recapitalize-and-retain-control-of-belk-2021"
+      },
+      {
+        "title": "Axios Belk ownership context",
+        "url": "https://www.axios.com/local/charlotte/2021/07/10/whats-next-for-belk-after-new-ceo-takes-the-helm-264760"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "STV GROUP",
+    "display_name": "STV Group",
+    "mapped_company": "STV Group, Inc.",
+    "description": "STV is an infrastructure-focused professional services firm providing planning, architecture, engineering, environmental, program management, and construction management services.",
+    "current_sponsor": "The Pritzker Organization / Tom Pritzker Family Business Interests",
+    "sponsor_history": [
+      {
+        "date": "2019-10",
+        "event": "The Pritzker Organization agreed to recapitalize STV by purchasing ESOP-owned shares and partnering with management.",
+        "source_url": "https://www.prnewswire.com/news-releases/stv-signs-definitive-agreement-with-the-pritzker-organization-to-recapitalize-stv-and-position-the-company-for-future-growth-300947294.html"
+      },
+      {
+        "date": "2021-09",
+        "event": "STV described itself as a portfolio company of The Pritzker Organization in acquisition communications.",
+        "source_url": "https://stvinc.com/news/stv-group-inc-agrees-acquire-cpy-inc/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "STV recapitalization by The Pritzker Organization",
+        "url": "https://www.prnewswire.com/news-releases/stv-signs-definitive-agreement-with-the-pritzker-organization-to-recapitalize-stv-and-position-the-company-for-future-growth-300947294.html"
+      },
+      {
+        "title": "STV CP&Y acquisition announcement",
+        "url": "https://stvinc.com/news/stv-group-inc-agrees-acquire-cpy-inc/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "CAMBREX",
+    "display_name": "Cambrex",
+    "mapped_company": "Cambrex Corporation",
+    "description": "Cambrex is a global contract development and manufacturing organization focused on drug substance, drug product, and analytical services across the pharmaceutical development lifecycle.",
+    "current_sponsor": "Permira funds",
+    "sponsor_history": [
+      {
+        "date": "2019-08",
+        "event": "Cambrex agreed to be acquired by an affiliate of the Permira funds.",
+        "source_url": "https://www.cambrex.com/news/cambrex-to-be-acquired-by-the-permira-funds-for-60-00-per-share-in-cash/"
+      },
+      {
+        "date": "2019-12",
+        "event": "Cambrex completed the acquisition by the Permira funds.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/820081/000119312519306490/d844406dex991.htm"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Cambrex about",
+        "url": "https://www.cambrex.com/about-us/"
+      },
+      {
+        "title": "Cambrex acquisition by Permira",
+        "url": "https://www.cambrex.com/news/cambrex-to-be-acquired-by-the-permira-funds-for-60-00-per-share-in-cash/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "GRANICUS",
+    "display_name": "Granicus",
+    "mapped_company": "Granicus",
+    "description": "Granicus provides cloud-based government experience and civic engagement technology that helps public-sector organizations manage communications, digital services, permitting, records, and constituent interactions.",
+    "current_sponsor": "Vista Equity Partners and Harvest Partners, with K1 Investment Management retaining a minority stake",
+    "sponsor_history": [
+      {
+        "date": "2016",
+        "event": "Vista Equity Partners acquired a majority stake in Granicus.",
+        "source_url": "https://www.stax.com/news/stax-provides-sell-side-support-to-simpleview-on-its-acquisition-by-granicus"
+      },
+      {
+        "date": "2020-12",
+        "event": "Harvest Partners joined as an investor alongside Vista and K1.",
+        "source_url": "https://harvestpartners.com/news/granicus-announces-joint-investment-from-harvest-partners-and-vista-equity-partners/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Granicus investors",
+        "url": "https://granicus.com/vista-equity-partners-and-harvest-partners/"
+      },
+      {
+        "title": "Harvest and Vista investment in Granicus",
+        "url": "https://harvestpartners.com/news/granicus-announces-joint-investment-from-harvest-partners-and-vista-equity-partners/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "HIGGINBOTHAM INSURANCE AGENCY",
+    "display_name": "Higginbotham",
+    "mapped_company": "Higginbotham Insurance & Financial Services",
+    "description": "Higginbotham is an insurance brokerage and financial services firm offering business insurance, employee benefits, HR services, financial services, and personal insurance with a national footprint rooted in Texas.",
+    "current_sponsor": "Stone Point Capital, alongside employee and management ownership",
+    "sponsor_history": [
+      {
+        "date": "2009",
+        "event": "Stone Point made its original investment in Higginbotham.",
+        "source_url": "https://www.stonepoint.com/company/higginbotham/"
+      },
+      {
+        "date": "2017",
+        "event": "Stone Point Fund VII made a further investment; Stone Point remained an active sponsor.",
+        "source_url": "https://www.stonepoint.com/company/higginbotham/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Higginbotham website",
+        "url": "https://www.higginbotham.com/"
+      },
+      {
+        "title": "Stone Point Higginbotham portfolio page",
+        "url": "https://www.stonepoint.com/company/higginbotham/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "ATHENAHEALTH INC PREFERRED STOCK",
+    "display_name": "athenahealth",
+    "mapped_company": "athenahealth, Inc.",
+    "description": "athenahealth provides cloud-based healthcare technology, including electronic health record, revenue-cycle, patient engagement, and physician-practice software for medical groups and health systems.",
+    "current_sponsor": "Hellman & Friedman and Bain Capital",
+    "sponsor_history": [
+      {
+        "date": "2019-02",
+        "event": "Veritas Capital and Evergreen Coast Capital completed the take-private acquisition of athenahealth and combined it with Virence Health.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1131096/000113109619000010/exhibit99_1veritas-athenac.htm"
+      },
+      {
+        "date": "2022-02",
+        "event": "Bain Capital and Hellman & Friedman completed the acquisition of athenahealth from Veritas and Evergreen Coast Capital.",
+        "source_url": "https://www.athenahealth.com/press-releases/athenahealth-acquired-by-hellman-and-friedman-and-bain-capital"
+      }
+    ],
+    "sources": [
+      {
+        "title": "athenahealth acquisition by H&F and Bain",
+        "url": "https://www.athenahealth.com/press-releases/athenahealth-acquired-by-hellman-and-friedman-and-bain-capital"
+      },
+      {
+        "title": "Veritas athenahealth acquisition SEC exhibit",
+        "url": "https://www.sec.gov/Archives/edgar/data/1131096/000113109619000010/exhibit99_1veritas-athenac.htm"
+      },
+      {
+        "title": "Bain Capital athenahealth case study",
+        "url": "https://www.baincapital.com/technology/case-studies/athena-health.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Preferred-stock wording describes the security; the borrower maps to athenahealth."
+  },
+  {
+    "issuer_match_key": "GUIDEHOUSE",
+    "display_name": "Guidehouse",
+    "mapped_company": "Guidehouse, Inc.",
+    "description": "Guidehouse is a consulting, technology, and managed-services firm serving public-sector and commercial clients in defense, health, energy, infrastructure, financial services, risk, transformation, and operations.",
+    "current_sponsor": "Bain Capital Private Equity",
+    "sponsor_history": [
+      {
+        "date": "2018",
+        "event": "Veritas Capital acquired PwC's U.S. public sector business, which became Guidehouse.",
+        "source_url": "https://www.investing.com/news/economy/bain-capital-to-acquire-consulting-firm-guidehouse-in-53-billion-deal-3223390"
+      },
+      {
+        "date": "2023-12",
+        "event": "Bain Capital completed its acquisition of Guidehouse from Veritas Capital.",
+        "source_url": "https://guidehouse.com/news/corporate-news/2023/guidehouse-completes-transaction-with-bain-capital"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Guidehouse completes Bain Capital transaction",
+        "url": "https://guidehouse.com/news/corporate-news/2023/guidehouse-completes-transaction-with-bain-capital"
+      },
+      {
+        "title": "Reuters report on Bain acquiring Guidehouse",
+        "url": "https://www.investing.com/news/economy/bain-capital-to-acquire-consulting-firm-guidehouse-in-53-billion-deal-3223390"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "PRODUCTION RESOURCE GROUP",
+    "display_name": "Production Resource Group",
+    "mapped_company": "Production Resource Group, L.L.C.",
+    "description": "Production Resource Group provides entertainment and event technology, equipment rental, and integrated audio, video, lighting, rigging, staging, scenic automation, virtual production, and broadcast support.",
+    "current_sponsor": "The Jordan Company, GSO Capital Partners / Blackstone Credit, and PRG management",
+    "sponsor_history": [
+      {
+        "date": "2007-08",
+        "event": "The Jordan Company acquired Production Resource Group.",
+        "source_url": "https://www.crunchbase.com/acquisition/the-jordan-company-acquires-production-resource-group--224d5b34"
+      },
+      {
+        "date": "2021-03",
+        "event": "A PRG release identified the company as owned by The Jordan Company, GSO Capital Partners, and PRG management.",
+        "source_url": "https://www.prnewswire.com/news-releases/prg-opens-digital-studio-in-chicago-built-for-area-entertainment-and-corporate-production-needs-301258609.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "PRG digital studio release",
+        "url": "https://www.prnewswire.com/news-releases/prg-opens-digital-studio-in-chicago-built-for-area-entertainment-and-corporate-production-needs-301258609.html"
+      },
+      {
+        "title": "PRG and VER integration note",
+        "url": "https://projects.prg.com/news/news-blog/ver-emerges-from-bankruptcy-as-a-newly-reorganized-company_772a088e2cff4204b208efaed661501d"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Operating-company match is strong; current sponsor is based on company disclosures that may need refresh."
+  },
+  {
+    "issuer_match_key": "AUCTANE",
+    "display_name": "Auctane",
+    "mapped_company": "Auctane, Inc.",
+    "description": "Auctane is a shipping and fulfillment technology company behind brands such as ShipStation, Stamps.com, ShipEngine, Metapack, Packlink, and Endicia.",
+    "current_sponsor": "Thoma Bravo",
+    "sponsor_history": [
+      {
+        "date": "2021-10",
+        "event": "Thoma Bravo completed its acquisition of Stamps.com, which later operated within the Auctane brand family.",
+        "source_url": "https://www.thomabravo.com/press-releases/thoma-bravo-completes-acquisition-of-stamps.com"
+      },
+      {
+        "date": "2026-03",
+        "event": "Thoma Bravo announced an agreement to acquire WWEX Group and combine it with Auctane after closing.",
+        "source_url": "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-wwex-group-and-combine-with-auctane-to-form-global-logistics-leader"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Auctane about us",
+        "url": "https://auctane.com/about-us/"
+      },
+      {
+        "title": "Thoma Bravo Auctane portfolio page",
+        "url": "https://www.thomabravo.com/portfolio/auctane"
+      },
+      {
+        "title": "Thoma Bravo WWEX/Auctane announcement",
+        "url": "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-wwex-group-and-combine-with-auctane-to-form-global-logistics-leader"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "CAMBIUM LEARNING GROUP",
+    "display_name": "Cambium Learning Group",
+    "mapped_company": "Cambium Learning Group, Inc.",
+    "description": "Cambium Learning Group is an education technology company offering digital curriculum, assessment, intervention, literacy, science, math, and professional-learning products across several brands.",
+    "current_sponsor": "Veritas Capital",
+    "sponsor_history": [
+      {
+        "date": "2018-12",
+        "event": "Veritas Capital completed its acquisition of Cambium Learning Group and took the company private.",
+        "source_url": "https://www.veritascapital.com/veritas-capital-completes-acquisition-of-cambium-learning-group-2/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Cambium Learning about us",
+        "url": "https://www.cambiumlearning.com/about-us"
+      },
+      {
+        "title": "Veritas acquisition of Cambium Learning",
+        "url": "https://www.veritascapital.com/veritas-capital-completes-acquisition-of-cambium-learning-group-2/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "KELLERMEYER BERGENSONS SERVICES",
+    "display_name": "Kellermeyer Bergensons Services",
+    "mapped_company": "Kellermeyer Bergensons Services, LLC",
+    "description": "Kellermeyer Bergensons Services, or KBS, provides technology-enabled cleaning, maintenance, exterior services, and integrated facility services for multi-site commercial, industrial, logistics, retail, grocery, healthcare, and education customers.",
+    "current_sponsor": "KKR, Ares Management, and BlackRock",
+    "sponsor_history": [
+      {
+        "date": "2014-11",
+        "event": "GI Partners acquired KBS from Kohlberg & Company.",
+        "source_url": "https://www.gipartners.com/news/gi-partners-announces-completion-of-kellermeyer-bergensons-acquisition"
+      },
+      {
+        "date": "2019-11",
+        "event": "GI Partners sold KBS to Cerberus Capital Management.",
+        "source_url": "https://www.cerberus.com/media/gi-partners-completes-sale-of-kellermeyer-bergensons-services-to-cerberus-capital-management/"
+      },
+      {
+        "date": "2024-03",
+        "event": "KBS announced a recapitalization by funds and accounts managed by KKR, Ares Management, and BlackRock.",
+        "source_url": "https://www.prnewswire.com/news-releases/kbs-announces-recapitalization-302097378.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "KBS recapitalization",
+        "url": "https://www.prnewswire.com/news-releases/kbs-announces-recapitalization-302097378.html"
+      },
+      {
+        "title": "KBS history",
+        "url": "https://www.kbs-services.com/about/our-history/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "COMMERCIAL SERVICES AND SUPPLIES BAZAARVOICE",
+    "display_name": "Bazaarvoice",
+    "mapped_company": "Bazaarvoice, Inc.",
+    "description": "Bazaarvoice is a commerce software and user-generated content platform for ratings, reviews, social content, product sampling, syndication, moderation, analytics, and shopper insights.",
+    "current_sponsor": "Thomas H. Lee Partners, with Marlin Equity Partners retaining a material minority stake",
+    "sponsor_history": [
+      {
+        "date": "2018-02",
+        "event": "Marlin Equity Partners completed the take-private acquisition of Bazaarvoice.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1330421/000133042118000011/exhibit991-mergerpressrele.htm"
+      },
+      {
+        "date": "2021-03",
+        "event": "Bazaarvoice announced a majority investment from Thomas H. Lee Partners; Marlin continued as a material shareholder.",
+        "source_url": "https://www.bazaarvoice.com/press/bazaarvoice-announces-majority-investment-from-thomas-h-lee-partners/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bazaarvoice company page",
+        "url": "https://www.bazaarvoice.com/company/"
+      },
+      {
+        "title": "Bazaarvoice THL investment",
+        "url": "https://www.bazaarvoice.com/press/bazaarvoice-announces-majority-investment-from-thomas-h-lee-partners/"
+      },
+      {
+        "title": "Bazaarvoice Marlin take-private SEC exhibit",
+        "url": "https://www.sec.gov/Archives/edgar/data/1330421/000133042118000011/exhibit991-mergerpressrele.htm"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Issuer string includes an industry label, but the operating company mapping is explicit."
+  },
+  {
+    "issuer_match_key": "SOLERA",
+    "display_name": "Solera",
+    "mapped_company": "Solera Holdings, LLC / Solera Inc.",
+    "description": "Solera provides vehicle lifecycle management software, data, and services for insurers, repairers, dealers, fleets, OEMs, and automotive parts participants.",
+    "current_sponsor": "Vista Equity Partners-led investor group",
+    "sponsor_history": [
+      {
+        "date": "2016-03",
+        "event": "Vista Equity Partners completed the acquisition of Solera Holdings with other investors including Koch Equity Development and Goldman Sachs affiliates.",
+        "source_url": "https://www.prnewswire.com/news-releases/vista-equity-partners-completes-acquisition-of-solera-holdings-inc-300230717.html"
+      },
+      {
+        "date": "2024-06",
+        "event": "Solera filed a registration statement for a proposed IPO; reviewed sources did not show a completed IPO.",
+        "source_url": "https://www.businesswire.com/news/home/20240628489054/en/Solera-Corp.-Files-Registration-Statement-with-the-SEC-for-Proposed-Initial-Public-Offering"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Solera company page",
+        "url": "https://www.solera.com/company/"
+      },
+      {
+        "title": "Vista acquisition of Solera",
+        "url": "https://www.prnewswire.com/news-releases/vista-equity-partners-completes-acquisition-of-solera-holdings-inc-300230717.html"
+      },
+      {
+        "title": "Solera proposed IPO filing announcement",
+        "url": "https://www.businesswire.com/news/home/20240628489054/en/Solera-Corp.-Files-Registration-Statement-with-the-SEC-for-Proposed-Initial-Public-Offering"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "PERATON",
+    "display_name": "Peraton",
+    "mapped_company": "Peraton Corp",
+    "description": "Peraton is a privately held U.S. national security and government technology services provider serving defense, intelligence, homeland security, space, and civilian agencies.",
+    "current_sponsor": "Veritas Capital",
+    "sponsor_history": [
+      {
+        "date": "2017-04",
+        "event": "Veritas acquired Harris Corporation's Government IT Services business, which was later branded as Peraton.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/202058/000020205817000014/chq-saletoveritasclosedfin.htm"
+      },
+      {
+        "date": "2021-02",
+        "event": "Veritas acquired Northrop Grumman's federal IT and mission-support services business and combined it with Peraton.",
+        "source_url": "https://www.veritascapital.com/veritas-capital-completes-acquisition-of-northrop-grummans-it-and-mission-support-services-business/"
+      },
+      {
+        "date": "2021-05",
+        "event": "Peraton completed the acquisition of Perspecta.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1724670/000114036121002250/nc10019356x1_ex99-1.htm"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Peraton company page",
+        "url": "https://www.peraton.com/company"
+      },
+      {
+        "title": "Veritas Northrop Grumman IT acquisition",
+        "url": "https://www.veritascapital.com/veritas-capital-completes-acquisition-of-northrop-grummans-it-and-mission-support-services-business/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "IRI GROUP",
+    "display_name": "Circana",
+    "mapped_company": "Circana, Inc. / IRI Group Holdings, Inc.",
+    "description": "Circana is the combined IRI and NPD market research, retail measurement, consumer behavior, analytics, and technology business serving CPG, retail, foodservice, beauty, technology, and related sectors.",
+    "current_sponsor": "Hellman & Friedman majority investor, with Vestar Capital Partners, New Mountain Capital, and management also owning stakes",
+    "sponsor_history": [
+      {
+        "date": "2018-12",
+        "event": "Vestar invested in IRI alongside New Mountain Capital.",
+        "source_url": "https://www.prnewswire.com/news-releases/new-mountain-capital-and-vestar-capital-partners-close-investment-in-iri-300758951.html"
+      },
+      {
+        "date": "2022-08",
+        "event": "IRI and NPD completed their merger; H&F became majority investor while Vestar and New Mountain retained significant investments.",
+        "source_url": "https://www.circana.com/intelligence/press-releases/2022/news-press-releases-iri-and-npd-complete-merger/"
+      },
+      {
+        "date": "2023-03",
+        "event": "IRI and NPD rebranded the combined company as Circana.",
+        "source_url": "https://www.circana.com/post/iri-and-npd-rebrand-as-circana-the-leading-advisor-on-the-complexity-of-consumer-behavior"
+      }
+    ],
+    "sources": [
+      {
+        "title": "IRI and NPD rebrand as Circana",
+        "url": "https://www.circana.com/post/iri-and-npd-rebrand-as-circana-the-leading-advisor-on-the-complexity-of-consumer-behavior"
+      },
+      {
+        "title": "Vestar Circana continuation vehicle",
+        "url": "https://www.prnewswire.com/news-releases/vestar-capital-partners-closes-1-2-billion-continuation-vehicle-for-circana-302124119.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Use Circana as the current company name."
+  },
+  {
+    "issuer_match_key": "QUALUS POWER SERVICES",
+    "display_name": "Qualus",
+    "mapped_company": "Qualus Corporation",
+    "description": "Qualus provides power engineering, consulting, technical field services, and grid modernization support to utilities, electric power infrastructure customers, and energy markets.",
+    "current_sponsor": "Clearlake Capital Group",
+    "sponsor_history": [
+      {
+        "date": "2021-03",
+        "event": "New Mountain Capital acquired Qualus.",
+        "source_url": "https://www.newmountaincapital.com/portfolio/qualus-power-services/"
+      },
+      {
+        "date": "2026-04",
+        "event": "Clearlake completed its acquisition of Qualus from New Mountain Capital.",
+        "source_url": "https://clearlake.com/news/clearlake-completes-acquisition-of-qualus/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Clearlake completes Qualus acquisition",
+        "url": "https://clearlake.com/news/clearlake-completes-acquisition-of-qualus/"
+      },
+      {
+        "title": "Qualus at New Mountain Capital",
+        "url": "https://www.newmountaincapital.com/portfolio/qualus-power-services/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Current sponsor changed after the March 31, 2026 holdings date but before this dashboard build."
+  },
+  {
+    "issuer_match_key": "INOVALON",
+    "display_name": "Inovalon",
+    "mapped_company": "Inovalon Holdings, Inc.",
+    "description": "Inovalon is a healthcare technology and data analytics company offering cloud-based SaaS and DaaS platforms for health plans, providers, pharmacies, life-sciences companies, and other healthcare participants.",
+    "current_sponsor": "Nordic Capital-led consortium with Insight Partners, 22C Capital, founder Keith Dunleavy, and certain Class B stockholders",
+    "sponsor_history": [
+      {
+        "date": "2021-08",
+        "event": "Inovalon agreed to be acquired by a Nordic Capital-led consortium including Insight Partners and 22C Capital.",
+        "source_url": "https://www.lw.com/en/news/2021/08/latham-watkins-advises-inovalon-acquisition-equity-consortium-led-nordic-capital-insight-partners"
+      },
+      {
+        "date": "2021-11",
+        "event": "The consortium completed the acquisition and Inovalon became privately held.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1619954/000119312521339663/d232015dex991.htm"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Nordic Capital Inovalon portfolio page",
+        "url": "https://www.nordiccapital.com/portfolio-cases/investments/inovalon/"
+      },
+      {
+        "title": "Inovalon acquisition completion SEC exhibit",
+        "url": "https://www.sec.gov/Archives/edgar/data/1619954/000119312521339663/d232015dex991.htm"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "SPECIALTY RETAIL CUSTOMINK",
+    "display_name": "Custom Ink",
+    "mapped_company": "Custom Ink, LLC / CustomInk, LLC",
+    "description": "Custom Ink is an online and omnichannel custom apparel, accessories, promotional products, swag, fundraising, uniforms, and corporate gifts business.",
+    "current_sponsor": "Great Hill Partners-led investor group, with HarbourVest Partners and Blackstone Credit also involved in the 2019 recapitalization",
+    "sponsor_history": [
+      {
+        "date": "2013-11",
+        "event": "Revolution Growth invested in Custom Ink before later exiting in the recapitalization.",
+        "source_url": "https://www.customink.com/about/press/custom-ink-investment-press-release"
+      },
+      {
+        "date": "2019-04",
+        "event": "Custom Ink announced a recapitalization by an investor group led by Great Hill Partners.",
+        "source_url": "https://www.customink.com/about/press/custom-ink-investment-press-release"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Custom Ink company info",
+        "url": "https://www.customink.com/about/company_info"
+      },
+      {
+        "title": "Custom Ink welcomes Great Hill-led investors",
+        "url": "https://www.customink.com/about/press/custom-ink-investment-press-release"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The operating-company mapping is strong; the issuer label includes a sector prefix."
+  },
+  {
+    "issuer_match_key": "REDWOOD SERVICES GROUP",
+    "display_name": "Redwood Services",
+    "mapped_company": "Redwood Services Group, LLC",
+    "description": "Redwood Services is an essential home services platform that partners with residential HVAC, plumbing, and electrical contractors while preserving local brands and operations.",
+    "current_sponsor": "Altas Partners, alongside founding backer Union Main Group",
+    "sponsor_history": [
+      {
+        "date": "2025-05",
+        "event": "Altas Partners announced a significant equity investment in Redwood alongside Union Main Group.",
+        "source_url": "https://www.altas.com/news/redwood-services-announces-strategic-investment-from-altas-partners"
+      },
+      {
+        "date": "2026-05",
+        "event": "Kirkland referred to Redwood Services as Altas-backed in connection with an acquisition.",
+        "source_url": "https://www.kirkland.com/news/press-release/2026/05/kirkland-advises-altas-backed-redwood-services-on-acquisition-of-sierra-platform-from-se-capital"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Redwood Services at Altas Partners",
+        "url": "https://www.altas.com/businesses/redwood-services"
+      },
+      {
+        "title": "Altas investment in Redwood Services",
+        "url": "https://www.altas.com/news/redwood-services-announces-strategic-investment-from-altas-partners"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "INTEGRITY MARKETING ACQUISITION",
+    "display_name": "Integrity Marketing Group",
+    "mapped_company": "Integrity Marketing Group, LLC",
+    "description": "Integrity Marketing Group is an insurance and wealth distribution platform serving carriers, agencies, agents, advisors, and consumers through technology-enabled products and services.",
+    "current_sponsor": "Founders, management, and employees majority-owned; Harvest Partners largest institutional investor; Silver Lake minority investor; HGGC significant investor",
+    "sponsor_history": [
+      {
+        "date": "2019-08",
+        "event": "Harvest Partners made a strategic growth investment while HGGC and management continued to control a majority equity stake.",
+        "source_url": "https://integrity.com/integrity-marketing-group-welcomes-strategic-growth-investment/"
+      },
+      {
+        "date": "2021-12",
+        "event": "Silver Lake led a strategic minority investment; founders, management, and employees remained majority shareholders.",
+        "source_url": "https://www.kirkland.com/news/press-release/2021/12/kirkland-advises-integrity-on-strategic-investment-from-silver-lake"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Integrity overview",
+        "url": "https://integrity.com/about-us/overview/"
+      },
+      {
+        "title": "Silver Lake investment in Integrity",
+        "url": "https://www.kirkland.com/news/press-release/2021/12/kirkland-advises-integrity-on-strategic-investment-from-silver-lake"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Business mapping is likely, but the exact issuer name appears SPV-like and was not directly tied to the public company source."
+  },
+  {
+    "issuer_match_key": "GENUINE CABLE GROUP",
+    "display_name": "GCG",
+    "mapped_company": "Genuine Cable Group, LLC",
+    "description": "Genuine Cable Group, doing business as GCG, is a value-added distributor and solutions provider for wire, cable, connectivity, power, automation, engineered solutions, and supply-chain services.",
+    "current_sponsor": "Audax Private Equity",
+    "sponsor_history": [
+      {
+        "date": "2019-08",
+        "event": "Genuine Parts Company sold its Electrical Specialties Group / EIS business to Audax Private Equity.",
+        "source_url": "https://www.genpt.com/2019-08-16-Genuine-Parts-Company-Announces-Sale-of-Electrical-Specialties-Group-to-Audax-Private-Equity"
+      },
+      {
+        "date": "2019",
+        "event": "GCG states Audax acquired Genuine Cable Group from Genuine Parts Company.",
+        "source_url": "https://www.gogcg.com/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "GCG website",
+        "url": "https://www.gogcg.com/"
+      },
+      {
+        "title": "Genuine Parts sale to Audax",
+        "url": "https://www.genpt.com/2019-08-16-Genuine-Parts-Company-Announces-Sale-of-Electrical-Specialties-Group-to-Audax-Private-Equity"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "BONTERRA",
+    "display_name": "Bonterra",
+    "mapped_company": "Bonterra LLC",
+    "description": "Bonterra is a social-good software company serving nonprofits, foundations, corporations, government agencies, and public-sector organizations with fundraising, engagement, case management, grant management, and CSR technology.",
+    "current_sponsor": "Apax Partners / Apax Funds; Vista Equity Partners retained a stake at platform formation",
+    "sponsor_history": [
+      {
+        "date": "2021-08",
+        "event": "Apax combined EveryAction, Social Solutions, and CyberGrants to create a social-good software platform; Vista retained a stake.",
+        "source_url": "https://www.apax.com/news-views/apax-funds-create-landscape-defining-social-good-software-platform/"
+      },
+      {
+        "date": "2022-03",
+        "event": "The platform companies were brought together under the Bonterra name.",
+        "source_url": "https://www.apax.com/news-views/introducing-bonterra-technology-that-powers-those-who-power-social-impact/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bonterra website",
+        "url": "https://www.bonterratech.com/"
+      },
+      {
+        "title": "Apax creates social-good software platform",
+        "url": "https://www.apax.com/news-views/apax-funds-create-landscape-defining-social-good-software-platform/"
+      },
+      {
+        "title": "Introducing Bonterra",
+        "url": "https://www.apax.com/news-views/introducing-bonterra-technology-that-powers-those-who-power-social-impact/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "MED METRIX",
+    "display_name": "Med-Metrix",
+    "mapped_company": "Med-Metrix, LLC",
+    "description": "Med-Metrix is a technology-enabled healthcare revenue-cycle management company providing end-to-end RCM, business intelligence, outsourcing, and point solutions for health systems and physician groups.",
+    "current_sponsor": "Harvest Partners, alongside management and existing investor A&M Capital Partners",
+    "sponsor_history": [
+      {
+        "date": "2021-09",
+        "event": "Med-Metrix received investments from A&M Capital Partners, Hackensack Meridian Health, and management, and merged with Miller & Milone.",
+        "source_url": "https://www.prnewswire.com/news-releases/med-metrix-secures-capital-investments-from-am-capital-partners-hackensack-meridian-health-and-existing-management-in-support-of-growth-initiatives-including-a-merger-with-miller--milone-301385574.html"
+      },
+      {
+        "date": "2025-06",
+        "event": "Harvest Partners agreed to make a growth investment in Med-Metrix alongside management and A&M Capital.",
+        "source_url": "https://www.prnewswire.com/news-releases/med-metrix-announces-growth-investment-from-harvest-partners-alongside-management-and-existing-investor-am-capital-302489209.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Med-Metrix about",
+        "url": "https://med-metrix.com/about"
+      },
+      {
+        "title": "Harvest investment in Med-Metrix",
+        "url": "https://www.prnewswire.com/news-releases/med-metrix-announces-growth-investment-from-harvest-partners-alongside-management-and-existing-investor-am-capital-302489209.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "HIBU",
+    "display_name": "Hibu",
+    "mapped_company": "Hibu Inc. / Hibu Group (USA), Inc.",
+    "description": "Hibu provides digital marketing solutions for small and medium-sized businesses, including websites, SEO, listings management, reviews, advertising, and marketing automation.",
+    "current_sponsor": "H.I.G. Capital",
+    "sponsor_history": [
+      {
+        "date": "2021-03",
+        "event": "An H.I.G. Capital affiliate signed a definitive agreement to acquire Hibu Group (USA), Inc.",
+        "source_url": "https://hig.com/news/h-i-g-capital-signs-definitive-agreement-to-acquire-hibu/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Hibu website",
+        "url": "https://hibu.com/"
+      },
+      {
+        "title": "H.I.G. acquisition of Hibu",
+        "url": "https://hig.com/news/h-i-g-capital-signs-definitive-agreement-to-acquire-hibu/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "CFS BRANDS",
+    "display_name": "CFS Brands",
+    "mapped_company": "CFS Brands, LLC",
+    "description": "CFS Brands manufactures and markets professional products and supplies for foodservice, healthcare, hospitality, and hygiene customers through a portfolio of commercial brands.",
+    "current_sponsor": "TJC LP, formerly The Jordan Company",
+    "sponsor_history": [
+      {
+        "date": "2018-02",
+        "event": "TJC acquired CFS Brands from Carlisle Companies.",
+        "source_url": "https://mergr.com/transaction/tjc-acquires-cfs-brands"
+      },
+      {
+        "date": "2025-11",
+        "event": "A transaction adviser described CFS Brands as a portfolio company of TJC.",
+        "source_url": "https://www.winston.com/en/experience/winston-and-strawn-represented-cfs-brands-in-its-acquisition-of-cornerstone-foodservice-group-69529900"
+      }
+    ],
+    "sources": [
+      {
+        "title": "CFS Brands about",
+        "url": "https://www.cfsbrands.com/about"
+      },
+      {
+        "title": "TJC portfolio",
+        "url": "https://tjclp.com/our-portfolio/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "TANGOE",
+    "display_name": "Tangoe",
+    "mapped_company": "Tangoe, Inc. / Tangoe LLC",
+    "description": "Tangoe provides technology expense and asset management software and managed services that help enterprises manage telecom, mobile, and cloud spend through the Tangoe One platform.",
+    "current_sponsor": "Marlin Equity Partners",
+    "sponsor_history": [
+      {
+        "date": "2017-04",
+        "event": "Marlin Equity Partners agreed to acquire Tangoe and combine it with Marlin portfolio company Asentinel.",
+        "source_url": "https://www.marlinequity.com/news/marlin-enters-into-definitive-agreement-to-acquire-tangoe-inc/"
+      },
+      {
+        "date": "2017-06",
+        "event": "Marlin completed the take-private acquisition of Tangoe.",
+        "source_url": "https://www.marlinequity.com/portfolio/tangoe/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Tangoe website",
+        "url": "https://www.tangoe.com/"
+      },
+      {
+        "title": "Tangoe at Marlin Equity",
+        "url": "https://www.marlinequity.com/portfolio/tangoe/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "RADWELL INTERNATIONAL",
+    "display_name": "Radwell International",
+    "mapped_company": "Radwell International, LLC",
+    "description": "Radwell International distributes and repairs new, surplus, and refurbished industrial automation, electrical, and MRO components for production and processing equipment.",
+    "current_sponsor": "CVC Capital Partners and Greenbriar Equity Group",
+    "sponsor_history": [
+      {
+        "date": "2020",
+        "event": "Radwell secured investment from Greenbriar Equity Group.",
+        "source_url": "https://www.radwell.com/CompanyInfo/AboutUs"
+      },
+      {
+        "date": "2022-04",
+        "event": "CVC invested in Radwell, acquiring an interest from founder Brian Radwell and Greenbriar; both remained significant shareholders.",
+        "source_url": "https://www.cvc.com/media/news/2022/2022-04-04-cvc-and-greenbriar-announce-recapitalisation-of-radwell-international/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Radwell about",
+        "url": "https://www.radwell.com/CompanyInfo/AboutUs"
+      },
+      {
+        "title": "CVC and Greenbriar recapitalize Radwell",
+        "url": "https://www.cvc.com/media/news/2022/2022-04-04-cvc-and-greenbriar-announce-recapitalisation-of-radwell-international/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "APEX SERVICE PARTNERS",
+    "display_name": "Apex Service Partners",
+    "mapped_company": "Apex Service Partners",
+    "description": "Apex Service Partners is a residential HVAC, plumbing, and electrical services platform that partners with local service brands across the United States.",
+    "current_sponsor": "Alpine Investors, through a continuation fund and Alpine Fund IX participation",
+    "sponsor_history": [
+      {
+        "date": "2019-07",
+        "event": "Alpine Investors acquired Apex Service Partners.",
+        "source_url": "https://mergr.com/transaction/alpine-investors-acquires-apex-service-partners"
+      },
+      {
+        "date": "2023-10",
+        "event": "Alpine completed a single-asset continuation transaction to continue its partnership with Apex.",
+        "source_url": "https://alpineinvestors.com/update/single-asset-continuation-transaction-apex-service-partners/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Apex Service Partners website",
+        "url": "https://apexservicepartners.com/"
+      },
+      {
+        "title": "Alpine Apex continuation transaction",
+        "url": "https://alpineinvestors.com/update/single-asset-continuation-transaction-apex-service-partners/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "UNIFIED WOMEN S HEALTHCARE",
+    "display_name": "Unified Women's Healthcare",
+    "mapped_company": "Unified Women's Healthcare",
+    "description": "Unified Women's Healthcare is a women's health company and practice-management platform supporting OB-GYN and related care businesses, fertility, maternity analytics, and virtual menopause care.",
+    "current_sponsor": "Altas Partners and Ares Management, alongside physician partners; Oak HC/FT is also cited as a backer",
+    "sponsor_history": [
+      {
+        "date": "2020-11",
+        "event": "Altas Partners agreed to become Unified's largest investor while Ares continued as a significant investor.",
+        "source_url": "https://www.altas.com/news/unified-womens-healthcare-announces-new-investment-from-altas-partners"
+      },
+      {
+        "date": "2021-08",
+        "event": "Unified acquired Women's Health USA with backing from Altas, Ares, and Oak HC/FT.",
+        "source_url": "https://www.businesswire.com/news/home/20210824005773/en/Unified-Womens-Healthcare-Acquires-Womens-Health-USA"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Unified Women's Healthcare website",
+        "url": "https://unifiedwomenshealthcare.com/"
+      },
+      {
+        "title": "Unified at Altas Partners",
+        "url": "https://www.altas.com/businesses/unified-womens-healthcare"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "SUMMIT INTERCONNECT",
+    "display_name": "Summit Interconnect",
+    "mapped_company": "Summit Interconnect Inc",
+    "description": "Summit Interconnect manufactures high-performance, complex printed circuit boards for aerospace, defense, and other demanding commercial applications.",
+    "current_sponsor": "Lindsay Goldberg, with management participation",
+    "sponsor_history": [
+      {
+        "date": "2016",
+        "event": "HCI Equity Partners partnered with CEO Shane Whiteside to build Summit Interconnect.",
+        "source_url": "https://www.hciequity.com/hci-completes-sale-of-summit-interconnect/"
+      },
+      {
+        "date": "2021-09",
+        "event": "HCI sold Summit Interconnect to affiliates of Lindsay Goldberg.",
+        "source_url": "https://www.hciequity.com/hci-completes-sale-of-summit-interconnect/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Summit Interconnect at Lindsay Goldberg",
+        "url": "https://www.lindsaygoldbergllc.com/investments/summit-interconnect"
+      },
+      {
+        "title": "Summit partners with Lindsay Goldberg",
+        "url": "https://summitinterconnect.com/blog/article/summit-interconnect-partner-lindsay-goldberg/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "TENEO",
+    "display_name": "Teneo",
+    "mapped_company": "Teneo Holdings, LLC",
+    "description": "Teneo is a global CEO advisory firm providing strategic communications, investor relations, financial advisory, restructuring, management consulting, risk, governance, ESG, geopolitical, and executive advisory services.",
+    "current_sponsor": "CVC Capital Partners majority owner; LGT Capital Partners minority investor; management also holds equity",
+    "sponsor_history": [
+      {
+        "date": "2015",
+        "event": "BC Partners acquired a significant minority stake in Teneo.",
+        "source_url": "https://www.bcpartners.com/portfolio/teneo/"
+      },
+      {
+        "date": "2019-06",
+        "event": "CVC became Teneo's new private equity partner, replacing BC Partners.",
+        "source_url": "https://www.cvc.com/media/news/2019/2019-06-07-teneo-announces-partnership-with-cvc/"
+      },
+      {
+        "date": "2025-08",
+        "event": "LGT Capital Partners took a minority stake in CVC-backed Teneo according to secondary reporting.",
+        "source_url": "https://www.consultingpoint.com/news/2025/8/13/lgt-capital-partners-takes-minority-stake-in-cvc-backed-teneo-at-23bn-valuation"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Teneo and CVC partnership",
+        "url": "https://www.cvc.com/media/news/2019/2019-06-07-teneo-announces-partnership-with-cvc/"
+      },
+      {
+        "title": "Teneo at BC Partners",
+        "url": "https://www.bcpartners.com/portfolio/teneo/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The 2025 LGT minority-stake item is secondary reporting."
+  },
+  {
+    "issuer_match_key": "DROPBOX",
+    "display_name": "Dropbox",
+    "mapped_company": "Dropbox, Inc.",
+    "description": "Dropbox is a public software company providing cloud file storage, synchronization, sharing, workflow, and collaboration tools for individuals, teams, and organizations.",
+    "current_sponsor": "None identified; Dropbox is publicly traded on Nasdaq under ticker DBX",
+    "sponsor_history": [
+      {
+        "date": "2018-03",
+        "event": "Dropbox priced and completed its initial public offering on Nasdaq under ticker DBX.",
+        "source_url": "https://investors.dropbox.com/news-releases/news-release-details/dropbox-announces-pricing-initial-public-offering"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Dropbox IPO pricing",
+        "url": "https://investors.dropbox.com/news-releases/news-release-details/dropbox-announces-pricing-initial-public-offering"
+      },
+      {
+        "title": "Dropbox 2025 Form 10-K",
+        "url": "https://dropbox.gcs-web.com/static-files/45ead9b0-fc6d-471a-9b82-1418c8477444"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Treat as public-company exposure, not sponsor-backed credit."
+  },
+  {
+    "issuer_match_key": "3PILLAR GLOBAL",
+    "display_name": "3Pillar Global",
+    "mapped_company": "3Pillar Global Inc",
+    "description": "3Pillar Global is a digital product development and software engineering services company helping clients design, build, and modernize software products.",
+    "current_sponsor": "H.I.G. Capital",
+    "sponsor_history": [
+      {
+        "date": "2021-11",
+        "event": "An H.I.G. Capital affiliate made a strategic growth investment in 3Pillar Global.",
+        "source_url": "https://hig.com/news/h-i-g-capital-announces-strategic-growth-investment-in-software-product-development-leader-3pillar-global/"
+      },
+      {
+        "date": "2026",
+        "event": "H.I.G. lists 3Pillar Global as an active portfolio company with a 2021 investment year.",
+        "source_url": "https://hig.com/portfolio/3pillar-global/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "3Pillar at H.I.G.",
+        "url": "https://hig.com/portfolio/3pillar-global/"
+      },
+      {
+        "title": "H.I.G. investment in 3Pillar",
+        "url": "https://hig.com/news/h-i-g-capital-announces-strategic-growth-investment-in-software-product-development-leader-3pillar-global/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "CSAFE GLOBAL",
+    "display_name": "CSafe Global",
+    "mapped_company": "CSafe Global",
+    "description": "CSafe Global provides temperature-controlled cold-chain shipping solutions for pharmaceutical, biotech, and life-sciences customers.",
+    "current_sponsor": "Thomas H. Lee Partners and Frazier Healthcare Partners; Altaris retained a minority position",
+    "sponsor_history": [
+      {
+        "date": "2015-01",
+        "event": "Altaris initially acquired CSafe Global.",
+        "source_url": "https://altariscap.com/news/altaris-announces-csafe-global-recapitalization"
+      },
+      {
+        "date": "2021-01",
+        "event": "THL completed the sale of a 50% stake in CSafe Global to Frazier Healthcare Partners.",
+        "source_url": "https://www.businesswire.com/news/home/20210106005229/en/THL-Completes-Sale-of-50-Stake-in-CSafe-Global-to-Frazier-Healthcare-Partners"
+      }
+    ],
+    "sources": [
+      {
+        "title": "CSafe about",
+        "url": "https://csafeglobal.com/us/about/"
+      },
+      {
+        "title": "THL sale of CSafe stake to Frazier",
+        "url": "https://www.businesswire.com/news/home/20210106005229/en/THL-Completes-Sale-of-50-Stake-in-CSafe-Global-to-Frazier-Healthcare-Partners"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "SERVICE EXPRESS",
+    "display_name": "Service Express",
+    "mapped_company": "Service Express Inc",
+    "description": "Service Express provides data center services, multivendor maintenance, managed infrastructure services, and hardware solutions for mission-critical server, storage, and network equipment.",
+    "current_sponsor": "Warburg Pincus",
+    "sponsor_history": [
+      {
+        "date": "2015-07",
+        "event": "Pamlico Capital made a growth investment in Service Express alongside management.",
+        "source_url": "https://www.pamlicocapital.com/portfolio/service-express"
+      },
+      {
+        "date": "2019-11",
+        "event": "Harvest Partners acquired Service Express from Pamlico Capital.",
+        "source_url": "https://harvestpartners.com/news/harvest-partners-announces-acquisition-of-service-express/"
+      },
+      {
+        "date": "2024-08",
+        "event": "Warburg Pincus announced a growth investment in Service Express.",
+        "source_url": "https://warburgpincus.com/2024/08/15/service-express-announces-growth-investment-from-warburg-pincus/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Warburg Pincus investment in Service Express",
+        "url": "https://warburgpincus.com/2024/08/15/service-express-announces-growth-investment-from-warburg-pincus/"
+      },
+      {
+        "title": "Harvest acquisition of Service Express",
+        "url": "https://harvestpartners.com/news/harvest-partners-announces-acquisition-of-service-express/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "CLARIENCE TECHNOLOGIES",
+    "display_name": "Clarience Technologies",
+    "mapped_company": "Clarience Technologies LLC",
+    "description": "Clarience Technologies provides vehicle lighting, safety systems, wiring harnesses, telematics, filtration, tire-related systems, and visibility solutions for commercial transportation markets.",
+    "current_sponsor": "Genstar Capital, with Penske Corporation reported as a minority investor",
+    "sponsor_history": [
+      {
+        "date": "2019-12",
+        "event": "Genstar Capital acquired a majority equity interest in Truck-Lite, predecessor to Clarience, from BDT Capital Partners and Koch Equity Development.",
+        "source_url": "https://peprofessional.com/2019/12/82316/"
+      },
+      {
+        "date": "2020-05",
+        "event": "Truck-Lite Holdings changed its corporate name to Clarience Technologies, LLC.",
+        "source_url": "https://www.prnewswire.com/news-releases/truck-lite-holdings-announces-corporate-name-change-to-clarience-technologies-301056439.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Clarience at Genstar Capital",
+        "url": "https://www.gencap.com/companies/clarience/"
+      },
+      {
+        "title": "Truck-Lite name change to Clarience",
+        "url": "https://www.prnewswire.com/news-releases/truck-lite-holdings-announces-corporate-name-change-to-clarience-technologies-301056439.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "VETCOR PROFESSIONAL PRACTICES",
+    "display_name": "VetCor",
+    "mapped_company": "VetCor Professional Practices LLC",
+    "description": "VetCor owns and supports a network of community-based veterinary practices across the United States and Canada while preserving local hospital identity and clinical autonomy.",
+    "current_sponsor": "Oak Hill Capital Partners, Harvest Partners, Cressey & Company, and management",
+    "sponsor_history": [
+      {
+        "date": "2015-04",
+        "event": "Harvest Partners invested in VetCor.",
+        "source_url": "https://harvestpartners.com/portfolio/vetcor/"
+      },
+      {
+        "date": "2018-06",
+        "event": "Oak Hill Capital Partners led a recapitalization of VetCor alongside Harvest Partners, Cressey & Company, and management.",
+        "source_url": "https://oakhill.com/2018/06/15/oak-hill-capital-partners-leads-recapitalization-of-vetcor-alongside-harvest-partners-cressey-company-and-management/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Oak Hill VetCor recapitalization",
+        "url": "https://oakhill.com/2018/06/15/oak-hill-capital-partners-leads-recapitalization-of-vetcor-alongside-harvest-partners-cressey-company-and-management/"
+      },
+      {
+        "title": "VetCor at Harvest Partners",
+        "url": "https://harvestpartners.com/portfolio/vetcor/"
+      },
+      {
+        "title": "VetCor story",
+        "url": "https://www.vetcor.com/about-us/our-story"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Exact current ownership percentages are not public in the reviewed sources."
+  },
+  {
+    "issuer_match_key": "CREDIT OPPORTUNITIES PARTNERS JV",
+    "display_name": "Credit Opportunities Partners JV",
+    "mapped_company": "Credit Opportunities Partners JV, LLC",
+    "description": "Credit Opportunities Partners JV is an FSK-related investment vehicle rather than a single operating-company borrower. It invests across senior secured loans, second lien loans, broadly syndicated loans, equity, warrants, and other credit investments.",
+    "current_sponsor": "FS KKR Capital Corp. and South Carolina Retirement Systems Group Trust",
+    "sponsor_history": [
+      {
+        "date": "2025-03",
+        "event": "The COPJV agreement was amended to increase member capital commitments, with FSK and SCRS providing 87.5% and 12.5% of committed capital, respectively.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1422183/000162828026011734/copjvfinancials4q25.htm"
+      },
+      {
+        "date": "2026-02",
+        "event": "FSK sold a portion of its equity interest in COPJV to SCRS, increasing SCRS' funded ownership percentage.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1422183/000162828026011734/copjvfinancials4q25.htm"
+      }
+    ],
+    "sources": [
+      {
+        "title": "COPJV 2025 audited financial statements",
+        "url": "https://www.sec.gov/Archives/edgar/data/1422183/000162828026011734/copjvfinancials4q25.htm"
+      }
+    ],
+    "confidence": "high",
+    "notes": "This should be treated as a look-through investment vehicle, not an operating company; downstream portfolio marks drive the economics."
+  },
+  {
+    "issuer_match_key": "SNOOPY",
+    "display_name": "United Veterinary Care",
+    "mapped_company": "Snoopy Bidco, Inc. / United Veterinary Care",
+    "description": "United Veterinary Care is a U.S. veterinary services platform operating general, specialty, and emergency hospitals. The credit appears in BXSL as Snoopy Bidco, Inc., and secondary private-credit research maps Snoopy Bidco to United Veterinary Care.",
+    "current_sponsor": "Nordic Capital, with veterinary owner-practitioners retaining ownership participation",
+    "sponsor_history": [
+      {
+        "date": "2019",
+        "event": "Atlantic Street Capital supported UVC's early acquisitive and organic growth.",
+        "source_url": "https://www.nordiccapital.com/news-views/press-releases/nordic-capital-partners-with-united-veterinary-care/"
+      },
+      {
+        "date": "2021-04",
+        "event": "Nordic Capital agreed to invest in United Veterinary Care and acquire Atlantic Street Capital-controlled shareholdings.",
+        "source_url": "https://www.nordiccapital.com/news-views/press-releases/nordic-capital-partners-with-united-veterinary-care/"
+      },
+      {
+        "date": "2026-01",
+        "event": "Octus identified Snoopy Bidco as United Veterinary Care and noted the credit had moved to a partial-PIK structure in the most recent period reviewed.",
+        "source_url": "https://octus.com/resources/articles/private-credit-exposure-to-veterinary-rollups-shows-growing-dispersion-vsos-under-increasing-pressure/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BXSL portfolio",
+        "url": "https://www.bxsl.com/portfolio/"
+      },
+      {
+        "title": "Nordic Capital investment in United Veterinary Care",
+        "url": "https://www.nordiccapital.com/news-views/press-releases/nordic-capital-partners-with-united-veterinary-care/"
+      },
+      {
+        "title": "Octus veterinary rollup credit review",
+        "url": "https://octus.com/resources/articles/private-credit-exposure-to-veterinary-rollups-shows-growing-dispersion-vsos-under-increasing-pressure/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Useful watchlist context because veterinary service organizations have had labor, visit-volume, and pricing-pressure headlines across the private-credit market."
+  },
+  {
+    "issuer_match_key": "JSS",
+    "display_name": "JSSI",
+    "mapped_company": "JSS Holdings, Inc. / Jet Support Services, Inc.",
+    "description": "JSSI provides hourly cost maintenance programs and related lifecycle services for business aircraft engines, airframes, and auxiliary power units, along with parts procurement, maintenance tracking software, aircraft financing, and advisory services.",
+    "current_sponsor": "GTCR and Genstar Capital, with Blackstone also providing debt financing and common equity capital",
+    "sponsor_history": [
+      {
+        "date": "2015",
+        "event": "Blackstone became a long-time investor in JSSI through prior financings.",
+        "source_url": "https://www.blackstone.com/news/press/blackstone-credit-insurance-announces-over-1-billion-in-new-financings-to-support-recapitalization-of-jet-support-services-inc-a-portfolio-company-of-gtcr-and-genstar-capital/"
+      },
+      {
+        "date": "2024-12",
+        "event": "Blackstone announced more than $1 billion of new financings for the recapitalization of JSSI, described as a portfolio company of GTCR and Genstar Capital.",
+        "source_url": "https://www.blackstone.com/news/press/blackstone-credit-insurance-announces-over-1-billion-in-new-financings-to-support-recapitalization-of-jet-support-services-inc-a-portfolio-company-of-gtcr-and-genstar-capital/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BXSL portfolio",
+        "url": "https://www.bxsl.com/portfolio/"
+      },
+      {
+        "title": "Blackstone JSSI recapitalization financing",
+        "url": "https://www.blackstone.com/news/press/blackstone-credit-insurance-announces-over-1-billion-in-new-financings-to-support-recapitalization-of-jet-support-services-inc-a-portfolio-company-of-gtcr-and-genstar-capital/"
+      },
+      {
+        "title": "JSSI about page",
+        "url": "https://jetsupport.com/about/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The JSS borrower label is a holding-company naming convention; the operating-company story is JSSI."
+  },
+  {
+    "issuer_match_key": "CORFIN",
+    "display_name": "Micross",
+    "mapped_company": "Corfin Holdings, Inc. / Micross Components",
+    "description": "Micross provides mission-critical microelectronic components and services for high-reliability aerospace, defense, space, medical, and industrial applications. Corfin was acquired by Behrman Capital and later combined with Micross.",
+    "current_sponsor": "Behrman Capital, supported by a Micross continuation fund backed by Apollo and BlackRock private equity secondaries",
+    "sponsor_history": [
+      {
+        "date": "2018",
+        "event": "Behrman Capital acquired Corfin Industries before the later Micross combination.",
+        "source_url": "https://www.behrmancap.com/behrman-capital-closes-500-million-continuation-fund-for-micross-components/"
+      },
+      {
+        "date": "2020",
+        "event": "Corfin was merged with Micross to form a differentiated high-reliability electronics service provider.",
+        "source_url": "https://www.behrmancap.com/behrman-capital-closes-500-million-continuation-fund-for-micross-components/"
+      },
+      {
+        "date": "2022-02",
+        "event": "Behrman closed a single-asset continuation fund for Micross Components.",
+        "source_url": "https://www.behrmancap.com/behrman-capital-closes-500-million-continuation-fund-for-micross-components/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BXSL portfolio",
+        "url": "https://www.bxsl.com/portfolio/"
+      },
+      {
+        "title": "Behrman Micross continuation fund",
+        "url": "https://www.behrmancap.com/behrman-capital-closes-500-million-continuation-fund-for-micross-components/"
+      },
+      {
+        "title": "Micross profile",
+        "url": "https://www.micross.com/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Corfin is a borrower-shell clue; Micross is the cleaner operating-company name for the timeline."
+  },
+  {
+    "issuer_match_key": "GALAXY UNIVERSAL",
+    "display_name": "Galaxy Universal",
+    "mapped_company": "Galaxy Universal LLC",
+    "description": "Galaxy Universal is a wholesale, sourcing, and brand management platform focused on athletic, work, and outdoor categories. Its owned and licensed brands include Hi-Tec, Magnum, Interceptor, Cherokee, Tony Hawk, AND1, Avia, London Fog, Justice, Gaiam, SPRI, and Swisstech.",
+    "current_sponsor": "Gainline Capital Partners",
+    "sponsor_history": [
+      {
+        "date": "2020-04",
+        "event": "Galaxy acquired Apex Global Brands in an all-cash transaction.",
+        "source_url": "https://www.prnewswire.com/news-releases/gainline-capital-partners-announces-acquisition-of-galaxy-universal-llc-301285903.html"
+      },
+      {
+        "date": "2020-12",
+        "event": "Galaxy acquired the ESO Active division from E.S. Originals.",
+        "source_url": "https://www.prnewswire.com/news-releases/gainline-capital-partners-announces-acquisition-of-galaxy-universal-llc-301285903.html"
+      },
+      {
+        "date": "2021-05",
+        "event": "Gainline announced the formation and acquisition platform for Galaxy Universal.",
+        "source_url": "https://www.prnewswire.com/news-releases/gainline-capital-partners-announces-acquisition-of-galaxy-universal-llc-301285903.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gainline acquisition of Galaxy Universal",
+        "url": "https://www.prnewswire.com/news-releases/gainline-capital-partners-announces-acquisition-of-galaxy-universal-llc-301285903.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "JW ALUMINUM CO PREFERRED STOCK",
+    "display_name": "JW Aluminum",
+    "mapped_company": "JW Aluminum Holding Corp.",
+    "description": "JW Aluminum produces flat-rolled aluminum for building products, HVAC components, cargo trailer, and RV trailer end markets, with manufacturing facilities in South Carolina and Arkansas.",
+    "current_sponsor": "Private company; current control sponsor not confirmed in reviewed public sources",
+    "sponsor_history": [
+      {
+        "date": "2006-12",
+        "event": "Wellspring Capital completed the acquisition of JW Aluminum Holding Company from Superior Plus Income Fund.",
+        "source_url": "https://www.globenewswire.com/news-release/2006/12/08/965462/0/en/Wellspring-Capital-Management-Completes-Acquisition-of-JW-Aluminum.html"
+      },
+      {
+        "date": "2025-01",
+        "event": "JW Aluminum announced Ryan Roush would succeed Stan Brant as CEO.",
+        "source_url": "https://www.prnewswire.com/news-releases/jw-aluminum-announces-new-ceo-appointment-ryan-roush-to-succeed-stan-brant-as-chief-executive-officer-302345918.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "JW Aluminum CEO transition",
+        "url": "https://www.prnewswire.com/news-releases/jw-aluminum-announces-new-ceo-appointment-ryan-roush-to-succeed-stan-brant-as-chief-executive-officer-302345918.html"
+      },
+      {
+        "title": "Wellspring acquisition of JW Aluminum",
+        "url": "https://www.globenewswire.com/news-release/2006/12/08/965462/0/en/Wellspring-Capital-Management-Completes-Acquisition-of-JW-Aluminum.html"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Operating-company mapping is clear; current ownership should be refreshed with a lender presentation or offering memorandum before formal sponsor coding."
+  },
+  {
+    "issuer_match_key": "GLOBAL JET CAPITAL LLC PREFERRED STOCK",
+    "display_name": "Global Jet Capital",
+    "mapped_company": "Global Jet Capital LLC",
+    "description": "Global Jet Capital provides financing solutions for the business aircraft market, including operating leases, sale-leasebacks, finance leases, and debt structures.",
+    "current_sponsor": "Carlyle, AE Industrial Partners, and FS / KKR Advisor",
+    "sponsor_history": [
+      {
+        "date": "2014-2015",
+        "event": "Global Jet Capital launched with backing from aviation-focused private investors including Carlyle and AE Industrial Partners; the current company page also identifies FS / KKR Advisor as an investor.",
+        "source_url": "https://www.globaljetcapital.com/company"
+      },
+      {
+        "date": "2024",
+        "event": "The company reported passing $4 billion in aircraft financing originations.",
+        "source_url": "https://www.globaljetcapital.com/company"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Global Jet Capital company page",
+        "url": "https://www.globaljetcapital.com/company"
+      }
+    ],
+    "confidence": "high",
+    "notes": "This is preferred equity in the FSK schedule, so mark behavior should be interpreted differently from first lien loan marks."
+  },
+  {
+    "issuer_match_key": "SHELF",
+    "display_name": "Fidelis Partnership",
+    "mapped_company": "Shelf Bidco, Ltd. / Fidelis MGA",
+    "description": "Shelf Bidco is the borrower label tied to Fidelis MGA / The Fidelis Partnership, an insurance managing general underwriter platform separated from Fidelis Insurance Group.",
+    "current_sponsor": "Private Fidelis Partnership ownership chain through Shelf holding entities",
+    "sponsor_history": [
+      {
+        "date": "2023-01",
+        "event": "The Fidelis Partnership was established through separation transactions as an external managing general underwriter platform.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1636639/000163663925000022/fihl-20241231.htm"
+      },
+      {
+        "date": "2026",
+        "event": "Blackstone Private Credit Fund portfolio disclosures map Fidelis MGA to Shelf Bidco, Ltd.",
+        "source_url": "https://www.bcred.com/portfolio/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BCRED portfolio",
+        "url": "https://www.bcred.com/portfolio/"
+      },
+      {
+        "title": "Fidelis Insurance Holdings 2024 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1636639/000163663925000022/fihl-20241231.htm"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The borrower-label mapping is sourced from Blackstone portfolio disclosure; use the Fidelis filings for legal-entity chain details."
+  },
+  {
+    "issuer_match_key": "MANNKIND",
+    "display_name": "MannKind",
+    "mapped_company": "MannKind Corporation",
+    "description": "MannKind is a public biopharmaceutical company built around inhaled and patient-centric therapies, including Afrezza, Technosphere-based development work, V-Go, FUROSCIX, and Tyvaso DPI-related economics.",
+    "current_sponsor": "Public company, Nasdaq: MNKD",
+    "sponsor_history": [
+      {
+        "date": "2004",
+        "event": "MannKind became a public company.",
+        "source_url": "https://mannkindcorp.com/about/"
+      },
+      {
+        "date": "2014-2015",
+        "event": "Afrezza received FDA approval for adults and was launched.",
+        "source_url": "https://mannkindcorp.com/about/"
+      },
+      {
+        "date": "2025",
+        "event": "MannKind acquired scPharmaceuticals after adding FUROSCIX-related approvals to its cardiometabolic franchise.",
+        "source_url": "https://mannkindcorp.com/about/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "MannKind about page",
+        "url": "https://mannkindcorp.com/about/"
+      },
+      {
+        "title": "MannKind 2025 Form 10-K",
+        "url": "https://investors.mannkindcorp.com/static-files/c85eea3a-e45a-4af0-8f90-723fd3da23ea"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Because this is public-company debt exposure, sponsor framing is less useful than liquidity, product concentration, and public-market credit context."
+  },
+  {
+    "issuer_match_key": "CHARTWELL CUMMING",
+    "display_name": "Cumming Group",
+    "mapped_company": "Cumming Group / Chartwell Cumming",
+    "description": "Cumming Group provides project management and cost management consulting services across education, healthcare, financial services, technology, infrastructure, and other end markets in the United States and Europe.",
+    "current_sponsor": "New Mountain Capital, with Tailwind Capital retaining an equity stake after sale",
+    "sponsor_history": [
+      {
+        "date": "2021-11",
+        "event": "New Mountain made its investment in Cumming Group.",
+        "source_url": "https://www.newmountaincapital.com/portfolio/cumming/"
+      },
+      {
+        "date": "2021-12",
+        "event": "Tailwind Capital announced the sale of Cumming Group to New Mountain Capital while retaining an equity stake.",
+        "source_url": "https://www.tailwind.com/news/tailwind-capital-sells-cumming-group/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "New Mountain Cumming Group portfolio page",
+        "url": "https://www.newmountaincapital.com/portfolio/cumming/"
+      },
+      {
+        "title": "Tailwind sale of Cumming Group",
+        "url": "https://www.tailwind.com/news/tailwind-capital-sells-cumming-group/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The dashboard issuer label appears to combine Chartwell and Cumming naming; the sponsor and company profile are Cumming Group."
+  },
+  {
+    "issuer_match_key": "MODE PURCHASER",
+    "display_name": "Mode Transportation",
+    "mapped_company": "Mode Purchaser, Inc. / Mode Transportation, LLC",
+    "description": "Mode Transportation is a non-asset based third-party logistics company offering truckload, less-than-truckload, intermodal, rail, ocean, air, and managed transportation services through an agent-based model.",
+    "current_sponsor": "York Capital Management affiliate",
+    "sponsor_history": [
+      {
+        "date": "2018-08",
+        "event": "Hub Group sold Mode Transportation to an affiliate of York Capital Management for approximately $238.5 million.",
+        "source_url": "https://www.globenewswire.com/de/news-release/2018/08/31/1564218/0/en/Hub-Group-Announces-Sale-of-Mode-Transportation.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Hub Group sale of Mode Transportation",
+        "url": "https://www.globenewswire.com/de/news-release/2018/08/31/1564218/0/en/Hub-Group-Announces-Sale-of-Mode-Transportation.html"
+      },
+      {
+        "title": "Mode purchase agreement summary",
+        "url": "https://contracts.justia.com/companies/hub-group-inc-663/contract/295134/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "AEVEX",
+    "display_name": "AEVEX Aerospace",
+    "mapped_company": "AEVEX Aerospace / AEVEX Holdings, LLC",
+    "description": "AEVEX provides airborne intelligence, surveillance, and reconnaissance technology solutions, mission operations, sensor sustainment and modification, and intelligence data processing services for U.S. defense, special operations, and intelligence customers.",
+    "current_sponsor": "Madison Dearborn Partners and CoVant Management; management retained significant ownership at acquisition",
+    "sponsor_history": [
+      {
+        "date": "2020-03",
+        "event": "Madison Dearborn Partners and CoVant Management agreed to acquire majority ownership of AEVEX Aerospace.",
+        "source_url": "https://www.businesswire.com/news/home/20200309005263/en/Madison-Dearborn-Partners-and-CoVant-Management-to-Acquire-Leading-AISR-Technology-Solutions-Provider-AEVEX-Aerospace"
+      }
+    ],
+    "sources": [
+      {
+        "title": "MDP and CoVant acquisition of AEVEX",
+        "url": "https://www.businesswire.com/news/home/20200309005263/en/Madison-Dearborn-Partners-and-CoVant-Management-to-Acquire-Leading-AISR-Technology-Solutions-Provider-AEVEX-Aerospace"
+      },
+      {
+        "title": "BXSL portfolio",
+        "url": "https://www.bxsl.com/portfolio/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "GENERAL DATATECH",
+    "display_name": "General Datatech",
+    "mapped_company": "General Datatech LP / GDT",
+    "description": "General Datatech is a Dallas-based multi-vendor IT solutions provider and systems integrator serving enterprise and government customers with professional services, managed services, networking, data center modernization, collaboration, security, hybrid cloud, hardware, software, and maintenance solutions.",
+    "current_sponsor": "H.I.G. Capital",
+    "sponsor_history": [
+      {
+        "date": "2022-01",
+        "event": "H.I.G. completed a growth investment in General Datatech.",
+        "source_url": "https://hig.com/news/h-i-g-capital-completes-growth-investment-in-general-datatech/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "H.I.G. growth investment in General Datatech",
+        "url": "https://hig.com/news/h-i-g-capital-completes-growth-investment-in-general-datatech/"
+      },
+      {
+        "title": "H.I.G. General Datatech portfolio page",
+        "url": "https://higprivateequity.com/portfolio/general-datatech/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "VYTALOGY WELLNESS",
+    "display_name": "Vytalogy Wellness",
+    "mapped_company": "Vytalogy Wellness, LLC",
+    "description": "Vytalogy Wellness is a consumer health and wellness company built around Natrol and Jarrow Formulas, producing probiotics, vitamins, minerals, sleep, immunity, brain health, mood, stress, and beauty supplements.",
+    "current_sponsor": "New Mountain Capital",
+    "sponsor_history": [
+      {
+        "date": "2020-09",
+        "event": "New Mountain invested in Jarrow Formulas.",
+        "source_url": "https://www.newmountaincapital.com/portfolio/jarrow/"
+      },
+      {
+        "date": "2020-11",
+        "event": "New Mountain invested in Natrol.",
+        "source_url": "https://www.newmountaincapital.com/portfolio/jarrow/"
+      },
+      {
+        "date": "2022-01",
+        "event": "Natrol and Jarrow Formulas came together under the Vytalogy Wellness corporate name.",
+        "source_url": "https://www.businesswire.com/news/home/20220111005474/en/Natrol-and-Jarrow-Formulas-Come-Together-Under-New-Company-as-Vytalogy-Wellness"
+      }
+    ],
+    "sources": [
+      {
+        "title": "New Mountain Vytalogy Wellness portfolio page",
+        "url": "https://www.newmountaincapital.com/portfolio/jarrow/"
+      },
+      {
+        "title": "Vytalogy launch announcement",
+        "url": "https://www.businesswire.com/news/home/20220111005474/en/Natrol-and-Jarrow-Formulas-Come-Together-Under-New-Company-as-Vytalogy-Wellness"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "ACI GROUP",
+    "display_name": "Affordable Care",
+    "mapped_company": "ACI Group Holdings, Inc. / Affordable Care",
+    "description": "Affordable Care is a dental support organization focused on tooth replacement services for affiliated dental practices. Public credit reporting maps ACI Group Holdings to Affordable Care.",
+    "current_sponsor": "Harvest Partners",
+    "sponsor_history": [
+      {
+        "date": "2021-08",
+        "event": "Harvest Partners invested in ACI Parent, Inc., which it describes as the nation's leading provider of tooth replacement services.",
+        "source_url": "https://harvestpartners.com/portfolio/affordable-care/"
+      },
+      {
+        "date": "2026-04",
+        "event": "Secondary reporting tied ACI Group Holdings to Affordable Care and noted a markdown in Blackstone private-credit exposure.",
+        "source_url": "https://www.sahmcapital.com/news/content/blackstones-private-credit-fund-slashes-value-of-aci-group-holdings-2026-04-22"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Harvest Affordable Care portfolio page",
+        "url": "https://harvestpartners.com/portfolio/affordable-care/"
+      },
+      {
+        "title": "ACI Group Holdings credit-reporting article",
+        "url": "https://www.sahmcapital.com/news/content/blackstones-private-credit-fund-slashes-value-of-aci-group-holdings-2026-04-22"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Sponsor and operating-company facts are direct from Harvest; the exact ACI Group Holdings borrower mapping is from secondary reporting."
+  },
+  {
+    "issuer_match_key": "ATX NETWORKS",
+    "display_name": "ATX Networks",
+    "mapped_company": "ATX Networks Corp.",
+    "description": "ATX Networks provides broadband access and media distribution equipment and services for cable, telecom, wireless, broadcast, enterprise, and service-provider customers, including RF management, multimedia distribution, optical transport, outside plant, and energy backup solutions.",
+    "current_sponsor": "H.I.G. Capital",
+    "sponsor_history": [
+      {
+        "date": "1985",
+        "event": "ATX was founded.",
+        "source_url": "https://atx.com/company/"
+      },
+      {
+        "date": "2015-06",
+        "event": "H.I.G. Capital completed the acquisition of ATX Networks Corp.",
+        "source_url": "https://www.lightreading.com/services/h-i-g-capital-completes-acquisition-of-atx-networks-corp-"
+      }
+    ],
+    "sources": [
+      {
+        "title": "ATX Networks company page",
+        "url": "https://atx.com/company/"
+      },
+      {
+        "title": "H.I.G. acquisition of ATX Networks",
+        "url": "https://www.lightreading.com/services/h-i-g-capital-completes-acquisition-of-atx-networks-corp-"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Important watchlist context because the latest local holdings classify this as a non-accrual FSK exposure."
+  },
+  {
+    "issuer_match_key": "NAVIGATOR ACQUIROR",
+    "display_name": "Newport Healthcare",
+    "mapped_company": "Navigator Acquiror, Inc. / Newport Healthcare",
+    "description": "Newport Healthcare provides behavioral-health treatment programs for teens, young adults, and families, including Newport Academy and Newport Institute. The borrower appears to be a Delaware acquisition vehicle tied to the Newport platform rather than the operating-company legal name.",
+    "current_sponsor": "Onex Partners",
+    "sponsor_history": [
+      {
+        "date": "2021-07",
+        "event": "Onex Partners completed a majority investment in Newport Healthcare.",
+        "source_url": "https://www.onex.com/article/2021NewsRelease-OnexCompletesNewportHealthcare-July19"
+      },
+      {
+        "date": "2025-10",
+        "event": "LEI data for Navigator Acquiror listed a Nashville headquarters address that matches public Newport Healthcare directory references.",
+        "source_url": "https://lei.bloomberg.com/leis/view/549300LVW3TPGWTWXD08"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BXSL portfolio page",
+        "url": "https://www.bxsl.com/portfolio/"
+      },
+      {
+        "title": "Navigator Acquiror LEI record",
+        "url": "https://lei.bloomberg.com/leis/view/549300LVW3TPGWTWXD08"
+      },
+      {
+        "title": "Newport Healthcare directory record",
+        "url": "https://www.nnlm.gov/membership/directory/9244"
+      },
+      {
+        "title": "Onex completes Newport Healthcare majority investment",
+        "url": "https://www.onex.com/article/2021NewsRelease-OnexCompletesNewportHealthcare-July19"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The sector, headquarters address, and Onex transaction timing support the Newport mapping, but the borrower-shell-to-operating-company chain is indirect rather than company-confirmed."
+  },
+  {
+    "issuer_match_key": "ROEMANU LLC ABF EQUITY",
+    "display_name": "Roemanu",
+    "mapped_company": "Roemanu LLC / Toorak Capital Partners and Merchants Mortgage",
+    "description": "Roemanu is a holding company focused on originating and investing in business-purpose mortgage loans across the US and UK through Toorak Capital Partners and Merchants Mortgage. The FSK exposure is an asset-based-finance equity position, not a conventional operating-company first-lien loan.",
+    "current_sponsor": "KKR credit funds and accounts",
+    "sponsor_history": [
+      {
+        "date": "2022",
+        "event": "Roemanu was created as part of KKR's acquisition of Merchants Mortgage and operates through Toorak and Merchants.",
+        "source_url": "https://www.businesswire.com/news/home/20240924213366/en/Roemanu-Appoints-Charles-Macintosh-as-Chief-Operating-Officer"
+      },
+      {
+        "date": "2024-05",
+        "event": "Roemanu and Toorak announced a joint Tampa headquarters, with KKR credit funds and accounts identified as investors in Roemanu.",
+        "source_url": "https://aaplonline.com/articles/news/roemanu-and-toorak-announce-new-headquarters-in-tampa-florida/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Roemanu company page",
+        "url": "https://www.roemanu.com/"
+      },
+      {
+        "title": "Roemanu COO announcement",
+        "url": "https://www.businesswire.com/news/home/20240924213366/en/Roemanu-Appoints-Charles-Macintosh-as-Chief-Operating-Officer"
+      },
+      {
+        "title": "Roemanu and Toorak headquarters announcement",
+        "url": "https://aaplonline.com/articles/news/roemanu-and-toorak-announce-new-headquarters-in-tampa-florida/"
+      },
+      {
+        "title": "FSK 2024 Form 10-K",
+        "url": "https://www.fskkradvisor.com/wp-content/uploads/sites/3/2025/02/FSK-2024-10-K_As-Filed.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Treat this as an ABF equity / platform exposure. The local schedule explicitly shows Roemanu LLC, formerly Toorak Capital Partners LLC, and Roemanu's own materials describe the Toorak/Merchants operating structure."
+  },
+  {
+    "issuer_match_key": "TENNESSEE",
+    "display_name": "Davies",
+    "mapped_company": "Davies Group / Tennessee Bidco Limited",
+    "description": "Davies is a professional services and technology-enabled outsourcing group serving the insurance and highly regulated markets, including claims, underwriting, distribution, regulation, customer experience, consulting, and technology services.",
+    "current_sponsor": "BC Partners",
+    "sponsor_history": [
+      {
+        "date": "2021-03",
+        "event": "BC Partners agreed to acquire a majority stake in Davies Group through Tennessee Bidco Limited and Tennessee Topco Limited.",
+        "source_url": "https://www.ccpc.ie/business/wp-content/uploads/sites/3/2021/04/M-21-015-Announcement.pdf"
+      },
+      {
+        "date": "2021-08",
+        "event": "Davies said the BC Partners investment closed after regulatory approvals.",
+        "source_url": "https://davies-group.com/knowledge/davies-strengthens-its-insurance-services-capabilities-through-strategic-acquisition-of-lloyds-managing-agent-asta/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BCRED insurance portfolio page",
+        "url": "https://www.bcred.com/sector/insurance/"
+      },
+      {
+        "title": "BC Partners Davies portfolio page",
+        "url": "https://www.bcpartners.com/portfolio/davies/"
+      },
+      {
+        "title": "CCPC merger announcement",
+        "url": "https://www.ccpc.ie/business/wp-content/uploads/sites/3/2021/04/M-21-015-Announcement.pdf"
+      },
+      {
+        "title": "Davies Asta acquisition announcement",
+        "url": "https://davies-group.com/knowledge/davies-strengthens-its-insurance-services-capabilities-through-strategic-acquisition-of-lloyds-managing-agent-asta/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Blackstone's BCRED portfolio page directly labels Davies Group as Tennessee Bidco Ltd., giving unusually strong support for this borrower-shell mapping."
+  },
+  {
+    "issuer_match_key": "BEACON DC",
+    "display_name": "ANV Group",
+    "mapped_company": "Beacon DC Limited / ANV Group Holdings Ltd.",
+    "description": "ANV Group is a multinational managing-general-agent platform formed from AmTrust's MGA and fee-based businesses in the US, UK, and Continental Europe. Beacon DC Limited appears to be a transaction holding or debt vehicle associated with the ANV formation rather than the operating brand.",
+    "current_sponsor": "AmTrust Financial Services and Blackstone Credit & Insurance",
+    "sponsor_history": [
+      {
+        "date": "2025-09",
+        "event": "AmTrust and Blackstone Credit & Insurance announced a strategic transaction to spin off AmTrust's MGA and fee businesses into a new platform.",
+        "source_url": "https://amtrustfinancial.com/getmedia/31b4416d-a3e5-4d13-85ad-fcf631c5bbcc/AmTrust-PR-Transaction_Sept-15-2025_8AM-Eastern.pdf"
+      },
+      {
+        "date": "2025-12",
+        "event": "The parties closed the transaction and launched ANV Group Holdings Ltd., with former AmTrust executives leading the platform.",
+        "source_url": "https://www.morningstar.com/news/business-wire/20251205052857/amtrust-financial-services-and-blackstone-credit-insurance-close-strategic-transaction-and-launch-newly-formed-multinational-mga-company-named-anv-group-holdings-ltd"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BXSL March 2026 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001736035/000173603526000010/bxsl-20260331.htm"
+      },
+      {
+        "title": "Beacon DC Limited Companies House officers",
+        "url": "https://find-and-update.company-information.service.gov.uk/company/16708914/officers"
+      },
+      {
+        "title": "ANV Group Holdings company profile",
+        "url": "https://open.endole.co.uk/insight/company/16708655-anv-group-holdings-ltd"
+      },
+      {
+        "title": "AmTrust and Blackstone ANV launch announcement",
+        "url": "https://www.morningstar.com/news/business-wire/20251205052857/amtrust-financial-services-and-blackstone-credit-insurance-close-strategic-transaction-and-launch-newly-formed-multinational-mga-company-named-anv-group-holdings-ltd"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "BXSL shows Beacon Dc, Ltd. as a new insurance-sector borrower with a December 4, 2025 acquisition date. Companies House shows Beacon DC Limited incorporated in September 2025, the same Exchequer Court address, and ANV-linked directors appointed on December 4, 2025; the operating-company mapping is therefore strong but still inferred."
+  },
+  {
+    "issuer_match_key": "JAYHAWK",
+    "display_name": "ProPharma",
+    "mapped_company": "Jayhawk Buyer, LLC / ProPharma Group",
+    "description": "ProPharma is a pharma-services platform that provides regulatory sciences, clinical research, quality and compliance, pharmacovigilance, medical information, and related consulting services to biotech, pharmaceutical, and medical-device customers.",
+    "current_sponsor": "Odyssey Investment Partners",
+    "sponsor_history": [
+      {
+        "date": "2020-09",
+        "event": "Odyssey Investment Partners agreed to acquire ProPharma Group from Linden Capital Partners.",
+        "source_url": "https://www.odysseyinvestment.com/news/odyssey-investment-partners-to-acquire-propharma-group/"
+      },
+      {
+        "date": "2021-05",
+        "event": "ProPharma, described as an Odyssey portfolio company, agreed to merge with The Planet Group.",
+        "source_url": "https://www.midoceanpartners.com/news-media/2021-05-26-midocean-partners-sells-majority-stake-in-the-planet-group"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BXSL prospectus schedule with Jayhawk address",
+        "url": "https://financialreports.eu/filings/blackstone-secured-lending-fund/prospectus/2023/13101712/"
+      },
+      {
+        "title": "Odyssey ProPharma portfolio page",
+        "url": "https://www.odysseyinvestment.com/portfolio/propharma-group/"
+      },
+      {
+        "title": "Odyssey acquisition announcement",
+        "url": "https://www.odysseyinvestment.com/news/odyssey-investment-partners-to-acquire-propharma-group/"
+      },
+      {
+        "title": "Bloomberg Jayhawk Buyer profile",
+        "url": "https://www.bloomberg.com/profile/company/1839346D%3AUS"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Bloomberg identifies Jayhawk Buyer, LLC as doing business as ProPharma, and the BXSL borrower address matches ProPharma's Overland Park headquarters."
+  },
+  {
+    "issuer_match_key": "SG ACQUISITION",
+    "display_name": "Safe-Guard Products",
+    "mapped_company": "SG Acquisition, Inc. / Safe-Guard Products International, LLC",
+    "description": "Safe-Guard Products International provides branded vehicle protection and finance-and-insurance products for automotive, RV, marine, motorcycle, and powersports markets, including service contracts, prepaid maintenance, tire and wheel protection, and GAP products.",
+    "current_sponsor": "Hellman & Friedman, with Stone Point Capital continuing as a partner",
+    "sponsor_history": [
+      {
+        "date": "2012-12",
+        "event": "An affiliate of Goldman Sachs acquired Safe-Guard Products International from H.I.G. Capital.",
+        "source_url": "https://www.fi-magazine.com/353045/goldman-sachs-affiliate-acquires-safe-guard"
+      },
+      {
+        "date": "2020-01",
+        "event": "Funds managed by Stone Point Capital invested in Safe-Guard, with Goldman Sachs affiliates retaining a minority stake.",
+        "source_url": "https://www.safe-guardproducts.com/fr-ca/resources/stone-point-acquires-market-leader-safe-guard/"
+      },
+      {
+        "date": "2024-07",
+        "event": "Market data sources reported a later Hellman & Friedman investment in Safe-Guard, with prior sponsor Stone Point continuing as a partner.",
+        "source_url": "https://www.cbinsights.com/company/safe-guard-products-international/financials"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BXSL March 2026 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001736035/000173603526000010/bxsl-20260331.htm"
+      },
+      {
+        "title": "CreditRiskMonitor SG Acquisition report preview",
+        "url": "https://fcib.creditriskmonitor.com/Report/ReportPreview.aspx?BusinessId=20625934"
+      },
+      {
+        "title": "Safe-Guard Stone Point investment announcement",
+        "url": "https://www.safe-guardproducts.com/fr-ca/resources/stone-point-acquires-market-leader-safe-guard/"
+      },
+      {
+        "title": "Safe-Guard funding and investor profile",
+        "url": "https://www.cbinsights.com/company/safe-guard-products-international/financials"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The Safe-Guard operating-company story and sponsor history are well supported, but the exact SG Acquisition borrower-shell mapping relies on secondary credit-reporting support."
+  },
+  {
+    "issuer_match_key": "KKR ALTITUDE II OFFSHORE AGGREGATOR LP PARTNERSHIP INTEREST",
+    "display_name": "KKR Altitude II Offshore Aggregator",
+    "mapped_company": "KKR Altitude II Offshore Aggregator LP",
+    "description": "KKR Altitude II Offshore Aggregator LP is an offshore aggregator / partnership-interest exposure carried in FSK's asset-based-finance schedule. It should be read as a fund or financing vehicle with Capital Goods exposure, not as a standalone operating company borrower.",
+    "current_sponsor": "KKR / FSK-affiliated asset-based finance vehicle",
+    "sponsor_history": [
+      {
+        "date": "2022-12",
+        "event": "FSK first showed KKR Altitude II Offshore Aggregator LP, Partnership Interest in the local timeline dataset as an asset-based-finance holding.",
+        "source_url": "https://www.annualreports.com/HostedData/AnnualReportArchive/f/NYSE_FSK_2023.pdf"
+      },
+      {
+        "date": "2026-03",
+        "event": "FSK continued to report the partnership interest in Q1 2026, with no coupon or maturity and fair value driven by the vehicle position rather than a conventional loan instrument.",
+        "source_url": "https://www.fskkrcapitalcorp.com/wp-content/uploads/2026/05/fsk-10-q-q1-2026.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "title": "FSK Q1 2026 Form 10-Q",
+        "url": "https://www.fskkrcapitalcorp.com/wp-content/uploads/2026/05/fsk-10-q-q1-2026.pdf"
+      },
+      {
+        "title": "FSK 2023 annual report",
+        "url": "https://www.annualreports.com/HostedData/AnnualReportArchive/f/NYSE_FSK_2023.pdf"
+      },
+      {
+        "title": "FSK Q3 2025 Form 10-Q",
+        "url": "https://www.fskkrcapitalcorp.com/wp-content/uploads/2025/11/fsk-10-q-3q25.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": "This record intentionally does not assign an operating-company story. The source schedules identify a partnership interest / asset-based-finance position."
+  },
+  {
+    "issuer_match_key": "IEM NEW SUB 2",
+    "display_name": "Industrial Electric Mfg.",
+    "mapped_company": "IEM New Sub 2, LLC / Industrial Electric Mfg. and The New IEM Power Systems",
+    "description": "Industrial Electric Mfg. designs and manufactures electrical distribution systems, integrated control systems, and power solutions for critical infrastructure. The IEM New Sub 2 borrower appears tied to the IEM group through the Fremont headquarters address, patents assigned to IEM New Sub 2, and Florida records showing IEM New Sub 2 as the authorized member of The New IEM Power Systems.",
+    "current_sponsor": "Privately held / IEM Holdings Group Inc.; no external private-equity sponsor confirmed",
+    "sponsor_history": [
+      {
+        "date": "1955",
+        "event": "Industrial Electric Mfg. describes itself as founded in 1955 and headquartered in Fremont, California.",
+        "source_url": "https://www.iemfg.com/news-stories/iem-climbs-rankings-of-growing-us-manufacturers-as-workforce-and-production-capacity-rapidly-scale/"
+      },
+      {
+        "date": "2014-01",
+        "event": "The New IEM Power Systems LLC was incorporated in Florida; public state-company records list IEM New Sub 2, LLC as authorized member.",
+        "source_url": "https://bisprofiles.com/fl/the-new-iem-power-systems-l14000007258"
+      },
+      {
+        "date": "2025-06",
+        "event": "A federal docket disclosure for The New IEM Power Systems identified IEM Holdings Group Inc. as corporate parent and IEM New Sub 2, LLC as an affiliate.",
+        "source_url": "https://dockets.justia.com/docket/florida/flmdce/3%3A2025cv00657/443164"
+      }
+    ],
+    "sources": [
+      {
+        "title": "IEM growth announcement",
+        "url": "https://www.iemfg.com/news-stories/iem-climbs-rankings-of-growing-us-manufacturers-as-workforce-and-production-capacity-rapidly-scale/"
+      },
+      {
+        "title": "The New IEM Power Systems Florida record",
+        "url": "https://bisprofiles.com/fl/the-new-iem-power-systems-l14000007258"
+      },
+      {
+        "title": "IEM New Sub 2 patent assignments",
+        "url": "https://patents.justia.com/assignee/iem-new-sub-2-llc"
+      },
+      {
+        "title": "The New IEM Power Systems federal docket",
+        "url": "https://dockets.justia.com/docket/florida/flmdce/3%3A2025cv00657/443164"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Operating-company linkage is supported by the IEM address, state records, patents, and court disclosure. Sponsor is deliberately framed as private/IEM Holdings because no current external financial sponsor was confirmed."
+  },
+  {
+    "issuer_match_key": "DENALI",
+    "display_name": "Once For All",
+    "mapped_company": "Denali Bidco Limited / Once For All",
+    "description": "Once For All is a SaaS and data platform for construction and built-environment supply-chain compliance, helping customers search, find, assess, and manage supplier relationships across skills, trades, ESG credentials, and related risk data.",
+    "current_sponsor": "GTCR",
+    "sponsor_history": [
+      {
+        "date": "2023-07",
+        "event": "GTCR agreed to acquire Once For All from Warburg Pincus in partnership with CEO David Hornsby.",
+        "source_url": "https://www.prnewswire.com/news-releases/gtcr-to-acquire-once-for-all-from-warburg-pincus-301883642.html"
+      },
+      {
+        "date": "2025-04",
+        "event": "UN Global Compact records identified Denali Bidco Limited T/A Once For All as the UK parent company and listed OFA as an affiliated subsidiary.",
+        "source_url": "https://unglobalcompact.org/what-is-gc/participants/182579-Denali-Bidco-Limited-T-A-Once-For-All"
+      }
+    ],
+    "sources": [
+      {
+        "title": "UN Global Compact Denali Bidco / Once For All record",
+        "url": "https://unglobalcompact.org/what-is-gc/participants/182579-Denali-Bidco-Limited-T-A-Once-For-All"
+      },
+      {
+        "title": "GTCR to acquire Once For All",
+        "url": "https://www.prnewswire.com/news-releases/gtcr-to-acquire-once-for-all-from-warburg-pincus-301883642.html"
+      },
+      {
+        "title": "Once For All Nalanda Global acquisition",
+        "url": "https://onceforall.com/once-for-all-group-acquires-nalanda-global/"
+      },
+      {
+        "title": "Denali Bidco company profile",
+        "url": "https://open.endole.co.uk/insight/company/14976033-denali-bidco-limited"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The Denali Bidco to Once For All mapping is directly supported by UN Global Compact and UK company-profile references."
+  },
+  {
+    "issuer_match_key": "HIGH STREET",
+    "display_name": "Highstreet Insurance Partners",
+    "mapped_company": "High Street Buyer, Inc. / Highstreet Insurance Partners",
+    "description": "Highstreet Insurance Partners is a national insurance brokerage platform offering business insurance and risk management, employee benefits, retirement and financial services, and personal insurance through partner agencies across the United States.",
+    "current_sponsor": "ABRY Partners, with Huron Capital retaining a minority interest; Ares-related capital also appears in later credit reporting",
+    "sponsor_history": [
+      {
+        "date": "2018-08",
+        "event": "Huron Capital invested in Highstreet Insurance Partners.",
+        "source_url": "https://www.huroncapital.com/portfolio/high-street-insurance-partners/"
+      },
+      {
+        "date": "2021-04",
+        "event": "ABRY Partners acquired Highstreet Insurance Partners; Huron retained a minority interest.",
+        "source_url": "https://www.sicafletcher.com/abry-partners"
+      },
+      {
+        "date": "2024-10",
+        "event": "Highstreet named a former ABRY principal as CFO, consistent with ABRY's continuing sponsor role.",
+        "source_url": "https://www.myhighstreet.com/news/highstreet-insurance-partners-announces-formation-brightstone-specialty-group-and-executive"
+      }
+    ],
+    "sources": [
+      {
+        "title": "SEC filing identifying High Street Buyer dba Highstreet Insurance",
+        "url": "https://www.sec.gov/Archives/edgar/data/1998387/000119312526208562/ck0001998387-20260331.htm"
+      },
+      {
+        "title": "Huron Highstreet Insurance Partners portfolio page",
+        "url": "https://www.huroncapital.com/portfolio/high-street-insurance-partners/"
+      },
+      {
+        "title": "ABRY acquisition advisor summary",
+        "url": "https://www.sicafletcher.com/abry-partners"
+      },
+      {
+        "title": "Highstreet leadership announcement",
+        "url": "https://www.myhighstreet.com/news/highstreet-insurance-partners-announces-formation-brightstone-specialty-group-and-executive"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Borrower mapping is supported by an SEC filing that labels High Street Buyer, Inc. as dba Highstreet Insurance, plus sponsor/company sources for Highstreet Insurance Partners."
+  },
+  {
+    "issuer_match_key": "CRONOS CRIMSON",
+    "display_name": "Cronos Crimson Holdings",
+    "mapped_company": "Cronos Crimson Holdings, Inc. (f/k/a NMC Crimson Holdings, Inc.)",
+    "description": "Cronos Crimson Holdings is a healthcare / health-care-technology borrower shell. Public records support the holding-company identity and prior NMC Crimson name, but the current operating-company brand was not confirmed from primary company or sponsor materials in this pass.",
+    "current_sponsor": "Cronos TopCo LP; operating-company sponsor mapping not independently confirmed",
+    "sponsor_history": [
+      {
+        "date": "2021-01",
+        "event": "FTC early-termination records show Cronos TopCo LP acquiring NMC Crimson Holdings, Inc. from New Mountain Partners V, L.P.",
+        "source_url": "https://www.ftc.gov/legal-library/browse/early-termination-notices/20210762"
+      },
+      {
+        "date": "2026-03",
+        "event": "New Mountain Finance schedules identify Cronos Crimson Holdings, Inc. as formerly NMC Crimson Holdings, Inc.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1496099/000149609926000016/nmfc-20260331.htm"
+      }
+    ],
+    "sources": [
+      {
+        "title": "FTC early termination notice",
+        "url": "https://www.ftc.gov/legal-library/browse/early-termination-notices/20210762"
+      },
+      {
+        "title": "Cronos Crimson LEI record",
+        "url": "https://americanlei.com/detailed-information/35344705/9845006E8B06A4796J04/cronos-crimson-holdings-inc/"
+      },
+      {
+        "title": "BXSL March 2026 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1736035/000173603526000010/bxsl-20260331.htm"
+      },
+      {
+        "title": "New Mountain Finance March 2026 Form 10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1496099/000149609926000016/nmfc-20260331.htm"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "This is intentionally a borrower-shell enrichment. The holding-company identity is clear; a definitive operating company was not sourced, so the dashboard should not show one."
+  }
+]

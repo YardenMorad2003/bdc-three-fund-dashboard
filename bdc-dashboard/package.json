@@ -1,0 +1,24 @@
+{
+  "name": "bdc-three-fund-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "data": "py -X utf8 scripts/export-dashboard-data.py && py -X utf8 scripts/export-quarterly-facts.py",
+    "facts": "py -X utf8 scripts/export-quarterly-facts.py",
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1"
+  },
+  "dependencies": {
+    "lucide-react": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,44 @@
+# Keep this repository focused on the deployable dashboard app.
+# Top-level research files, scratch outputs, PDFs, spreadsheets, and handoff notes
+# stay local unless they are explicitly unignored later.
+/*
+!/.gitignore
+!/.github/
+!/.github/workflows/
+!/.github/workflows/*.yml
+!/bdc-dashboard/
+
+# Dependencies and build outputs.
+**/node_modules/
+**/.next/
+**/out/
+**/.turbo/
+**/coverage/
+**/*.tsbuildinfo
+
+# Logs and local runtime files.
+**/*.log
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python/local analysis artifacts.
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.venv/
+**/venv/
+**/.ipynb_checkpoints/
+
+# Workspace scratch folders.
+**/.codex_deps/
+**/tmp/
+**/output/
+
+# OS/editor noise.
+**/.DS_Store
+**/Thumbs.db
+**/.vscode/
+**/.idea/
