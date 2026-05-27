@@ -3,6 +3,7 @@
 # stay local unless they are explicitly unignored later.
 /*
 !/.gitignore
+!/README.md
 !/.github/
 !/.github/workflows/
 !/.github/workflows/*.yml
