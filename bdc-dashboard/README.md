@@ -17,11 +17,15 @@ The quarterly facts exporter also writes:
 
 `../output/three_fund_institutional_model/three_fund_institutional_model.sqlite`
 
+For market-price/NAV facts, the quarterly facts exporter reads:
+
+`../source-docs/bdc_close_raw.csv`
+
 For reproducible local builds, download the database bundle from:
 
 [Data release 2026-05-27](https://github.com/YardenMorad2003/bdc-three-fund-dashboard/releases/tag/data-2026-05-27)
 
-Unzip the bundle and place the two SQLite files at the paths shown above. The central holdings database in the release is sanitized: absolute local workbook paths were replaced with `source_workbooks/<filename>`.
+Unzip the bundle and place the central SQLite database and close-price CSV at the paths shown above. The institutional model SQLite is included for inspection, but `npm run data` regenerates it. The central holdings database in the release is sanitized: absolute local workbook paths were replaced with `source_workbooks/<filename>`.
 
 Regenerate the snapshot with:
 

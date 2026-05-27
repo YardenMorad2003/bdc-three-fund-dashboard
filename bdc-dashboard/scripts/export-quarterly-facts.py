@@ -18,8 +18,15 @@ MODEL_DIR = WORKSPACE_ROOT / "output" / "three_fund_institutional_model"
 MODEL_DB_PATH = MODEL_DIR / "three_fund_institutional_model.sqlite"
 MODEL_README_PATH = MODEL_DIR / "README_THREE_FUND_INSTITUTIONAL_MODEL.md"
 JSON_OUTPUT_PATH = DASHBOARD_ROOT / "lib" / "quarterly-bdc-facts.json"
-MARKET_CLOSE_CSV_PATH = Path.home() / "Downloads" / "bdc_close_raw.csv"
 MARKET_CLOSE_SOURCE_LABEL = "source-docs/bdc_close_raw.csv"
+MARKET_CLOSE_CSV_CANDIDATES = [
+    WORKSPACE_ROOT / "source-docs" / "bdc_close_raw.csv",
+    Path.home() / "Downloads" / "bdc_close_raw.csv",
+]
+MARKET_CLOSE_CSV_PATH = next(
+    (path for path in MARKET_CLOSE_CSV_CANDIDATES if path.exists()),
+    MARKET_CLOSE_CSV_CANDIDATES[0],
+)
 
 FUNDS = ["BXSL", "FSK", "TSLX"]
 FUND_NAMES = {
@@ -2021,8 +2028,14 @@ def quarter_start_for(period_end: date) -> date:
 
 def copy2_with_retries(source: Path, destination: Path, attempts: int = 8) -> None:
     last_error: PermissionError | None = None
+    destination.parent.mkdir(parents=True, exist_ok=True)
     for attempt in range(attempts):
         try:
+            if destination.exists():
+                try:
+                    destination.chmod(0o666)
+                except OSError:
+                    pass
             shutil.copy2(source, destination)
             return
         except PermissionError as exc:

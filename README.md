@@ -56,19 +56,20 @@ The source generation scripts are included in:
 - `bdc-dashboard/scripts/export-dashboard-data.py`
 - `bdc-dashboard/scripts/export-quarterly-facts.py`
 
-For reproducibility, the SQLite databases needed to regenerate the public dashboard snapshots are attached to the GitHub Release:
+For reproducibility, the data inputs needed to regenerate the public dashboard snapshots are attached to the GitHub Release:
 
 - [Data release 2026-05-27](https://github.com/YardenMorad2003/bdc-three-fund-dashboard/releases/tag/data-2026-05-27)
 - Direct asset: [bdc-three-fund-dashboard-databases-2026-05-27.zip](https://github.com/YardenMorad2003/bdc-three-fund-dashboard/releases/download/data-2026-05-27/bdc-three-fund-dashboard-databases-2026-05-27.zip)
 
-The release bundle includes sanitized copies of:
+The release bundle includes:
 
 - `output/bdc_5_fund_centralized/bdc_5_fund_holdings.sqlite`
+- `source-docs/bdc_close_raw.csv`
 - `output/three_fund_institutional_model/three_fund_institutional_model.sqlite`
 
-The central holdings database contains 10,125 holdings rows, source metadata, QC tables, and the views used by the exporters. Absolute local workbook paths were replaced with `source_workbooks/<filename>` before publication. Raw downloaded PDFs, Excel workbooks, scratch databases, and temporary research folders are still excluded from Git.
+The central holdings database contains 10,125 holdings rows, source metadata, QC tables, and the views used by the exporters. The close-price CSV feeds the market-price/NAV rows in the quarterly facts export. The institutional model SQLite is included as an inspection/reference output; `npm run data` regenerates it from the central database and scripted facts. Absolute local workbook paths were replaced with `source_workbooks/<filename>` before publication. Raw downloaded PDFs, Excel workbooks, scratch databases, and temporary research folders are still excluded from Git.
 
-To rebuild the committed JSON snapshots from the released databases, unzip the bundle, place the database files back under the paths above, then run:
+To rebuild the committed JSON snapshots from the released inputs, unzip the bundle, place the central database and `source-docs/bdc_close_raw.csv` back under the paths above, then run:
 
 ```bash
 cd bdc-dashboard
