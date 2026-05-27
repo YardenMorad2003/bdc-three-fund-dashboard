@@ -56,7 +56,27 @@ The source generation scripts are included in:
 - `bdc-dashboard/scripts/export-dashboard-data.py`
 - `bdc-dashboard/scripts/export-quarterly-facts.py`
 
-Those scripts expect local upstream research artifacts, including SQLite databases and downloaded filing or presentation materials. Those upstream files are not included in this public repository. The committed JSON snapshots are what the public dashboard uses at runtime.
+For reproducibility, the SQLite databases needed to regenerate the public dashboard snapshots are attached to the GitHub Release:
+
+- [Data release 2026-05-27](https://github.com/YardenMorad2003/bdc-three-fund-dashboard/releases/tag/data-2026-05-27)
+- Direct asset: [bdc-three-fund-dashboard-databases-2026-05-27.zip](https://github.com/YardenMorad2003/bdc-three-fund-dashboard/releases/download/data-2026-05-27/bdc-three-fund-dashboard-databases-2026-05-27.zip)
+
+The release bundle includes sanitized copies of:
+
+- `output/bdc_5_fund_centralized/bdc_5_fund_holdings.sqlite`
+- `output/three_fund_institutional_model/three_fund_institutional_model.sqlite`
+
+The central holdings database contains 10,125 holdings rows, source metadata, QC tables, and the views used by the exporters. Absolute local workbook paths were replaced with `source_workbooks/<filename>` before publication. Raw downloaded PDFs, Excel workbooks, scratch databases, and temporary research folders are still excluded from Git.
+
+To rebuild the committed JSON snapshots from the released databases, unzip the bundle, place the database files back under the paths above, then run:
+
+```bash
+cd bdc-dashboard
+npm run data
+npm run build
+```
+
+The committed JSON snapshots are what the public dashboard uses at runtime.
 
 ## Important Methodology Notes
 
