@@ -22,7 +22,7 @@ The usefulness can go beyond the dashboard itself. Once the data is structured a
 
 ## What It Covers
 
-The current dashboard scope is intentionally narrow. It covers BXSL, FSK, and TSLX only, with a latest common dashboard period of March 31, 2026.
+Phase 1 covers BXSL, FSK, and TSLX as a methodology proof, with a latest common dashboard period of March 31, 2026. The narrower three-fund scope makes the parsing, normalization, reconciliation, issuer matching, timeline construction, and dashboarding process auditable before extending the same pipeline to additional BDCs such as ARCC, OBDC, MAIN, ORCC, and GBDC.
 
 The app includes views for:
 

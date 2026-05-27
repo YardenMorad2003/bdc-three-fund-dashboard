@@ -859,6 +859,11 @@ function formatShortDate(value: string) {
   return new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric" }).format(new Date(`${value}T00:00:00`));
 }
 
+function formatSlashDate(value: string) {
+  const [year, month, day] = value.split("-");
+  return `${Number(month)}/${Number(day)}/${year.slice(2)}`;
+}
+
 function sumBy<T>(items: T[], selector: (item: T) => number | null | undefined) {
   return items.reduce((total, item) => total + Number(selector(item) || 0), 0);
 }
@@ -2202,6 +2207,144 @@ function ProjectMotivation() {
   );
 }
 
+function issuerMarkPressure(fund: Fund) {
+  const issuerMap = new Map<string, { issuerName: string; amortizedCostMm: number; fairValueMm: number }>();
+
+  data.holdings_detail_latest
+    .filter((row) => row.fund === fund && row.exposure_type === "funded")
+    .forEach((row) => {
+      const issuerKey = row.issuer_match_key || row.issuer_name || "UNKNOWN";
+      const existing = issuerMap.get(issuerKey) ?? {
+        issuerName: row.issuer_name || issuerKey,
+        amortizedCostMm: 0,
+        fairValueMm: 0
+      };
+
+      existing.amortizedCostMm += row.amortized_cost_mm;
+      existing.fairValueMm += row.fair_value_mm;
+      issuerMap.set(issuerKey, existing);
+    });
+
+  return Array.from(issuerMap.values())
+    .map((issuer) => ({
+      ...issuer,
+      markVsCostMm: issuer.fairValueMm - issuer.amortizedCostMm
+    }))
+    .sort((a, b) => a.markVsCostMm - b.markVsCostMm);
+}
+
+function widestCrossFundMarkDifference() {
+  return data.cross_fund_issuer_latest
+    .map((issuer) => {
+      const marks = issuer.fund_breakdown
+        .map((fundRow) => ({
+          fund: fundRow.fund,
+          pct: fundRow.amortized_cost_mm ? (fundRow.fair_value_mm / fundRow.amortized_cost_mm) * 100 : null
+        }))
+        .filter((fundRow): fundRow is { fund: Fund; pct: number } => fundRow.pct !== null);
+
+      if (marks.length < 2) return null;
+
+      const highest = marks.reduce((current, row) => (row.pct > current.pct ? row : current), marks[0]);
+      const lowest = marks.reduce((current, row) => (row.pct < current.pct ? row : current), marks[0]);
+
+      return {
+        issuerName: issuer.representative_issuer_name,
+        highest,
+        lowest,
+        differencePp: highest.pct - lowest.pct
+      };
+    })
+    .filter(
+      (
+        item
+      ): item is {
+        issuerName: string;
+        highest: { fund: Fund; pct: number };
+        lowest: { fund: Fund; pct: number };
+        differencePp: number;
+      } => item !== null
+    )
+    .sort((a, b) => b.differencePp - a.differencePp)[0];
+}
+
+function KeyObservations() {
+  const latestFairValue = sumBy(data.latest_by_fund, (row) => row.fair_value_mm);
+  const latestCost = sumBy(data.latest_by_fund, (row) => row.amortized_cost_mm);
+  const markGap = latestFairValue - latestCost;
+  const fskLatest = data.latest_by_fund.find((row) => row.fund === "FSK");
+  const fskGapShare = fskLatest && markGap ? (Math.abs(fskLatest.mark_vs_cost_mm) / Math.abs(markGap)) * 100 : null;
+  const fskPressureNames = issuerMarkPressure("FSK")
+    .slice(0, 2)
+    .map((issuer) => `${issuer.issuerName} (${formatMm(issuer.markVsCostMm)})`)
+    .join(" and ");
+  const concentrationByFund = new Map(data.issuer_concentration.map((row) => [row.fund, row]));
+  const crossFundDifference = widestCrossFundMarkDifference();
+  const fskUnfundedTimelineRows = data.loan_timeline_securities.filter(
+    (row) => row.fund === "FSK" && row.exposure_type === "unfunded_commitment"
+  );
+  const currentFskUnfundedTimelineRows = fskUnfundedTimelineRows.filter(
+    (row) => row.filing_period_end === data.meta.latest_common_period
+  );
+  const currentFskUnfundedPrincipal = sumBy(currentFskUnfundedTimelineRows, (row) => row.principal_mm);
+  const totalFirstLienFairValue = sumBy(
+    data.category_totals_latest.filter((row) => row.investment_category === "First Lien Debt"),
+    (row) => row.fair_value_mm
+  );
+  const totalFirstLienShare = latestFairValue ? (totalFirstLienFairValue / latestFairValue) * 100 : null;
+  const fskCategoryRows = data.category_latest.filter((row) => row.fund === "FSK");
+  const fskFirstLienFairValue = sumBy(
+    fskCategoryRows.filter((row) => row.investment_category === "First Lien Debt"),
+    (row) => row.fair_value_mm
+  );
+  const fskOtherFundedCategoryFairValue = sumBy(
+    fskCategoryRows.filter((row) => row.investment_category !== "First Lien Debt"),
+    (row) => row.fair_value_mm
+  );
+
+  return (
+    <Panel
+      title={`Key Observations as of ${formatSlashDate(data.meta.latest_common_period)}`}
+      subtitle="Quantitative read from the latest common-period three-fund dataset."
+      icon={Info}
+    >
+      <ul className="observations-list">
+        <li>
+          <strong>{formatMm(latestFairValue)}</strong> of aggregate fair value sits{" "}
+          <strong>{formatMm(Math.abs(markGap))}</strong> below amortized cost; FSK accounts for{" "}
+          <strong>{formatPct(fskGapShare)}</strong> of that gap, led by {fskPressureNames}.
+        </li>
+        <li>
+          Concentration diverges sharply: FSK top-5 issuer exposure is{" "}
+          <strong>{formatPct(concentrationByFund.get("FSK")?.top_5_pct)}</strong> of fair value, versus{" "}
+          <strong>{formatPct(concentrationByFund.get("BXSL")?.top_5_pct)}</strong> at BXSL and{" "}
+          <strong>{formatPct(concentrationByFund.get("TSLX")?.top_5_pct)}</strong> at TSLX.
+        </li>
+        <li>
+          Normalized issuer matching finds <strong>{formatNumber(data.cross_fund_issuer_latest.length)}</strong>{" "}
+          cross-fund issuers versus <strong>{formatNumber(data.raw_cross_fund_issuer_count_latest)}</strong> raw
+          display-name matches; {crossFundDifference?.issuerName} has the widest current FV/cost split at{" "}
+          <strong>{formatPct(crossFundDifference?.highest.pct)}</strong> in {crossFundDifference?.highest.fund} and{" "}
+          <strong>{formatPct(crossFundDifference?.lowest.pct)}</strong> in {crossFundDifference?.lowest.fund}.
+        </li>
+        <li>
+          FSK is the only fund with tagged unfunded commitments in the timeline layer:{" "}
+          <strong>{formatNumber(fskUnfundedTimelineRows.length)}</strong> rows across history, including{" "}
+          <strong>{formatNumber(currentFskUnfundedTimelineRows.length)}</strong> current-period rows and{" "}
+          <strong>{formatMm(currentFskUnfundedPrincipal)}</strong> of principal at {data.meta.latest_period_label}.
+        </li>
+        <li>
+          First-lien loans are <strong>{formatMm(totalFirstLienFairValue)}</strong>, or{" "}
+          <strong>{formatPct(totalFirstLienShare)}</strong>{" "}
+          of headline fair value, but FSK&apos;s funded category mix is
+          less senior: <strong>{formatMm(fskFirstLienFairValue)}</strong> first-lien versus{" "}
+          <strong>{formatMm(fskOtherFundedCategoryFairValue)}</strong> in other funded categories.
+        </li>
+      </ul>
+    </Panel>
+  );
+}
+
 function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
   const isAllFunds = selectedFund === "All";
   const visibleLatest = data.latest_by_fund.filter((item) => isAllFunds || item.fund === selectedFund);
@@ -2270,6 +2413,8 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
       </div>
 
       <Callout title={isAllFunds ? "What this first cut says" : `What ${selectedFund} says`}>{overviewNarrative}</Callout>
+
+      <KeyObservations />
 
       <BdcPrimer selectedFund={selectedFund} />
 

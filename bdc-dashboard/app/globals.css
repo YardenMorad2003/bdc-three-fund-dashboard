@@ -603,6 +603,38 @@ button {
   color: var(--foreground);
 }
 
+.observations-list {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.observations-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.observations-list li::before {
+  position: absolute;
+  top: 0.66em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--blue);
+  content: "";
+}
+
+.observations-list strong {
+  color: var(--foreground);
+  font-weight: 760;
+}
+
 .bdc-primer-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
