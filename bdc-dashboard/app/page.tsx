@@ -3852,8 +3852,15 @@ function Timeline({
                   <h3>{enrichment.display_name}</h3>
                   <p>{enrichment.mapped_company}</p>
                 </div>
-                <span className={`pill confidence-${enrichment.confidence}`}>{enrichment.confidence}</span>
+                <div className="confidence-badge" aria-label={`Mapping confidence ${enrichment.confidence}`}>
+                  <span>Mapping confidence</span>
+                  <span className={`pill confidence-${enrichment.confidence}`}>{enrichment.confidence}</span>
+                </div>
               </div>
+              <p className="confidence-note">
+                Confidence reflects how directly this issuer was matched to the sourced company and sponsor record; it is not an
+                exposure or risk rating.
+              </p>
               <p className="company-description">{enrichment.description}</p>
               <div className="sponsor-box">
                 <span>Current sponsor</span>

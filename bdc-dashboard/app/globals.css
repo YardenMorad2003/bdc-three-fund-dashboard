@@ -1255,6 +1255,7 @@ tbody tr:hover td {
 
 .company-heading {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   align-items: flex-start;
   justify-content: space-between;
@@ -1272,6 +1273,21 @@ tbody tr:hover td {
   line-height: 1.4;
 }
 
+.confidence-badge {
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+  min-width: 128px;
+}
+
+.confidence-badge > span:first-child {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
 .confidence-high {
   border-color: rgba(22, 163, 74, 0.35);
   color: #116932;
@@ -1285,6 +1301,13 @@ tbody tr:hover td {
 .confidence-low {
   border-color: rgba(220, 38, 38, 0.35);
   color: #991b1b;
+}
+
+.confidence-note {
+  margin: -4px 0 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .company-description {
