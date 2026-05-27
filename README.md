@@ -14,6 +14,10 @@ The dashboard is built from holding-level and filing-level data work products. I
 
 The aim of this project is to transform unclear Excel and PDF filings into a readable, structured database that is easy to query. In that sense, the project is mainly data engineering plus data analysis: collecting messy source material, normalizing it, preserving source context, and turning it into usable tables.
 
+A good example is the portfolio holdings schedule in FSK's 2025 Form 10-K. The source page contains issuer names, footnote markers, industries, interest-rate text, maturity dates, principal amounts, cost, and fair value in a dense filing layout. Before the data can be analyzed properly, that page has to be parsed into rows, the fields have to be normalized, and the source context has to remain traceable.
+
+That processing step also matters for interpretation. For the FSK timeline data, rows marked with footnote `(x)` are treated as unfunded commitments rather than funded holdings. The dashboard keeps those rows in the detailed security table, but excludes them from funded timeline aggregates. In the current timeline export, that produces 1,199 funded security rows and 213 unfunded-commitment rows retained separately.
+
 The usefulness can go beyond the dashboard itself. Once the data is structured and queryable, it can potentially support more advanced data science and machine learning work, including issuer comparison, anomaly detection, portfolio risk screening, trend analysis, and automated source reconciliation.
 
 ## What It Covers
