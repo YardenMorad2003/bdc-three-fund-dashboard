@@ -31,6 +31,7 @@ import { useMemo, useState } from "react";
 import dashboardData from "../lib/dashboard-data.json";
 import bdcUniverseData from "../lib/bdc-universe.json";
 import bslReferenceMarksData from "../lib/bsl-reference-marks.json";
+import businessPeerPricingData from "../lib/business-peer-pricing.json";
 import etfImpliedBdcMarksData from "../lib/etf-implied-bdc-marks.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import fundingMarketData from "../lib/bdc-funding-market.json";
@@ -787,6 +788,66 @@ type EtfImpliedBdcData = {
   company_research: EtfCreditResearch[];
 };
 
+type BusinessPeerObservation = {
+  normalized_borrower: string;
+  borrower: string;
+  business_model: string;
+  latest_mark: number;
+  latest_date: string;
+  latest_funds: string[];
+  maturity: string | null;
+  principal_mm: number;
+  source_url: string | null;
+};
+type BusinessPeerEstimate = {
+  issuer_match_key: string;
+  issuer: string;
+  bdc_fund: Fund;
+  business_model: string;
+  taxonomy_basis: string;
+  reported_industry: string;
+  bdc_principal_mm: number;
+  bdc_fair_value_mm: number;
+  bdc_cost_mm: number;
+  bdc_mark_on_principal: number;
+  bdc_mark_to_cost: number | null;
+  target_maturity: string | null;
+  peer_implied_mark: number;
+  peer_low: number;
+  peer_high: number;
+  bdc_minus_peer_pp: number;
+  peer_count: number;
+  confidence: "medium" | "low";
+  research_signal: "positive" | "negative" | "mixed" | "unresearched";
+  research_headline: string | null;
+  peer_keys: string[];
+};
+type BusinessPeerPricingData = {
+  meta: {
+    generated_at_utc: string;
+    as_of_date: string;
+    estimate_count: number;
+    covered_issuer_count: number;
+    business_model_count: number;
+    methodology: string;
+    included_factors: string[];
+    displayed_not_scored: string[];
+    not_yet_standardized: string[];
+    caveats: string[];
+  };
+  business_models: Array<{
+    business_model: string;
+    peer_company_count: number;
+    median_mark: number;
+    minimum_mark: number;
+    maximum_mark: number;
+    below_90_count: number;
+  }>;
+  peer_universe: BusinessPeerObservation[];
+  estimates: BusinessPeerEstimate[];
+  sources: { name: string; url: string }[];
+};
+
 type QuarterlyFactRow = {
   fund: Fund;
   period_end: string;
@@ -1231,6 +1292,8 @@ const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const fundingMarket = fundingMarketData as unknown as FundingMarketData;
 const bslReferenceMarks = bslReferenceMarksData as unknown as BslReferenceData;
+const businessPeerPricing = businessPeerPricingData as unknown as BusinessPeerPricingData;
+const businessPeerByKey = new Map(businessPeerPricing.peer_universe.map((row) => [row.normalized_borrower, row]));
 const etfImpliedBdcMarks = etfImpliedBdcMarksData as unknown as EtfImpliedBdcData;
 const liabilityStack = liabilityStackData as LiabilityStackData;
 const quarterlyFacts = quarterlyFactsData as QuarterlyFactsData;
@@ -5184,6 +5247,113 @@ function EtfImpliedPricing({
   );
 }
 
+function BusinessModelPeerPricing({
+  selectedFund,
+  onOpenTimelineIssuer
+}: {
+  selectedFund: Fund | "All";
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const [selectedModel, setSelectedModel] = useState("Enterprise software & SaaS");
+  const [peerQuery, setPeerQuery] = useState("");
+  const modelSummary = businessPeerPricing.business_models.find((row) => row.business_model === selectedModel);
+  const normalizedQuery = peerQuery.trim().toLowerCase();
+  const eligibleRows = businessPeerPricing.estimates
+    .filter((row) => row.business_model === selectedModel)
+    .filter((row) => selectedFund === "All" || row.bdc_fund === selectedFund)
+    .filter((row) => !normalizedQuery || `${row.issuer} ${row.reported_industry}`.toLowerCase().includes(normalizedQuery));
+  const visibleRows = eligibleRows.slice(0, 24);
+  const materialGapCount = eligibleRows.filter((row) => Math.abs(row.bdc_minus_peer_pp) >= 10).length;
+
+  return (
+    <Panel
+      title="Business-Model Peer Pricing"
+      subtitle="A broader comp screen: compare a BDC senior loan with distinct ETF borrowers that operate in a similar business model. It is designed to surface questions—not declare fair value."
+      icon={SlidersHorizontal}
+      action={<span className="bsl-asof">{formatNumber(eligibleRows.length)} BDC positions</span>}
+    >
+      <div className="peer-model-toolbar">
+        <label>
+          <span>Operating model</span>
+          <select value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>
+            {businessPeerPricing.business_models.map((row) => (
+              <option value={row.business_model} key={row.business_model}>{row.business_model}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          <span>Find a BDC borrower</span>
+          <input value={peerQuery} onChange={(event) => setPeerQuery(event.target.value)} placeholder="Search issuer or industry" />
+        </label>
+        <div className="peer-model-readout">
+          <div><span>ETF peer set</span><strong>{formatNumber(modelSummary?.peer_company_count || 0)}</strong></div>
+          <div><span>Peer median</span><strong>{formatMark(modelSummary?.median_mark)}</strong></div>
+          <div><span>ETF peers below 90</span><strong className={modelSummary?.below_90_count ? "negative" : ""}>{formatNumber(modelSummary?.below_90_count || 0)}</strong></div>
+          <div><span>BDC gaps ≥10 pts</span><strong className={materialGapCount ? "negative" : ""}>{formatNumber(materialGapCount)}</strong></div>
+        </div>
+      </div>
+
+      {visibleRows.length ? (
+        <div className="table-wrap peer-pricing-wrap">
+          <table className="peer-pricing-table">
+            <thead>
+              <tr>
+                <th>BDC borrower</th>
+                <th>Classification</th>
+                <th className="right">BDC mark</th>
+                <th className="right">Peer reference</th>
+                <th className="right">Gap</th>
+                <th>Evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibleRows.map((row) => {
+                const canOpen = timelineIssuerKeys.has(row.issuer_match_key);
+                return (
+                  <tr key={`${row.issuer_match_key}-${row.bdc_fund}`}>
+                    <td className="issuer-cell">
+                      {canOpen ? (
+                        <a className="issuer-link" href="#timeline" onClick={(event) => { event.preventDefault(); onOpenTimelineIssuer(row.issuer_match_key); }}>
+                          <strong>{row.issuer}</strong>
+                        </a>
+                      ) : <strong>{row.issuer}</strong>}
+                      <span><FundBadge fund={row.bdc_fund} /> {formatMm(row.bdc_fair_value_mm)} FV</span>
+                    </td>
+                    <td className="peer-taxonomy-cell">
+                      <strong>{row.reported_industry || "Industry not reported"}</strong>
+                      <small>{row.taxonomy_basis}</small>
+                    </td>
+                    <td className={`right ${row.bdc_mark_on_principal < 90 ? "negative" : ""}`}><strong>{formatMark(row.bdc_mark_on_principal)}</strong></td>
+                    <td className="right peer-range-cell"><strong>{formatMark(row.peer_implied_mark)}</strong><small>{formatMark(row.peer_low)}–{formatMark(row.peer_high)}</small></td>
+                    <td className={`right ${toneClass(row.bdc_minus_peer_pp)}`}><strong>{formatSignedPp(row.bdc_minus_peer_pp)}</strong></td>
+                    <td>
+                      <div className="peer-evidence-badges">
+                        <span className={`bsl-confidence ${row.confidence}`}>{row.confidence}</span>
+                        <small>{row.peer_count} peers</small>
+                        {row.research_signal !== "unresearched" ? <span className={`credit-signal ${row.research_signal}`}>{row.research_signal}</span> : null}
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      ) : <div className="empty-state">No peer-pricing rows meet this model, fund, and search combination.</div>}
+
+      <div className="peer-method-grid">
+        <div><span>Used in the estimate</span><p>Operating model, seniority screen, maturity proximity, valuation freshness, and distinct borrowers.</p></div>
+        <div><span>Shown, not scored</span><p>Public credit and media research where a sourced brief is available.</p></div>
+        <div><span>Still missing</span><p>Standardized size, leverage, coverage, covenants, collateral, sponsor support, and customer concentration.</p></div>
+      </div>
+      <div className="bsl-reference-note">
+        <AlertTriangle />
+        <p>{businessPeerPricing.meta.caveats[0]} The range is a relative screen, not an appraisal or executable loan price.</p>
+      </div>
+    </Panel>
+  );
+}
+
 function Exposure({
   selectedFund,
   onOpenTimelineIssuer
@@ -5279,6 +5449,8 @@ function Exposure({
       <BslReferenceMonitor selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
       <EtfImpliedPricing selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
+
+      <BusinessModelPeerPricing selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
       <MarkDivergence selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
@@ -5803,6 +5975,85 @@ function EtfImpliedPricingDetail({
   );
 }
 
+function BusinessPeerPricingDetail({ rows }: { rows: BusinessPeerEstimate[] }) {
+  if (!rows.length) return null;
+  return (
+    <Panel
+      title="Operating-Model Comp Set"
+      subtitle="The BDC position is plotted against different ETF borrowers in the same operating model. Open the source marks below to inspect the evidence behind the range."
+      icon={SlidersHorizontal}
+    >
+      <div className="peer-detail-grid">
+        {rows.map((row) => {
+          const peers = row.peer_keys.map((key) => businessPeerByKey.get(key)).filter((peer): peer is BusinessPeerObservation => Boolean(peer));
+          const values = [row.bdc_mark_on_principal, row.peer_low, row.peer_high, ...peers.map((peer) => peer.latest_mark)];
+          const scaleMin = Math.max(0, Math.floor((Math.min(...values) - 5) / 5) * 5);
+          const scaleMax = Math.min(125, Math.ceil((Math.max(...values) + 5) / 5) * 5);
+          const position = (value: number) => `${Math.max(0, Math.min(100, ((value - scaleMin) / Math.max(scaleMax - scaleMin, 1)) * 100))}%`;
+          return (
+            <section className="peer-detail-card" key={`${row.issuer_match_key}-${row.bdc_fund}`}>
+              <div className="peer-detail-heading">
+                <div>
+                  <div className="peer-detail-kicker"><FundBadge fund={row.bdc_fund} /><span>{row.business_model}</span></div>
+                  <h3>{row.issuer}</h3>
+                  <p>{row.reported_industry || "Industry not reported"} · classified from {row.taxonomy_basis}</p>
+                </div>
+                <span className={`bsl-confidence ${row.confidence}`}>{row.confidence} confidence</span>
+              </div>
+
+              <div className="peer-price-summary">
+                <div><span>BDC FV / principal</span><strong className={row.bdc_mark_on_principal < 90 ? "negative" : ""}>{formatMark(row.bdc_mark_on_principal)}</strong></div>
+                <div><span>Peer median</span><strong>{formatMark(row.peer_implied_mark)}</strong></div>
+                <div><span>Peer range</span><strong>{formatMark(row.peer_low)}–{formatMark(row.peer_high)}</strong></div>
+                <div><span>BDC less peers</span><strong className={toneClass(row.bdc_minus_peer_pp)}>{formatSignedPp(row.bdc_minus_peer_pp)}</strong></div>
+              </div>
+
+              <div className="peer-mark-plot" role="img" aria-label={`${row.issuer} BDC mark ${formatMark(row.bdc_mark_on_principal)}, peer median ${formatMark(row.peer_implied_mark)}, peer range ${formatMark(row.peer_low)} to ${formatMark(row.peer_high)}`}>
+                <div className="peer-plot-track">
+                  <span className="peer-plot-band" style={{ left: position(row.peer_low), width: `${Math.max(1, parseFloat(position(row.peer_high)) - parseFloat(position(row.peer_low)))}%` }} />
+                  {peers.map((peer) => (
+                    <span
+                      className="peer-plot-dot"
+                      key={`${peer.normalized_borrower}-${peer.latest_date}`}
+                      style={{ left: position(peer.latest_mark) }}
+                      title={`${peer.borrower}: ${formatMark(peer.latest_mark)} (${formatShortDate(peer.latest_date)})`}
+                    />
+                  ))}
+                  <span className="peer-plot-marker peer" style={{ left: position(row.peer_implied_mark) }}><i>Peer</i></span>
+                  <span className="peer-plot-marker bdc" style={{ left: position(row.bdc_mark_on_principal) }}><i>BDC</i></span>
+                </div>
+                <div className="peer-plot-axis"><span>{formatMark(scaleMin)}</span><span>{formatMark(scaleMax)}</span></div>
+              </div>
+
+              <div className="peer-observation-grid">
+                {peers.map((peer) => {
+                  const content = (
+                    <>
+                      <span>{peer.borrower}</span>
+                      <strong>{formatMark(peer.latest_mark)}</strong>
+                      <small>{peer.latest_funds.join(" / ")} · {formatShortDate(peer.latest_date)}{peer.maturity ? ` · due ${formatShortDate(peer.maturity)}` : ""}</small>
+                      {peer.source_url ? <ExternalLink /> : null}
+                    </>
+                  );
+                  return peer.source_url ? (
+                    <a href={peer.source_url} target="_blank" rel="noreferrer" key={`${peer.normalized_borrower}-${peer.latest_date}`}>{content}</a>
+                  ) : <div key={`${peer.normalized_borrower}-${peer.latest_date}`}>{content}</div>;
+                })}
+              </div>
+
+              {row.research_headline ? <p className={`peer-research-overlay signal-${row.research_signal}`}><strong>Research overlay:</strong> {row.research_headline}</p> : null}
+            </section>
+          );
+        })}
+      </div>
+      <div className="bsl-reference-note">
+        <Info />
+        <p>{businessPeerPricing.meta.methodology} {businessPeerPricing.meta.caveats[1]}</p>
+      </div>
+    </Panel>
+  );
+}
+
 function Timeline({
   selectedFund,
   selectedIssuerKey,
@@ -5880,6 +6131,9 @@ function Timeline({
     (row) => row.issuer_match_key === selectedIssuerKey && (selectedFund === "All" || row.bdc_fund === selectedFund)
   );
   const creditResearch = etfImpliedBdcMarks.company_research.find((row) => row.issuer_match_key === selectedIssuerKey);
+  const businessPeerRows = businessPeerPricing.estimates.filter(
+    (row) => row.issuer_match_key === selectedIssuerKey && (selectedFund === "All" || row.bdc_fund === selectedFund)
+  );
 
   return (
     <div className="grid">
@@ -5941,6 +6195,8 @@ function Timeline({
       {bslReference ? <BslReferenceTimeline match={bslReference} selectedFund={selectedFund} /> : null}
 
       {etfFacilityRows.length || creditResearch ? <EtfImpliedPricingDetail rows={etfFacilityRows} research={creditResearch} /> : null}
+
+      <BusinessPeerPricingDetail rows={businessPeerRows} />
 
       <div className="grid two-col capital-timeline-grid">
         <Panel
