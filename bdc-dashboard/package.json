@@ -5,6 +5,7 @@
   "scripts": {
     "data": "py -X utf8 scripts/export-dashboard-data.py && py -X utf8 scripts/export-quarterly-facts.py",
     "facts": "py -X utf8 scripts/export-quarterly-facts.py",
+    "universe": "py -X utf8 scripts/export-edgartools-bdc-universe.py",
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
     "start": "next start --hostname 127.0.0.1"

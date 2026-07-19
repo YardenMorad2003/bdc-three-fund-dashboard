@@ -11,15 +11,21 @@ from typing import Any
 
 DASHBOARD_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
-DB_PATH = WORKSPACE_ROOT / "output" / "bdc_5_fund_centralized" / "bdc_5_fund_holdings.sqlite"
+DB_PATH = WORKSPACE_ROOT / "output" / "bdc_tracker_centralized" / "bdc_tracker_holdings.sqlite"
 OUTPUT_PATH = DASHBOARD_ROOT / "lib" / "dashboard-data.json"
 
-FUNDS = ["BXSL", "FSK", "TSLX"]
+FUNDS = ["ARCC", "BBDC", "BXSL", "FSK", "GBDC", "MAIN", "OBDC", "TSLX"]
 FUND_NAMES = {
+    "ARCC": "Ares Capital Corporation",
+    "BBDC": "Barings BDC, Inc.",
     "BXSL": "Blackstone Secured Lending Fund",
     "FSK": "FS KKR Capital Corp.",
+    "GBDC": "Golub Capital BDC, Inc.",
+    "MAIN": "Main Street Capital Corporation",
+    "OBDC": "Blue Owl Capital Corporation",
     "TSLX": "Sixth Street Specialty Lending, Inc.",
 }
+TIMELINE_ISSUER_LIMIT = 200
 
 CATEGORY_EXPR = """
 case
@@ -103,7 +109,7 @@ def latest_common_period(con: sqlite3.Connection) -> str:
         (len(FUNDS),),
     )
     if not result:
-        raise RuntimeError("No common period found across BXSL, FSK, and TSLX")
+        raise RuntimeError(f"No common period found across {', '.join(FUNDS)}")
     return str(result["filing_period_end"])
 
 
@@ -304,7 +310,6 @@ def build_data() -> dict[str, Any]:
             """,
             (latest_period,),
         )
-        timeline_issuer_limit = 80
         timeline_issuer_rows = rows(
             con,
             """
@@ -324,7 +329,7 @@ def build_data() -> dict[str, Any]:
             order by fund_count desc, fair_value_mm desc
             limit ?
             """,
-            (latest_period, timeline_issuer_limit),
+            (latest_period, TIMELINE_ISSUER_LIMIT),
         )
         cross_keys = [row["issuer_match_key"] for row in cross_fund_issuer_rows]
         timeline_keys = unique_sorted([*cross_keys, *[row["issuer_match_key"] for row in timeline_issuer_rows]])
@@ -475,7 +480,7 @@ def build_data() -> dict[str, Any]:
             loan_timeline_issuers.sort(
                 key=lambda item: (
                     0 if item["is_cross_fund"] else 1,
-                    item["latest_rank"] if item["latest_rank"] is not None else timeline_issuer_limit + 1,
+                    item["latest_rank"] if item["latest_rank"] is not None else TIMELINE_ISSUER_LIMIT + 1,
                     item["issuer_match_key"],
                 )
             )
@@ -846,8 +851,8 @@ def build_data() -> dict[str, Any]:
 
         limitations = [
             {
-                "title": "Three-fund scope",
-                "body": "This dashboard intentionally covers BXSL, FSK, and TSLX only. ARCC and OBDC are left out of this phase so the first interface stays anchored to the most organized source datasets.",
+                "title": "Eight verified holdings funds",
+                "body": "Holdings analytics cover ARCC, BBDC, BXSL, FSK, GBDC, MAIN, OBDC, and TSLX after source-level reconciliation. The broader EdgarTools universe is shown separately and is not mixed into verified rankings until each fund passes equivalent detail and aggregate checks.",
             },
             {
                 "title": "Current-period holdings only",
@@ -863,7 +868,7 @@ def build_data() -> dict[str, Any]:
             },
             {
                 "title": "Dashboard categories are normalized",
-                "body": "Combined category views map BXSL and FSK source categories plus TSLX instrument types into a dashboard category. TSLX's source category is the broad label Debt Investments, so the dashboard recodes it from instrument_type for comparability.",
+                "body": "Combined category views map each source's investment labels into dashboard categories. ARCC and TSLX instrument descriptions are used where the source category is an industry or broad debt label; original fields remain preserved in the central database.",
             },
             {
                 "title": "Amount fields are not all the same thing",
@@ -886,8 +891,8 @@ def build_data() -> dict[str, Any]:
                 "latest_period_label": "March 31, 2026",
             },
             "narrative": {
-                "overview": "The three-fund view gives a clean first read on scale, direction, and portfolio composition without blending in the noisier source systems yet.",
-                "trend": "All three funds have a common latest period at March 31, 2026. TSLX has no 2025 Q2 source in the current combined database, so trend lines should be read with that missing point in mind.",
+                "overview": "The eight-fund verified view compares scale, direction, and portfolio composition across ARCC, BBDC, BXSL, FSK, GBDC, MAIN, OBDC, and TSLX without blending unreconciled bulk rows into the rankings.",
+                "trend": "All eight verified funds have a common latest period at March 31, 2026. The EdgarTools cohort additions currently contribute their latest annual and quarterly observations, while the original five retain deeper histories.",
                 "exposure": "Category, issuer, rate, maturity, and match-key views use funded security-level rows to make concentration visible quickly. As-filed schedule rows remain available in the holdings and timeline detail tables, with FSK footnote (x) rows tagged as unfunded commitments.",
                 "quality": "The dashboard is built from the centralized SQLite database, and it carries the source integrity checks, source row counts, and central reconciliation checks into the interface.",
             },

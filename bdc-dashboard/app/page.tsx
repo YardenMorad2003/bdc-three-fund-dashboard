@@ -29,12 +29,29 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import dashboardData from "../lib/dashboard-data.json";
+import bdcUniverseData from "../lib/bdc-universe.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import liabilityStackData from "../lib/liability-stack.json";
 import quarterlyFactsData from "../lib/quarterly-bdc-facts.json";
 
-type Fund = "BXSL" | "FSK" | "TSLX";
-type Tab = "overview" | "financials" | "deterioration" | "exposure" | "timeline" | "holdings" | "liabilities" | "quality";
+type Fund =
+  | "ARCC"
+  | "BBDC"
+  | "BCSF"
+  | "BXSL"
+  | "CCAP"
+  | "CSWC"
+  | "FSK"
+  | "GBDC"
+  | "HTGC"
+  | "MAIN"
+  | "NMFC"
+  | "OBDC"
+  | "OCSL"
+  | "PSEC"
+  | "TCPC"
+  | "TSLX";
+type Tab = "overview" | "financials" | "deterioration" | "exposure" | "timeline" | "holdings" | "liabilities" | "universe" | "quality";
 type WatchlistBucketFilter = "All" | "Non-accrual" | "Shadow below 90" | "Watch 90-97" | "QoQ deterioration";
 type SortDirection = "asc" | "desc";
 type HoldingsSortKey = "amortized_cost_mm" | "fair_value_mm" | "mark_vs_cost_mm" | "fv_to_cost";
@@ -45,10 +62,7 @@ type PeriodPoint = {
   filing_period_end: string;
   coverage_count: number;
   total_fair_value_mm: number;
-  BXSL?: number | null;
-  FSK?: number | null;
-  TSLX?: number | null;
-};
+} & Partial<Record<Fund, number | null>>;
 
 type FundPeriod = {
   fund: Fund;
@@ -543,6 +557,7 @@ type DeteriorationGroup = {
   material_qoq_deterioration: boolean;
   sustained_deterioration: boolean;
   watchlist_buckets: string[];
+  shadow_signal_label: string | null;
   instrument_bucket: DeteriorationInstrumentBucket;
   category_label: string;
   instrument_label: string;
@@ -570,7 +585,7 @@ type QuarterlyFactsData = {
     source_database: string;
     model_database: string;
     funds: Fund[];
-    fund_names: Record<Fund, string>;
+    fund_names: Partial<Record<Fund, string>>;
     periods: string[];
     latest_period_end: string;
     scope: string;
@@ -669,15 +684,77 @@ type DashboardData = {
   limitations: Array<{ title: string; body: string }>;
 };
 
+type UniverseCoverageStatus = "verified_holdings" | "bulk_soi_available" | "registry_only";
+
+type BdcUniverseRow = {
+  cik: number;
+  ticker: Fund | null;
+  name: string;
+  file_number: string | null;
+  city: string | null;
+  state: string | null;
+  last_filing_date: string | null;
+  last_filing_type: string | null;
+  is_active: boolean | null;
+  edgartools_registry: boolean;
+  manual_registry_exception: boolean;
+  bulk_period: string | null;
+  bulk_soi_fact_rows: number;
+  bulk_forms: string[];
+  bulk_latest_filed: string | null;
+  coverage_status: UniverseCoverageStatus;
+  coverage_label: string;
+  verified_latest_period: string | null;
+  verified_latest_rows: number;
+  verified_latest_fair_value_mm: number | null;
+  tracker_audit_status: "verified" | "review" | null;
+  tracker_audit_forms: Record<string, { status: string; residual_fair_value_pct: number | null }>;
+};
+
+type BdcUniverseData = {
+  meta: {
+    generated_at_utc: string;
+    edgartools_version: string;
+    registry_entities: number;
+    universe_entities: number;
+    active_registry_entities: number;
+    verified_funds: number;
+    expansion_cohort_funds: number;
+    expansion_cohort_verified: number;
+    expansion_cohort_review: number;
+    bulk_period: string;
+    bulk_companies: number;
+    bulk_soi_entries: number;
+    bulk_available_periods_note: string;
+  };
+  rows: BdcUniverseRow[];
+  limitations: string[];
+};
+
 const data = dashboardData as unknown as DashboardData;
+const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const liabilityStack = liabilityStackData as LiabilityStackData;
 const quarterlyFacts = quarterlyFactsData as QuarterlyFactsData;
-const funds: Fund[] = ["BXSL", "FSK", "TSLX"];
+const funds: Fund[] = ["ARCC", "BBDC", "BXSL", "FSK", "GBDC", "MAIN", "OBDC", "TSLX"];
+const institutionalFunds: Fund[] = ["BXSL", "FSK", "TSLX"];
 const timelineIssuerKeys = new Set(data.loan_timeline_issuers.map((issuer) => issuer.issuer_match_key));
 const fundColors: Record<Fund, string> = {
+  ARCC: "#7c3aed",
+  BBDC: "#0f766e",
+  BCSF: "#4f46e5",
   BXSL: "#2563eb",
+  CCAP: "#8b5cf6",
+  CSWC: "#ca8a04",
   FSK: "#16a34a",
+  GBDC: "#0891b2",
+  HTGC: "#dc2626",
+  MAIN: "#c2410c",
+  NMFC: "#e11d48",
+  OBDC: "#db2777",
+  OCSL: "#059669",
+  PSEC: "#a16207",
+  TCPC: "#475569",
   TSLX: "#d97706"
 };
 
@@ -798,9 +875,10 @@ function formatNumber(value: number | null | undefined) {
   return new Intl.NumberFormat("en-US").format(value);
 }
 
-function formatSourceAmount(row: Pick<LoanTimelineSecurity, "amount_currency" | "amount_value" | "principal_mm">) {
+function formatSourceAmount(row: Pick<LoanTimelineSecurity, "amount_kind" | "amount_currency" | "amount_value" | "principal_mm">) {
   if (row.principal_mm !== null && row.principal_mm !== undefined) return formatMm(row.principal_mm);
   if (row.amount_value === null || row.amount_value === undefined || Number.isNaN(row.amount_value)) return "n/a";
+  if (row.amount_kind === "number_of_shares") return `${formatNumber(row.amount_value)} sh`;
   return `${formatNumber(row.amount_value)}${row.amount_currency ? ` ${row.amount_currency}` : ""}`;
 }
 
@@ -896,6 +974,22 @@ function sumDefined(values: Array<number | null | undefined>) {
 
 function uniqueSorted(values: string[]) {
   return Array.from(new Set(values.filter((value) => value.trim()))).sort();
+}
+
+function isSourceDerivedEnrichment(enrichment: CompanyEnrichment | undefined) {
+  if (!enrichment) return false;
+  return enrichment.notes.startsWith("Source-derived schedule context");
+}
+
+function parseJsonStringArray(value: string | null | undefined) {
+  if (!value) return [];
+  try {
+    const parsed: unknown = JSON.parse(value);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+  } catch {
+    return [];
+  }
 }
 
 function shortPeriod(value: string) {
@@ -1275,6 +1369,20 @@ function deteriorationSignalScore(input: {
   return score;
 }
 
+function shadowSignalLabel(rows: IssuerWatchlistFactRow[]) {
+  const shadowRows = rows.filter((row) => row.shadow_non_accrual);
+  if (!shadowRows.length) return null;
+
+  const checks: Array<{ label: string; matches: (row: IssuerWatchlistFactRow) => boolean }> = [
+    { label: "shadow below 80 FV/cost", matches: (row) => row.below_80_fv_to_cost },
+    { label: "shadow below 90 FV/cost", matches: (row) => row.below_90_fv_to_cost },
+    { label: "shadow below 80 FV/principal", matches: (row) => row.below_80_fv_to_principal },
+    { label: "shadow below 90 FV/principal", matches: (row) => row.below_90_fv_to_principal }
+  ];
+
+  return checks.find((check) => shadowRows.some(check.matches))?.label || "shadow below 90";
+}
+
 function buildDeteriorationReason(group: Omit<DeteriorationGroup, "reason">) {
   const reasons: string[] = [];
   if (group.down_quarter_count >= 2) reasons.push(`${group.down_quarter_count} recent down quarters`);
@@ -1284,7 +1392,7 @@ function buildDeteriorationReason(group: Omit<DeteriorationGroup, "reason">) {
   if (group.three_quarter_fv_to_cost_change_pct !== null && group.three_quarter_fv_to_cost_change_pct <= threeQuarterDeteriorationThresholdPct) {
     reasons.push(`3Q ${formatSignedPp(group.three_quarter_fv_to_cost_change_pct)} FV/cost`);
   }
-  if (group.shadow_non_accrual) reasons.push(group.fv_to_cost_pct !== null && group.fv_to_cost_pct < 80 ? "shadow below 80" : "shadow below 90");
+  if (group.shadow_non_accrual) reasons.push(group.shadow_signal_label || "shadow below 90");
   if (group.qoq_fv_to_cost_change_pct !== null && group.qoq_fv_to_cost_change_pct <= materialQoqDeteriorationThresholdPct) {
     reasons.push(`${formatSignedPp(group.qoq_fv_to_cost_change_pct)} FV/cost`);
   }
@@ -1392,6 +1500,7 @@ function buildDeteriorationGroups(
         material_qoq_deterioration: groupedRows.some((row) => row.material_qoq_deterioration),
         sustained_deterioration: sustainedDeterioration,
         watchlist_buckets: uniqueSorted(groupedRows.map((row) => row.watchlist_bucket)),
+        shadow_signal_label: shadowSignalLabel(groupedRows),
         instrument_bucket: instrumentBucket,
         category_label:
           summarizeValues(groupHoldings.map((row) => row.industry), primary.issuer_industries || "No industry") ||
@@ -1650,7 +1759,7 @@ function TimeSeriesChart({ points }: { points: PeriodPoint[] }) {
             </div>
             <div className="stack-value">
               {formatMm(point.total_fair_value_mm, 0)}
-              {point.coverage_count < 3 ? " *" : ""}
+              {point.coverage_count < funds.length ? " *" : ""}
             </div>
           </div>
         ))}
@@ -2065,11 +2174,11 @@ function OverviewTrendCharts({ selectedFund }: { selectedFund: Fund | "All" }) {
 }
 
 function BdcPrimer({ selectedFund }: { selectedFund: Fund | "All" }) {
-  const scope = selectedFund === "All" ? "BXSL, FSK, and TSLX" : selectedFund;
+  const scope = selectedFund === "All" ? "the eight verified BDCs" : selectedFund;
   return (
     <Panel
       title="BDC Primer"
-      subtitle={`Plain-language context for reading ${selectedFund === "All" ? "the three-fund private credit dataset" : `${selectedFund}'s private credit data`}.`}
+      subtitle={`Plain-language context for reading ${selectedFund === "All" ? "the eight-fund verified private credit dataset" : `${selectedFund}'s private credit data`}.`}
       icon={Info}
     >
       <div className="bdc-primer-grid">
@@ -2105,7 +2214,7 @@ function BdcPrimer({ selectedFund }: { selectedFund: Fund | "All" }) {
         </section>
       </div>
       <p className="bdc-primer-source">
-        Source context: SEC Investor.gov BDC bulletin and the 2025 10-Ks for BXSL, FSK, and TSLX.
+        Source context: SEC Investor.gov BDC bulletin and the eight reconciled filing datasets in the verified tracker.
       </p>
     </Panel>
   );
@@ -2269,11 +2378,15 @@ function widestCrossFundMarkDifference() {
 }
 
 function KeyObservations() {
-  const latestFairValue = sumBy(data.latest_by_fund, (row) => row.fair_value_mm);
-  const latestCost = sumBy(data.latest_by_fund, (row) => row.amortized_cost_mm);
-  const markGap = latestFairValue - latestCost;
-  const fskLatest = data.latest_by_fund.find((row) => row.fund === "FSK");
-  const fskGapShare = fskLatest && markGap ? (Math.abs(fskLatest.mark_vs_cost_mm) / Math.abs(markGap)) * 100 : null;
+  const fundedLatestRows = data.holdings_detail_latest.filter((row) => row.exposure_type === "funded");
+  const fundedFairValue = sumBy(fundedLatestRows, (row) => row.fair_value_mm);
+  const fundedCost = sumBy(fundedLatestRows, (row) => row.amortized_cost_mm);
+  const fundedMarkGap = fundedFairValue - fundedCost;
+  const fskFundedMarkGap = sumBy(
+    fundedLatestRows.filter((row) => row.fund === "FSK"),
+    (row) => row.mark_vs_cost_mm
+  );
+  const fskGapShare = fundedMarkGap ? (Math.abs(fskFundedMarkGap) / Math.abs(fundedMarkGap)) * 100 : null;
   const fskPressureNames = issuerMarkPressure("FSK")
     .slice(0, 2)
     .map((issuer) => `${issuer.issuerName} (${formatMm(issuer.markVsCostMm)})`)
@@ -2291,7 +2404,8 @@ function KeyObservations() {
     data.category_totals_latest.filter((row) => row.investment_category === "First Lien Debt"),
     (row) => row.fair_value_mm
   );
-  const totalFirstLienShare = latestFairValue ? (totalFirstLienFairValue / latestFairValue) * 100 : null;
+  const latestFundedCategoryFairValue = sumBy(data.category_totals_latest, (row) => row.fair_value_mm);
+  const totalFirstLienShare = latestFundedCategoryFairValue ? (totalFirstLienFairValue / latestFundedCategoryFairValue) * 100 : null;
   const fskCategoryRows = data.category_latest.filter((row) => row.fund === "FSK");
   const fskFirstLienFairValue = sumBy(
     fskCategoryRows.filter((row) => row.investment_category === "First Lien Debt"),
@@ -2305,14 +2419,14 @@ function KeyObservations() {
   return (
     <Panel
       title={`Key Observations as of ${formatSlashDate(data.meta.latest_common_period)}`}
-      subtitle="Quantitative read from the latest common-period three-fund dataset."
+      subtitle="Quantitative read from the latest common-period eight-fund verified dataset."
       icon={Info}
     >
       <ul className="observations-list">
         <li>
-          <strong>{formatMm(latestFairValue)}</strong> of aggregate fair value sits{" "}
-          <strong>{formatMm(Math.abs(markGap))}</strong> below amortized cost; FSK accounts for{" "}
-          <strong>{formatPct(fskGapShare)}</strong> of that gap, led by {fskPressureNames}.
+          <strong>{formatMm(fundedFairValue)}</strong> of funded fair value sits{" "}
+          <strong>{formatMm(Math.abs(fundedMarkGap))}</strong> below amortized cost; FSK accounts for{" "}
+          <strong>{formatPct(fskGapShare)}</strong> of that funded gap, led by {fskPressureNames}.
         </li>
         <li>
           Concentration diverges sharply: FSK top-5 issuer exposure is{" "}
@@ -2336,7 +2450,7 @@ function KeyObservations() {
         <li>
           First-lien loans are <strong>{formatMm(totalFirstLienFairValue)}</strong>, or{" "}
           <strong>{formatPct(totalFirstLienShare)}</strong>{" "}
-          of headline fair value, but FSK&apos;s funded category mix is
+          of funded category fair value, but FSK&apos;s funded category mix is
           less senior: <strong>{formatMm(fskFirstLienFairValue)}</strong> first-lien versus{" "}
           <strong>{formatMm(fskOtherFundedCategoryFairValue)}</strong> in other funded categories.
         </li>
@@ -2367,7 +2481,7 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
         .filter((item) => item.fund === selectedFund)
         .map((item) => ({ ...item, label: item.investment_category || "Uncategorized" }));
   const concentrationRows = data.issuer_concentration.filter((row) => isAllFunds || row.fund === selectedFund);
-  const selectedName = isAllFunds ? "the three-fund view" : selectedFund;
+  const selectedName = isAllFunds ? "the eight-fund verified view" : selectedFund;
   const overviewNarrative = isAllFunds
     ? data.narrative.overview
     : `${selectedFund}'s latest common-period fair value is ${formatMm(latestTotal)} across ${formatNumber(
@@ -2378,8 +2492,6 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
 
   return (
     <div className="grid">
-      <ProjectMotivation />
-
       <div className="grid kpi-grid">
         <MetricCard
           title="Latest fair value"
@@ -2406,7 +2518,7 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
           note={
             isAllFunds
               ? `${data.raw_cross_fund_issuer_count_latest} groups if joined on display names only.`
-              : `normalized groups where ${selectedFund} overlaps another core fund.`
+              : `normalized groups where ${selectedFund} overlaps another verified fund.`
           }
           icon={FileSearch}
         />
@@ -2417,6 +2529,8 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
       <KeyObservations />
 
       <BdcPrimer selectedFund={selectedFund} />
+
+      <ProjectMotivation />
 
       <OverviewTrendCharts selectedFund={selectedFund} />
 
@@ -2482,6 +2596,17 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
 function Deterioration({ selectedFund }: { selectedFund: Fund | "All" }) {
   const [deteriorationExposureFilter, setDeteriorationExposureFilter] =
     useState<DeteriorationExposureFilter>("All");
+  if (selectedFund !== "All" && !institutionalFunds.includes(selectedFund)) {
+    return (
+      <div className="grid">
+        <Callout title={`${selectedFund} deterioration model is not backfilled yet`}>
+          Holdings marks and issuer timelines are available for {selectedFund}. The presentation- and filing-enriched
+          non-accrual/watchlist model currently covers BXSL, FSK, and TSLX, so this screen does not infer missing credit
+          statuses for funds outside the three-fund institutional facts layer.
+        </Callout>
+      </div>
+    );
+  }
   const selectedWatchlistRows = quarterlyFacts.issuer_watchlist_facts.filter(
     (row) => selectedFund === "All" || row.fund === selectedFund
   );
@@ -2758,7 +2883,12 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
   const [watchlistFundFilter, setWatchlistFundFilter] = useState<Fund | "All">("All");
   const [watchlistBucketFilter, setWatchlistBucketFilter] = useState<WatchlistBucketFilter>("All");
   const [watchlistInstrumentFilter, setWatchlistInstrumentFilter] = useState("All");
-  const visibleFunds = selectedFund === "All" ? funds : [selectedFund];
+  const visibleFunds =
+    selectedFund === "All"
+      ? institutionalFunds
+      : institutionalFunds.includes(selectedFund)
+        ? [selectedFund]
+        : [];
   const rows = quarterlyFacts.rows.filter((row) => selectedFund === "All" || row.fund === selectedFund);
   const latestRows = quarterlyFacts.latest_rows.filter((row) => selectedFund === "All" || row.fund === selectedFund);
   const activityRows = rows
@@ -2845,6 +2975,15 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
   const maxMarkToCost = maxDefined(rows.map((row) => row.holdings_mark_to_cost_pct));
   const periodCount = uniqueSorted(rows.map((row) => row.period_end)).length;
   const seededLatestRows = latestRows.filter((row) => row.source_status.includes("presentation"));
+  const latestIncomeQualityNotes = incomeQualityRows
+    .filter((row) => row.period_end === quarterlyFacts.meta.latest_period_end)
+    .flatMap((row) =>
+      parseJsonStringArray(row.one_time_items_json).map((note, index) => ({
+        key: `${row.fund}-${row.period_end}-${index}`,
+        label: `${row.fund} ${shortPeriod(row.period_end)}`,
+        note
+      }))
+    );
 
   const getQuarterlyValue = (fund: Fund, period: string, key: keyof QuarterlyFactRow) => {
     const value = rowMap.get(`${fund}|${period}`)?.[key];
@@ -2903,6 +3042,18 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
   const navAxisTicks = Array.from({ length: Math.max(2, Math.round((navAxisMax - navAxisMin) / 5) + 1) }, (_, index) => navAxisMax - index * 5).filter(
     (tick) => tick >= navAxisMin
   );
+
+  if (selectedFund !== "All" && !institutionalFunds.includes(selectedFund)) {
+    return (
+      <div className="grid">
+        <Callout title={`${selectedFund} financial facts are not backfilled yet`}>
+          Verified holdings, issuer exposure, marks, rates, and timeline data are available for {selectedFund}. The
+          presentation-sourced financial, dividend, non-accrual, and market-price model currently covers BXSL, FSK, and
+          TSLX only, so this tab stays blank rather than substituting unsourced values.
+        </Callout>
+      </div>
+    );
+  }
 
   return (
     <div className="grid">
@@ -2996,7 +3147,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
                 <th className="right">NII/share</th>
                 <th className="right">Dividend</th>
                 <th className="right">Coverage</th>
-                <th className="right">Leverage</th>
+                <th className="right">Leverage*</th>
                 <th className="right">Debt cost</th>
                 <th className="right">Non-accrual FV</th>
                 <th className="right">PIK income</th>
@@ -3023,6 +3174,12 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
             </tbody>
           </table>
         </div>
+        {visibleFunds.includes("FSK") ? (
+          <p className="activity-source-note">
+            * Leverage uses gross debt/equity where disclosed; FSK is shown on net debt/equity because gross debt/equity
+            was not separately disclosed in the loaded quarterly facts.
+          </p>
+        ) : null}
       </Panel>
 
       <Panel
@@ -3136,6 +3293,18 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
                 </tbody>
               </table>
             </div>
+            {latestIncomeQualityNotes.length ? (
+              <div className="bridge-source-notes">
+                <h3>Latest bridge source notes</h3>
+                <ul>
+                  {latestIncomeQualityNotes.map((item) => (
+                    <li key={item.key}>
+                      <strong>{item.label}:</strong> {item.note}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         ) : (
           <div className="empty-state">No income-quality bridge rows match the current fund filter.</div>
@@ -3338,7 +3507,7 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
               title="Watchlist fund"
             >
               <option value="All">All funds</option>
-              {funds.map((fund) => (
+              {institutionalFunds.map((fund) => (
                 <option key={fund} value={fund}>
                   {fund}
                 </option>
@@ -4041,6 +4210,10 @@ function Timeline({
   const firstPeriod = periodKeys[0] || null;
   const latestFairValue = latestPeriod ? periodTotals[latestPeriod] : 0;
   const maxFairValue = Math.max(...Object.values(periodTotals), 0);
+  const sourceDerivedEnrichment = isSourceDerivedEnrichment(enrichment);
+  const scheduleEvidenceRows = (latestPeriod ? periodRows.filter((row) => row.filing_period_end === latestPeriod) : periodRows)
+    .slice()
+    .sort((a, b) => b.fair_value_mm - a.fair_value_mm);
   const sortedPeriods = [...periodRows].sort((a, b) =>
     `${b.filing_period_end}-${b.fund}`.localeCompare(`${a.filing_period_end}-${a.fund}`)
   );
@@ -4106,21 +4279,41 @@ function Timeline({
               </p>
               <p className="company-description">{enrichment.description}</p>
               <div className="sponsor-box">
-                <span>Current sponsor</span>
-                <strong>{enrichment.current_sponsor}</strong>
+                <span>{sourceDerivedEnrichment ? "Latest schedule coverage" : "Current sponsor"}</span>
+                <strong>
+                  {sourceDerivedEnrichment
+                    ? `${formatMm(latestFairValue)} across ${visibleFunds.join(", ")}${latestPeriod ? ` at ${formatDate(latestPeriod)}` : ""}`
+                    : enrichment.current_sponsor}
+                </strong>
               </div>
               <div className="history-block">
-                <h4>Sponsor history</h4>
-                <ol className="history-list">
-                  {enrichment.sponsor_history.map((item) => (
-                    <li key={`${item.date}-${item.event}`}>
-                      <span>{item.date}</span>
-                      <a href={item.source_url} target="_blank" rel="noreferrer">
-                        {item.event}
-                      </a>
-                    </li>
-                  ))}
-                </ol>
+                <h4>{sourceDerivedEnrichment ? "Schedule evidence" : "Sponsor history"}</h4>
+                {sourceDerivedEnrichment && scheduleEvidenceRows.length ? (
+                  <ol className="history-list">
+                    {scheduleEvidenceRows.map((row) => (
+                      <li key={`${row.fund}-${row.filing_period_end}`}>
+                        <span>{shortPeriod(row.filing_period_end)}</span>
+                        <a href={enrichment.sources[0]?.url || "#"} target="_blank" rel="noreferrer">
+                          {row.fund} reported {formatMm(row.fair_value_mm)} fair value across{" "}
+                          {formatNumber(row.holding_rows)} funded row{row.holding_rows === 1 ? "" : "s"}.
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                ) : enrichment.sponsor_history.length ? (
+                  <ol className="history-list">
+                    {enrichment.sponsor_history.map((item) => (
+                      <li key={`${item.date}-${item.event}`}>
+                        <span>{item.date}</span>
+                        <a href={item.source_url} target="_blank" rel="noreferrer">
+                          {item.event}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p className="footer-note">No sponsor events are available for this issuer yet.</p>
+                )}
               </div>
               <div className="source-list">
                 {enrichment.sources.map((source) => (
@@ -4297,6 +4490,16 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
       })
       .map(({ row }) => row);
   }, [filtered, sort]);
+  const holdingsDisplayLimit = 120;
+  const displayedHoldingCount = Math.min(filtered.length, holdingsDisplayLimit);
+  const visibleAmountFieldRows = data.amount_field_summary_latest.filter((row) => selectedFund === "All" || row.fund === selectedFund);
+  const amountFieldRowsCount = sumBy(visibleAmountFieldRows, (row) => row.rows);
+  const amountFieldFairValue = sumBy(visibleAmountFieldRows, (row) => row.fair_value_mm);
+  const selectedLatestFundRows = data.latest_by_fund.filter((row) => selectedFund === "All" || row.fund === selectedFund);
+  const selectedLatestRows = sumBy(selectedLatestFundRows, (row) => row.holding_rows);
+  const selectedLatestFairValue = sumBy(selectedLatestFundRows, (row) => row.fair_value_mm);
+  const amountFieldRowGap = Math.max(0, selectedLatestRows - amountFieldRowsCount);
+  const amountFieldFairValueGap = Math.max(0, selectedLatestFairValue - amountFieldFairValue);
 
   const updateSort = (key: HoldingsSortKey) => {
     setSort((current) => ({
@@ -4335,7 +4538,7 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
 
       <Panel
         title="Latest Holdings"
-        subtitle={`${filtered.length} rows match filters, sorted by ${holdingsSortLabels[sort.key].toLowerCase()} ${
+        subtitle={`Showing ${formatNumber(displayedHoldingCount)} of ${formatNumber(filtered.length)} rows that match filters, sorted by ${holdingsSortLabels[sort.key].toLowerCase()} ${
           sort.direction === "desc" ? "high to low" : "low to high"
         }.`}
         icon={Table2}
@@ -4357,7 +4560,7 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
                 </tr>
               </thead>
               <tbody>
-                {sorted.slice(0, 120).map((row, index) => (
+                {sorted.slice(0, holdingsDisplayLimit).map((row, index) => (
                   <tr key={`${row.fund}-${row.issuer_name}-${row.fair_value_mm}-${index}`}>
                     <td>
                       <FundBadge fund={row.fund} />
@@ -4392,7 +4595,7 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
         )}
       </Panel>
 
-      <Panel title="Amount Field Footing" subtitle="A quick check on the source amount labels behind the latest holdings." icon={SlidersHorizontal}>
+      <Panel title="Funded Amount Field Labels" subtitle="Source amount labels behind funded latest-period security rows." icon={SlidersHorizontal}>
         <div className="table-wrap">
           <table>
             <thead>
@@ -4405,8 +4608,7 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
               </tr>
             </thead>
             <tbody>
-              {data.amount_field_summary_latest
-                .filter((row) => selectedFund === "All" || row.fund === selectedFund)
+              {visibleAmountFieldRows
                 .slice(0, 24)
                 .map((row) => (
                   <tr key={`${row.fund}-${row.amount_kind}-${row.amount_currency}`}>
@@ -4422,6 +4624,13 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
             </tbody>
           </table>
         </div>
+        <p className="activity-source-note">
+          Funded amount-label rows cover {formatNumber(amountFieldRowsCount)} of {formatNumber(selectedLatestRows)} latest
+          rows and {formatMm(amountFieldFairValue)} of {formatMm(selectedLatestFairValue)} headline fair value.
+          {amountFieldRowGap || amountFieldFairValueGap
+            ? ` The remaining ${formatNumber(amountFieldRowGap)} rows / ${formatMm(amountFieldFairValueGap)} are retained in headline holdings totals, primarily FSK footnote (x) unfunded commitments, but are excluded from funded category, rate, maturity, and amount-label summaries.`
+            : " No unfunded-commitment gap is present for the selected fund view."}
+        </p>
       </Panel>
     </div>
   );
@@ -4661,6 +4870,17 @@ function LiabilityInstrumentTable({ instruments }: { instruments: LiabilityInstr
 
 function Liabilities({ selectedFund }: { selectedFund: Fund | "All" }) {
   const selectedFunds = liabilityStack.funds.filter((fund) => selectedFund === "All" || fund.fund === selectedFund);
+  if (!selectedFunds.length) {
+    return (
+      <div className="grid">
+        <Callout title={`${selectedFund} liability stack is not backfilled yet`}>
+          The verified holdings expansion is complete for {selectedFund}, but the instrument-level debt and liquidity
+          model currently covers BXSL, FSK, and TSLX. This tab remains blank until the same filing-sourced liability
+          review is completed for the selected fund.
+        </Callout>
+      </div>
+    );
+  }
   const instruments = selectedFunds.flatMap((fund) =>
     fund.instruments.map((instrument) => ({
       ...instrument,
@@ -4928,6 +5148,157 @@ function Liabilities({ selectedFund }: { selectedFund: Fund | "All" }) {
   );
 }
 
+function Universe() {
+  const [query, setQuery] = useState("");
+  const [coverageFilter, setCoverageFilter] = useState<UniverseCoverageStatus | "all">("all");
+  const normalizedQuery = query.trim().toLowerCase();
+  const rows = bdcUniverse.rows.filter((row) => {
+    const matchesCoverage = coverageFilter === "all" || row.coverage_status === coverageFilter;
+    const haystack = [row.name, row.ticker, row.cik, row.file_number, row.city, row.state]
+      .filter((value) => value !== null && value !== undefined)
+      .join(" ")
+      .toLowerCase();
+    return matchesCoverage && (!normalizedQuery || haystack.includes(normalizedQuery));
+  });
+  const bulkCoverageRows = bdcUniverse.rows.filter((row) => row.bulk_soi_fact_rows > 0).length;
+
+  return (
+    <div className="grid">
+      <div className="section-heading">
+        <Database />
+        <div>
+          <h2>EdgarTools BDC Universe</h2>
+          <p>Discovery coverage is broad; verified holdings remain behind reconciliation gates.</p>
+        </div>
+      </div>
+
+      <div className="grid kpi-grid">
+        <MetricCard
+          title="Universe entities"
+          value={formatNumber(bdcUniverse.meta.universe_entities)}
+          note={`${formatNumber(bdcUniverse.meta.registry_entities)} in the current EdgarTools registry plus companies found in SEC bulk data.`}
+          icon={Database}
+        />
+        <MetricCard
+          title="Active registry"
+          value={formatNumber(bdcUniverse.meta.active_registry_entities)}
+          note="Entities marked active in the current EdgarTools BDC report."
+          icon={Activity}
+        />
+        <MetricCard
+          title="Bulk SOI coverage"
+          value={formatNumber(bulkCoverageRows)}
+          note={`${bdcUniverse.meta.bulk_period}; ${formatNumber(bdcUniverse.meta.bulk_soi_entries)} tagged schedule rows.`}
+          icon={Layers3}
+        />
+        <MetricCard
+          title="Verified holdings"
+          value={formatNumber(bdcUniverse.meta.verified_funds)}
+          note="Eight reconciled holdings funds through Q1 2026."
+          icon={ShieldCheck}
+        />
+      </div>
+
+      <Callout title="How to read coverage">
+        The universe screen includes every entity found in EdgarTools&apos; current BDC registry or its latest SEC bulk
+        Schedule of Investments dataset. A bulk-data badge is a discovery signal, not a validation stamp. Only the eight
+        verified funds feed portfolio rankings, issuer overlap, marks, rates, and maturity analytics. The requested
+        eleven-fund cohort also shows its tracker audit result below.
+      </Callout>
+
+      <Panel
+        title="BDC Coverage Directory"
+        subtitle={`${formatNumber(rows.length)} of ${formatNumber(bdcUniverse.rows.length)} entities match the current filters.`}
+        icon={FileSearch}
+        action={
+          <div className="panel-controls universe-controls">
+            <div className="search-wrap">
+              <Search />
+              <input
+                className="search"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search name, ticker, CIK, state"
+                aria-label="Search BDC universe"
+              />
+            </div>
+            <select
+              className="select"
+              value={coverageFilter}
+              onChange={(event) => setCoverageFilter(event.target.value as UniverseCoverageStatus | "all")}
+              aria-label="Coverage status"
+            >
+              <option value="all">All coverage</option>
+              <option value="verified_holdings">Verified holdings</option>
+              <option value="bulk_soi_available">SEC bulk SOI available</option>
+              <option value="registry_only">Registry only</option>
+            </select>
+          </div>
+        }
+      >
+        <div className="table-wrap universe-table-wrap">
+          <table className="compact-wide-table">
+            <thead>
+              <tr>
+                <th>BDC</th>
+                <th>Coverage</th>
+                <th>Tracker audit</th>
+                <th>Location</th>
+                <th>Active</th>
+                <th>Latest registry filing</th>
+                <th className="right">Bulk SOI facts</th>
+                <th className="right">Verified FV</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row.cik}>
+                  <td className="issuer-cell">
+                    <strong>{row.ticker ? <FundBadge fund={row.ticker} /> : row.name}</strong>
+                    <span>{row.ticker ? row.name : `CIK ${row.cik}`}</span>
+                  </td>
+                  <td>
+                    <span className={`coverage-badge ${row.coverage_status}`}>{row.coverage_label}</span>
+                  </td>
+                  <td>
+                    {row.tracker_audit_status ? (
+                      <span className={`coverage-badge audit-${row.tracker_audit_status}`}>
+                        {row.tracker_audit_status === "verified" ? "Promoted" : "Needs custom extraction"}
+                      </span>
+                    ) : (
+                      "—"
+                    )}
+                  </td>
+                  <td>{[row.city, row.state].filter(Boolean).join(", ") || "n/a"}</td>
+                  <td>{row.is_active === null ? "Unknown" : row.is_active ? "Yes" : "No"}</td>
+                  <td>
+                    {row.last_filing_date ? `${formatDate(row.last_filing_date)} · ${row.last_filing_type || "filing"}` : "n/a"}
+                  </td>
+                  <td className="right">
+                    {row.bulk_soi_fact_rows ? formatNumber(row.bulk_soi_fact_rows) : "—"}
+                  </td>
+                  <td className="right">
+                    {row.verified_latest_fair_value_mm !== null ? formatMm(row.verified_latest_fair_value_mm) : "—"}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Panel>
+
+      <div className="grid limitation-grid">
+        {bdcUniverse.limitations.map((limitation) => (
+          <section className="panel limitation" key={limitation}>
+            <h3>Coverage guardrail</h3>
+            <p>{limitation}</p>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Quality() {
   return (
     <div className="grid">
@@ -5069,8 +5440,8 @@ function Quality() {
                 </tr>
               </thead>
               <tbody>
-                {data.validation_results.map((row) => (
-                  <tr key={`${row.check_name}-${row.fund || "all"}-${row.actual}`}>
+                {data.validation_results.map((row, index) => (
+                  <tr key={`${row.check_name}-${row.fund || "all"}-${row.actual}-${index}`}>
                     <td>{row.check_name}</td>
                     <td>{row.fund ? <FundBadge fund={row.fund} /> : "All"}</td>
                     <td>
@@ -5153,59 +5524,75 @@ export default function DashboardPage() {
     { id: "timeline", label: "Timeline", icon: LineChart },
     { id: "holdings", label: "Holdings", icon: Table2 },
     { id: "liabilities", label: "Liabilities", icon: Gauge },
+    { id: "universe", label: "BDC Universe", icon: Database },
     { id: "quality", label: "Quality + Methodology", icon: ShieldCheck }
   ];
+  const activeTabLabel = tabs.find((tab) => tab.id === activeTab)?.label || "Overview";
 
   return (
     <main className="app-shell">
-      <header className="topbar">
-        <div className="topbar-inner">
+      <aside className="research-rail">
+        <div className="rail-brand">
+          <strong>BDC Tracker</strong>
+          <span>EDGAR filing monitor · {data.meta.latest_period_label}</span>
+        </div>
+
+        <p className="rail-label">Portfolio workbench</p>
+        <nav className="tabs" aria-label="Dashboard sections">
+          {tabs.map((tab, index) => (
+            <button
+              className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              title={tab.label}
+              type="button"
+            >
+              <span className="tab-index">{String(index + 1).padStart(2, "0")}</span>
+              <span>{tab.label}</span>
+            </button>
+          ))}
+        </nav>
+
+        <section className="rail-studies" aria-label="Pinned research views">
+          <p className="rail-label">Pinned studies</p>
+          <button type="button" onClick={() => setActiveTab("financials")}><span>A1</span>Quarter comparison</button>
+          <button type="button" onClick={() => setActiveTab("deterioration")}><span>B4</span>Credit migration</button>
+          <button type="button" onClick={() => setActiveTab("universe")}><span>D2</span>Expansion queue</button>
+        </section>
+
+        <section className="rail-status" aria-label="Research coverage status">
+          <p className="rail-label">Current research set</p>
+          <strong>{funds.length} verified funds</strong>
+          <span>Normalized through {data.meta.latest_period_label}</span>
+          <span>{formatNumber(data.latest_by_fund.reduce((total, row) => total + row.holding_rows, 0))} holding rows</span>
+          <small><i />Synced</small>
+        </section>
+      </aside>
+
+      <section className="research-workspace">
+        <header className="topbar">
+          <div className="topbar-inner">
           <div className="brand">
-            <p className="eyebrow">BDC holdings workspace</p>
-            <h1>Three-Fund Centralized Dashboard</h1>
-            <p>
-              BXSL, FSK, and TSLX only. Latest common period is {data.meta.latest_period_label}; source database is{" "}
-              {data.meta.source_database}.
-            </p>
+            <p className="eyebrow">Eight public BDCs / {data.meta.latest_period_label}</p>
+            <h1>{activeTab === "overview" ? "Portfolio overview" : activeTabLabel}</h1>
           </div>
-          <div className="status-strip">
-            <span className="pill ok">
-              <CheckCircle2 />
-              SQLite {data.meta.sqlite_integrity}
-            </span>
-            <span className="pill">
-              <Calendar />
-              {formatDate(data.meta.latest_common_period)}
-            </span>
-            <span className="pill">
-              <Database />
-              Generated {formatDate(data.meta.generated_at_utc.slice(0, 10))}
-            </span>
+          <div className="mast-meta">
+            <div>
+              <span>Coverage</span>
+              <strong>{funds.length} verified funds · {data.meta.latest_period_label}</strong>
+            </div>
+            <div>
+              <span>As of</span>
+              <strong>{formatDate(data.meta.latest_common_period)}</strong>
+            </div>
           </div>
         </div>
       </header>
 
       <div className="content">
         <div className="toolbar">
-          <nav className="tabs" aria-label="Dashboard sections">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  title={tab.label}
-                  type="button"
-                >
-                  <Icon />
-                  {tab.label}
-                </button>
-              );
-            })}
-          </nav>
-
           <div className="control-row">
+            <span className="control-label">Research scope</span>
             <select
               className="select"
               value={selectedFund}
@@ -5263,8 +5650,10 @@ export default function DashboardPage() {
         ) : null}
         {activeTab === "holdings" ? <Holdings selectedFund={selectedFund} searchTerm={searchTerm} /> : null}
         {activeTab === "liabilities" ? <Liabilities selectedFund={selectedFund} /> : null}
+        {activeTab === "universe" ? <Universe /> : null}
         {activeTab === "quality" ? <Quality /> : null}
       </div>
+      </section>
     </main>
   );
 }

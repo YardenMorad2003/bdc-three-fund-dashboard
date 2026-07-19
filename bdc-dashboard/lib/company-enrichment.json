@@ -2633,5 +2633,2713 @@
     ],
     "confidence": "medium",
     "notes": "This is intentionally a borrower-shell enrichment. The holding-company identity is clear; a definitive operating company was not sourced, so the dashboard should not show one."
+  },
+  {
+    "issuer_match_key": "PSKW",
+    "display_name": "PSKW LLC (dba ConnectiveRx)",
+    "mapped_company": "ConnectiveRx",
+    "description": "ConnectiveRx is a technology-enabled pharmaceutical services company providing patient support, affordability, market access, point-of-care messaging, awareness, and adherence programs for specialty and branded medications.",
+    "current_sponsor": "Genstar Capital, based on its company-announced recapitalization and no researched exit found in this pass",
+    "sponsor_history": [
+      {
+        "date": "2015",
+        "event": "Genstar Capital invested in PSKW/ConnectiveRx and helped create the ConnectiveRx platform through organic growth and acquisitions.",
+        "source_url": "https://www.gencap.com/genstar-capital-announces-recapitalization-of-connectiverx/"
+      },
+      {
+        "date": "2020-03",
+        "event": "Genstar announced a recapitalization of ConnectiveRx; KKR Capital Markets arranged the refinancing and KKR-managed entities led the investment.",
+        "source_url": "https://www.gencap.com/genstar-capital-announces-recapitalization-of-connectiverx/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Genstar ConnectiveRx recapitalization",
+        "url": "https://www.gencap.com/genstar-capital-announces-recapitalization-of-connectiverx/"
+      },
+      {
+        "title": "ConnectiveRx company story",
+        "url": "https://www.connectiverx.com/crx-story"
+      },
+      {
+        "title": "ConnectiveRx awareness and adherence services",
+        "url": "https://www.connectiverx.com/awareness-adherence"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapped PSKW LLC dba ConnectiveRx to ConnectiveRx. Genstar ownership is supported by company/sponsor announcements, but no separate 2026 ownership confirmation or exit search result was found in this pass."
+  },
+  {
+    "issuer_match_key": "US ORAL SURGERY MANAGEMENT",
+    "display_name": "US Oral Surgery Management Holdco, LLC",
+    "mapped_company": "U.S. Oral Surgery Management",
+    "description": "U.S. Oral Surgery Management is an oral and maxillofacial surgery management services organization that provides operational, financial, marketing, recruiting, compliance, and growth support to partner practices while preserving surgeon clinical autonomy.",
+    "current_sponsor": "Oak Hill Capital, with management and surgeon partners retaining ownership interests",
+    "sponsor_history": [
+      {
+        "date": "2017-11",
+        "event": "Thurston Group and RiverGlade Capital formed the USOSM platform through the combination of two oral surgery groups.",
+        "source_url": "https://www.prnewswire.com/news-releases/thurston-group-exits-us-oral-surgery-management-301429619.html"
+      },
+      {
+        "date": "2021-11",
+        "event": "Oak Hill Capital agreed to invest in and partner with USOSM; Oak Hill described USOSM as then a RiverGlade Capital portfolio company, with management and surgeon partners retaining ownership.",
+        "source_url": "https://oakhill.com/2021/11/08/oak-hill-capital-to-partner-with-u-s-oral-surgery-management/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Oak Hill Capital USOSM investment announcement",
+        "url": "https://oakhill.com/2021/11/08/oak-hill-capital-to-partner-with-u-s-oral-surgery-management/"
+      },
+      {
+        "title": "Thurston Group exit announcement",
+        "url": "https://www.prnewswire.com/news-releases/thurston-group-exits-us-oral-surgery-management-301429619.html"
+      },
+      {
+        "title": "U.S. Oral Surgery Management services",
+        "url": "https://www.usosm.com/what-we-do/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "SOFTWARE BAYSHORE INTERMEDIATE 2",
+    "display_name": "Software Bayshore Intermediate #2, LP",
+    "mapped_company": "Boomi",
+    "description": "Boomi provides a cloud-native enterprise integration and automation platform for connecting applications, data, APIs, workflows, and AI agents across cloud and on-premise environments.",
+    "current_sponsor": "Francisco Partners and TPG Capital",
+    "sponsor_history": [
+      {
+        "date": "2010",
+        "event": "Dell Technologies acquired Boomi before later divesting the business.",
+        "source_url": "https://www.dell.com/en-uk/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2021~05~may-03-2021-announcement.htm"
+      },
+      {
+        "date": "2021-05",
+        "event": "Francisco Partners and TPG Capital entered into a definitive agreement to acquire Boomi from Dell Technologies in a $4 billion transaction.",
+        "source_url": "https://www.dell.com/en-uk/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2021~05~may-03-2021-announcement.htm"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Dell Technologies Boomi sale announcement",
+        "url": "https://www.dell.com/en-uk/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2021~05~may-03-2021-announcement.htm"
+      },
+      {
+        "title": "Boomi company page",
+        "url": "https://boomi.com/company/"
+      },
+      {
+        "title": "Bloomberg profile for Bayshore Intermediate #2, L.P. dba Boomi",
+        "url": "https://www.bloomberg.com/profile/company/2279238D:US"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapped Software Bayshore Intermediate #2, LP / Bayshore Intermediate #2, L.P. to Boomi based on borrower dba references. The cited acquisition announcement is definitive-agreement evidence; no subsequent exit was found in this pass."
+  },
+  {
+    "issuer_match_key": "LIPARI FOODS",
+    "display_name": "Lipari Foods LLC",
+    "mapped_company": "Lipari Foods",
+    "description": "Lipari Foods is a Warren, Michigan-based specialty food distributor and value-added manufacturer focused on perimeter-of-the-store categories including deli, bakery, foodservice, specialty grocery, dairy, frozen seafood and meats, international foods, confections, and packaging.",
+    "current_sponsor": "Investor group led by Littlejohn & Co.; Lipari family, management, H.I.G. Capital, and Sterling Investment Partners are minority investors",
+    "sponsor_history": [
+      {
+        "date": "2019-01",
+        "event": "H.I.G. Capital acquired Lipari Foods from Sterling Investment Partners, with the Lipari family and management retaining an investment.",
+        "source_url": "https://www.sterlinglp.com/news-article/sterling-investment-partners-announces-sale-of-lipari-foodsand-maintains-an-ownership-position"
+      },
+      {
+        "date": "2022-10",
+        "event": "An investor group led by Littlejohn & Co. acquired Lipari Foods; the Lipari family, management, H.I.G. Capital, and Sterling Investment Partners remained minority investors.",
+        "source_url": "https://littlejohnllc.com/news/investor-group-led-by-littlejohn-co-acquires-lipari-foods/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Littlejohn acquisition of Lipari Foods",
+        "url": "https://littlejohnllc.com/news/investor-group-led-by-littlejohn-co-acquires-lipari-foods/"
+      },
+      {
+        "title": "Littlejohn Lipari Foods portfolio page",
+        "url": "https://littlejohnllc.com/investments/lipari-foods/"
+      },
+      {
+        "title": "Lipari Foods company overview",
+        "url": "https://liparifoods.com/our-company"
+      },
+      {
+        "title": "Sterling sale of Lipari Foods to H.I.G.",
+        "url": "https://www.sterlinglp.com/news-article/sterling-investment-partners-announces-sale-of-lipari-foodsand-maintains-an-ownership-position"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "INTEGRITY MARKETING GROUP",
+    "display_name": "Integrity Marketing Group LLC",
+    "mapped_company": "Integrity Marketing Group",
+    "description": "Integrity Marketing Group is an omnichannel insurance and financial-services distribution platform using technology, data, marketing, lead generation, distribution, and member-service capabilities across life, health, wealth, and related insurance channels.",
+    "current_sponsor": "Founders, management, and employees hold majority ownership; Harvest Partners is the largest institutional investor, with Silver Lake and HGGC also significant investors",
+    "sponsor_history": [
+      {
+        "date": "2016-07",
+        "event": "HGGC completed a platform investment in Integrity Marketing Group.",
+        "source_url": "https://www.hggc.com/media/hggc-completes-platform-investment-in-integrity-marketing-group"
+      },
+      {
+        "date": "2019-08",
+        "event": "Harvest Partners made a strategic growth investment; HGGC and management continued to collectively control a majority equity stake.",
+        "source_url": "https://www.prnewswire.com/news-releases/integrity-marketing-group-welcomes-strategic-growth-investment-300908039.html"
+      },
+      {
+        "date": "2021-12",
+        "event": "Silver Lake led a $1.2 billion strategic minority investment; founders, management, and employees continued as majority shareholders, while Harvest remained the largest institutional investor and HGGC remained significant.",
+        "source_url": "https://www.kirkland.com/news/press-release/2021/12/kirkland-advises-integrity-on-strategic-investment-from-silver-lake"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Integrity platform overview",
+        "url": "https://integrity.com/platform/overview"
+      },
+      {
+        "title": "HGGC Integrity portfolio page",
+        "url": "https://www.hggc.com/portfolio/integrity"
+      },
+      {
+        "title": "Harvest Partners strategic growth investment",
+        "url": "https://www.prnewswire.com/news-releases/integrity-marketing-group-welcomes-strategic-growth-investment-300908039.html"
+      },
+      {
+        "title": "Kirkland summary of Silver Lake strategic investment",
+        "url": "https://www.kirkland.com/news/press-release/2021/12/kirkland-advises-integrity-on-strategic-investment-from-silver-lake"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Ownership is not a simple single-sponsor control case; current field names the majority employee/founder group and the major institutional investors identified in transaction sources."
+  },
+  {
+    "issuer_match_key": "MY COMMUNITY HOMES PROPCO 2 TERM LOAN",
+    "display_name": "My Community Homes PropCo 2, Term Loan",
+    "mapped_company": "My Community Homes / MCH single-family rental platform",
+    "description": "My Community Homes is a single-family rental housing platform that owns, operates, and services portfolios of rental homes across the United States, including acquisition and asset-management functions for affiliated SFR ventures.",
+    "current_sponsor": "KREST Operating Partnership L.P. and EFI SFR JV 3, LLC are disclosed limited partners in a related MCH SFR venture; My Community Homes LLC is disclosed as an EFI affiliate providing asset management",
+    "sponsor_history": [
+      {
+        "date": "2021-10",
+        "event": "MCH SFR Venture 3 LP was formed to acquire, own, and operate single-family residential rental properties.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1803958/000119312523088322/d459430dncsra.htm"
+      },
+      {
+        "date": "2022",
+        "event": "KREST Operating Partnership L.P. and EFI SFR JV 3, LLC were disclosed as limited partners; My Community Homes LLC, an affiliate of EFI, provided asset-management services to the partnership.",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1803958/000119312523088322/d459430dncsra.htm"
+      }
+    ],
+    "sources": [
+      {
+        "title": "My Community Homes about page",
+        "url": "https://www.mycommunity.homes/about/"
+      },
+      {
+        "title": "KREST filing with MCH SFR Venture 3 LP ownership and related-party disclosures",
+        "url": "https://www.sec.gov/Archives/edgar/data/1803958/000119312523088322/d459430dncsra.htm"
+      },
+      {
+        "title": "FSK schedule evidence for My Community Homes PropCo 2",
+        "url": "https://www.sec.gov/Archives/edgar/data/1422183/000162828025023202/fsk-20250331.htm"
+      }
+    ],
+    "confidence": "low",
+    "notes": "This appears to be a real-estate finance / SFR venture exposure rather than a normal sponsor-backed operating-company borrower. Public sources support the MCH platform and related KREST/EFI ownership framework, but not a precise sponsor mapping for the PropCo 2 term-loan borrower."
+  },
+  {
+    "issuer_match_key": "HEALTHCOMP",
+    "display_name": "Healthcomp Holding Company, LLC",
+    "mapped_company": "Personify Health (formerly HealthComp / Virgin Pulse)",
+    "description": "Personify Health combines HealthComp's third-party health-plan administration and benefits analytics with Virgin Pulse's wellbeing and navigation capabilities in a personalized health platform for self-funded employers and their members.",
+    "current_sponsor": "New Mountain Capital is majority owner, alongside Blackstone, Marlin Equity Partners, and Morgan Health",
+    "sponsor_history": [
+      {
+        "date": "2020-11",
+        "event": "HealthComp partnered with New Mountain Capital.",
+        "source_url": "https://www.businesswire.com/news/home/20201109005387/en/HealthComp-Announces-Partnership-with-New-Mountain-Capital"
+      },
+      {
+        "date": "2023-11",
+        "event": "Virgin Pulse and HealthComp completed their merger.",
+        "source_url": "https://www.prnewswire.com/news-releases/virgin-pulse-and-healthcomp-complete-merger-301982983.html"
+      },
+      {
+        "date": "2024-02",
+        "event": "The combined Virgin Pulse and HealthComp company introduced the Personify Health brand; New Mountain was identified as majority owner alongside Blackstone, Marlin Equity Partners, and Morgan Health.",
+        "source_url": "https://www.prnewswire.com/news-releases/virgin-pulse-and-healthcomp-introduce-combined-company-as-personify-health-302055387.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "New Mountain Capital Personify Health portfolio page",
+        "url": "https://www.newmountaincapital.com/portfolio/healthcomp/"
+      },
+      {
+        "title": "HealthComp partnership with New Mountain Capital",
+        "url": "https://www.businesswire.com/news/home/20201109005387/en/HealthComp-Announces-Partnership-with-New-Mountain-Capital"
+      },
+      {
+        "title": "Virgin Pulse and HealthComp merger completion",
+        "url": "https://www.prnewswire.com/news-releases/virgin-pulse-and-healthcomp-complete-merger-301982983.html"
+      },
+      {
+        "title": "Personify Health brand announcement",
+        "url": "https://www.prnewswire.com/news-releases/virgin-pulse-and-healthcomp-introduce-combined-company-as-personify-health-302055387.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped Healthcomp Holding Company, LLC to the post-merger Personify Health platform."
+  },
+  {
+    "issuer_match_key": "INSURANCE AMERILIFE",
+    "display_name": "Insurance Amerilife Holdings, LLC",
+    "mapped_company": "AmeriLife Group, LLC",
+    "description": "AmeriLife develops, markets, distributes, and administers life and health insurance, annuities, and retirement-planning solutions through a national network of marketing organizations, agencies, agents, and advisors.",
+    "current_sponsor": "Thomas H. Lee Partners and Genstar Capital as equal private equity investors",
+    "sponsor_history": [
+      {
+        "date": "2015",
+        "event": "J.C. Flowers acquired a majority stake in AmeriLife.",
+        "source_url": "https://amerilife.com/about-us/who-we-are/"
+      },
+      {
+        "date": "2020",
+        "event": "J.C. Flowers sold a majority stake in AmeriLife to an investor group led by Thomas H. Lee Partners.",
+        "source_url": "https://amerilife.com/about-us/who-we-are/"
+      },
+      {
+        "date": "2022-06",
+        "event": "Genstar Capital made a strategic investment in AmeriLife and joined THL as an equal investor.",
+        "source_url": "https://amerilife.com/blog/announcements/amerilife-announces-strategic-investment-from-genstar-capital/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "AmeriLife who we are and milestones",
+        "url": "https://amerilife.com/about-us/who-we-are/"
+      },
+      {
+        "title": "AmeriLife Genstar strategic investment announcement",
+        "url": "https://amerilife.com/blog/announcements/amerilife-announces-strategic-investment-from-genstar-capital/"
+      },
+      {
+        "title": "THL AmeriLife portfolio page",
+        "url": "https://thl.com/companies/amerilife/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "WORLD INSURANCE ASSOCIATES",
+    "display_name": "World Insurance Associates, LLC",
+    "mapped_company": "World Insurance Associates",
+    "description": "World Insurance Associates is a full-service insurance brokerage offering retail insurance, wholesale insurance, risk management, employee benefits, retirement, and wealth advisory services for businesses and individuals.",
+    "current_sponsor": "Charlesbank Capital Partners and Goldman Sachs Asset Management as co-lead equity investors, alongside management and employee shareholders",
+    "sponsor_history": [
+      {
+        "date": "2020-04",
+        "event": "Charlesbank Capital Partners completed a majority growth investment in World Insurance Associates; management and employee shareholders remained major shareholders.",
+        "source_url": "https://www.charlesbank.com/news/charlesbank-completes-growth-investment-in-world-insurance-associates/"
+      },
+      {
+        "date": "2023-08",
+        "event": "Goldman Sachs Asset Management agreed to make a major investment and join Charlesbank as co-lead equity investors for World.",
+        "source_url": "https://www.charlesbank.com/news/goldman-sachs-asset-management-to-make-new-investment-in-world-insurance-associates-joining-charlesbank-capital-partners-as-co-lead-investors-for-next-chapter-of-growth/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Charlesbank World Insurance Associates portfolio page",
+        "url": "https://www.charlesbank.com/investments/world-insurance-associates/"
+      },
+      {
+        "title": "Goldman Sachs and Charlesbank World Insurance investment announcement",
+        "url": "https://www.charlesbank.com/news/goldman-sachs-asset-management-to-make-new-investment-in-world-insurance-associates-joining-charlesbank-capital-partners-as-co-lead-investors-for-next-chapter-of-growth/"
+      },
+      {
+        "title": "Charlesbank 2020 World Insurance investment announcement",
+        "url": "https://www.charlesbank.com/news/charlesbank-completes-growth-investment-in-world-insurance-associates/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "TRINITY AIR CONSULTANTS",
+    "display_name": "Trinity Air Consultants Holdings Corp.",
+    "mapped_company": "Trinity Consultants",
+    "description": "Trinity Consultants is an environmental, health and safety, engineering, and science consulting firm serving industrial, healthcare, life sciences, and other regulated end markets globally.",
+    "current_sponsor": "Oak Hill Capital, with management and employee owners",
+    "sponsor_history": [
+      {
+        "date": "2021-06",
+        "event": "Oak Hill Capital partnered with management and employees to acquire Trinity Consultants from Levine Leichtman Capital Partners.",
+        "source_url": "https://oakhill.com/2021/06/29/oak-hill-capital-joins-forces-with-management-to-acquire-trinity-consultants/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Oak Hill Capital Trinity Consultants acquisition announcement",
+        "url": "https://oakhill.com/2021/06/29/oak-hill-capital-joins-forces-with-management-to-acquire-trinity-consultants/"
+      },
+      {
+        "title": "Trinity Consultants acquisition criteria and company context",
+        "url": "https://trinityconsultants.com/wp-content/uploads/Trinity-Consultants-Acquisition-Criteria.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped Trinity Air Consultants Holdings Corp. to Trinity Consultants based on Oak Hill's Trinity Consultants acquisition source and the borrower name."
+  },
+  {
+    "issuer_match_key": "DENTAL CARE ALLIANCE",
+    "display_name": "Dental Care Alliance Inc",
+    "mapped_company": "Dental Care Alliance",
+    "description": "Dental Care Alliance is a U.S. dental support organization that provides practice support to affiliated general and specialty dental practices while clinicians continue delivering patient care.",
+    "current_sponsor": "Post-restructuring financial partners/lender group; Mubadala and Harvest Partners were the last named controlling sponsors before the June 2026 balance-sheet transaction",
+    "sponsor_history": [
+      {
+        "date": "2015",
+        "event": "Funds managed by Harvest Partners acquired Dental Care Alliance in partnership with management.",
+        "source_url": "https://www.mubadala.com/en/news/mubadala-acquires-dental-care-alliance"
+      },
+      {
+        "date": "2022-12",
+        "event": "Mubadala invested alongside Harvest Partners; the recapitalization left Mubadala and Harvest jointly controlling DCA.",
+        "source_url": "https://www.mubadala.com/en/news/mubadala-acquires-dental-care-alliance"
+      },
+      {
+        "date": "2026-06",
+        "event": "DCA closed a strategic transaction with financial partners that reduced funded debt by more than $1.1 billion, added $95 million of new capital, and extended debt maturities to 2031.",
+        "source_url": "https://www.businesswire.com/news/home/20260602555971/en/Dental-Care-Alliance-Closes-Transaction-to-Significantly-Strengthen-Long-Term-Financial-Foundation-and-Support-Continued-Growth"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Dental Care Alliance who we are",
+        "url": "https://www.dentalcarealliance.net/who-we-are/"
+      },
+      {
+        "title": "Mubadala investment in Dental Care Alliance",
+        "url": "https://www.mubadala.com/en/news/mubadala-acquires-dental-care-alliance"
+      },
+      {
+        "title": "Dental Care Alliance closes 2026 strategic transaction",
+        "url": "https://www.businesswire.com/news/home/20260602555971/en/Dental-Care-Alliance-Closes-Transaction-to-Significantly-Strengthen-Long-Term-Financial-Foundation-and-Support-Continued-Growth"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The June 2026 transaction names financial partners and lender advisors but does not publicly identify a clean post-restructuring equity-control group. Treat current control as lender/financial-partner caveated until a fuller ownership disclosure is available."
+  },
+  {
+    "issuer_match_key": "MRI SOFTWARE",
+    "display_name": "MRI Software, LLC",
+    "mapped_company": "MRI Software",
+    "description": "MRI Software provides real estate and property-management software for commercial, residential, investment, facilities, public-sector, and related real estate operations.",
+    "current_sponsor": "TA Associates, GI Partners, and Harvest Partners, through jointly controlled MRI Parent Holdings LLC",
+    "sponsor_history": [
+      {
+        "date": "2015-06",
+        "event": "GI Partners acquired MRI Software.",
+        "source_url": "https://www.gipartners.com/news/mri-software-and-gi-partners-announce-strategic-partnership-with-ta-associates"
+      },
+      {
+        "date": "2017-05",
+        "event": "MRI Software announced a strategic investment from TA Associates, with GI Partners remaining an investor.",
+        "source_url": "https://www.gipartners.com/news/mri-software-and-gi-partners-announce-strategic-partnership-with-ta-associates"
+      },
+      {
+        "date": "2020-02",
+        "event": "Harvest Partners completed a strategic growth investment alongside TA Associates, GI Partners, and management.",
+        "source_url": "https://harvestpartners.com/news/mri-software-welcomes-strategic-growth-investment/"
+      },
+      {
+        "date": "2025-04",
+        "event": "The UK CMA described MRI Parent as jointly owned and controlled by private equity funds managed or advised by TA Associates, GI Partners, and Harvest Partners.",
+        "source_url": "https://assets.publishing.service.gov.uk/media/67f688dd555773bbf109e245/Full_text_decision.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "title": "MRI Software about",
+        "url": "https://www.mrisoftware.com/about/"
+      },
+      {
+        "title": "GI Partners and MRI Software strategic partnership with TA Associates",
+        "url": "https://www.gipartners.com/news/mri-software-and-gi-partners-announce-strategic-partnership-with-ta-associates"
+      },
+      {
+        "title": "Harvest Partners MRI Software growth investment",
+        "url": "https://harvestpartners.com/news/mri-software-welcomes-strategic-growth-investment/"
+      },
+      {
+        "title": "UK CMA decision describing MRI Parent ownership",
+        "url": "https://assets.publishing.service.gov.uk/media/67f688dd555773bbf109e245/Full_text_decision.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "ITALIAN MOTORWAY",
+    "display_name": "Italian Motorway Holdings",
+    "mapped_company": "MEIF 6 HRA Italian Motorway Holdings SARL / Autostrade per l'Italia exposure",
+    "description": "Italian Motorway Holdings is a Macquarie-linked HRA holding vehicle tied to the ownership structure of Autostrade per l'Italia, one of Europe's largest toll-road operators.",
+    "current_sponsor": "Macquarie Asset Management fund vehicle; the underlying HRA consortium also includes CDP Equity and Blackstone Infrastructure Partners",
+    "sponsor_history": [
+      {
+        "date": "2021-06",
+        "event": "CDP Equity, Blackstone Infrastructure Partners, and Macquarie Asset Management agreed to acquire Atlantia's 88.06% stake in Autostrade per l'Italia through Holding Reti Autostradali.",
+        "source_url": "https://www.macquarie.com/us/en/about/news/2021/cdp-equity-blackstone-and-macquarie-sign-agreement-with-atlantia-to-acquire-autostrade-per-litalia.html"
+      },
+      {
+        "date": "2025-06",
+        "event": "Autostrade per l'Italia disclosed HRA ownership including CDP Equity at 51%, Blackstone vehicles at 24.5%, and Italian Motorway Holdings at 24.5%.",
+        "source_url": "https://www.autostrade.it/documents/10279/49045784/ASPI_Interim_Report_for_the_six_months_ended_30_June_2025.pdf/d780965f-c186-b445-ee6c-888fece60941?t=1757493748424"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Macquarie consortium agreement for Autostrade per l'Italia",
+        "url": "https://www.macquarie.com/us/en/about/news/2021/cdp-equity-blackstone-and-macquarie-sign-agreement-with-atlantia-to-acquire-autostrade-per-litalia.html"
+      },
+      {
+        "title": "Macquarie Autostrade per l'Italia portfolio page",
+        "url": "https://www.macquarie.com/li/en/about/company/macquarie-asset-management/our-portfolio/autostrade-per-l-italia.html"
+      },
+      {
+        "title": "Autostrade per l'Italia 2025 interim report ownership structure",
+        "url": "https://www.autostrade.it/documents/10279/49045784/ASPI_Interim_Report_for_the_six_months_ended_30_June_2025.pdf/d780965f-c186-b445-ee6c-888fece60941?t=1757493748424"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The BDC issuer is a holding-company/financing vehicle rather than the toll-road operator itself; the mapping is to Macquarie's Italian Motorway Holdings position in HRA and the related Autostrade per l'Italia ownership structure."
+  },
+  {
+    "issuer_match_key": "PAVION",
+    "display_name": "Pavion Corp.",
+    "mapped_company": "Pavion Corp. (formerly CTSI / Corbett Technology Solutions)",
+    "description": "Pavion provides fire, security, audiovisual, communications, and other critical communications technology solutions for enterprise, healthcare, education, government, data-center, and retail customers.",
+    "current_sponsor": "Wind Point Partners, alongside management",
+    "sponsor_history": [
+      {
+        "date": "2020-06",
+        "event": "Wind Point Partners acquired Corbett Technology Solutions, Inc. (CTSI) in partnership with management.",
+        "source_url": "https://www.wppartners.com/wind-point-partners-acquires-ctsi/"
+      },
+      {
+        "date": "2023-08",
+        "event": "CTSI and related legacy entities changed name and merged into Pavion Corp. as the platform unified under the Pavion brand.",
+        "source_url": "https://pavion.com/ctsi-customers/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wind Point Partners acquisition of CTSI",
+        "url": "https://www.wppartners.com/wind-point-partners-acquires-ctsi/"
+      },
+      {
+        "title": "Pavion CTSI customer name-change notice",
+        "url": "https://pavion.com/ctsi-customers/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped Pavion Corp. to the CTSI platform acquired by Wind Point based on the Pavion legal name-change notice."
+  },
+  {
+    "issuer_match_key": "RED FOX CD ACQUISITION",
+    "display_name": "Red Fox CD Acquisition Corp.",
+    "mapped_company": "The Cook & Boardman Group",
+    "description": "The Cook & Boardman Group is a specialty distributor of commercial doors, frames, hardware, electronic access-control equipment, Division 10 specialty products, and security integration solutions.",
+    "current_sponsor": "Platinum Equity majority owner, with Littlejohn & Co. remaining a significant minority shareholder",
+    "sponsor_history": [
+      {
+        "date": "2023-09",
+        "event": "Platinum Equity signed a definitive agreement to acquire a majority interest in Cook & Boardman from Littlejohn, with Littlejohn remaining a significant minority shareholder.",
+        "source_url": "https://www.prnewswire.com/news-releases/platinum-equity-to-acquire-majority-interest-in-the-cook--boardman-group-from-littlejohn-301942535.html"
+      },
+      {
+        "date": "2023-10",
+        "event": "S&P assigned ratings to Red Fox CD Acquisition Corp.'s proposed first-lien term loan in connection with Cook & Boardman's acquisition by Platinum Equity.",
+        "source_url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3069129"
+      },
+      {
+        "date": "2023-11",
+        "event": "Platinum Equity's portfolio page lists Cook & Boardman as acquired in November 2023 from Littlejohn & Co.",
+        "source_url": "https://www.platinumequity.com/our-company/cook-and-boardman/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Platinum Equity Cook & Boardman portfolio page",
+        "url": "https://www.platinumequity.com/our-company/cook-and-boardman/"
+      },
+      {
+        "title": "Platinum Equity majority acquisition announcement",
+        "url": "https://www.prnewswire.com/news-releases/platinum-equity-to-acquire-majority-interest-in-the-cook--boardman-group-from-littlejohn-301942535.html"
+      },
+      {
+        "title": "S&P Red Fox CD Acquisition Corp. / Cook & Boardman rating action",
+        "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3069129"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped the Red Fox CD Acquisition borrower shell to Cook & Boardman based on the S&P credit source and the matching Platinum Equity transaction/portfolio sources."
+  },
+  {
+    "issuer_match_key": "AMERICAN VISION PARTNERS",
+    "display_name": "American Vision Partners",
+    "mapped_company": "American Vision Partners",
+    "description": "American Vision Partners is an ophthalmology and eye-care management platform supporting affiliated practices and ambulatory surgery centers across the U.S. Southwest.",
+    "current_sponsor": "H.I.G. Capital",
+    "sponsor_history": [
+      {
+        "date": "2017",
+        "event": "H.I.G. Capital invested in American Vision Partners; H.I.G. continues to list AVP as an active portfolio company.",
+        "source_url": "https://hig.com/portfolio/american-vision-partners/"
+      },
+      {
+        "date": "2021-02",
+        "event": "H.I.G. described AVP as a portfolio company while announcing continued expansion through a Southwest Eye Institute partnership.",
+        "source_url": "https://hig.com/news/h-i-g-capital-portfolio-company-american-vision-partners-continues-strategic-expansion-through-partnership-with-southwest-eye-institute/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "H.I.G. Capital American Vision Partners portfolio page",
+        "url": "https://hig.com/portfolio/american-vision-partners/"
+      },
+      {
+        "title": "H.I.G. American Vision Partners expansion announcement",
+        "url": "https://hig.com/news/h-i-g-capital-portfolio-company-american-vision-partners-continues-strategic-expansion-through-partnership-with-southwest-eye-institute/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "KILTER FINANCE PREFERRED STOCK",
+    "display_name": "Kilter Finance, Preferred Stock",
+    "mapped_company": "Kilter Finance, Preferred Stock",
+    "description": "Kilter Finance, Preferred Stock is a source-derived timeline exposure rather than a fully researched operating-company profile. The dashboard shows FSK holding $89.2mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Insurance. Latest source labels include Asset Based Finance.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SPITFIRE PARENT",
+    "display_name": "Spitfire Parent, Inc.",
+    "mapped_company": "Spitfire Parent, Inc.",
+    "description": "Spitfire Parent, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $88.4mm of latest-period fair value across 8 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ADVANIA SVERIGE AB",
+    "display_name": "Advania Sverige AB",
+    "mapped_company": "Advania AB / Advania Group",
+    "description": "Advania is a Northern European IT services group providing managed services, professional services, IT operations, outsourcing, system integration, and value-added resale to public and private customers.",
+    "current_sponsor": "Goldman Sachs Asset Management majority shareholder, alongside IK Partners, VIA Equity, ECI, management, and other shareholders",
+    "sponsor_history": [
+      {
+        "date": "2021-02",
+        "event": "Funds managed by Goldman Sachs agreed to acquire a majority stake in Advania alongside management, VIA Equity, and other reinvesting shareholders.",
+        "source_url": "https://www.advania.com/article/goldman-sachs-funds-to-acquire-a-majority-stake-in-advania"
+      },
+      {
+        "date": "2021-09",
+        "event": "IK Partners acquired a stake in Advania through the IK IX Fund in connection with the Visolit combination.",
+        "source_url": "https://ikpartners.com/investments/advania/"
+      },
+      {
+        "date": "2025-12",
+        "event": "Advania disclosed Goldman Sachs-affiliated funds as the largest shareholder at about 58%, followed by IK, VIA Equity, ECI, management, and other investors.",
+        "source_url": "https://www.advania.com/about-advania/financials"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Advania Goldman Sachs majority investment announcement",
+        "url": "https://www.advania.com/article/goldman-sachs-funds-to-acquire-a-majority-stake-in-advania"
+      },
+      {
+        "title": "IK Partners Advania portfolio page",
+        "url": "https://ikpartners.com/investments/advania/"
+      },
+      {
+        "title": "Advania financials and ownership summary",
+        "url": "https://www.advania.com/about-advania/financials"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The BDC issuer is the Swedish legal entity, while sponsor evidence is at the Advania group/holdco level."
+  },
+  {
+    "issuer_match_key": "SPECTRUM SAFETY SOLUTIONS PURCHASER",
+    "display_name": "Spectrum Safety Solutions Purchaser, LLC",
+    "mapped_company": "Spectrum Safety Solutions (Carrier Industrial Fire carve-out)",
+    "description": "Spectrum Safety Solutions manufactures branded industrial fire detection, flame detection, gas detection, burner-management, and suppression products through brands including Det-Tronics, Fireye, Autronica, and Marioff.",
+    "current_sponsor": "Sentinel Capital Partners",
+    "sponsor_history": [
+      {
+        "date": "2024-07",
+        "event": "Sentinel Capital Partners carved out Carrier Global's industrial fire business and created Spectrum Safety Solutions as a standalone platform.",
+        "source_url": "https://www.sentinelpartners.com/company/spectrum-safety-solutions/"
+      },
+      {
+        "date": "2026-05",
+        "event": "Sentinel signed an agreement to sell Autronica, a standalone unit of Spectrum Safety Solutions, to MSA Safety; the divestiture positions Spectrum to focus on Det-Tronics and Fireye.",
+        "source_url": "https://www.prnewswire.com/news-releases/sentinel-to-sell-spectrum-safety-solutions-autronica-division-302762097.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Sentinel Capital Partners Spectrum Safety Solutions portfolio page",
+        "url": "https://www.sentinelpartners.com/company/spectrum-safety-solutions/"
+      },
+      {
+        "title": "Sentinel sale of Spectrum Safety Solutions' Autronica division",
+        "url": "https://www.prnewswire.com/news-releases/sentinel-to-sell-spectrum-safety-solutions-autronica-division-302762097.html"
+      },
+      {
+        "title": "Autronica announcement of sale to MSA Safety",
+        "url": "https://www.autronicafire.com/news/news/autronica-fire-and-security-to-be-acquired-by-msa-safety/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules and market sources also describe Spectrum Safety Solutions Purchaser as dba Carrier Industrial Fire. Spectrum's business mix is changing because Sentinel announced 2026 divestitures of Autronica and Marioff."
+  },
+  {
+    "issuer_match_key": "SAM",
+    "display_name": "Sam Holding Co, Inc.",
+    "mapped_company": "SAM Companies / Surveying And Mapping, LLC",
+    "description": "SAM Companies provides managed geospatial, surveying, mapping, utility engineering, program management, and inspection services for utility, transportation, and broader infrastructure customers.",
+    "current_sponsor": "Peak Rock Capital, with management retaining a meaningful ownership position",
+    "sponsor_history": [
+      {
+        "date": "2021-09",
+        "event": "An affiliate of Peak Rock Capital completed the acquisition of SAM Companies; management retained a meaningful ownership position.",
+        "source_url": "https://peakrockcapital.com/news-article/peak-rock-capital-affiliate-completes-acquisition-of-sam-companies"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Peak Rock Capital acquisition of SAM Companies",
+        "url": "https://peakrockcapital.com/news-article/peak-rock-capital-affiliate-completes-acquisition-of-sam-companies"
+      },
+      {
+        "title": "SAM managed geospatial services",
+        "url": "https://www.sam.biz/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped Sam Holding Co, Inc. to SAM Companies / Surveying And Mapping based on the borrower name and the matching geospatial-services platform evidence."
+  },
+  {
+    "issuer_match_key": "ZEUS INDUSTRIAL PRODUCTS",
+    "display_name": "Zeus Industrial Products Inc",
+    "mapped_company": "Zeus Company Inc. / Zeus Industrial Products",
+    "description": "Zeus develops and manufactures advanced polymer components, including fluoropolymer tubing, heat shrink, insulated wire, catheter components, and related materials for medical-device and industrial applications.",
+    "current_sponsor": "EQT Private Equity",
+    "sponsor_history": [
+      {
+        "date": "2023-12",
+        "event": "EQT Private Equity agreed to acquire Zeus from the Tourville family.",
+        "source_url": "https://eqtgroup.com/news/eqt-private-equity-to-acquire-zeus-a-global-leader-in-advanced-polymer-components-used-in-life-saving-medical-procedures-2023-12-18"
+      },
+      {
+        "date": "2024",
+        "event": "Zeus announced that EQT had officially acquired the company.",
+        "source_url": "https://www.zeusinc.com/company/news/eqt-private-equity-has-acquired-zeus/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "EQT agreement to acquire Zeus",
+        "url": "https://eqtgroup.com/news/eqt-private-equity-to-acquire-zeus-a-global-leader-in-advanced-polymer-components-used-in-life-saving-medical-procedures-2023-12-18"
+      },
+      {
+        "title": "Zeus announcement that EQT acquired Zeus",
+        "url": "https://www.zeusinc.com/company/news/eqt-private-equity-has-acquired-zeus/"
+      },
+      {
+        "title": "Zeus products overview",
+        "url": "https://www.zeusinc.com/products"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "HENIFF TRANSPORTATION SYSTEMS",
+    "display_name": "Heniff Transportation Systems LLC",
+    "mapped_company": "Heniff Transportation Systems",
+    "description": "Heniff Transportation Systems is a bulk liquid and food-grade transportation platform offering chemical hauling, tank cleaning, ISO shipping, rail transloading, maintenance, logistics, and related supply-chain services across North America and Europe.",
+    "current_sponsor": "Olympus Partners, alongside Heniff management",
+    "sponsor_history": [
+      {
+        "date": "2019-12",
+        "event": "Olympus Partners recapitalized Heniff Transportation Systems alongside Heniff management.",
+        "source_url": "https://olympuspartners.com/news/olympus-reaches-semis-recapitalizes-heniff-transportation-systems/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Olympus Partners recapitalization of Heniff Transportation Systems",
+        "url": "https://olympuspartners.com/news/olympus-reaches-semis-recapitalizes-heniff-transportation-systems/"
+      },
+      {
+        "title": "Heniff Transportation company overview",
+        "url": "https://www.heniff.com/"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Olympus is the last clearly sourced sponsor from the 2019 recapitalization. No exit was found in this pass, but a current Olympus portfolio page was not located, so current ownership is medium-confidence."
+  },
+  {
+    "issuer_match_key": "LEGENDS HOSPITALITY",
+    "display_name": "Legends Hospitality LLC",
+    "mapped_company": "Legends / Legends Global",
+    "description": "Legends is a premium live events, sports, entertainment, attractions, hospitality, venue planning, ticketing, sponsorship, merchandise, and venue-management services platform.",
+    "current_sponsor": "Sixth Street as majority investor, alongside YGE Holdings (New York Yankees affiliate) and Jones Concessions (Dallas Cowboys / Jerry Jones family affiliate)",
+    "sponsor_history": [
+      {
+        "date": "2021-01",
+        "event": "Legends signed an agreement to receive a majority investment from Sixth Street, with Sixth Street leading the partnership group alongside Yankees and Cowboys affiliates.",
+        "source_url": "https://sixthstreet.com/investment_announce/legends-announces-majority-investment-from-sixth-street-to-accelerate-long-term-growth/"
+      },
+      {
+        "date": "2024-08",
+        "event": "Legends completed the acquisition of ASM Global; the announcement reaffirmed Sixth Street as majority investor in Legends with Yankees and Cowboys affiliates as partners.",
+        "source_url": "https://legendsglobal.com/legends-completes-acquisition-of-asm-global/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Sixth Street majority investment in Legends",
+        "url": "https://sixthstreet.com/investment_announce/legends-announces-majority-investment-from-sixth-street-to-accelerate-long-term-growth/"
+      },
+      {
+        "title": "Legends completes acquisition of ASM Global",
+        "url": "https://legendsglobal.com/legends-completes-acquisition-of-asm-global/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped Legends Hospitality LLC to the broader Legends / Legends Global platform following the ASM Global acquisition."
+  },
+  {
+    "issuer_match_key": "PARTSSOURCE",
+    "display_name": "PartsSource Inc",
+    "mapped_company": "PartsSource",
+    "description": "PartsSource operates a healthcare marketplace and software platform that helps hospitals and healthcare technology management teams source medical equipment replacement parts, repair services, and related mission-critical supplies.",
+    "current_sponsor": "Bain Capital Private Equity",
+    "sponsor_history": [
+      {
+        "date": "2021-07",
+        "event": "PartsSource announced a definitive agreement to be acquired by Bain Capital Private Equity from Great Hill Partners.",
+        "source_url": "https://www.baincapital.com/news/partssource-leading-healthcare-services-online-marketplace-be-acquired-bain-capital-private"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bain Capital agreement to acquire PartsSource",
+        "url": "https://www.baincapital.com/news/partssource-leading-healthcare-services-online-marketplace-be-acquired-bain-capital-private"
+      },
+      {
+        "title": "PartsSource company overview",
+        "url": "https://corporate.partssource.com/company/"
+      },
+      {
+        "title": "Bain Capital Private Equity portfolio",
+        "url": "https://www.baincapitalprivateequity.com/portfolio"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The Bain Capital source is a definitive-agreement announcement and Bain's portfolio site lists PartsSource. A separate closing release was not found in this pass, so confidence is medium rather than high."
+  },
+  {
+    "issuer_match_key": "INDUSTRIA CHIMICA EMILIANA SRL",
+    "display_name": "Industria Chimica Emiliana Srl",
+    "mapped_company": "ICE Pharma / Industria Chimica Emiliana",
+    "description": "ICE Pharma is a specialty pharmaceutical ingredients group focused on bile acids and derivatives, including ursodeoxycholic acid (UDCA), with manufacturing sites serving pharmaceutical customers globally.",
+    "current_sponsor": "Advent International",
+    "sponsor_history": [
+      {
+        "date": "2019",
+        "event": "Advent International acquired ICE Pharma / Industria Chimica Emiliana.",
+        "source_url": "https://www.icepharma.com/about/history/"
+      },
+      {
+        "date": "2020-2022",
+        "event": "Under Advent ownership, ICE Pharma expanded through acquisitions including New Zealand Pharmaceuticals, ABC Farmaceutici, and an Iwaki UDCA manufacturing facility.",
+        "source_url": "https://www.icepharma.com/about/history/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "ICE Pharma about",
+        "url": "https://www.icepharma.com/about/"
+      },
+      {
+        "title": "ICE Pharma history and Advent ownership",
+        "url": "https://www.icepharma.com/about/history/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped the Italian legal issuer to ICE Pharma, the operating group that describes Industria Chimica Emiliana's business and Advent ownership."
+  },
+  {
+    "issuer_match_key": "JACUZZI BRANDS",
+    "display_name": "Jacuzzi Brands, LLC",
+    "mapped_company": "Jacuzzi Brands / Jacuzzi Group",
+    "description": "Jacuzzi Brands manufactures and distributes branded hot tubs, swim spas, bath products, pool products, saunas, and related wellness products for indoor and outdoor living spaces.",
+    "current_sponsor": "Investindustrial-affiliated funds",
+    "sponsor_history": [
+      {
+        "date": "2019-02",
+        "event": "Investindustrial completed the acquisition of Jacuzzi Brands from funds affiliated with Apollo Global Management, Ares Management, and Clearlake Capital.",
+        "source_url": "https://www.eurospapoolnews.com/actualites_piscines_spas-en/61582-Investindustrial%2Cacquisition%2Cjacuzzi%2Cbrands.htm"
+      },
+      {
+        "date": "2020-02",
+        "event": "Jacuzzi Brands described itself as acquired by Investindustrial-affiliated funds while announcing the Dream Maker and Sunrise Spas acquisition.",
+        "source_url": "https://www.jacuzzi.com/en-us/jacuzzi-brands-completes-acquisition-of-dream-maker-and-sunrise-spas.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Investindustrial completion of Jacuzzi Brands acquisition",
+        "url": "https://www.eurospapoolnews.com/actualites_piscines_spas-en/61582-Investindustrial%2Cacquisition%2Cjacuzzi%2Cbrands.htm"
+      },
+      {
+        "title": "Jacuzzi Brands Dream Maker and Sunrise Spas acquisition",
+        "url": "https://www.jacuzzi.com/en-us/jacuzzi-brands-completes-acquisition-of-dream-maker-and-sunrise-spas.html"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "TECHNOLOGY HARDWARE STORAGE AND PERIPHERALS LYTX",
+    "display_name": "Technology Hardware, Storage & Peripherals Lytx, Inc.",
+    "mapped_company": "Lytx, Inc.",
+    "description": "Lytx provides machine-vision, AI, and video-telematics solutions for commercial, public-sector, and field-services fleets, helping customers manage driver safety, claims, compliance, and fleet operations.",
+    "current_sponsor": "Permira funds and co-investors",
+    "sponsor_history": [
+      {
+        "date": "2018-04",
+        "event": "Clearlake Capital, HarbourVest, PSP Investments, and Guggenheim joined GTCR as investors in Lytx while GTCR remained control shareholder.",
+        "source_url": "https://www.lytx.com/en-gb/news-events/press-release/2018/lytx-and-gtcr-announce-strategic-partnership-with-clearlake-capital-and-other-new-investors"
+      },
+      {
+        "date": "2020-01",
+        "event": "A company backed by Permira funds and co-investors agreed to acquire a majority stake in Lytx.",
+        "source_url": "https://www.lytx.com/en-gb/news-events/press-release/2020/lytx-announces-majority-investment-from-the-permira-funds"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Lytx and GTCR strategic partnership with Clearlake and other investors",
+        "url": "https://www.lytx.com/en-gb/news-events/press-release/2018/lytx-and-gtcr-announce-strategic-partnership-with-clearlake-capital-and-other-new-investors"
+      },
+      {
+        "title": "Lytx majority investment from Permira funds",
+        "url": "https://www.lytx.com/en-gb/news-events/press-release/2020/lytx-announces-majority-investment-from-the-permira-funds"
+      },
+      {
+        "title": "Lytx company page",
+        "url": "https://www.lytx.com/about-us/our-company"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The issuer name includes a source-schedule industry prefix; it is mapped to Lytx, Inc. The latest sponsor transaction source is from 2020, and no newer exit was found in this pass."
+  },
+  {
+    "issuer_match_key": "GALWAY PARTNERS",
+    "display_name": "Galway Partners Holdings LLC",
+    "mapped_company": "Galway Holdings / Galway Partners Holdings, LLC",
+    "description": "Galway is a diversified insurance brokerage and wealth-management platform with retail brokerage, wholesale brokerage, program administration, managing general agent, and wealth-management capabilities.",
+    "current_sponsor": "Harvest Partners majority investor, with Oak Hill Capital, Carlyle, management, and employee shareholders also invested",
+    "sponsor_history": [
+      {
+        "date": "2020-12",
+        "event": "Harvest Partners acquired a majority interest in Galway, while Oak Hill Capital, Carlyle, management, and employee shareholders reinvested or remained significant shareholders.",
+        "source_url": "https://harvestpartners.com/news/harvest-acquires-galway-insurance-holdings/"
+      },
+      {
+        "date": "2020-12",
+        "event": "Harvest Partners lists Galway as a current private equity / structured capital portfolio investment.",
+        "source_url": "https://harvestpartners.com/portfolio/galway/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Harvest Partners Galway transaction announcement",
+        "url": "https://harvestpartners.com/news/harvest-acquires-galway-insurance-holdings/"
+      },
+      {
+        "title": "Harvest Partners Galway portfolio page",
+        "url": "https://harvestpartners.com/portfolio/galway/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "J S HELD",
+    "display_name": "J S Held LLC",
+    "mapped_company": "J.S. Held",
+    "description": "J.S. Held is a specialized global consulting firm whose professionals provide technical, scientific, financial, strategic, forensic, dispute, insurance, construction, environmental, cyber, and advisory expertise for high-stakes events.",
+    "current_sponsor": "Kelso & Company",
+    "sponsor_history": [
+      {
+        "date": "2019-05",
+        "event": "Kelso & Company agreed to acquire a majority interest in J.S. Held from Lovell Minnick Partners.",
+        "source_url": "https://www.jsheld.com/about-us/news/j-s-held-llc-secures-new-investment-partner-in-kelso-company"
+      },
+      {
+        "date": "2026",
+        "event": "Kelso lists J.S. Held as a current investment.",
+        "source_url": "https://www.kelso.com/investment-companies/js-held"
+      }
+    ],
+    "sources": [
+      {
+        "title": "J.S. Held Kelso investment announcement",
+        "url": "https://www.jsheld.com/about-us/news/j-s-held-llc-secures-new-investment-partner-in-kelso-company"
+      },
+      {
+        "title": "Kelso J.S. Held portfolio page",
+        "url": "https://www.kelso.com/investment-companies/js-held"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "NAVEX",
+    "display_name": "NAVEX TopCo, Inc.",
+    "mapped_company": "NAVEX",
+    "description": "NAVEX provides ethics, risk, compliance, whistleblowing, third-party risk, policy, and governance software, including the NAVEX One integrated GRC platform.",
+    "current_sponsor": "Goldman Sachs Alternatives majority owner, with Blackstone and BC Partners as significant minority investors",
+    "sponsor_history": [
+      {
+        "date": "2018-07",
+        "event": "BC Partners acquired NAVEX Global from Vista Equity Partners, with Vista retaining a minority stake.",
+        "source_url": "https://www.bcpartners.com/private-equity-strategy/portfolio/navex/"
+      },
+      {
+        "date": "2025-10",
+        "event": "A consortium led by Goldman Sachs Alternatives, including Blackstone, completed the acquisition of a majority stake in NAVEX; BC Partners retained a significant minority stake and Vista exited.",
+        "source_url": "https://www.bcpartners.com/news/a-consortium-led-by-goldman-sachs-alternatives-including-blackstone-completes-majority-stake-acquisition-of-navex/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BC Partners NAVEX portfolio page",
+        "url": "https://www.bcpartners.com/private-equity-strategy/portfolio/navex/"
+      },
+      {
+        "title": "NAVEX majority stake acquisition completion",
+        "url": "https://www.bcpartners.com/news/a-consortium-led-by-goldman-sachs-alternatives-including-blackstone-completes-majority-stake-acquisition-of-navex/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped NAVEX TopCo, Inc. to NAVEX based on the sponsor transaction sources and borrower naming."
+  },
+  {
+    "issuer_match_key": "TRP INFRASTRUCTURE SERVICES",
+    "display_name": "TRP Infrastructure Services, LLC",
+    "mapped_company": "TRP Infrastructure Services",
+    "description": "TRP Infrastructure Services provides safety-critical roadway pavement marking, traffic control, guardrail, permanent safety installation, and related infrastructure services for contractors, municipalities, transportation agencies, and government customers.",
+    "current_sponsor": "Arlington Capital Partners, alongside founders and management",
+    "sponsor_history": [
+      {
+        "date": "2021-07",
+        "event": "Arlington Capital Partners acquired TRP Infrastructure Services in partnership with the existing management team and founders.",
+        "source_url": "https://arlingtoncap.com/news/arlington-capital-partners-announces-acquisition-of-trp-infrastructure-services/"
+      },
+      {
+        "date": "2025-12",
+        "event": "Arlington described TRP as an Arlington Capital Partners portfolio company while announcing TRP's acquisition of Highway Barricades & Services.",
+        "source_url": "https://arlingtoncap.com/news/trp-infrastructure-services-an-arlington-capital-partners-portfolio-company-announces-acquisition-of-highway-barricades-services/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Arlington Capital acquisition of TRP Infrastructure Services",
+        "url": "https://arlingtoncap.com/news/arlington-capital-partners-announces-acquisition-of-trp-infrastructure-services/"
+      },
+      {
+        "title": "Arlington-backed TRP acquisition of Highway Barricades",
+        "url": "https://arlingtoncap.com/news/trp-infrastructure-services-an-arlington-capital-partners-portfolio-company-announces-acquisition-of-highway-barricades-services/"
+      },
+      {
+        "title": "TRP Infrastructure Services company overview",
+        "url": "https://trpinfrastructure.com/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "ODEVO AB",
+    "display_name": "Odevo, AB",
+    "mapped_company": "Odevo",
+    "description": "Odevo is a tech-enabled residential property management group serving homeowners, housing associations, and residential building owners across Europe and the United States.",
+    "current_sponsor": "CVC funds alongside Fidelio and management",
+    "sponsor_history": [
+      {
+        "date": "2018",
+        "event": "Odevo was founded in Sweden by Fidelio and the current management team.",
+        "source_url": "https://www.cvc.com/media/news/2024/2024-08-28-odevo-strengthens-investor-base-by-welcoming-cvc-funds-as-a-new-strategic-partner-alongside-fidelio/"
+      },
+      {
+        "date": "2024-08",
+        "event": "CVC funds agreed to join Odevo's investor group alongside Fidelio and management.",
+        "source_url": "https://www.cvc.com/media/news/2024/2024-08-28-odevo-strengthens-investor-base-by-welcoming-cvc-funds-as-a-new-strategic-partner-alongside-fidelio/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "CVC investment in Odevo alongside Fidelio",
+        "url": "https://www.cvc.com/media/news/2024/2024-08-28-odevo-strengthens-investor-base-by-welcoming-cvc-funds-as-a-new-strategic-partner-alongside-fidelio/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped Odevo, AB to the Odevo residential property management platform."
+  },
+  {
+    "issuer_match_key": "BCTO ACE PURCHASER",
+    "display_name": "BCTO Ace Purchaser, Inc.",
+    "mapped_company": "HST Pathways / Healthcare Systems & Technologies",
+    "description": "HST Pathways provides cloud software for ambulatory surgery centers, including practice management, scheduling, patient engagement, case coordination, revenue-cycle, inventory, and analytics tools.",
+    "current_sponsor": "Bain Capital Tech Opportunities",
+    "sponsor_history": [
+      {
+        "date": "2020-11",
+        "event": "Healthcare Systems and Technologies, LLC was sold to Bain Capital Tech Opportunities.",
+        "source_url": "https://www.pipersandler.com/investment-banking-transactions/healthcaresystemstechnologiesllc-2020-11-23"
+      },
+      {
+        "date": "2024-04",
+        "event": "State filings list BCTO Ace Purchaser, Inc. as manager of Healthcare Systems & Technologies, supporting the holding-company mapping.",
+        "source_url": "https://hbe.ehawaii.gov/documents/business.pdf?fileNumber=254119C6"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Piper Sandler sale of HST to Bain Capital Tech Opportunities",
+        "url": "https://www.pipersandler.com/investment-banking-transactions/healthcaresystemstechnologiesllc-2020-11-23"
+      },
+      {
+        "title": "Hawaii filing for Healthcare Systems & Technologies manager",
+        "url": "https://hbe.ehawaii.gov/documents/business.pdf?fileNumber=254119C6"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapped BCTO Ace Purchaser, Inc. to HST Pathways using HST transaction evidence and state filings that connect BCTO Ace Purchaser to Healthcare Systems & Technologies."
+  },
+  {
+    "issuer_match_key": "BARBRI",
+    "display_name": "Barbri Holdings, Inc.",
+    "mapped_company": "BARBRI",
+    "description": "BARBRI is a tech-enabled legal education and bar-exam preparation provider serving law students, legal professionals, universities, law firms, and organizations.",
+    "current_sponsor": "Francisco Partners majority owner, with LGT Capital Partners-advised minority investment",
+    "sponsor_history": [
+      {
+        "date": "2021",
+        "event": "BARBRI, then a Leeds Equity portfolio company, agreed to be acquired by Francisco Partners.",
+        "source_url": "https://www.rwbaird.com/transactions/investment-banking/dealcard/5731/"
+      },
+      {
+        "date": "2025-01",
+        "event": "Entities advised by LGT Capital Partners acquired a minority stake in BARBRI through a minority recapitalization with Francisco Partners remaining majority owner.",
+        "source_url": "https://www.lgtcp.com/files/2025-01/lgt_capital_partners-advised_entities_support_barbris_future_growth_with_minority_investment.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "title": "BARBRI acquisition by Francisco Partners",
+        "url": "https://www.rwbaird.com/transactions/investment-banking/dealcard/5731/"
+      },
+      {
+        "title": "LGT Capital Partners minority investment in BARBRI",
+        "url": "https://www.lgtcp.com/files/2025-01/lgt_capital_partners-advised_entities_support_barbris_future_growth_with_minority_investment.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "WITTUR HOLDING GMBH",
+    "display_name": "Wittur Holding GmbH",
+    "mapped_company": "Wittur Group",
+    "description": "Wittur is a global manufacturer and supplier of elevator components, including doors, cars, slings, gearless drives, safety gears, and modernization components.",
+    "current_sponsor": "Funds, clients, and accounts managed or advised by KKR",
+    "sponsor_history": [
+      {
+        "date": "2014-12",
+        "event": "Bain Capital Private Equity agreed to acquire Wittur from Triton and Capvis.",
+        "source_url": "https://www.baincapital.com/news/triton-sell-wittur-bain-capital-private-equity"
+      },
+      {
+        "date": "2019-03",
+        "event": "PSP Investments acquired a 32% stake in a Wittur parent company from Bain, with Bain continuing as majority investor.",
+        "source_url": "https://www.investpsp.com/en/news/wittur-group-successfully-closes-stake-sale-to-psp-investments"
+      },
+      {
+        "date": "2024",
+        "event": "Wittur's company history states that Wittur is indirectly owned by funds, clients, and accounts managed and advised by KKR.",
+        "source_url": "https://www.wittur.com/ru/wittur-group.aspx"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bain acquisition of Wittur",
+        "url": "https://www.baincapital.com/news/triton-sell-wittur-bain-capital-private-equity"
+      },
+      {
+        "title": "PSP minority investment in Wittur",
+        "url": "https://www.investpsp.com/en/news/wittur-group-successfully-closes-stake-sale-to-psp-investments"
+      },
+      {
+        "title": "Wittur Group history",
+        "url": "https://www.wittur.com/ru/wittur-group.aspx"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped Wittur Holding GmbH to the Wittur Group elevator components business."
+  },
+  {
+    "issuer_match_key": "RED RIVER TECHNOLOGY",
+    "display_name": "Red River Technology, LLC",
+    "mapped_company": "Red River",
+    "description": "Red River provides technology solutions and managed services across security, networking, data center, collaboration, mobility, cloud, and digital transformation for federal, SLED, and commercial customers.",
+    "current_sponsor": "Cerberus Capital Management affiliate majority owner",
+    "sponsor_history": [
+      {
+        "date": "2018-03",
+        "event": "Acacia Partners made a minority growth equity investment in Red River.",
+        "source_url": "https://www.vcnewsdaily.com/access/getarticle.php?aid=qlrqqsrmgd"
+      },
+      {
+        "date": "2021-06",
+        "event": "A Cerberus affiliate acquired a majority stake in Red River from a group including founding shareholders and Acacia Partners.",
+        "source_url": "https://www.cerberus.com/media/cerberus-acquires-leading-technology-provider-red-river/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Acacia investment in Red River",
+        "url": "https://www.vcnewsdaily.com/access/getarticle.php?aid=qlrqqsrmgd"
+      },
+      {
+        "title": "Cerberus majority acquisition of Red River",
+        "url": "https://www.cerberus.com/media/cerberus-acquires-leading-technology-provider-red-river/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "MAG DS",
+    "display_name": "MAG DS Corp.",
+    "mapped_company": "MAG Aerospace",
+    "description": "MAG Aerospace provides C5ISR, specialty aviation, unmanned and manned aircraft operations, training, technical services, and surveillance solutions for defense, government, international, and civilian customers.",
+    "current_sponsor": "New Mountain Capital",
+    "sponsor_history": [
+      {
+        "date": "2018-06",
+        "event": "MAG Aerospace partnered with New Mountain Capital to support growth, new contracts, and acquisitions.",
+        "source_url": "https://www.magaero.com/mag-aerospace-partners-with-new-mountain-capital/"
+      },
+      {
+        "date": "2024-10",
+        "event": "A MAG Aerospace commercial partnership announcement described MAG as part of New Mountain Capital's portfolio.",
+        "source_url": "https://www.globenewswire.com/news-release/2024/10/01/2955972/0/en/MAG-Aerospace-Partners-with-Zapata-AI-to-Deliver-Next-Generation-Airborne-Surveillance-Platform.html"
+      }
+    ],
+    "sources": [
+      {
+        "title": "MAG Aerospace partnership with New Mountain Capital",
+        "url": "https://www.magaero.com/mag-aerospace-partners-with-new-mountain-capital/"
+      },
+      {
+        "title": "MAG Aerospace partnership announcement describing New Mountain portfolio status",
+        "url": "https://www.globenewswire.com/news-release/2024/10/01/2955972/0/en/MAG-Aerospace-Partners-with-Zapata-AI-to-Deliver-Next-Generation-Airborne-Surveillance-Platform.html"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapped MAG DS Corp. to MAG Aerospace based on borrower naming and sponsor-backed MAG Aerospace sources."
+  },
+  {
+    "issuer_match_key": "FUSIONSITE",
+    "display_name": "FusionSite Midco, LLC",
+    "mapped_company": "FusionSite Services",
+    "description": "FusionSite Services provides waste management and temporary site services, including portable restrooms, restroom trailers, dumpsters, storage containers, septic cleaning, and grease-trap cleaning.",
+    "current_sponsor": "The Cynosure Group",
+    "sponsor_history": [
+      {
+        "date": "2022-10",
+        "event": "FusionSite Services was acquired by The Cynosure Group.",
+        "source_url": "https://hl.com/media/meuhjxtm/bus-faci-summer-2023.pdf"
+      },
+      {
+        "date": "2025-03",
+        "event": "Stout described FusionSite Services as a portfolio company of The Cynosure Group while announcing FusionSite's acquisition of Stamback Services.",
+        "source_url": "https://www.stout.com/en/news/stout-advises-stamback-services-sale-fusionsite-services"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Houlihan Lokey FusionSite sale to Cynosure",
+        "url": "https://hl.com/media/meuhjxtm/bus-faci-summer-2023.pdf"
+      },
+      {
+        "title": "FusionSite as Cynosure portfolio company",
+        "url": "https://www.stout.com/en/news/stout-advises-stamback-services-sale-fusionsite-services"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped FusionSite Midco, LLC to FusionSite Services."
+  },
+  {
+    "issuer_match_key": "EDB PARENT",
+    "display_name": "EDB Parent, LLC",
+    "mapped_company": "EDB / EnterpriseDB",
+    "description": "EDB provides enterprise Postgres software, support, database management, migration, high availability, hybrid-cloud, and data platform services.",
+    "current_sponsor": "Bain Capital Private Equity majority owner, with Great Hill Partners remaining a significant shareholder",
+    "sponsor_history": [
+      {
+        "date": "2019-06",
+        "event": "EnterpriseDB was acquired by Great Hill Partners, with Catalyst Investors investing alongside Great Hill.",
+        "source_url": "https://www.enterprisedb.com/news/enterprisedb-acquired-great-hill-partners"
+      },
+      {
+        "date": "2022-06",
+        "event": "EDB announced a majority growth investment from Bain Capital Private Equity, with Great Hill Partners remaining a significant shareholder.",
+        "source_url": "https://www.businesswire.com/news/home/20220607005563/en/EDB-Leading-Global-Provider-of-Enterprise-Class-Software-and-Services-for-Postgres-Announces-Majority-Growth-Investment-from-Bain-Capital-Private-Equity"
+      }
+    ],
+    "sources": [
+      {
+        "title": "EnterpriseDB acquisition by Great Hill Partners",
+        "url": "https://www.enterprisedb.com/news/enterprisedb-acquired-great-hill-partners"
+      },
+      {
+        "title": "EDB majority growth investment from Bain Capital Private Equity",
+        "url": "https://www.businesswire.com/news/home/20220607005563/en/EDB-Leading-Global-Provider-of-Enterprise-Class-Software-and-Services-for-Postgres-Announces-Majority-Growth-Investment-from-Bain-Capital-Private-Equity"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped EDB Parent, LLC to EDB / EnterpriseDB."
+  },
+  {
+    "issuer_match_key": "MERCURY BIDCO GLOBE",
+    "display_name": "Mercury Bidco Globe, Limited",
+    "mapped_company": "Mercury Bidco Globe, Limited",
+    "description": "Mercury Bidco Globe, Limited is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $76.8mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Professional Services. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ELECTRONIC EQUIPMENT INSTRUMENTS AND COMPONENTS ALBIREO ENERGY",
+    "display_name": "Electronic Equipment, Instruments & Components Albireo Energy, LLC",
+    "mapped_company": "Albireo Energy",
+    "description": "Albireo Energy provides building automation, energy management, building controls, managed services, systems integration, and related smart-building services.",
+    "current_sponsor": "Huron Capital",
+    "sponsor_history": [
+      {
+        "date": "2014-02",
+        "event": "Huron Capital launched Albireo Energy as an energy services platform in partnership with industry executive Phil Bomrad.",
+        "source_url": "https://www.prnewswire.com/news-releases/huron-capital-launches-energy-services-platform-244010231.html"
+      },
+      {
+        "date": "2025-12",
+        "event": "Albireo Energy described itself as a Huron Capital portfolio company in a company announcement.",
+        "source_url": "https://albireoenergy.com/2025/12/04/albireo-energy-names-mergers-and-acquisitions-executive/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Huron Capital launch of Albireo Energy platform",
+        "url": "https://www.prnewswire.com/news-releases/huron-capital-launches-energy-services-platform-244010231.html"
+      },
+      {
+        "title": "Albireo Energy as Huron Capital portfolio company",
+        "url": "https://albireoenergy.com/2025/12/04/albireo-energy-names-mergers-and-acquisitions-executive/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped the schedule display name to Albireo Energy, LLC."
+  },
+  {
+    "issuer_match_key": "EXTRAHOP NETWORKS",
+    "display_name": "ExtraHop Networks, Inc.",
+    "mapped_company": "ExtraHop",
+    "description": "ExtraHop provides cloud-native network detection and response software for cybersecurity, network intelligence, and threat detection.",
+    "current_sponsor": "Bain Capital Private Equity and Crosspoint Capital Partners",
+    "sponsor_history": [
+      {
+        "date": "2021-06",
+        "event": "ExtraHop agreed to be acquired by Bain Capital Private Equity and Crosspoint Capital Partners in a transaction valued at $900 million.",
+        "source_url": "https://www.baincapital.com/news/extrahop-be-acquired-bain-capital-private-equity-and-crosspoint-capital-partners"
+      },
+      {
+        "date": "2021-07",
+        "event": "ExtraHop completed its acquisition by Bain Capital Private Equity and Crosspoint Capital Partners.",
+        "source_url": "https://www.telecomtv.com/content/security/extrahop-announces-completion-of-acquisition-by-bain-capital-private-equity-and-crosspoint-capital-partners-42035/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bain and Crosspoint agreement to acquire ExtraHop",
+        "url": "https://www.baincapital.com/news/extrahop-be-acquired-bain-capital-private-equity-and-crosspoint-capital-partners"
+      },
+      {
+        "title": "ExtraHop acquisition completion",
+        "url": "https://www.telecomtv.com/content/security/extrahop-announces-completion-of-acquisition-by-bain-capital-private-equity-and-crosspoint-capital-partners-42035/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "DTA INTERMEDIATE II",
+    "display_name": "DTA Intermediate II, Ltd.",
+    "mapped_company": "DTA Intermediate II, Ltd.",
+    "description": "DTA Intermediate II, Ltd. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $75.8mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Diversified Consumer Services. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "LIONBRIDGE TECHNOLOGIES",
+    "display_name": "Lionbridge Technologies Inc",
+    "mapped_company": "Lionbridge",
+    "description": "Lionbridge provides language services, localization, games services, over-the-phone interpretation, and AI-related solutions for global brands.",
+    "current_sponsor": "Funds and accounts managed by KKR",
+    "sponsor_history": [
+      {
+        "date": "2017-02",
+        "event": "H.I.G. Capital acquired Lionbridge through a take-private transaction.",
+        "source_url": "https://www.nasdaq.com/press-release/lionbridge-technologies-an-h.i.g.-capital-portfolio-company-completes-divestiture-of"
+      },
+      {
+        "date": "2026-02",
+        "event": "Lionbridge announced a consensual change of control to funds and accounts managed by KKR; H.I.G. no longer has an ownership interest.",
+        "source_url": "https://www.lionbridge.com/press-release/lionbridge-announces-strategic-ownership-transition-to-kkr/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Lionbridge H.I.G. ownership and AI divestiture",
+        "url": "https://www.nasdaq.com/press-release/lionbridge-technologies-an-h.i.g.-capital-portfolio-company-completes-divestiture-of"
+      },
+      {
+        "title": "Lionbridge ownership transition to KKR",
+        "url": "https://www.lionbridge.com/press-release/lionbridge-announces-strategic-ownership-transition-to-kkr/"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "NET DOCUMENTS",
+    "display_name": "Net Documents",
+    "mapped_company": "NetDocuments",
+    "description": "NetDocuments provides cloud-based document management, email management, collaboration, content services, and productivity software for law firms, corporate legal teams, government agencies, and compliance departments.",
+    "current_sponsor": "Warburg Pincus and Cove Hill Partners",
+    "sponsor_history": [
+      {
+        "date": "2021-05",
+        "event": "Warburg Pincus made a significant investment in NetDocuments alongside existing investor Cove Hill Partners, acquiring Clearlake's interest.",
+        "source_url": "https://www.netdocuments.com/company-news/netdocuments-to-accelerate-growth-with-strategic-investment-from-warburg-pincus/"
+      },
+      {
+        "date": "2025-10",
+        "event": "Paul Weiss described NetDocuments as a Warburg Pincus portfolio company while advising on financing for its eDOCS acquisition.",
+        "source_url": "https://www.paulweiss.com/insights/client-news/netdocuments-to-acquire-edocs-from-opentext"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NetDocuments strategic investment from Warburg Pincus",
+        "url": "https://www.netdocuments.com/company-news/netdocuments-to-accelerate-growth-with-strategic-investment-from-warburg-pincus/"
+      },
+      {
+        "title": "NetDocuments Warburg Pincus portfolio company reference",
+        "url": "https://www.paulweiss.com/insights/client-news/netdocuments-to-acquire-edocs-from-opentext"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "CT TECHNOLOGIES",
+    "display_name": "CT Technologies Intermediate Holdings, Inc.",
+    "mapped_company": "Datavant",
+    "description": "Datavant provides a neutral health data ecosystem for compliant healthcare data exchange, connectivity, retrieval, release of information, tokenization, and privacy-preserving data linkage.",
+    "current_sponsor": "New Mountain Capital and broader Datavant investor group, including Roivant Sciences, Transformation Capital, Sixth Street, and Goldman Sachs Asset Management",
+    "sponsor_history": [
+      {
+        "date": "2021-06",
+        "event": "Datavant and Ciox Health announced a $7.0 billion merger supported by New Mountain Capital, Roivant Sciences, Transformation Capital, and other investors, with significant new investment from Sixth Street and Goldman Sachs Asset Management.",
+        "source_url": "https://www.businesswire.com/news/home/20210609005224/en/Datavant-and-Ciox-Health-Announce-Merger-Creating-the-Largest-Neutral-and-Secure-Health-Data-Ecosystem"
+      },
+      {
+        "date": "2025",
+        "event": "A BDC filing identified CT Technologies Intermediate Holdings, Inc. and Smart Holdings Corp. as doing business as Datavant.",
+        "source_url": "https://www.blueowlcapitalcorporation.com/investors/sec-filings/annual-filings/content/0001655888-25-000007/0001655888-25-000007.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Datavant and Ciox merger announcement",
+        "url": "https://www.businesswire.com/news/home/20210609005224/en/Datavant-and-Ciox-Health-Announce-Merger-Creating-the-Largest-Neutral-and-Secure-Health-Data-Ecosystem"
+      },
+      {
+        "title": "BDC filing mapping CT Technologies to Datavant",
+        "url": "https://www.blueowlcapitalcorporation.com/investors/sec-filings/annual-filings/content/0001655888-25-000007/0001655888-25-000007.pdf"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "Mapped CT Technologies Intermediate Holdings, Inc. to Datavant based on BDC filing language that lists the issuer as dba Datavant."
+  },
+  {
+    "issuer_match_key": "PAYSCALE",
+    "display_name": "PayScale Holdings, Inc.",
+    "mapped_company": "Payscale",
+    "description": "Payscale provides SaaS compensation data, analytics, benchmarking, pay-equity, and compensation management software.",
+    "current_sponsor": "Francisco Partners majority owner",
+    "sponsor_history": [
+      {
+        "date": "2014-04",
+        "event": "Warburg Pincus acquired Payscale before later exiting through the Francisco Partners transaction.",
+        "source_url": "https://www.franciscopartners.com/media/payscale-announces-majority-growth-investment-from-francisco-partners-at-an-enterprise-value-of-325-million"
+      },
+      {
+        "date": "2019-04",
+        "event": "Francisco Partners made a majority growth investment in Payscale at a $325 million enterprise value, with Warburg Pincus exiting.",
+        "source_url": "https://www.franciscopartners.com/media/payscale-announces-majority-growth-investment-from-francisco-partners-at-an-enterprise-value-of-325-million"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Francisco Partners majority investment in Payscale",
+        "url": "https://www.franciscopartners.com/media/payscale-announces-majority-growth-investment-from-francisco-partners-at-an-enterprise-value-of-325-million"
+      }
+    ],
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "issuer_match_key": "PROGRESS RESIDENTIAL PM",
+    "display_name": "Progress Residential PM Holdings, LLC",
+    "mapped_company": "Progress Residential",
+    "description": "Progress Residential is a single-family rental and build-to-rent property manager that operates residential rental homes and related property-management services.",
+    "current_sponsor": "Pretium",
+    "sponsor_history": [
+      {
+        "date": "2026",
+        "event": "Pretium describes Progress Residential as its wholly owned and vertically integrated subsidiary and a leading single-family rental and build-to-rent property manager.",
+        "source_url": "https://pretium.com/strategies/real-estate/"
+      },
+      {
+        "date": "2025",
+        "event": "Progress Residential impact materials refer to parent company Pretium.",
+        "source_url": "https://rentprogress.com/content/dam/progress-residential/impact-report-page/impact-report-single-page-pdf/2024%20Progress%20Residential%20Impact%20Report.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Pretium real estate strategy and Progress Residential ownership",
+        "url": "https://pretium.com/strategies/real-estate/"
+      },
+      {
+        "title": "Progress Residential impact report parent-company reference",
+        "url": "https://rentprogress.com/content/dam/progress-residential/impact-report-page/impact-report-single-page-pdf/2024%20Progress%20Residential%20Impact%20Report.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Mapped Progress Residential PM Holdings, LLC to Progress Residential."
+  },
+  {
+    "issuer_match_key": "LD LOWER",
+    "display_name": "LD Lower Holdings, Inc.",
+    "mapped_company": "LD Lower Holdings, Inc.",
+    "description": "LD Lower Holdings, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $72.7mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Software. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "RESA POWER",
+    "display_name": "Resa Power LLC",
+    "mapped_company": "Resa Power LLC",
+    "description": "Resa Power LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $70.2mm of latest-period fair value across 4 observed filing periods. The latest source schedule classifies it in Commercial & Professional Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "FOUNDATION CONSUMER BRANDS",
+    "display_name": "Foundation Consumer Brands LLC",
+    "mapped_company": "Foundation Consumer Brands LLC",
+    "description": "Foundation Consumer Brands LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $70.0mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Pharmaceuticals, Biotechnology & Life Sciences. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "USIC",
+    "display_name": "USIC Holdings Inc",
+    "mapped_company": "USIC Holdings Inc",
+    "description": "USIC Holdings Inc is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $70.0mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Commercial & Professional Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "MEDIA BIMINI GROUP PURCHASER",
+    "display_name": "Media Bimini Group Purchaser, Inc.",
+    "mapped_company": "Media Bimini Group Purchaser, Inc.",
+    "description": "Media Bimini Group Purchaser, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $69.0mm of latest-period fair value across 6 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "BLAZING STAR PARENT",
+    "display_name": "Blazing Star Parent, LLC",
+    "mapped_company": "Blazing Star Parent, LLC",
+    "description": "Blazing Star Parent, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $68.4mm of latest-period fair value across 3 observed filing periods. The latest source schedule classifies it in Retail and Consumer Products. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "RANGER INTERMEDIATE II",
+    "display_name": "Ranger Intermediate II, LLC",
+    "mapped_company": "Ranger Intermediate II, LLC",
+    "description": "Ranger Intermediate II, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $68.3mm of latest-period fair value across 2 observed filing periods. The latest source schedule classifies it in Transportation. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "TRP ASSETS",
+    "display_name": "TRP Assets, LLC",
+    "mapped_company": "TRP Assets, LLC",
+    "description": "TRP Assets, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $67.7mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Oil, Gas and Consumable Fuels. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "CREEK PARENT",
+    "display_name": "Creek Parent, Inc.",
+    "mapped_company": "Creek Parent, Inc.",
+    "description": "Creek Parent, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $67.4mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in r.l.. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SPOTLESS BRANDS",
+    "display_name": "Spotless Brands LLC",
+    "mapped_company": "Spotless Brands LLC",
+    "description": "Spotless Brands LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $67.2mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Consumer Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "BRAVE PARENT",
+    "display_name": "Brave Parent Holdings, Inc.",
+    "mapped_company": "Brave Parent Holdings, Inc.",
+    "description": "Brave Parent Holdings, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $66.9mm of latest-period fair value across 7 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "WPENGINE",
+    "display_name": "WPEngine, Inc.",
+    "mapped_company": "WPEngine, Inc.",
+    "description": "WPEngine, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $66.5mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Software. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "GFT INFRASTRUCTURE",
+    "display_name": "GFT Infrastructure, Inc.",
+    "mapped_company": "GFT Infrastructure, Inc.",
+    "description": "GFT Infrastructure, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $66.4mm of latest-period fair value across 1 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "STYRON RECEIVABLES FUNDING DESIGNATED ACTIVITY COMPANY REVOLVER",
+    "display_name": "Styron Receivables Funding Designated Activity Company (FKA Trinseo Materials), Revolver",
+    "mapped_company": "Styron Receivables Funding Designated Activity Company (FKA Trinseo Materials), Revolver",
+    "description": "Styron Receivables Funding Designated Activity Company (FKA Trinseo Materials), Revolver is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $66.2mm of latest-period fair value across 2 observed filing periods. The latest source schedule classifies it in Materials. Latest source labels include Asset Based Finance.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ELYSIUM",
+    "display_name": "Elysium BidCo Limited",
+    "mapped_company": "Elysium BidCo Limited",
+    "description": "Elysium BidCo Limited is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $65.4mm of latest-period fair value across 5 observed filing periods. The latest source schedule classifies it in Pharmaceuticals. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "CORDANCE OPERATIONS",
+    "display_name": "Cordance Operations, LLC",
+    "mapped_company": "Cordance Operations, LLC",
+    "description": "Cordance Operations, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $65.2mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Retail and Consumer Products. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "RAINFOCUS",
+    "display_name": "RainFocus, LLC",
+    "mapped_company": "RainFocus, LLC",
+    "description": "RainFocus, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $65.1mm of latest-period fair value across 3 observed filing periods. The latest source schedule classifies it in Internet Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ARTISAN ACQUISITIONCO",
+    "display_name": "Artisan Acquisitionco, Ltd.",
+    "mapped_company": "Artisan Acquisitionco, Ltd.",
+    "description": "Artisan Acquisitionco, Ltd. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $64.9mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Pharmaceuticals. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "CAERUS US 1",
+    "display_name": "Caerus US 1, Inc.",
+    "mapped_company": "Caerus US 1, Inc.",
+    "description": "Caerus US 1, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $63.7mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Health Care Providers & Services. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "PT INTERMEDIATE HOLDINGS III",
+    "display_name": "PT Intermediate Holdings III, LLC",
+    "mapped_company": "PT Intermediate Holdings III, LLC",
+    "description": "PT Intermediate Holdings III, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $63.5mm of latest-period fair value across 6 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "VELOCITY CLINICAL RESEARCH",
+    "display_name": "Velocity Clinical Research, Inc.",
+    "mapped_company": "Velocity Clinical Research, Inc.",
+    "description": "Velocity Clinical Research, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $63.3mm of latest-period fair value across 3 observed filing periods. The latest source schedule classifies it in Healthcare. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ARTISAN",
+    "display_name": "Artisan Topco LP",
+    "mapped_company": "Artisan Topco LP",
+    "description": "Artisan Topco LP is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $63.1mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Business Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ASG II",
+    "display_name": "ASG II, LLC",
+    "mapped_company": "ASG II, LLC",
+    "description": "ASG II, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $62.9mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Hotel, Gaming and Leisure. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "LEANTAAS",
+    "display_name": "LeanTaaS Holdings, Inc.",
+    "mapped_company": "LeanTaaS Holdings, Inc.",
+    "description": "LeanTaaS Holdings, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $62.2mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Internet Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "INSIGHT GLOBAL",
+    "display_name": "Insight Global LLC",
+    "mapped_company": "Insight Global LLC",
+    "description": "Insight Global LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $62.2mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Commercial & Professional Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "AVE HOLDINGS I",
+    "display_name": "AVE Holdings I Corp (fka Amerivet Partners Management Inc)",
+    "mapped_company": "AVE Holdings I Corp (fka Amerivet Partners Management Inc)",
+    "description": "AVE Holdings I Corp (fka Amerivet Partners Management Inc) is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $61.2mm of latest-period fair value across 1 observed filing periods. The latest source schedule classifies it in Health Care Equipment & Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SORENSON COMMUNICATIONS",
+    "display_name": "Sorenson Communications LLC",
+    "mapped_company": "Sorenson Communications LLC",
+    "description": "Sorenson Communications LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $60.7mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Telecommunication Services. Latest source labels include Subordinated Debt.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ELECTRICAL EQUIPMENT EMERGENCY POWER",
+    "display_name": "Electrical Equipment Emergency Power Holdings, LLC",
+    "mapped_company": "Electrical Equipment Emergency Power Holdings, LLC",
+    "description": "Electrical Equipment Emergency Power Holdings, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $60.1mm of latest-period fair value across 5 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "BAYSHORE INTERMEDIATE 2 L P",
+    "display_name": "Bayshore Intermediate #2, L.P.",
+    "mapped_company": "Bayshore Intermediate #2, L.P.",
+    "description": "Bayshore Intermediate #2, L.P. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $59.9mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Internet Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "TURING",
+    "display_name": "Turing Holdco, Inc.",
+    "mapped_company": "Turing Holdco, Inc.",
+    "description": "Turing Holdco, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $59.9mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in r.l.. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ARNHEM BIDCO GMBH",
+    "display_name": "Arnhem BidCo, GmbH",
+    "mapped_company": "Arnhem BidCo, GmbH",
+    "description": "Arnhem BidCo, GmbH is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $59.8mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Real Estate Management & Development. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "HELIX TS",
+    "display_name": "Helix TS, LLC",
+    "mapped_company": "Helix TS, LLC",
+    "description": "Helix TS, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $59.0mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Transportation Infrastructure. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "TIME MANUFACTURING",
+    "display_name": "Time Manufacturing Co",
+    "mapped_company": "Time Manufacturing Co",
+    "description": "Time Manufacturing Co is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $58.9mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Capital Goods. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "CONTINENTAL",
+    "display_name": "Continental Buyer, Inc.",
+    "mapped_company": "Continental Buyer, Inc.",
+    "description": "Continental Buyer, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $58.7mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Health Care Providers & Services. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "G AND A PARTNERS HOLDING COMPANY II",
+    "display_name": "G&A Partners Holding Company II, LLC",
+    "mapped_company": "G&A Partners Holding Company II, LLC",
+    "description": "G&A Partners Holding Company II, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $58.5mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Professional Services. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "IRGSE",
+    "display_name": "IRGSE Holding Corp.",
+    "mapped_company": "IRGSE Holding Corp.",
+    "description": "IRGSE Holding Corp. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $58.5mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Hotel, Gaming and Leisure. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "DILIGENT",
+    "display_name": "Diligent Corp.",
+    "mapped_company": "Diligent Corp.",
+    "description": "Diligent Corp. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $58.2mm of latest-period fair value across 8 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "EMS LINQ",
+    "display_name": "EMS Linq, Inc.",
+    "mapped_company": "EMS Linq, Inc.",
+    "description": "EMS Linq, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $58.1mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Education. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SMA TECHNOLOGIES",
+    "display_name": "SMA Technologies Holdings, LLC",
+    "mapped_company": "SMA Technologies Holdings, LLC",
+    "description": "SMA Technologies Holdings, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $58.0mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Internet Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "BSWIFT",
+    "display_name": "bswift, LLC",
+    "mapped_company": "bswift, LLC",
+    "description": "bswift, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $57.4mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Human Resource Support Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "BAKER TILLY ADVISORY GROUP",
+    "display_name": "Baker Tilly Advisory Group, LP",
+    "mapped_company": "Baker Tilly Advisory Group, LP",
+    "description": "Baker Tilly Advisory Group, LP is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $57.2mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Pharmaceuticals. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "EQUINOX",
+    "display_name": "Equinox Holdings, Inc.",
+    "mapped_company": "Equinox Holdings, Inc.",
+    "description": "Equinox Holdings, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $56.6mm of latest-period fair value across 5 observed filing periods. The latest source schedule classifies it in Hotel, Gaming and Leisure. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "HIREVUE",
+    "display_name": "HireVue, Inc.",
+    "mapped_company": "HireVue, Inc.",
+    "description": "HireVue, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $56.4mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Human Resource Support Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "LEG PURCHASER",
+    "display_name": "Leg Purchaser, Inc.",
+    "mapped_company": "Leg Purchaser, Inc.",
+    "description": "Leg Purchaser, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $56.3mm of latest-period fair value across 1 observed filing periods. The latest source schedule classifies it in Manufacturing. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "BCTO IGNITION PURCHASER",
+    "display_name": "BCTO Ignition Purchaser, Inc.",
+    "mapped_company": "BCTO Ignition Purchaser, Inc.",
+    "description": "BCTO Ignition Purchaser, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $56.2mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Business Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "TS IMAGINE",
+    "display_name": "TS Imagine, Inc.",
+    "mapped_company": "TS Imagine, Inc.",
+    "description": "TS Imagine, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $56.0mm of latest-period fair value across 2 observed filing periods. The latest source schedule classifies it in Financial Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SWEEPING CORP OF AMERICA",
+    "display_name": "Sweeping Corp of America LLC",
+    "mapped_company": "Sweeping Corp of America LLC",
+    "description": "Sweeping Corp of America LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $55.7mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Commercial & Professional Services. Latest source labels include Senior Secured Loans - First Lien, Senior Secured Loans - Second Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "PROJECT44",
+    "display_name": "Project44, Inc.",
+    "mapped_company": "Project44, Inc.",
+    "description": "Project44, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $55.0mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Transportation. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "GIMLET BIDCO GMBH",
+    "display_name": "Gimlet Bidco, GmbH",
+    "mapped_company": "Gimlet Bidco, GmbH",
+    "description": "Gimlet Bidco, GmbH is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $53.7mm of latest-period fair value across 6 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "RELIANT REHAB HOSPITAL CINCINNATI",
+    "display_name": "Reliant Rehab Hospital Cincinnati LLC",
+    "mapped_company": "Reliant Rehab Hospital Cincinnati LLC",
+    "description": "Reliant Rehab Hospital Cincinnati LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $53.5mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Health Care Equipment & Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "TRIPLE LIFT",
+    "display_name": "Triple Lift, Inc.",
+    "mapped_company": "Triple Lift, Inc.",
+    "description": "Triple Lift, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $53.3mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Software. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "BUILDING PRODUCTS FENCING SUPPLY GROUP ACQUISITION",
+    "display_name": "Building Products Fencing Supply Group Acquisition, LLC",
+    "mapped_company": "Building Products Fencing Supply Group Acquisition, LLC",
+    "description": "Building Products Fencing Supply Group Acquisition, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $52.2mm of latest-period fair value across 8 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "AFFORDABLE CARE",
+    "display_name": "Affordable Care Inc",
+    "mapped_company": "Affordable Care Inc",
+    "description": "Affordable Care Inc is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $51.5mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Health Care Equipment & Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SOURCE CODE",
+    "display_name": "Source Code LLC",
+    "mapped_company": "Source Code LLC",
+    "description": "Source Code LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $51.5mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Software & Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "CARIBOU",
+    "display_name": "Caribou Bidco, Ltd.",
+    "mapped_company": "Caribou Bidco, Ltd.",
+    "description": "Caribou Bidco, Ltd. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $51.5mm of latest-period fair value across 5 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SEAHAWK",
+    "display_name": "Seahawk Bidco, LLC",
+    "mapped_company": "Seahawk Bidco, LLC",
+    "description": "Seahawk Bidco, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $51.2mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Diversified Consumer Services. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "NEUINTEL",
+    "display_name": "Neuintel, LLC",
+    "mapped_company": "Neuintel, LLC",
+    "description": "Neuintel, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $50.8mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Retail and Consumer Products. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "DUBOIS CHEMICALS",
+    "display_name": "DuBois Chemicals Inc",
+    "mapped_company": "DuBois Chemicals Inc",
+    "description": "DuBois Chemicals Inc is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $49.8mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Materials. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "TANGO MANAGEMENT CONSULTING",
+    "display_name": "Tango Management Consulting, LLC",
+    "mapped_company": "Tango Management Consulting, LLC",
+    "description": "Tango Management Consulting, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $49.3mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Retail and Consumer Products. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "COMMUNITY BRANDS",
+    "display_name": "Community Brands Inc",
+    "mapped_company": "Community Brands Inc",
+    "description": "Community Brands Inc is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $48.6mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Software & Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "PAYPAL EUROPE SARL ET CIE SCA ABF EQUITY",
+    "display_name": "PayPal Europe Sarl et Cie SCA, ABF Equity",
+    "mapped_company": "PayPal Europe Sarl et Cie SCA, ABF Equity",
+    "description": "PayPal Europe Sarl et Cie SCA, ABF Equity is a source-derived timeline exposure rather than a fully researched operating-company profile. The dashboard shows FSK holding $48.2mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Financial Services. Latest source labels include Asset Based Finance.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "AVIDA HOLDING AB COMMON STOCK",
+    "display_name": "Avida Holding AB, Common Stock",
+    "mapped_company": "Avida Holding AB, Common Stock",
+    "description": "Avida Holding AB, Common Stock is a source-derived timeline exposure rather than a fully researched operating-company profile. The dashboard shows FSK holding $47.5mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Financial Services. Latest source labels include Asset Based Finance.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "INCEPTION FERTILITY VENTURES",
+    "display_name": "Inception Fertility Ventures, LLC",
+    "mapped_company": "Inception Fertility Ventures, LLC",
+    "description": "Inception Fertility Ventures, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $47.4mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Financial Services. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ZORRO",
+    "display_name": "Zorro Bidco, Ltd.",
+    "mapped_company": "Zorro Bidco, Ltd.",
+    "description": "Zorro Bidco, Ltd. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $47.3mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Software. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SI SWAN UK",
+    "display_name": "SI Swan UK Bidco, Ltd.",
+    "mapped_company": "SI Swan UK Bidco, Ltd.",
+    "description": "SI Swan UK Bidco, Ltd. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $47.3mm of latest-period fair value across 1 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "AXONIFY",
+    "display_name": "Axonify, Inc.",
+    "mapped_company": "Axonify, Inc.",
+    "description": "Axonify, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $46.9mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Human Resource Support Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "AEROSPACE AND DEFENSE AEVEX",
+    "display_name": "Aerospace & Defense Aevex Holdings, LLC",
+    "mapped_company": "Aerospace & Defense Aevex Holdings, LLC",
+    "description": "Aerospace & Defense Aevex Holdings, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $46.7mm of latest-period fair value across 6 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "801 5TH AVE SEATTLE STRUCTURED MEZZANINE",
+    "display_name": "801 5th Ave, Seattle, Structured Mezzanine",
+    "mapped_company": "801 5th Ave, Seattle, Structured Mezzanine",
+    "description": "801 5th Ave, Seattle, Structured Mezzanine is a source-derived timeline exposure rather than a fully researched operating-company profile. The dashboard shows FSK holding $46.4mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Equity Real Estate Investment Trusts (REITs). Latest source labels include Asset Based Finance.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "ADVANCED DERMATOLOGY AND COSMETIC SURGERY",
+    "display_name": "Advanced Dermatology & Cosmetic Surgery",
+    "mapped_company": "Advanced Dermatology & Cosmetic Surgery",
+    "description": "Advanced Dermatology & Cosmetic Surgery is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows FSK holding $46.2mm of latest-period fair value across 8 observed filing periods. The latest source schedule classifies it in Health Care Equipment & Services. Latest source labels include Senior Secured Loans - First Lien.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "FSK schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for FSK through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "BIG WOMBAT",
+    "display_name": "Big Wombat Holdings, Inc.",
+    "mapped_company": "Big Wombat Holdings, Inc.",
+    "description": "Big Wombat Holdings, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $46.1mm of latest-period fair value across 3 observed filing periods. The latest source schedule classifies it in Internet Services. Latest source labels include Debt Investments.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "TSLX schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SABER POWER SERVICES",
+    "display_name": "Saber Power Services, LLC",
+    "mapped_company": "Saber Power Services, LLC",
+    "description": "Saber Power Services, LLC is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $46.0mm of latest-period fair value across 2 observed filing periods. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
+    "current_sponsor": "Schedule evidence only",
+    "sponsor_history": [],
+    "sources": [
+      {
+        "title": "BXSL schedule evidence in centralized holdings DB",
+        "url": "https://www.sec.gov/edgar/search/"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
   }
 ]

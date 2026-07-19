@@ -1,17 +1,22 @@
-# BDC Three-Fund Dashboard
+# Verified Eight-Fund BDC Dashboard
 
-Next.js dashboard for the phase-one centralized BDC holdings database.
+Next.js dashboard for the centralized ARCC, BBDC, BXSL, FSK, GBDC, MAIN, OBDC, and TSLX holdings database, with an audited EdgarTools/SEC expansion cohort and broader universe directory.
 
 ## Data
 
 The app reads from:
 
-`../output/bdc_5_fund_centralized/bdc_5_fund_holdings.sqlite`
+`../output/bdc_tracker_centralized/bdc_tracker_holdings.sqlite`
+
+The EdgarTools expansion audit and reconciled source rows are stored in:
+
+`../output/edgartools_bdc_expansion/edgartools_bdc_expansion_holdings.sqlite`
 
 and writes static JSON snapshots to:
 
 - `lib/dashboard-data.json`
 - `lib/quarterly-bdc-facts.json`
+- `lib/bdc-universe.json`
 
 The quarterly facts exporter also writes:
 
@@ -25,7 +30,7 @@ For reproducible local builds, download the database bundle from:
 
 [Data release 2026-05-27](https://github.com/YardenMorad2003/bdc-three-fund-dashboard/releases/tag/data-2026-05-27)
 
-Unzip the bundle and place the central SQLite database and close-price CSV at the paths shown above. The institutional model SQLite is included for inspection, but `npm run data` regenerates it. The central holdings database in the release is sanitized: absolute local workbook paths were replaced with `source_workbooks/<filename>`.
+The linked release predates the EdgarTools expansion and provides the original tracker source bundle. Rebuild the expansion database with `extract_edgartools_bdc_cohort.py` before rebuilding the centralized tracker database. The institutional model SQLite is included for inspection, but `npm run data` regenerates it.
 
 Regenerate the snapshot with:
 
@@ -38,6 +43,14 @@ Regenerate only the quarterly facts model with:
 ```bash
 npm run facts
 ```
+
+Regenerate the EdgarTools BDC universe snapshot with an SEC-compliant `EDGAR_IDENTITY` configured:
+
+```bash
+npm run universe
+```
+
+The universe snapshot combines the current EdgarTools BDC registry with its latest listed SEC bulk BDC dataset. Bulk Schedule of Investments rows are discovery coverage only. MAIN, GBDC, and BBDC passed both latest-form reconciliation gates and joined the original five verified holdings funds. HTGC, CSWC, TCPC, BCSF, OCSL, NMFC, CCAP, and PSEC remain audit-visible but do not feed portfolio analytics because their default detailed extraction was incomplete or did not reconcile. Financials, deterioration, and liabilities remain presentation/filing-enriched for BXSL, FSK, and TSLX.
 
 ## Run
 
