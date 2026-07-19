@@ -33,6 +33,7 @@ import bdcUniverseData from "../lib/bdc-universe.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import liabilityStackData from "../lib/liability-stack.json";
 import quarterlyFactsData from "../lib/quarterly-bdc-facts.json";
+import trancheComparisonData from "../lib/tranche-comparison.json";
 
 type Fund =
   | "ARCC"
@@ -55,6 +56,7 @@ type Tab = "overview" | "financials" | "deterioration" | "exposure" | "timeline"
 type WatchlistBucketFilter = "All" | "Non-accrual" | "Shadow below 90" | "Watch 90-97" | "QoQ deterioration";
 type SortDirection = "asc" | "desc";
 type HoldingsSortKey = "amortized_cost_mm" | "fair_value_mm" | "mark_vs_cost_mm" | "fv_to_cost";
+type MarkComparisonMode = "facility" | "company";
 type DeteriorationExposureFilter = "All" | "Debt" | "Equity / ABF" | "Mixed / Other";
 type DeteriorationInstrumentBucket = "Debt" | "Equity / ABF" | "Mixed / Other";
 
@@ -148,6 +150,81 @@ type HoldingRow = {
   pct_net_assets: number | null;
   rate_type: string;
   maturity_bucket: string;
+};
+
+type FacilityGapRow = {
+  issuer_match_key: string;
+  period_end: string;
+  fund_pair: string;
+  fund_a: Fund;
+  fund_b: Fund;
+  facility_match_confidence: "high" | "medium";
+  fund_a_principal_mm: number;
+  fund_a_fair_value_mm: number;
+  fund_a_fv_to_principal_pct: number;
+  fund_b_principal_mm: number;
+  fund_b_fair_value_mm: number;
+  fund_b_fv_to_principal_pct: number;
+  fund_a_minus_fund_b_gap_pp: number;
+  inter_fund_gap_pp: number;
+  conservative_fund: Fund | "Tie";
+  maturity_month: string | null;
+  reference_base_rate: string | null;
+  spread_pct_a: number | null;
+  spread_pct_b: number | null;
+  fixed_coupon_pct_a: number | null;
+  fixed_coupon_pct_b: number | null;
+  currency: string;
+};
+
+type CompanyGapRow = {
+  issuer_match_key: string;
+  period_end: string;
+  fund_pair: string;
+  funds: string;
+  comparable_facility_pair_count: number;
+  abstention_count: number;
+  fund_a: Fund;
+  fund_b: Fund;
+  fund_a_matched_principal_mm: number;
+  fund_a_matched_fair_value_mm: number;
+  fund_a_fv_to_principal_pct: number;
+  fund_b_matched_principal_mm: number;
+  fund_b_matched_fair_value_mm: number;
+  fund_b_fv_to_principal_pct: number;
+  fund_a_minus_fund_b_gap_pp: number;
+  inter_fund_gap_pp: number;
+  conservative_fund: Fund | "Tie";
+  non_comparable_reasons: string | null;
+};
+
+type TrancheComparisonData = {
+  meta: {
+    generated_at_utc: string;
+    latest_period: string;
+    candidate_count: number;
+    par_covered_candidate_count: number;
+    comparable_candidate_count: number;
+    abstained_candidate_count: number;
+    comparable_facility_pair_count: number;
+    spread_tolerance_bps: number;
+    methodology: string;
+  };
+  facility_gaps: FacilityGapRow[];
+  company_gaps: CompanyGapRow[];
+  persistence: Array<{
+    issuer_match_key: string;
+    fund_pair: string;
+    comparable_period_count: number;
+    latest_period_status: string;
+    latest_inter_fund_gap_pp: number | null;
+    latest_conservative_fund: Fund | "Tie" | null;
+    avg_abs_gap_pp: number | null;
+    max_abs_gap_pp: number | null;
+    persistent_conservative_fund: Fund | "Tie" | "Mixed" | null;
+    conservative_fund_sequence: string | null;
+  }>;
+  abstention_reasons: Array<{ reason: string; count: number }>;
 };
 
 type LoanTimelineIssuer = {
@@ -736,6 +813,7 @@ const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const liabilityStack = liabilityStackData as LiabilityStackData;
 const quarterlyFacts = quarterlyFactsData as QuarterlyFactsData;
+const trancheComparison = trancheComparisonData as TrancheComparisonData;
 const funds: Fund[] = ["ARCC", "BBDC", "BXSL", "FSK", "GBDC", "MAIN", "OBDC", "TSLX"];
 const institutionalFunds: Fund[] = ["BXSL", "FSK", "TSLX"];
 const timelineIssuerKeys = new Set(data.loan_timeline_issuers.map((issuer) => issuer.issuer_match_key));
@@ -3963,6 +4041,163 @@ function CrossFundSpotlightCard({
   );
 }
 
+function formatFacilityRate(row: FacilityGapRow) {
+  if (typeof row.fixed_coupon_pct_a === "number") return `${formatPct(row.fixed_coupon_pct_a, 2)} fixed`;
+  if (row.reference_base_rate && typeof row.spread_pct_a === "number") {
+    return `${row.reference_base_rate} + ${formatPct(row.spread_pct_a, 2)}`;
+  }
+  return row.reference_base_rate || "Rate evidence matched";
+}
+
+function MarkDivergence({
+  selectedFund,
+  onOpenTimelineIssuer
+}: {
+  selectedFund: Fund | "All";
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const [mode, setMode] = useState<MarkComparisonMode>("facility");
+  const [query, setQuery] = useState("");
+  const [minimumGap, setMinimumGap] = useState(0);
+  const normalizedQuery = query.trim().toLowerCase();
+  const rows = (mode === "facility" ? trancheComparison.facility_gaps : trancheComparison.company_gaps)
+    .map((row) => {
+      const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+      const facility = mode === "facility" ? (row as FacilityGapRow) : null;
+      const company = mode === "company" ? (row as CompanyGapRow) : null;
+      return {
+        issuer_match_key: row.issuer_match_key,
+        display_name: enrichment?.display_name || row.issuer_match_key,
+        mapped_company: enrichment?.mapped_company || row.issuer_match_key,
+        fund_pair: row.fund_pair,
+        fund_a: row.fund_a,
+        fund_b: row.fund_b,
+        mark_a: row.fund_a_fv_to_principal_pct,
+        mark_b: row.fund_b_fv_to_principal_pct,
+        principal_a: facility?.fund_a_principal_mm ?? company?.fund_a_matched_principal_mm ?? 0,
+        principal_b: facility?.fund_b_principal_mm ?? company?.fund_b_matched_principal_mm ?? 0,
+        fair_value_a: facility?.fund_a_fair_value_mm ?? company?.fund_a_matched_fair_value_mm ?? 0,
+        fair_value_b: facility?.fund_b_fair_value_mm ?? company?.fund_b_matched_fair_value_mm ?? 0,
+        gap: row.inter_fund_gap_pp,
+        conservative_fund: row.conservative_fund,
+        comparable_facilities: company?.comparable_facility_pair_count ?? 1,
+        abstention_count: company?.abstention_count ?? 0,
+        maturity_month: facility?.maturity_month ?? null,
+        facility_rate: facility ? formatFacilityRate(facility) : null,
+        confidence: facility?.facility_match_confidence ?? "aggregate"
+      };
+    })
+    .filter((row) => selectedFund === "All" || row.fund_a === selectedFund || row.fund_b === selectedFund)
+    .filter((row) => row.gap >= minimumGap)
+    .filter((row) => {
+      if (!normalizedQuery) return true;
+      return [row.issuer_match_key, row.display_name, row.mapped_company, row.fund_pair]
+        .join(" ")
+        .toLowerCase()
+        .includes(normalizedQuery);
+    });
+  const topRows = rows.slice(0, 4);
+
+  return (
+    <Panel
+      title="Inter-Fund Mark Divergence"
+      subtitle={`Fair value as a percentage of disclosed principal at ${formatDate(trancheComparison.meta.latest_period)}. Switch between exact comparable facilities and the aggregate matched-loan set for each company.`}
+      icon={ArrowUpDown}
+      action={
+        <div className="mark-divergence-actions">
+          <div className="view-switch" aria-label="Mark comparison level">
+            <button type="button" className={mode === "facility" ? "active" : ""} onClick={() => setMode("facility")}>Same tranche</button>
+            <button type="button" className={mode === "company" ? "active" : ""} onClick={() => setMode("company")}>Same company</button>
+          </div>
+          <select className="select" value={minimumGap} onChange={(event) => setMinimumGap(Number(event.target.value))} aria-label="Minimum mark gap">
+            <option value={0}>All gaps</option>
+            <option value={1}>1+ pp gap</option>
+            <option value={2}>2+ pp gap</option>
+            <option value={5}>5+ pp gap</option>
+          </select>
+        </div>
+      }
+    >
+      <div className="comparison-audit-strip">
+        <div><span>Co-held companies screened</span><strong>{formatNumber(trancheComparison.meta.candidate_count)}</strong></div>
+        <div><span>Complete principal coverage</span><strong>{formatNumber(trancheComparison.meta.par_covered_candidate_count)}</strong></div>
+        <div><span>Comparable tranches</span><strong>{formatNumber(trancheComparison.meta.comparable_facility_pair_count)}</strong></div>
+        <div><span>Comparable companies</span><strong>{formatNumber(trancheComparison.meta.comparable_candidate_count)}</strong></div>
+      </div>
+
+      <div className="mark-gap-board">
+        {topRows.map((row, index) => (
+          <article className="mark-gap-card" key={`${mode}-${row.issuer_match_key}-${row.fund_pair}-${row.maturity_month || index}`}>
+            <div className="mark-gap-card-topline">
+              <span>{String(index + 1).padStart(2, "0")} / {mode === "facility" ? "Tranche" : "Company set"}</span>
+              <button type="button" onClick={() => onOpenTimelineIssuer(row.issuer_match_key)} aria-label={`Open ${row.display_name} timeline`}><ArrowUpRight /></button>
+            </div>
+            <h3>{row.display_name}</h3>
+            <p>{mode === "facility" ? `${row.maturity_month || "Maturity matched"} · ${row.facility_rate}` : `${row.comparable_facilities} comparable facilit${row.comparable_facilities === 1 ? "y" : "ies"}`}</p>
+            <div className="mark-pair">
+              <div><FundBadge fund={row.fund_a} /><strong>{formatPct(row.mark_a, 2)}</strong></div>
+              <span><b>{formatPct(row.gap, 2)}</b> gap</span>
+              <div><FundBadge fund={row.fund_b} /><strong>{formatPct(row.mark_b, 2)}</strong></div>
+            </div>
+            <div className="mark-gap-footer">
+              <span>Lower mark</span>
+              <strong>{row.conservative_fund}</strong>
+              <small>{row.confidence === "aggregate" ? "matched-loan aggregate" : `${row.confidence} match confidence`}</small>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="comparison-toolbar">
+        <div className="search-wrap compact-search">
+          <Search />
+          <input className="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search company or fund pair" aria-label="Search comparable loan marks" />
+        </div>
+        <span>{formatNumber(rows.length)} comparable {mode === "facility" ? "facility pairs" : "company / fund pairs"}</span>
+      </div>
+
+      <div className="table-wrap">
+        <table className="mark-comparison-table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>{mode === "facility" ? "Facility evidence" : "Matched loan set"}</th>
+              <th>Fund marks</th>
+              <th className="right">Gap</th>
+              <th>Lower mark</th>
+              <th className="right">Matched principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, index) => (
+              <tr key={`${mode}-table-${row.issuer_match_key}-${row.fund_pair}-${row.maturity_month || index}`}>
+                <td className="issuer-cell">
+                  <a className="issuer-link" href="#timeline" onClick={(event) => { event.preventDefault(); onOpenTimelineIssuer(row.issuer_match_key); }}><strong>{row.display_name}</strong></a>
+                  <span>{row.issuer_match_key}</span>
+                </td>
+                <td className="comparison-evidence">
+                  <strong>{mode === "facility" ? row.maturity_month || "Matched maturity" : `${row.comparable_facilities} comparable facilit${row.comparable_facilities === 1 ? "y" : "ies"}`}</strong>
+                  <span>{mode === "facility" ? row.facility_rate : row.abstention_count ? `${row.abstention_count} additional unmatched facilit${row.abstention_count === 1 ? "y" : "ies"}` : "All identified facilities matched"}</span>
+                </td>
+                <td><div className="paired-marks"><span><FundBadge fund={row.fund_a} /> {formatPct(row.mark_a, 2)}</span><span><FundBadge fund={row.fund_b} /> {formatPct(row.mark_b, 2)}</span></div></td>
+                <td className="right"><strong className={row.gap >= 5 ? "mark-gap-severe" : row.gap >= 2 ? "mark-gap-watch" : ""}>{formatPct(row.gap, 2)}</strong></td>
+                <td><FundBadge fund={row.conservative_fund === "Tie" ? row.fund_a : row.conservative_fund} />{row.conservative_fund === "Tie" ? <span className="tie-note">tie</span> : null}</td>
+                <td className="right nowrap">{formatMm(row.principal_a + row.principal_b)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {!rows.length ? <div className="empty-state">No comparable facilities meet the current fund, search, and gap filters.</div> : null}
+      <div className="comparison-method-note">
+        <ShieldCheck />
+        <p><strong>Conservative matching:</strong> {trancheComparison.meta.methodology} The screen abstains when those tests fail; FV/principal is a schedule-derived comparison measure, not a quoted loan price or proof that either fund is wrong.</p>
+      </div>
+    </Panel>
+  );
+}
+
 function Exposure({
   selectedFund,
   onOpenTimelineIssuer
@@ -4054,6 +4289,8 @@ function Exposure({
       </div>
 
       <Callout title="How to read exposure">{data.narrative.exposure}</Callout>
+
+      <MarkDivergence selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
       <Panel
         title="Cross-Fund Research Board"

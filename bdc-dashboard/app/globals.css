@@ -2367,6 +2367,292 @@ tbody tr:hover td {
   background: #252c2f;
 }
 
+.mark-divergence-actions,
+.comparison-toolbar,
+.view-switch,
+.comparison-method-note,
+.paired-marks span {
+  display: flex;
+  align-items: center;
+}
+
+.mark-divergence-actions {
+  gap: 8px;
+}
+
+.view-switch {
+  border: 1px solid var(--border);
+  background: #171d1f;
+}
+
+.view-switch button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 0;
+  background: transparent;
+  color: #818c8c;
+  font: 700 8px/1 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.view-switch button + button {
+  border-left: 1px solid var(--border);
+}
+
+.view-switch button.active {
+  background: #d7d2c8;
+  color: #171d1f;
+}
+
+.comparison-audit-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: -18px -18px 18px;
+  border-bottom: 1px solid var(--border);
+  background: #20272a;
+}
+
+.comparison-audit-strip > div {
+  min-width: 0;
+  padding: 14px 17px;
+}
+
+.comparison-audit-strip > div + div {
+  border-left: 1px solid var(--border);
+}
+
+.comparison-audit-strip span,
+.mark-gap-footer span {
+  display: block;
+  margin-bottom: 6px;
+  color: #7f8989;
+  font: 700 8px/1 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.comparison-audit-strip strong {
+  color: #e4e1d8;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.mark-gap-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  padding: 1px;
+  background: var(--border);
+}
+
+.mark-gap-card {
+  min-width: 0;
+  padding: 17px;
+  background: #1a2022;
+}
+
+.mark-gap-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--accent);
+  font: 700 8px/1 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.mark-gap-card-topline button {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: #9ba3a1;
+  cursor: pointer;
+}
+
+.mark-gap-card-topline button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.mark-gap-card-topline svg {
+  width: 12px;
+  height: 12px;
+}
+
+.mark-gap-card h3 {
+  min-height: 48px;
+  margin: 17px 0 5px;
+  color: #ebe7de;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.mark-gap-card > p {
+  min-height: 30px;
+  margin: 0 0 14px;
+  color: #838e8e;
+  font: 400 9px/1.45 Consolas, "Liberation Mono", monospace;
+}
+
+.mark-pair {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.mark-pair > div:first-child {
+  text-align: left;
+}
+
+.mark-pair > div:last-child {
+  text-align: right;
+}
+
+.mark-pair > div strong {
+  display: block;
+  margin-top: 8px;
+  color: #e8e4dc;
+  font: 400 17px/1 Consolas, "Liberation Mono", monospace;
+}
+
+.mark-pair > span {
+  color: #707b7b;
+  font: 700 7px/1.25 Consolas, "Liberation Mono", monospace;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.mark-pair > span b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.mark-gap-footer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  gap: 4px 12px;
+  padding-top: 13px;
+}
+
+.mark-gap-footer span {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.mark-gap-footer strong {
+  color: #e2ded5;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mark-gap-footer small {
+  color: #768181;
+  font: 400 8px/1 Consolas, "Liberation Mono", monospace;
+  text-align: right;
+}
+
+.comparison-toolbar {
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-toolbar > span {
+  color: #7f8989;
+  font: 700 8px/1 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mark-comparison-table td {
+  vertical-align: middle;
+}
+
+.comparison-evidence strong,
+.comparison-evidence span {
+  display: block;
+}
+
+.comparison-evidence strong {
+  color: #d8d6ce;
+  font-size: 11px;
+}
+
+.comparison-evidence span {
+  margin-top: 4px;
+  color: #7f8989;
+  font: 400 9px/1.35 Consolas, "Liberation Mono", monospace;
+}
+
+.paired-marks {
+  display: grid;
+  gap: 5px;
+}
+
+.paired-marks span {
+  gap: 7px;
+  color: #c9ccc6;
+  font: 500 10px/1 Consolas, "Liberation Mono", monospace;
+}
+
+.mark-gap-severe {
+  color: #e0715c;
+}
+
+.mark-gap-watch {
+  color: #dc9b58;
+}
+
+.tie-note {
+  margin-left: 6px;
+  color: #7f8989;
+  font-size: 9px;
+}
+
+.comparison-method-note {
+  gap: 11px;
+  margin: 15px -18px -18px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  background: #20272a;
+}
+
+.comparison-method-note svg {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  color: var(--accent);
+}
+
+.comparison-method-note p {
+  margin: 0;
+  color: #8e9897;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.comparison-method-note strong {
+  color: #c9ccc6;
+  font-weight: 600;
+}
+
 .issuer-spotlight-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2748,6 +3034,10 @@ tbody tr:hover td {
     border-top: 1px solid var(--border);
     border-left: 0;
   }
+
+  .mark-gap-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 820px) {
@@ -2856,5 +3146,41 @@ tbody tr:hover td {
   .timeline-fund-row {
     grid-template-columns: 58px minmax(54px, 1fr) 100px;
     gap: 10px;
+  }
+
+  .mark-divergence-actions,
+  .comparison-toolbar {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .mark-divergence-actions {
+    flex-wrap: wrap;
+  }
+
+  .view-switch {
+    flex: 1 1 auto;
+  }
+
+  .view-switch button {
+    flex: 1 1 50%;
+  }
+
+  .comparison-audit-strip,
+  .mark-gap-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .comparison-audit-strip > div:nth-child(3) {
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+
+  .comparison-audit-strip > div:nth-child(4) {
+    border-top: 1px solid var(--border);
+  }
+
+  .comparison-toolbar {
+    flex-direction: column;
   }
 }
