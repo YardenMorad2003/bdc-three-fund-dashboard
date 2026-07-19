@@ -3996,3 +3996,322 @@ tbody tr:hover td {
     display: none;
   }
 }
+
+/* Funding market: issuance ledger, maturity wall, and observable bond tape. */
+.funding-market-layer {
+  gap: 18px;
+}
+
+.funding-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(420px, .85fr);
+  gap: 32px;
+  padding: 28px 30px;
+  overflow: hidden;
+  background:
+    linear-gradient(105deg, rgba(21, 35, 42, .98), rgba(14, 21, 25, .98)),
+    var(--panel);
+  border-color: #33454b;
+}
+
+.funding-hero-copy {
+  align-self: center;
+}
+
+.funding-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: #9db4bc;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.funding-hero h2 {
+  margin: 0;
+  color: #f1eee6;
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+
+.funding-hero-copy p {
+  max-width: 690px;
+  margin: 10px 0 0;
+  color: #b6c2c5;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.funding-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid #3b4a4e;
+  border-left: 1px solid #3b4a4e;
+}
+
+.funding-hero-stats > div {
+  min-width: 0;
+  padding: 17px 18px 15px;
+  border-right: 1px solid #3b4a4e;
+  border-bottom: 1px solid #3b4a4e;
+}
+
+.funding-hero-stats span,
+.funding-bond-strip span,
+.funding-fund-row span {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.funding-hero-stats strong {
+  display: block;
+  margin-top: 7px;
+  color: #f1eee6;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.funding-top-grid {
+  grid-template-columns: minmax(320px, .74fr) minmax(0, 1.26fr);
+}
+
+.funding-bottom-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(330px, .9fr);
+}
+
+.funding-wall {
+  display: grid;
+  gap: 13px;
+  padding: 5px 0 2px;
+}
+
+.funding-wall-row {
+  display: grid;
+  grid-template-columns: 46px minmax(100px, 1fr) 78px;
+  gap: 12px;
+  align-items: center;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.funding-wall-row strong {
+  text-align: right;
+}
+
+.funding-wall-track {
+  height: 9px;
+  background: #202b2f;
+  overflow: hidden;
+}
+
+.funding-wall-track i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #b25535, #d08b53);
+}
+
+.funding-bond-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.funding-bond-strip > div {
+  padding: 2px 12px 12px 0;
+}
+
+.funding-bond-strip strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 15px;
+}
+
+.funding-chart-shell {
+  padding-top: 6px;
+}
+
+.funding-chart {
+  display: block;
+  width: 100%;
+  height: 190px;
+}
+
+.funding-chart-grid {
+  stroke: #2e3a3e;
+  stroke-width: 1;
+}
+
+.funding-chart-area {
+  fill: rgba(66, 133, 145, .11);
+}
+
+.funding-chart-line {
+  fill: none;
+  stroke: #85b7bf;
+  stroke-width: 2.25;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.funding-chart-dot {
+  fill: #d68a55;
+  stroke: #12191c;
+  stroke-width: 2;
+}
+
+.funding-chart-axis {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.funding-chart-empty {
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  color: var(--muted);
+  font-size: 13px;
+  border: 1px dashed var(--border);
+}
+
+.funding-tape-wrap {
+  max-height: 520px;
+}
+
+.funding-tape tbody tr {
+  cursor: pointer;
+}
+
+.funding-tape tbody tr:hover,
+.funding-tape tbody tr.selected {
+  background: rgba(111, 157, 165, .08);
+}
+
+.funding-tape tbody tr.selected td:first-child {
+  box-shadow: inset 3px 0 #c77046;
+}
+
+.funding-tape a {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.inline-link-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.positive {
+  color: #79ba99 !important;
+}
+
+.negative {
+  color: #df846d !important;
+}
+
+.funding-fund-list,
+.funding-event-list {
+  display: grid;
+}
+
+.funding-fund-row {
+  display: grid;
+  grid-template-columns: 72px repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.funding-fund-row:last-child,
+.funding-event:last-child {
+  border-bottom: 0;
+}
+
+.funding-fund-row strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.funding-event {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: baseline;
+  padding: 12px 0;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.funding-event:hover strong {
+  color: #e2a272;
+}
+
+.funding-event span,
+.funding-event em {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-style: normal;
+}
+
+.funding-event strong {
+  color: var(--text);
+  font-size: 12px;
+}
+
+@media (max-width: 1080px) {
+  .funding-hero,
+  .funding-top-grid,
+  .funding-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .funding-hero {
+    padding: 22px 18px;
+  }
+
+  .funding-hero-stats,
+  .funding-bond-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .funding-fund-row {
+    grid-template-columns: 68px repeat(2, minmax(0, 1fr));
+  }
+
+  .funding-fund-row > div:last-child {
+    display: none;
+  }
+
+  .funding-event {
+    grid-template-columns: 68px minmax(0, 1fr);
+  }
+
+  .funding-event em {
+    grid-column: 2;
+  }
+}

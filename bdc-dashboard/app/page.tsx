@@ -31,6 +31,7 @@ import { useMemo, useState } from "react";
 import dashboardData from "../lib/dashboard-data.json";
 import bdcUniverseData from "../lib/bdc-universe.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
+import fundingMarketData from "../lib/bdc-funding-market.json";
 import liabilityStackData from "../lib/liability-stack.json";
 import quarterlyFactsData from "../lib/quarterly-bdc-facts.json";
 import researchSignalsData from "../lib/research-signals.json";
@@ -553,6 +554,86 @@ type LiabilityStackData = {
   funds: LiabilityFund[];
 };
 
+type TracePoint = { date: string; price: number | null; yield_pct: number | null };
+type FundingSeries = {
+  series_id: string;
+  ticker: Fund;
+  company_name: string;
+  security_title: string;
+  coupon_pct: number;
+  maturity_year: number;
+  maturity_date: string;
+  cusip: string | null;
+  issuance_event_count: number;
+  gross_issued_mm: number | null;
+  first_pricing_date: string;
+  latest_pricing_date: string;
+  status: "matured" | "outstanding_candidate";
+  finra_url: string | null;
+  trace_status: "matched" | "matched_no_trades" | "no_cusip" | "query_error";
+  last_trade_date: string | null;
+  last_price: number | null;
+  last_yield_pct: number | null;
+  price_change_30d: number | null;
+  yield_change_30d_pp: number | null;
+  price_change_90d: number | null;
+  yield_change_90d_pp: number | null;
+  observation_count: number;
+  history: TracePoint[];
+};
+type FundingEvent = {
+  event_id: string;
+  ticker: Fund;
+  pricing_date: string;
+  settlement_date: string | null;
+  coupon_pct: number;
+  maturity_year: number;
+  maturity_date: string | null;
+  offering_amount_mm: number | null;
+  issue_price_pct: number | null;
+  offering_yield_pct: number | null;
+  treasury_spread_bps: number | null;
+  cusip: string | null;
+  is_reopening: boolean;
+  security_title: string;
+  extraction_confidence: "high" | "review";
+  source_documents: { form: string; filed_date: string; url: string }[];
+};
+type FundingFund = {
+  ticker: Fund;
+  company_name: string;
+  cik: number;
+  issuance_event_count: number;
+  recent_issuance_event_count: number;
+  recent_gross_issued_mm: number;
+  outstanding_candidate_series_count: number;
+  outstanding_candidate_gross_mm: number;
+  weighted_coupon_pct: number | null;
+  trace_matched_series_count: number;
+  trace_last_yield_pct: number | null;
+};
+type FundingMarketData = {
+  meta: {
+    generated_at_utc: string;
+    sec_start_date: string;
+    trace_start_date: string;
+    as_of_date: string;
+    fund_count: number;
+    issuance_event_count: number;
+    series_count: number;
+    outstanding_candidate_series_count: number;
+    cusip_matched_series_count: number;
+    trace_matched_series_count: number;
+    finra_status: string;
+    methodology: string;
+  };
+  funds: FundingFund[];
+  series: FundingSeries[];
+  issuance_events: FundingEvent[];
+  filing_audit: unknown[];
+  sources: { name: string; url: string; role: string }[];
+};
+
 type QuarterlyFactRow = {
   fund: Fund;
   period_end: string;
@@ -995,6 +1076,7 @@ type BdcUniverseData = {
 const data = dashboardData as unknown as DashboardData;
 const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
+const fundingMarket = fundingMarketData as unknown as FundingMarketData;
 const liabilityStack = liabilityStackData as LiabilityStackData;
 const quarterlyFacts = quarterlyFactsData as QuarterlyFactsData;
 const researchSignals = researchSignalsData as ResearchSignalsData;
@@ -1167,6 +1249,11 @@ function formatSignedPp(value: number | null | undefined, digits = 1) {
     maximumFractionDigits: digits,
     minimumFractionDigits: digits
   }).format(Math.abs(value))} pp`;
+}
+
+function toneClass(value: number | null | undefined) {
+  if (value === null || value === undefined || Math.abs(value) < 0.0001) return "";
+  return value > 0 ? "positive" : "negative";
 }
 
 function formatCentsOnDollar(fairValue: number | null | undefined, cost: number | null | undefined) {
@@ -6094,7 +6181,216 @@ function LiabilityInstrumentTable({ instruments }: { instruments: LiabilityInstr
   );
 }
 
+function TracePriceChart({ points }: { points: TracePoint[] }) {
+  const plotted = points.filter((point): point is TracePoint & { price: number } => point.price !== null);
+  if (plotted.length < 2) {
+    return <div className="funding-chart-empty">No executed-trade price history is available for this CUSIP.</div>;
+  }
+  const width = 760;
+  const height = 210;
+  const insetX = 18;
+  const insetY = 18;
+  const prices = plotted.map((point) => point.price);
+  const rawMin = Math.min(...prices);
+  const rawMax = Math.max(...prices);
+  const padding = Math.max(0.35, (rawMax - rawMin) * 0.16);
+  const min = rawMin - padding;
+  const max = rawMax + padding;
+  const x = (index: number) => insetX + (index / (plotted.length - 1)) * (width - insetX * 2);
+  const y = (price: number) => insetY + ((max - price) / (max - min || 1)) * (height - insetY * 2);
+  const line = plotted.map((point, index) => `${x(index)},${y(point.price)}`).join(" ");
+  const area = `${insetX},${height - insetY} ${line} ${width - insetX},${height - insetY}`;
+  return (
+    <div className="funding-chart-shell">
+      <svg className="funding-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="FINRA TRACE end-of-day price history">
+        {[0.25, 0.5, 0.75].map((ratio) => (
+          <line key={ratio} x1={insetX} x2={width - insetX} y1={height * ratio} y2={height * ratio} className="funding-chart-grid" />
+        ))}
+        <polygon points={area} className="funding-chart-area" />
+        <polyline points={line} className="funding-chart-line" />
+        <circle cx={x(plotted.length - 1)} cy={y(plotted[plotted.length - 1].price)} r="4" className="funding-chart-dot" />
+      </svg>
+      <div className="funding-chart-axis">
+        <span>{formatShortDate(plotted[0].date)}</span>
+        <span>{rawMin.toFixed(2)}–{rawMax.toFixed(2)} price range</span>
+        <span>{formatShortDate(plotted[plotted.length - 1].date)}</span>
+      </div>
+    </div>
+  );
+}
+
+function FundingMarket({ selectedFund }: { selectedFund: Fund | "All" }) {
+  const [selectedSeriesId, setSelectedSeriesId] = useState<string | null>(null);
+  const scopedSeries = fundingMarket.series.filter(
+    (series) =>
+      series.status === "outstanding_candidate" && (selectedFund === "All" || series.ticker === selectedFund)
+  );
+  const scopedEvents = fundingMarket.issuance_events.filter(
+    (event) => selectedFund === "All" || event.ticker === selectedFund
+  );
+  const scopedFunds = fundingMarket.funds.filter((fund) => selectedFund === "All" || fund.ticker === selectedFund);
+  const tradedSeries = scopedSeries.filter((series) => series.trace_status === "matched" && series.last_price !== null);
+  const activeSeries =
+    scopedSeries.find((series) => series.series_id === selectedSeriesId) ||
+    tradedSeries.slice().sort((a, b) => b.observation_count - a.observation_count)[0] ||
+    scopedSeries[0];
+  const visibleTape = scopedSeries
+    .slice()
+    .sort((a, b) => {
+      if (a.trace_status === "matched" && b.trace_status !== "matched") return -1;
+      if (b.trace_status === "matched" && a.trace_status !== "matched") return 1;
+      return a.maturity_date.localeCompare(b.maturity_date);
+    });
+  const maturityRows = Array.from(
+    scopedSeries.reduce((map, series) => {
+      const amount = series.gross_issued_mm || 0;
+      map.set(series.maturity_year, (map.get(series.maturity_year) || 0) + amount);
+      return map;
+    }, new Map<number, number>())
+  ).sort(([yearA], [yearB]) => yearA - yearB);
+  const maxMaturity = Math.max(...maturityRows.map(([, amount]) => amount), 1);
+  const grossCandidate = sumBy(scopedSeries, (series) => series.gross_issued_mm || 0);
+  const nextMaturityYear = maturityRows[0]?.[0];
+  const nextMaturityAmount = maturityRows[0]?.[1] || 0;
+  const cusipCoverage = scopedSeries.length
+    ? (scopedSeries.filter((series) => series.cusip).length / scopedSeries.length) * 100
+    : 0;
+
+  return (
+    <div className="grid funding-market-layer">
+      <section className="panel funding-hero">
+        <div className="funding-hero-copy">
+          <span className="funding-eyebrow">SEC issuance × FINRA TRACE</span>
+          <h2>BDC funding market</h2>
+          <p>
+            Follow public note issuance from pricing through secondary-market trading, then read the maturity wall as a
+            refinancing calendar—not just a debt footnote.
+          </p>
+        </div>
+        <div className="funding-hero-stats">
+          <div><span>Gross candidate notes</span><strong>{formatMm(grossCandidate, 0)}</strong></div>
+          <div><span>TRACE-linked</span><strong>{tradedSeries.length}/{scopedSeries.length}</strong></div>
+          <div><span>Next wall</span><strong>{nextMaturityYear ? `${nextMaturityYear} · ${formatMm(nextMaturityAmount, 0)}` : "—"}</strong></div>
+          <div><span>CUSIP coverage</span><strong>{formatPct(cusipCoverage, 0)}</strong></div>
+        </div>
+      </section>
+
+      {scopedSeries.length ? (
+        <>
+          <div className="grid funding-top-grid">
+            <Panel
+              title="Refinancing wall"
+              subtitle="Gross issued principal for series that have not reached legal maturity; tenders and repurchases may reduce actual outstanding debt."
+              icon={Calendar}
+            >
+              <div className="funding-wall">
+                {maturityRows.map(([year, amount]) => (
+                  <div className="funding-wall-row" key={year}>
+                    <span>{year}</span>
+                    <div className="funding-wall-track"><i style={{ width: `${Math.max(3, (amount / maxMaturity) * 100)}%` }} /></div>
+                    <strong>{formatMm(amount, 0)}</strong>
+                  </div>
+                ))}
+              </div>
+            </Panel>
+
+            <Panel
+              title={activeSeries ? `${activeSeries.ticker} · ${activeSeries.security_title}` : "TRACE price history"}
+              subtitle={activeSeries?.cusip ? `CUSIP ${activeSeries.cusip} · executed-trade EOD observations` : "No verified CUSIP selected"}
+              icon={LineChart}
+            >
+              {activeSeries ? (
+                <>
+                  <div className="funding-bond-strip">
+                    <div><span>Last price</span><strong>{activeSeries.last_price?.toFixed(3) || "—"}</strong></div>
+                    <div><span>Last yield</span><strong>{formatPct(activeSeries.last_yield_pct, 2)}</strong></div>
+                    <div><span>30d price</span><strong className={toneClass(activeSeries.price_change_30d)}>{activeSeries.price_change_30d === null ? "—" : `${activeSeries.price_change_30d >= 0 ? "+" : ""}${activeSeries.price_change_30d.toFixed(2)}`}</strong></div>
+                    <div><span>Last trade</span><strong>{activeSeries.last_trade_date ? formatShortDate(activeSeries.last_trade_date) : "—"}</strong></div>
+                  </div>
+                  <TracePriceChart points={activeSeries.history} />
+                </>
+              ) : null}
+            </Panel>
+          </div>
+
+          <Panel
+            title="Public bond tape"
+            subtitle={`${visibleTape.length} current candidate series · click a row to change the TRACE chart.`}
+            icon={Activity}
+          >
+            <div className="table-wrap funding-tape-wrap">
+              <table className="compact-wide-table funding-tape">
+                <thead><tr><th>Fund / note</th><th className="right">Gross issued</th><th>Maturity</th><th className="right">Price</th><th className="right">Yield</th><th className="right">30d Δ</th><th>TRACE date</th><th>CUSIP</th></tr></thead>
+                <tbody>
+                  {visibleTape.map((series) => (
+                    <tr key={series.series_id} className={activeSeries?.series_id === series.series_id ? "selected" : ""} onClick={() => setSelectedSeriesId(series.series_id)}>
+                      <td className="issuer-cell"><strong>{series.ticker} · {series.security_title}</strong><span>{series.company_name}</span></td>
+                      <td className="right">{series.gross_issued_mm === null ? "—" : formatMm(series.gross_issued_mm, 0)}</td>
+                      <td>{formatShortDate(series.maturity_date)}</td>
+                      <td className="right">{series.last_price?.toFixed(3) || "—"}</td>
+                      <td className="right">{formatPct(series.last_yield_pct, 2)}</td>
+                      <td className={`right ${toneClass(series.price_change_30d)}`}>{series.price_change_30d === null ? "—" : `${series.price_change_30d >= 0 ? "+" : ""}${series.price_change_30d.toFixed(2)}`}</td>
+                      <td>{series.last_trade_date ? formatShortDate(series.last_trade_date) : <span className="coverage-badge registry_only">unmatched</span>}</td>
+                      <td>{series.finra_url ? <a href={series.finra_url} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>{series.cusip}<ExternalLink className="inline-link-icon" /></a> : "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Panel>
+
+          <div className="grid funding-bottom-grid">
+            <Panel title="Issuer funding comparison" subtitle="Current candidate public notes and observable secondary yields." icon={BarChart3}>
+              <div className="funding-fund-list">
+                {scopedFunds.map((fund) => (
+                  <div className="funding-fund-row" key={fund.ticker}>
+                    <FundBadge fund={fund.ticker} />
+                    <div><span>{fund.outstanding_candidate_series_count} series</span><strong>{formatMm(fund.outstanding_candidate_gross_mm, 0)}</strong></div>
+                    <div><span>weighted coupon</span><strong>{formatPct(fund.weighted_coupon_pct, 2)}</strong></div>
+                    <div><span>TRACE yield</span><strong>{formatPct(fund.trace_last_yield_pct, 2)}</strong></div>
+                  </div>
+                ))}
+              </div>
+            </Panel>
+            <Panel title="Latest issuance" subtitle="Most recent SEC pricing documents in the selected scope." icon={History}>
+              <div className="funding-event-list">
+                {scopedEvents.slice(0, 8).map((event) => (
+                  <a className="funding-event" key={event.event_id} href={event.source_documents[0]?.url} target="_blank" rel="noreferrer">
+                    <span>{formatShortDate(event.pricing_date)}</span>
+                    <strong>{event.ticker} · {event.security_title}</strong>
+                    <em>{event.offering_amount_mm === null ? "amount under review" : formatMm(event.offering_amount_mm, 0)}{event.is_reopening ? " · reopening" : ""}</em>
+                  </a>
+                ))}
+              </div>
+            </Panel>
+          </div>
+
+          <Callout title="Coverage and interpretation">
+            The issuance ledger begins {formatDate(fundingMarket.meta.sec_start_date)} and is rebuilt from SEC 424B2,
+            424B3, 424B5, and FWP documents. TRACE adds executed-trade end-of-day prices and yields where a verified
+            CUSIP is present; it is not a quote feed. Gross issued principal is intentionally labeled as a candidate
+            outstanding amount until tenders, open-market repurchases, and paydowns are reconciled.
+          </Callout>
+        </>
+      ) : (
+        <Callout title={`${selectedFund} is outside the current funding build`}>
+          The automated SEC issuance and TRACE layer currently covers ARCC, BBDC, BXSL, FSK, GBDC, MAIN, OBDC, and TSLX.
+        </Callout>
+      )}
+    </div>
+  );
+}
+
 function Liabilities({ selectedFund }: { selectedFund: Fund | "All" }) {
+  return (
+    <div className="grid">
+      <FundingMarket selectedFund={selectedFund} />
+      <FiledLiabilities selectedFund={selectedFund} />
+    </div>
+  );
+}
+
+function FiledLiabilities({ selectedFund }: { selectedFund: Fund | "All" }) {
   const selectedFunds = liabilityStack.funds.filter((fund) => selectedFund === "All" || fund.fund === selectedFund);
   if (!selectedFunds.length) {
     return (
@@ -6751,7 +7047,7 @@ export default function DashboardPage() {
     { id: "timeline", label: "Issuer timeline", icon: LineChart, group: "Investigate", description: "Quarterly exposure, tier marks, fund-pair lead-lag, and sponsor history." },
     { id: "holdings", label: "Security detail", icon: Table2, group: "Investigate", description: "Searchable as-filed schedule rows and instrument evidence." },
     { id: "financials", label: "Fund financials", icon: WalletCards, group: "Fund", description: "NAV, income quality, dividends, leverage, and investment activity." },
-    { id: "liabilities", label: "Liability stack", icon: Gauge, group: "Fund", description: "Debt instruments, maturity walls, and refinancing context." },
+    { id: "liabilities", label: "Funding market", icon: Gauge, group: "Fund", description: "SEC note issuance, TRACE trading, maturity walls, and filed liability detail." },
     { id: "universe", label: "BDC coverage", icon: Database, group: "Reference", description: "EdgarTools coverage and the wider BDC expansion universe." },
     { id: "quality", label: "Methods + quality", icon: ShieldCheck, group: "Reference", description: "Reconciliation, methodology, sources, and limitations." }
   ];
