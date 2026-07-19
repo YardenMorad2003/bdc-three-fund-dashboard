@@ -4335,22 +4335,6 @@
     "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
   },
   {
-    "issuer_match_key": "CREEK PARENT",
-    "display_name": "Creek Parent, Inc.",
-    "mapped_company": "Creek Parent, Inc.",
-    "description": "Creek Parent, Inc. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $67.4mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in r.l.. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
-    "current_sponsor": "Schedule evidence only",
-    "sponsor_history": [],
-    "sources": [
-      {
-        "title": "BXSL schedule evidence in centralized holdings DB",
-        "url": "https://www.sec.gov/edgar/search/"
-      }
-    ],
-    "confidence": "low",
-    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
-  },
-  {
     "issuer_match_key": "SPOTLESS BRANDS",
     "display_name": "Spotless Brands LLC",
     "mapped_company": "Spotless Brands LLC",
@@ -4655,22 +4639,6 @@
     "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
   },
   {
-    "issuer_match_key": "BAYSHORE INTERMEDIATE 2 L P",
-    "display_name": "Bayshore Intermediate #2, L.P.",
-    "mapped_company": "Bayshore Intermediate #2, L.P.",
-    "description": "Bayshore Intermediate #2, L.P. is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows TSLX holding $59.9mm of latest-period fair value across 7 observed filing periods. The latest source schedule classifies it in Internet Services. Latest source labels include Debt Investments.",
-    "current_sponsor": "Schedule evidence only",
-    "sponsor_history": [],
-    "sources": [
-      {
-        "title": "TSLX schedule evidence in centralized holdings DB",
-        "url": "https://www.sec.gov/edgar/search/"
-      }
-    ],
-    "confidence": "low",
-    "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
-  },
-  {
     "issuer_match_key": "TURING",
     "display_name": "Turing Holdco, Inc.",
     "mapped_company": "Turing Holdco, Inc.",
@@ -4845,22 +4813,6 @@
     ],
     "confidence": "low",
     "notes": "Source-derived schedule context from centralized holdings rows for TSLX through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
-  },
-  {
-    "issuer_match_key": "BAKER TILLY ADVISORY GROUP",
-    "display_name": "Baker Tilly Advisory Group, LP",
-    "mapped_company": "Baker Tilly Advisory Group, LP",
-    "description": "Baker Tilly Advisory Group, LP is shown in the BDC timeline as a funded borrower or issuer exposure. The dashboard shows BXSL holding $57.2mm of latest-period fair value across 6 observed filing periods. The latest source schedule classifies it in Pharmaceuticals. Latest source labels include First Lien Debt - non-controlled/non-affiliated.",
-    "current_sponsor": "Schedule evidence only",
-    "sponsor_history": [],
-    "sources": [
-      {
-        "title": "BXSL schedule evidence in centralized holdings DB",
-        "url": "https://www.sec.gov/edgar/search/"
-      }
-    ],
-    "confidence": "low",
-    "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
   },
   {
     "issuer_match_key": "EQUINOX",
@@ -5582,5 +5534,543 @@
     ],
     "confidence": "high",
     "notes": "The filed issuer name directly identifies Coupa."
+  },
+  {
+    "issuer_match_key": "PPV",
+    "display_name": "Vetcor / People, Pets & Vets",
+    "mapped_company": "Vetcor (including the acquired People, Pets & Vets platform)",
+    "description": "Vetcor supports a large network of community-focused veterinary practices. In 2022 it acquired People, Pets & Vets, a veterinary-services platform with more than 150 animal hospitals.",
+    "current_sponsor": "Harvest Partners and Cressey & Company (latest transaction-confirmed Vetcor owners)",
+    "sponsor_history": [
+      {
+        "date": "2018-07",
+        "event": "Vetcor completed a recapitalization led by Oak Hill Capital with Harvest Partners, Cressey & Company, and management.",
+        "source_url": "https://harvestpartners.com/news/vetcor-closes-recapitalization/"
+      },
+      {
+        "date": "2022-09",
+        "event": "Vetcor, described as a portfolio company of Harvest Partners and Cressey, acquired People, Pets & Vets.",
+        "source_url": "https://www.cresseyco.com/news/vetcor-acquires-people-pets-vets"
+      }
+    ],
+    "sources": [
+      {
+        "title": "SEC schedule showing PPV at Vetcor's Norwell address",
+        "url": "https://www.sec.gov/Archives/edgar/data/1782524/000119312525003553/d888021dn148ca.htm"
+      },
+      {
+        "title": "Vetcor acquisition of People, Pets & Vets",
+        "url": "https://www.cresseyco.com/news/vetcor-acquires-people-pets-vets"
+      },
+      {
+        "title": "Vetcor company overview",
+        "url": "https://www.vetcor.com/"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "The mapping triangulates the PPV borrower's filed Norwell address with Vetcor's headquarters and Vetcor's acquisition of People, Pets & Vets. Because the legal shell is not named in the acquisition release, the mapping remains medium confidence."
+  },
+  {
+    "issuer_match_key": "COLOR",
+    "display_name": "Lyric",
+    "mapped_company": "Lyric (formerly ClaimsXten)",
+    "description": "Lyric provides healthcare payment-integrity software that helps health plans improve clinical-claim accuracy and reduce fraud, waste, and administrative cost.",
+    "current_sponsor": "TPG",
+    "sponsor_history": [
+      {
+        "date": "2022-10",
+        "event": "TPG established Lyric through the carve-out of the ClaimsXten payment-integrity business from Change Healthcare.",
+        "source_url": "https://healthcare.tpg.com/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Color Holdings SEC Form D",
+        "url": "https://www.sec.gov/Archives/edgar/data/1954425/000195442523000001/xslFormDX01/primary_doc.xml"
+      },
+      {
+        "title": "TPG healthcare portfolio profile for Lyric",
+        "url": "https://healthcare.tpg.com/"
+      },
+      {
+        "title": "Lyric company news",
+        "url": "https://www.lyric.ai/news"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The Color shell's SEC filing names Lyric executives and the same King of Prussia address; TPG identifies Lyric as the former ClaimsXten carve-out."
+  },
+  {
+    "issuer_match_key": "WEALTH ENHANCEMENT GROUP",
+    "display_name": "Wealth Enhancement Group",
+    "mapped_company": "Wealth Enhancement Group, LLC",
+    "description": "Wealth Enhancement Group is a national independent wealth-management firm that provides financial planning, investment management, tax, estate, and trust services.",
+    "current_sponsor": "Onex and TA Associates",
+    "sponsor_history": [
+      {
+        "date": "2021-08",
+        "event": "Onex agreed to invest alongside TA Associates as an equal capital partner in Wealth Enhancement Group.",
+        "source_url": "https://www.wealthenhancement.com/newsroom/wealth-enhancement-group-welcomes-equity-investment-from-onex-to-drive-next-stag"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wealth Enhancement Group Onex investment",
+        "url": "https://www.wealthenhancement.com/newsroom/wealth-enhancement-group-welcomes-equity-investment-from-onex-to-drive-next-stag"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The borrower name directly matches the operating company."
+  },
+  {
+    "issuer_match_key": "GI RANGER",
+    "display_name": "Rectangle Health",
+    "mapped_company": "Rectangle Health",
+    "description": "Rectangle Health provides healthcare financial technology, patient-payment, engagement, and practice-management software to medical, dental, and specialty practices.",
+    "current_sponsor": "GI Partners, with TA Associates continuing as an investor",
+    "sponsor_history": [
+      {
+        "date": "2021-11",
+        "event": "GI Partners recapitalized Rectangle Health in conjunction with existing investor TA Associates.",
+        "source_url": "https://www.rectanglehealth.com/resources/press/rectangle-health-announces-investment-from-gi-partners-to-accelerate-growth/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Rectangle Health GI Partners investment",
+        "url": "https://www.rectanglehealth.com/resources/press/rectangle-health-announces-investment-from-gi-partners-to-accelerate-growth/"
+      },
+      {
+        "title": "Rectangle Health company overview",
+        "url": "https://www.rectanglehealth.com/why-rectangle-health/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly identify GI Ranger Intermediate as d/b/a Rectangle Health."
+  },
+  {
+    "issuer_match_key": "ESSENTIAL SERVICES",
+    "display_name": "TurnPoint Services",
+    "mapped_company": "TurnPoint Services",
+    "description": "TurnPoint Services is a multi-brand residential and commercial services platform focused on HVAC, plumbing, electrical, and related home services.",
+    "current_sponsor": "OMERS Private Equity",
+    "sponsor_history": [
+      {
+        "date": "2020-11",
+        "event": "OMERS Private Equity acquired TurnPoint Services from Trivest Partners.",
+        "source_url": "https://www.omers.com/news/omers-private-equity-further-expands-us-portfolio-through-acquisition-of-turnpoint-services"
+      }
+    ],
+    "sources": [
+      {
+        "title": "OMERS acquisition of TurnPoint Services",
+        "url": "https://www.omers.com/news/omers-private-equity-further-expands-us-portfolio-through-acquisition-of-turnpoint-services"
+      },
+      {
+        "title": "TurnPoint Services company site",
+        "url": "https://www.turnpointservices.com/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly identify Essential Services Holding Corporation as d/b/a TurnPoint."
+  },
+  {
+    "issuer_match_key": "MODERNIZING MEDICINE",
+    "display_name": "ModMed",
+    "mapped_company": "Modernizing Medicine, Inc. (ModMed)",
+    "description": "ModMed provides specialty-specific healthcare software including electronic health records, practice management, revenue-cycle management, patient engagement, payments, analytics, and AI-enabled workflows.",
+    "current_sponsor": "Clearlake Capital",
+    "sponsor_history": [
+      {
+        "date": "2017-05",
+        "event": "Warburg Pincus made a $231 million equity investment in Modernizing Medicine.",
+        "source_url": "https://www.modmed.com/press-release/warburg-pincus/"
+      },
+      {
+        "date": "2025-03",
+        "event": "Clearlake Capital made a significant majority growth investment in ModMed.",
+        "source_url": "https://www.modmed.com/press-release/modmed-a-leading-healthcare-saas-platform-announces-significant-majority-growth-investment-from-clearlake-capital/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "ModMed Clearlake majority investment",
+        "url": "https://www.modmed.com/press-release/modmed-a-leading-healthcare-saas-platform-announces-significant-majority-growth-investment-from-clearlake-capital/"
+      },
+      {
+        "title": "ModMed Warburg Pincus investment",
+        "url": "https://www.modmed.com/press-release/warburg-pincus/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The borrower name directly matches Modernizing Medicine and BDC schedules also show the ModMed trade name."
+  },
+  {
+    "issuer_match_key": "IQN",
+    "display_name": "Beeline",
+    "mapped_company": "Beeline (formerly IQNavigator)",
+    "description": "Beeline provides cloud software for sourcing, managing, and optimizing contingent and other external workforces. The legacy IQNavigator platform has been retired into Beeline.",
+    "current_sponsor": "Stone Point Capital, with New Mountain Capital as a minority investor",
+    "sponsor_history": [
+      {
+        "date": "2022-05",
+        "event": "Stone Point Capital made a majority investment in Beeline; New Mountain Capital remained a minority investor.",
+        "source_url": "https://www.beeline.com/news/beeline-receives-strategic-investment-from-stone-point-capital-to-fuel-external-workforce-technology-innovation"
+      }
+    ],
+    "sources": [
+      {
+        "title": "IQNavigator transition to Beeline",
+        "url": "https://www.beeline.com/iqnavigator-is-now-beelines-vms-solutions"
+      },
+      {
+        "title": "Beeline Stone Point investment",
+        "url": "https://www.beeline.com/news/beeline-receives-strategic-investment-from-stone-point-capital-to-fuel-external-workforce-technology-innovation"
+      }
+    ],
+    "confidence": "high",
+    "notes": "IQN Holding's Jacksonville head-office address matches IQNavigator/Beeline, and Beeline confirms the IQNavigator platform transition."
+  },
+  {
+    "issuer_match_key": "KOALA INVESTMENT",
+    "display_name": "Keystone Agency Partners",
+    "mapped_company": "Keystone Agency Partners",
+    "description": "Keystone is a national insurance brokerage and agency network that acquires and partners with independent insurance agencies while providing shared services and growth capital.",
+    "current_sponsor": "Warburg Pincus majority; Bain Capital minority",
+    "sponsor_history": [
+      {
+        "date": "2020",
+        "event": "Bain Capital launched Keystone Agency Partners.",
+        "source_url": "https://www.baincapital.com/news/keystone-agency-partners-announces-strategic-investment-warburg-pincus"
+      },
+      {
+        "date": "2025-07",
+        "event": "Warburg Pincus agreed to acquire a majority stake while Bain Capital reinvested as a minority owner.",
+        "source_url": "https://www.baincapital.com/news/keystone-agency-partners-announces-strategic-investment-warburg-pincus"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Keystone Warburg Pincus investment",
+        "url": "https://www.baincapital.com/news/keystone-agency-partners-announces-strategic-investment-warburg-pincus"
+      },
+      {
+        "title": "Keystone company overview",
+        "url": "https://keystoneagencypartners.com/about-us/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Multiple BDC schedules identify Koala Investment Holdings as d/b/a Keystone Agency Partners."
+  },
+  {
+    "issuer_match_key": "ARTIFACT",
+    "display_name": "Avetta",
+    "mapped_company": "Avetta, LLC",
+    "description": "Avetta provides cloud software for supply-chain and contractor risk management across safety, compliance, sustainability, workforce, and third-party risk.",
+    "current_sponsor": "EQT Private Equity",
+    "sponsor_history": [
+      {
+        "date": "2024-04",
+        "event": "EQT Private Equity agreed to acquire Avetta from Welsh, Carson, Anderson & Stowe.",
+        "source_url": "https://www.avetta.com/company-news/eqt-private-equity-to-acquire-avetta-from-wcas"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Avetta EQT acquisition",
+        "url": "https://www.avetta.com/company-news/eqt-private-equity-to-acquire-avetta-from-wcas"
+      },
+      {
+        "title": "Investment Canada shell-to-company notice",
+        "url": "https://ised-isde.canada.ca/site/investment-canada-act/en/node/220270"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules identify Artifact Bidco as d/b/a Avetta; the Canadian acquisition notice also directly links Artifact Bidco and Avetta."
+  },
+  {
+    "issuer_match_key": "EXCELITAS TECHNOLOGIES",
+    "display_name": "Excelitas Technologies",
+    "mapped_company": "Excelitas Technologies Corp.",
+    "description": "Excelitas develops photonic technologies including illumination, optical, detection, imaging, and sensor solutions for medical, industrial, scientific, aerospace, and defense applications.",
+    "current_sponsor": "AEA Investors",
+    "sponsor_history": [
+      {
+        "date": "2017-12",
+        "event": "AEA Investors acquired Excelitas Technologies from Veritas Capital.",
+        "source_url": "https://www.excelitas.com/file-download/download/public/12246?filename=Press_Release_12_4_2017.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Excelitas acquisition by AEA Investors",
+        "url": "https://www.excelitas.com/file-download/download/public/12246?filename=Press_Release_12_4_2017.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The borrower name directly matches the operating company."
+  },
+  {
+    "issuer_match_key": "BAKER TILLY ADVISORY GROUP",
+    "display_name": "Baker Tilly",
+    "mapped_company": "Baker Tilly Advisory Group, LP",
+    "description": "Baker Tilly is a professional-services firm providing tax, advisory, consulting, and related services to middle-market and other organizations.",
+    "current_sponsor": "Hellman & Friedman and Valeas Capital Partners, alongside Baker Tilly partners",
+    "sponsor_history": [
+      {
+        "date": "2024-02",
+        "event": "Baker Tilly announced a strategic investment led by Hellman & Friedman with Valeas Capital Partners.",
+        "source_url": "https://www.bakertilly.com/news/baker-tilly-secures-strategic-investment-led-by-hellman"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Baker Tilly strategic investment",
+        "url": "https://www.bakertilly.com/news/baker-tilly-secures-strategic-investment-led-by-hellman"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The legal borrower name is the post-transaction advisory entity identified by Baker Tilly."
+  },
+  {
+    "issuer_match_key": "PATRIOT GROWTH INSURANCE SERVICES",
+    "display_name": "Patriot Growth Insurance Services",
+    "mapped_company": "Patriot Growth Insurance Services, LLC",
+    "description": "Patriot is a national insurance agency serving property and casualty, employee benefits, personal, and ancillary insurance markets through a network of partner agencies.",
+    "current_sponsor": "GI Partners and Summit Partners",
+    "sponsor_history": [
+      {
+        "date": "2019-01",
+        "event": "Summit Partners backed Patriot's launch as a national insurance-services platform.",
+        "source_url": "https://patriotgis.com/insights/news/patriot-integrates-17-independent-agencies-and-true-network-advisors-to-create-growth-focused-national-insurance-services-platform"
+      },
+      {
+        "date": "2021-09",
+        "event": "GI Partners led a recapitalization; Summit Partners and management retained significant minority positions.",
+        "source_url": "https://patriotgis.com/insights/news/gi-partners-leads-recapitalization-of-patriot-growth-insurance-services-in-partnership-with-founder-and-ceo-matt-gardner-and-summit-partners"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Patriot company and sponsor overview",
+        "url": "https://patriotgis.com/about-us"
+      },
+      {
+        "title": "GI Partners recapitalization of Patriot",
+        "url": "https://patriotgis.com/insights/news/gi-partners-leads-recapitalization-of-patriot-growth-insurance-services-in-partnership-with-founder-and-ceo-matt-gardner-and-summit-partners"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The borrower name directly matches the operating company."
+  },
+  {
+    "issuer_match_key": "PREMISE HEALTH",
+    "display_name": "Premise Health",
+    "mapped_company": "Premise Health Holding Corp.",
+    "description": "Premise Health provides direct healthcare for employers and other organizations through onsite, nearsite, virtual, pharmacy, occupational-health, and wellness services.",
+    "current_sponsor": "OMERS Private Equity",
+    "sponsor_history": [
+      {
+        "date": "2018-07",
+        "event": "OMERS Private Equity completed its acquisition of Premise Health from Water Street Healthcare Partners and Walgreens Boots Alliance.",
+        "source_url": "https://www.premisehealth.com/resources/news/omers-private-equity-completes-acquisition-of-premise-health/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Premise Health OMERS acquisition",
+        "url": "https://www.premisehealth.com/resources/news/omers-private-equity-completes-acquisition-of-premise-health/"
+      },
+      {
+        "title": "Premise Health company history",
+        "url": "https://www.premisehealth.com/about-us/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The borrower name directly matches Premise Health."
+  },
+  {
+    "issuer_match_key": "BAYSHORE INTERMEDIATE 2 L P",
+    "display_name": "Boomi",
+    "mapped_company": "Boomi, LP",
+    "description": "Boomi provides an integration and automation platform used to connect applications, data, APIs, people, and business processes across cloud and on-premises environments.",
+    "current_sponsor": "Francisco Partners and TPG",
+    "sponsor_history": [
+      {
+        "date": "2021-05",
+        "event": "Francisco Partners and TPG agreed to acquire Boomi from Dell in a $4 billion transaction.",
+        "source_url": "https://boomi.com/partnercontracts/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Boomi sponsor transaction FAQ",
+        "url": "https://boomi.com/partnercontracts/"
+      },
+      {
+        "title": "Boomi standalone-company ownership update",
+        "url": "https://boomi.com/resources/resources-library/boomi-appoints-board-member-fields/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly identify Bayshore Intermediate #2 as d/b/a Boomi."
+  },
+  {
+    "issuer_match_key": "CREEK PARENT",
+    "display_name": "Catalent",
+    "mapped_company": "Catalent, Inc.",
+    "description": "Catalent is a contract development and manufacturing organization supporting pharmaceutical, biotechnology, and consumer-health products from development through launch and commercial supply.",
+    "current_sponsor": "Novo Holdings",
+    "sponsor_history": [
+      {
+        "date": "2024-12",
+        "event": "Novo Holdings completed its acquisition of Catalent in a transaction valued at approximately $16.5 billion enterprise value.",
+        "source_url": "https://www.catalent.com/catalent-news/novo-holdings-completes-acquisition-of-catalent/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Novo Holdings completes Catalent acquisition",
+        "url": "https://www.catalent.com/catalent-news/novo-holdings-completes-acquisition-of-catalent/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly identify Creek Parent as d/b/a Catalent."
+  },
+  {
+    "issuer_match_key": "GS ACQUISITIONCO",
+    "display_name": "insightsoftware",
+    "mapped_company": "insightsoftware",
+    "description": "insightsoftware provides financial reporting, enterprise performance management, budgeting, close, consolidation, tax, disclosure, and embedded analytics software for finance teams.",
+    "current_sponsor": "Hg and TA Associates, with Genstar and ST6 as minority investors",
+    "sponsor_history": [
+      {
+        "date": "2021-07",
+        "event": "Hg invested approximately $1 billion and obtained joint control with TA Associates; Genstar and ST6 remained minority shareholders.",
+        "source_url": "https://insightsoftware.com/blog/insightsoftware-attracts-1bn-strategic-investment-from-hg-to-continue-to-scale-as-a-platform-and-leader-in-financial-reporting-and-epm-software/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "insightsoftware Hg investment",
+        "url": "https://insightsoftware.com/blog/insightsoftware-attracts-1bn-strategic-investment-from-hg-to-continue-to-scale-as-a-platform-and-leader-in-financial-reporting-and-epm-software/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly identify GS Acquisitionco as d/b/a insightsoftware."
+  },
+  {
+    "issuer_match_key": "IG INVESTMENTS",
+    "display_name": "Insight Global",
+    "mapped_company": "IG Staffing Holdings, LLC / Insight Global",
+    "description": "Insight Global provides staffing, professional-services, and talent solutions across technology, healthcare, engineering, finance, and other business functions.",
+    "current_sponsor": "Harvest Partners and Leonard Green & Partners",
+    "sponsor_history": [
+      {
+        "date": "2019-10",
+        "event": "Harvest Partners made its current fund investment in Insight Global.",
+        "source_url": "https://harvestpartners.com/portfolio/insight-global/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Harvest Partners Insight Global portfolio page",
+        "url": "https://harvestpartners.com/portfolio/insight-global/"
+      },
+      {
+        "title": "Insight Global board and financial stakeholders",
+        "url": "https://insightglobal.com/governance-2022/board-of-directors/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules identify IG Investments Holdings as d/b/a Insight Global; Harvest's portfolio page names the operating holding company."
+  },
+  {
+    "issuer_match_key": "WU",
+    "display_name": "PurposeBuilt Brands",
+    "mapped_company": "PurposeBuilt Brands",
+    "description": "PurposeBuilt Brands owns and develops specialty cleaning products for consumer and commercial applications across a portfolio of surface- and task-specific brands.",
+    "current_sponsor": "TA Associates and management (52%); Rock Mountain Capital and The Olayan Group (48%)",
+    "sponsor_history": [
+      {
+        "date": "2022-02",
+        "event": "A Rock Mountain Capital- and Olayan-led group acquired 48%; TA Associates and management retained 52% and rolled their equity.",
+        "source_url": "https://www.carlyle.com/media-room/news-release-archive/rock-mountain-capital-and-olayan-group-acquires-48-stake-purposebuilt-brands-carlyle"
+      }
+    ],
+    "sources": [
+      {
+        "title": "PurposeBuilt Brands ownership transaction",
+        "url": "https://www.carlyle.com/media-room/news-release-archive/rock-mountain-capital-and-olayan-group-acquires-48-stake-purposebuilt-brands-carlyle"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly identify WU Holdco as d/b/a PurposeBuilt Brands."
+  },
+  {
+    "issuer_match_key": "EINSTEIN PARENT",
+    "display_name": "Smartsheet",
+    "mapped_company": "Smartsheet Inc.",
+    "description": "Smartsheet provides an enterprise work-management platform for project execution, portfolio management, workflow automation, resource planning, and collaborative work.",
+    "current_sponsor": "Blackstone and Vista Equity Partners",
+    "sponsor_history": [
+      {
+        "date": "2025-01",
+        "event": "Blackstone and Vista Equity Partners completed their approximately $8.4 billion acquisition of Smartsheet.",
+        "source_url": "https://www.smartsheet.com/content-center/news/blackstone-and-vista-equity-partners-complete-acquisition-smartsheet"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Smartsheet acquisition completion",
+        "url": "https://www.smartsheet.com/content-center/news/blackstone-and-vista-equity-partners-complete-acquisition-smartsheet"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly identify Einstein Parent as d/b/a Smartsheet."
+  },
+  {
+    "issuer_match_key": "SPACESHIP PURCHASER",
+    "display_name": "Squarespace",
+    "mapped_company": "Squarespace, Inc.",
+    "description": "Squarespace provides website building, domains, ecommerce, scheduling, payments, marketing, and other tools for entrepreneurs and small businesses.",
+    "current_sponsor": "Permira, alongside founder Anthony Casalena and continuing investors",
+    "sponsor_history": [
+      {
+        "date": "2024-10",
+        "event": "Permira completed its acquisition of Squarespace in a transaction valued at approximately $7.2 billion.",
+        "source_url": "https://www.squarespace.com/press-releases/2024/10/17/permira-completes-acquisition-of-squarespace"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Permira completes Squarespace acquisition",
+        "url": "https://www.squarespace.com/press-releases/2024/10/17/permira-completes-acquisition-of-squarespace"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly identify Spaceship Purchaser as d/b/a Squarespace."
+  },
+  {
+    "issuer_match_key": "DWYER INSTRUMENTS",
+    "display_name": "DwyerOmega",
+    "mapped_company": "Dwyer Instruments, LLC / DwyerOmega",
+    "description": "DwyerOmega designs and manufactures sensors, instrumentation, and control products for pressure, flow, temperature, level, and related industrial measurement applications.",
+    "current_sponsor": "Arcline Investment Management",
+    "sponsor_history": [
+      {
+        "date": "2021-08",
+        "event": "Arcline Investment Management acquired Dwyer Instruments.",
+        "source_url": "https://arcline.com/arcline-investment-management-acquires-dwyer-instruments/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Arcline acquisition of Dwyer Instruments",
+        "url": "https://arcline.com/arcline-investment-management-acquires-dwyer-instruments/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The borrower name directly matches Dwyer Instruments, now branded DwyerOmega."
   }
 ]
