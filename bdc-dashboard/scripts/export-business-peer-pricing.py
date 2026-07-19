@@ -107,6 +107,12 @@ def classify_target(rows: list[dict[str, Any]]) -> tuple[str | None, str]:
         return "Aerospace, defense & government services", "name override"
     if any(term in issuer for term in ("CUSTOMINK", "SPECIALTY RETAIL")):
         return "Consumer, retail & leisure", "name override"
+    # Expanded EdgarTools schedules do not always expose an industry concept.
+    # Reuse exact curated company-pattern matches before falling back to the
+    # reported industry so those funds can still contribute auditable peers.
+    name_model = classify_peer(issuer)
+    if name_model:
+        return name_model, "curated company match"
     industry = " ".join(str(row.get("industry") or "") for row in rows).lower()
     if any(term in industry for term in ("software", "technology", "it services", "internet")):
         return "Enterprise software & SaaS", "reported industry"
@@ -183,6 +189,19 @@ def main() -> None:
         if is_senior_debt(row) and float(row.get("principal_mm") or 0) > 0:
             grouped_targets[(row["issuer_match_key"], row["fund"])].append(row)
 
+    # Carry a classification across funds when the normalized issuer is the
+    # same and one filing supplies an industry while another does not.
+    issuer_model_candidates: dict[str, set[str]] = defaultdict(set)
+    for (issuer_key, _fund), rows in grouped_targets.items():
+        model, _basis = classify_target(rows)
+        if model:
+            issuer_model_candidates[issuer_key].add(model)
+    cross_fund_models = {
+        issuer_key: next(iter(models))
+        for issuer_key, models in issuer_model_candidates.items()
+        if len(models) == 1
+    }
+
     estimates = []
     for (issuer_key, fund), rows in grouped_targets.items():
         total_principal = sum(float(row.get("principal_mm") or 0) for row in rows)
@@ -199,6 +218,9 @@ def main() -> None:
         if bdc_mark_on_principal > 115:
             continue
         business_model, taxonomy_basis = classify_target(rows)
+        if not business_model and issuer_key in cross_fund_models:
+            business_model = cross_fund_models[issuer_key]
+            taxonomy_basis = "cross-fund issuer classification"
         if not business_model:
             continue
         maturities = [parse_maturity(row.get("maturity_date")) for row in rows]

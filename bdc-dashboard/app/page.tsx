@@ -9,6 +9,7 @@ import {
   ArrowUpRight,
   ArrowUpDown,
   BarChart3,
+  BadgeDollarSign,
   Calendar,
   CheckCircle2,
   Database,
@@ -32,6 +33,7 @@ import dashboardData from "../lib/dashboard-data.json";
 import bdcUniverseData from "../lib/bdc-universe.json";
 import bslReferenceMarksData from "../lib/bsl-reference-marks.json";
 import businessPeerPricingData from "../lib/business-peer-pricing.json";
+import bdcMarketValuationData from "../lib/bdc-market-valuation.json";
 import etfImpliedBdcMarksData from "../lib/etf-implied-bdc-marks.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import fundingMarketData from "../lib/bdc-funding-market.json";
@@ -57,7 +59,7 @@ type Fund =
   | "PSEC"
   | "TCPC"
   | "TSLX";
-type Tab = "overview" | "financials" | "deterioration" | "exposure" | "timeline" | "holdings" | "liabilities" | "universe" | "quality";
+type Tab = "overview" | "valuation" | "financials" | "deterioration" | "exposure" | "timeline" | "holdings" | "liabilities" | "universe" | "quality";
 type WatchlistBucketFilter = "All" | "Non-accrual" | "Shadow below 90" | "Watch 90-97" | "QoQ deterioration";
 type SortDirection = "asc" | "desc";
 type HoldingsSortKey = "amortized_cost_mm" | "fair_value_mm" | "mark_vs_cost_mm" | "fv_to_cost";
@@ -848,6 +850,79 @@ type BusinessPeerPricingData = {
   sources: { name: string; url: string }[];
 };
 
+type BdcValuationFund = {
+  fund: Fund;
+  company_name: string;
+  price: number;
+  price_date: string;
+  nav_per_share: number;
+  nav_date: string;
+  reported_price_to_nav_pct: number;
+  reported_premium_discount_pct: number;
+  comparable_loan_count: number;
+  comparable_principal_mm: number;
+  comparable_fair_value_mm: number;
+  comparable_portfolio_coverage_pct: number;
+  weighted_bdc_mark: number | null;
+  weighted_bsl_peer_mark: number | null;
+  bsl_minus_bdc_mark_pp: number;
+  modeled_bsl_minus_bdc_mark_pp: number | null;
+  bsl_asset_adjustment_mm: number;
+  bsl_asset_nav_impact_pct: number;
+  bsl_adjusted_nav_per_share: number;
+  price_to_bsl_adjusted_nav_pct: number;
+  market_gap_vs_bsl_adjusted_nav_pct: number;
+  net_assets_mm: number;
+  total_debt_mm: number;
+  debt_to_equity_x: number;
+  unsecured_debt_pct: number | null;
+  observed_note_coupon_pct: number | null;
+  trace_last_yield_pct: number | null;
+  trace_matched_series_count: number;
+  next_observed_note_maturity: string | null;
+  near_term_observed_note_pct: number;
+  valuation_score: number;
+  funding_resilience_score: number;
+  evidence_score: number;
+  aggregate_value_score: number;
+  screen_confidence: "higher" | "medium" | "limited";
+  interpretation: string;
+  financial_source_url: string;
+  market_source_url: string;
+};
+
+type BdcValuationLoan = {
+  issuer_match_key: string;
+  issuer: string;
+  fund: Fund;
+  business_model: string;
+  bdc_fair_value_mm: number;
+  bdc_mark: number;
+  bsl_peer_mark: number;
+  bsl_minus_bdc_pp: number;
+  modeled_gap_pp: number;
+  modeled_adjustment_mm: number;
+  remark_capped: boolean;
+  peer_low: number;
+  peer_high: number;
+  confidence: "medium" | "low";
+};
+
+type BdcMarketValuationData = {
+  meta: {
+    generated_at_utc: string;
+    market_price_through: string;
+    nav_date: string;
+    fund_count: number;
+    methodology: string;
+    score_methodology: string;
+    caveats: string[];
+  };
+  funds: BdcValuationFund[];
+  loan_screen: BdcValuationLoan[];
+  sources: { name: string; url: string; role: string }[];
+};
+
 type QuarterlyFactRow = {
   fund: Fund;
   period_end: string;
@@ -1293,6 +1368,7 @@ const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const fundingMarket = fundingMarketData as unknown as FundingMarketData;
 const bslReferenceMarks = bslReferenceMarksData as unknown as BslReferenceData;
 const businessPeerPricing = businessPeerPricingData as unknown as BusinessPeerPricingData;
+const bdcMarketValuation = bdcMarketValuationData as unknown as BdcMarketValuationData;
 const businessPeerByKey = new Map(businessPeerPricing.peer_universe.map((row) => [row.normalized_borrower, row]));
 const etfImpliedBdcMarks = etfImpliedBdcMarksData as unknown as EtfImpliedBdcData;
 const liabilityStack = liabilityStackData as LiabilityStackData;
@@ -6957,6 +7033,162 @@ function TracePriceChart({ points }: { points: TracePoint[] }) {
   );
 }
 
+function BdcValuation({
+  selectedFund,
+  onOpenTimelineIssuer
+}: {
+  selectedFund: Fund | "All";
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const [selectedValuationFund, setSelectedValuationFund] = useState<Fund>("FSK");
+  const scopedFunds = bdcMarketValuation.funds.filter((row) => selectedFund === "All" || row.fund === selectedFund);
+  const activeFund = scopedFunds.find((row) => row.fund === selectedValuationFund) || scopedFunds[0];
+  const activeLoans = activeFund
+    ? bdcMarketValuation.loan_screen
+        .filter((row) => row.fund === activeFund.fund)
+        .sort((a, b) => Math.abs(b.modeled_adjustment_mm) - Math.abs(a.modeled_adjustment_mm))
+        .slice(0, 14)
+    : [];
+  const gapPosition = (gap: number) => Math.max(0, Math.min(100, ((gap + 50) / 120) * 100));
+  const gapTone = (gap: number) => gap <= -10 ? "discount" : gap >= 10 ? "premium" : "near-nav";
+
+  if (!activeFund) return <div className="empty-state">No valuation snapshot is available for this fund.</div>;
+
+  const navRemarkPerShare = activeFund.bsl_adjusted_nav_per_share - activeFund.nav_per_share;
+
+  return (
+    <div className="grid valuation-page">
+      <section className="valuation-hero">
+        <div>
+          <p className="eyebrow">Fund-level relative value / market close through {formatDate(bdcMarketValuation.meta.market_price_through)}</p>
+          <h2>Price the whole BDC, then inspect the loans that moved it.</h2>
+          <p>
+            The screen re-marks every covered senior loan against BSL operating-model peers, carries the rest of the
+            portfolio at reported value, and weighs the resulting NAV discount against leverage, refinancing exposure,
+            and observable bond yields.
+          </p>
+        </div>
+        <div className="valuation-hero-note">
+          <span>Screening rule</span>
+          <strong>70% adjusted valuation / 20% funding / 10% evidence</strong>
+          <small>Loan re-marks are capped at ±25 points individually; raw gaps remain visible below.</small>
+        </div>
+      </section>
+
+      <Panel
+        title="BDC valuation map"
+        subtitle="Current share-price premium or discount to BSL-adjusted NAV. Left of zero screens cheaper; right screens richer. Rows without a BSL loan sample remain anchored to reported NAV."
+        icon={BadgeDollarSign}
+      >
+        <div className="valuation-axis" aria-hidden="true"><span>-50% discount</span><span>NAV</span><span>+70% premium</span></div>
+        <div className="valuation-map" role="img" aria-label="BDC market prices compared with BSL-adjusted net asset value">
+          {scopedFunds.map((row) => (
+            <button
+              type="button"
+              className={`valuation-map-row ${activeFund.fund === row.fund ? "selected" : ""}`}
+              key={row.fund}
+              onClick={() => setSelectedValuationFund(row.fund)}
+              aria-label={`${row.fund}: ${formatPct(row.market_gap_vs_bsl_adjusted_nav_pct)} versus adjusted NAV, score ${row.aggregate_value_score.toFixed(0)}`}
+            >
+              <span className="valuation-map-fund">{row.fund}</span>
+              <span className="valuation-map-track">
+                <i className="valuation-zero" />
+                <i className={`valuation-dot ${gapTone(row.market_gap_vs_bsl_adjusted_nav_pct)}`} style={{ left: `${gapPosition(row.market_gap_vs_bsl_adjusted_nav_pct)}%` }} />
+              </span>
+              <strong className={gapTone(row.market_gap_vs_bsl_adjusted_nav_pct)}>{formatPct(row.market_gap_vs_bsl_adjusted_nav_pct, 1)}</strong>
+              <small>{row.comparable_portfolio_coverage_pct ? `${formatPct(row.comparable_portfolio_coverage_pct, 0)} loan coverage` : "BSL sample pending"}</small>
+            </button>
+          ))}
+        </div>
+      </Panel>
+
+      <Panel
+        title="Aggregate value screen"
+        subtitle="A sortable research starting point; the component values are shown so the composite never becomes a black box."
+        icon={BarChart3}
+      >
+        <div className="table-wrap valuation-table-wrap">
+          <table className="compact-wide-table valuation-table">
+            <thead><tr><th>Fund</th><th className="right">Price / reported NAV</th><th className="right">Price / adjusted NAV</th><th className="right">Modeled loan gap</th><th className="right">BSL coverage</th><th className="right">Debt / equity</th><th className="right">TRACE yield</th><th>Funding</th><th>Aggregate</th></tr></thead>
+            <tbody>
+              {scopedFunds.map((row) => (
+                <tr key={row.fund} className={activeFund.fund === row.fund ? "selected" : ""} onClick={() => setSelectedValuationFund(row.fund)}>
+                  <td className="issuer-cell"><FundBadge fund={row.fund} /><span>{row.interpretation}</span></td>
+                  <td className={`right ${gapTone(row.reported_premium_discount_pct)}`}>{formatPct(row.reported_premium_discount_pct, 1)}</td>
+                  <td className={`right ${gapTone(row.market_gap_vs_bsl_adjusted_nav_pct)}`}><strong>{formatPct(row.market_gap_vs_bsl_adjusted_nav_pct, 1)}</strong></td>
+                  <td className={`right ${toneClass(row.modeled_bsl_minus_bdc_mark_pp)}`}>{formatSignedPp(row.modeled_bsl_minus_bdc_mark_pp)}</td>
+                  <td className="right">{formatPct(row.comparable_portfolio_coverage_pct, 0)}</td>
+                  <td className="right">{formatMultiple(row.debt_to_equity_x)}</td>
+                  <td className="right">{formatPct(row.trace_last_yield_pct, 2)}</td>
+                  <td><span className="valuation-mini-score"><i style={{ width: `${row.funding_resilience_score}%` }} /></span><small>{row.funding_resilience_score.toFixed(0)}</small></td>
+                  <td><strong className="valuation-score">{row.aggregate_value_score.toFixed(0)}</strong><small className={`valuation-confidence ${row.screen_confidence}`}>{row.screen_confidence}</small></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Panel>
+
+      <div className="grid valuation-detail-grid">
+        <Panel
+          title={`${activeFund.fund} / NAV-to-market bridge`}
+          subtitle={`Reported balance sheet at ${formatDate(activeFund.nav_date)}; public close at ${formatDate(activeFund.price_date)}.`}
+          icon={TrendingUp}
+          action={<a href={activeFund.market_source_url} target="_blank" rel="noreferrer">Price source <ExternalLink className="inline-link-icon" /></a>}
+        >
+          <div className="valuation-bridge">
+            <div><span>Reported NAV</span><strong>{formatPerShare(activeFund.nav_per_share)}</strong></div>
+            <div><span>BSL loan re-mark</span><strong className={toneClass(navRemarkPerShare)}>{formatSignedPerShare(navRemarkPerShare)}</strong><small>{formatMm(activeFund.bsl_asset_adjustment_mm)} across {activeFund.comparable_loan_count} loans</small></div>
+            <div><span>Adjusted NAV</span><strong>{formatPerShare(activeFund.bsl_adjusted_nav_per_share)}</strong></div>
+            <div><span>Market price</span><strong>{formatPerShare(activeFund.price)}</strong><small className={gapTone(activeFund.market_gap_vs_bsl_adjusted_nav_pct)}>{formatPct(activeFund.market_gap_vs_bsl_adjusted_nav_pct, 1)} vs adjusted NAV</small></div>
+          </div>
+          <div className="valuation-debt-strip">
+            <div><span>Gross D/E</span><strong>{formatMultiple(activeFund.debt_to_equity_x)}</strong></div>
+            <div><span>Unsecured debt</span><strong>{formatPct(activeFund.unsecured_debt_pct, 0)}</strong></div>
+            <div><span>Near-term observed notes</span><strong>{formatPct(activeFund.near_term_observed_note_pct, 0)}</strong></div>
+            <div><span>Next observed maturity</span><strong>{activeFund.next_observed_note_maturity ? formatShortDate(activeFund.next_observed_note_maturity) : "n/a"}</strong></div>
+            <div><span>TRACE yield</span><strong>{formatPct(activeFund.trace_last_yield_pct, 2)}</strong></div>
+          </div>
+          <a className="valuation-source-link" href={activeFund.financial_source_url} target="_blank" rel="noreferrer">Open the quarter-end financial source <ExternalLink /></a>
+        </Panel>
+
+        <Panel
+          title={`${activeFund.fund} / loan contribution audit`}
+          subtitle="Largest covered contributors to the fund-level asset re-mark. Raw peer gaps are shown beside the capped amount used by the model."
+          icon={FileSearch}
+          action={<span className="bsl-asof">{activeFund.comparable_loan_count} covered loans</span>}
+        >
+          {activeLoans.length ? (
+            <div className="table-wrap valuation-loan-wrap">
+              <table className="compact-wide-table valuation-loan-table">
+                <thead><tr><th>Borrower / model</th><th className="right">BDC</th><th className="right">BSL</th><th className="right">Raw gap</th><th className="right">NAV contribution</th></tr></thead>
+                <tbody>
+                  {activeLoans.map((row) => (
+                    <tr key={`${row.fund}-${row.issuer_match_key}`}>
+                      <td className="issuer-cell">
+                        {timelineIssuerKeys.has(row.issuer_match_key) ? <a className="issuer-link" href="#timeline" onClick={(event) => { event.preventDefault(); onOpenTimelineIssuer(row.issuer_match_key); }}><strong>{row.issuer}</strong></a> : <strong>{row.issuer}</strong>}
+                        <span>{row.business_model}{row.remark_capped ? " · modeled gap capped" : ""}</span>
+                      </td>
+                      <td className="right">{formatMark(row.bdc_mark)}</td>
+                      <td className="right">{formatMark(row.bsl_peer_mark)}</td>
+                      <td className={`right ${toneClass(row.bsl_minus_bdc_pp)}`}>{formatSignedPp(row.bsl_minus_bdc_pp)}</td>
+                      <td className={`right ${toneClass(row.modeled_adjustment_mm)}`}>{formatMm(row.modeled_adjustment_mm, 1)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : <div className="empty-state">No classified BSL business-model sample is available yet. This fund’s aggregate score currently reflects the public NAV discount and funding structure only.</div>}
+        </Panel>
+      </div>
+
+      <Callout title="How to read this screen">
+        {bdcMarketValuation.meta.methodology} {bdcMarketValuation.meta.score_methodology} {bdcMarketValuation.meta.caveats[1]}
+      </Callout>
+    </div>
+  );
+}
+
 function FundingMarket({ selectedFund }: { selectedFund: Fund | "All" }) {
   const [selectedSeriesId, setSelectedSeriesId] = useState<string | null>(null);
   const scopedSeries = fundingMarket.series.filter(
@@ -7780,6 +8012,7 @@ export default function DashboardPage() {
 
   const tabs: Array<{ id: Tab; label: string; icon: LucideIcon; group: string; description: string }> = [
     { id: "overview", label: "Research briefing", icon: BarChart3, group: "Decide", description: "Ranked portfolio signals and the latest cross-fund read." },
+    { id: "valuation", label: "BDC valuation", icon: BadgeDollarSign, group: "Decide", description: "Aggregate market discount, BSL loan re-marks, and funding resilience." },
     { id: "deterioration", label: "Credit migration", icon: AlertTriangle, group: "Decide", description: "Issuer marks moving toward potential non-accrual stress." },
     { id: "exposure", label: "Cross-fund exposure", icon: Layers3, group: "Decide", description: "Crowding, matched-loan marks, and capital-structure comparisons." },
     { id: "timeline", label: "Issuer timeline", icon: LineChart, group: "Investigate", description: "Quarterly exposure, tier marks, fund-pair lead-lag, and sponsor history." },
@@ -7824,8 +8057,8 @@ export default function DashboardPage() {
         <section className="rail-studies" aria-label="Pinned research views">
           <p className="rail-label">Pinned studies</p>
           <button type="button" onClick={() => setActiveTab("overview")}><span>01</span>Priority issuer queue</button>
-          <button type="button" onClick={() => setActiveTab("exposure")}><span>02</span>Comparable loan gaps</button>
-          <button type="button" onClick={() => setActiveTab("timeline")}><span>03</span>Fund-pair lead-lag</button>
+          <button type="button" onClick={() => setActiveTab("valuation")}><span>02</span>Aggregate BDC value</button>
+          <button type="button" onClick={() => setActiveTab("exposure")}><span>03</span>Comparable loan gaps</button>
         </section>
 
         <section className="rail-status" aria-label="Research coverage status">
@@ -7909,6 +8142,7 @@ export default function DashboardPage() {
         </div>
 
         {activeTab === "overview" ? <Overview selectedFund={selectedFund} onOpenTimelineIssuer={openTimelineIssuer} /> : null}
+        {activeTab === "valuation" ? <BdcValuation selectedFund={selectedFund} onOpenTimelineIssuer={openTimelineIssuer} /> : null}
         {activeTab === "financials" ? <Financials selectedFund={selectedFund} /> : null}
         {activeTab === "deterioration" ? <Deterioration selectedFund={selectedFund} /> : null}
         {activeTab === "exposure" ? (

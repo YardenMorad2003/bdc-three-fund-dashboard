@@ -5219,3 +5219,138 @@ tbody tr:hover td {
   .peer-price-summary > div:last-child { border-bottom: 0; }
   .peer-detail-heading { display: grid; }
 }
+
+/* Fund-level BDC valuation */
+.valuation-page { gap: 18px; }
+
+.valuation-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
+  gap: 34px;
+  align-items: end;
+  padding: 22px 4px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.valuation-hero h2 {
+  max-width: 760px;
+  margin: 5px 0 9px;
+  color: #e6e2d8;
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 400;
+  letter-spacing: -.035em;
+}
+
+.valuation-hero p:not(.eyebrow) {
+  max-width: 800px;
+  margin: 0;
+  color: #929c99;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.valuation-hero-note {
+  display: grid;
+  gap: 6px;
+  padding-left: 16px;
+  border-left: 2px solid #a86f4d;
+}
+
+.valuation-hero-note span,
+.valuation-hero-note small {
+  color: #778482;
+  font: 8px/1.5 var(--font-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.valuation-hero-note strong { color: #cbc8c0; font-size: 11px; font-weight: 500; }
+.valuation-hero-note small { text-transform: none; letter-spacing: 0; }
+
+.valuation-axis {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 2px 92px 8px 55px;
+  color: #667270;
+  font: 8px var(--font-mono);
+}
+.valuation-axis span:nth-child(2) { text-align: center; }
+.valuation-axis span:last-child { text-align: right; }
+
+.valuation-map { display: grid; border-top: 1px solid var(--border); }
+.valuation-map-row {
+  display: grid;
+  grid-template-columns: 46px minmax(140px, 1fr) 66px 108px;
+  gap: 10px;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 8px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.valuation-map-row:hover,
+.valuation-map-row.selected { background: #1b2223; }
+.valuation-map-fund { color: #d8d4cb; font: 500 11px var(--font-mono); }
+.valuation-map-track { position: relative; height: 1px; background: #3b4444; }
+.valuation-zero { position: absolute; top: -7px; left: 41.666%; width: 1px; height: 15px; background: #697371; }
+.valuation-dot { position: absolute; top: 50%; width: 8px; height: 8px; border: 2px solid #141a1c; border-radius: 50%; transform: translate(-50%, -50%); }
+.valuation-dot.discount { background: #78a489; }
+.valuation-dot.near-nav { background: #b49d70; }
+.valuation-dot.premium { background: #c67755; }
+.valuation-map-row > strong { font: 500 10px var(--font-mono); text-align: right; }
+.valuation-map-row > small { color: #77817f; font: 8px var(--font-mono); }
+.discount { color: #7fb090 !important; }
+.premium { color: #d17e59 !important; }
+.near-nav { color: #c0aa79 !important; }
+
+.valuation-table tbody tr { cursor: pointer; }
+.valuation-table tbody tr.selected { background: #1c2425; }
+.valuation-table .issuer-cell > span { margin-top: 5px; }
+.valuation-mini-score { display: inline-block; width: 46px; height: 3px; margin-right: 7px; background: #313939; vertical-align: middle; }
+.valuation-mini-score i { display: block; height: 100%; background: #76969a; }
+.valuation-table td > small { color: #73807e; font: 8px var(--font-mono); }
+.valuation-score { display: inline-grid; place-items: center; width: 27px; height: 27px; margin-right: 8px; border: 1px solid #536261; color: #ddd8ce; font: 500 11px var(--font-mono); }
+.valuation-confidence { text-transform: uppercase; letter-spacing: .04em; }
+.valuation-confidence.higher { color: #78a489; }
+.valuation-confidence.medium { color: #b49d70; }
+
+.valuation-detail-grid { grid-template-columns: minmax(360px, .85fr) minmax(520px, 1.15fr); }
+.valuation-bridge { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--border); }
+.valuation-bridge > div { display: grid; gap: 7px; align-content: start; min-height: 88px; padding: 13px; border-right: 1px solid var(--border); }
+.valuation-bridge > div:last-child { border-right: 0; }
+.valuation-bridge span,
+.valuation-debt-strip span { color: #778482; font: 8px var(--font-mono); letter-spacing: .05em; text-transform: uppercase; }
+.valuation-bridge strong { color: #ddd9d0; font: 500 18px var(--font-mono); }
+.valuation-bridge small { color: #74807e; font: 8px/1.4 var(--font-mono); }
+.valuation-debt-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 14px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.valuation-debt-strip > div { display: grid; gap: 6px; padding: 11px 9px; }
+.valuation-debt-strip strong { color: #c9c6bd; font: 500 10px var(--font-mono); }
+.valuation-source-link { display: inline-flex; gap: 6px; align-items: center; margin-top: 13px; color: #8eacb0; font: 9px var(--font-mono); text-decoration: none; }
+.valuation-source-link svg { width: 12px; height: 12px; }
+.valuation-loan-wrap { max-height: 420px; }
+.valuation-loan-table .issuer-cell > span { max-width: 280px; }
+
+@media (max-width: 1100px) {
+  .valuation-detail-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .valuation-hero { grid-template-columns: 1fr; gap: 18px; }
+  .valuation-map-row { grid-template-columns: 42px minmax(100px, 1fr) 60px; }
+  .valuation-map-row > small { display: none; }
+  .valuation-axis { margin-right: 70px; }
+  .valuation-bridge { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .valuation-bridge > div:nth-child(2) { border-right: 0; }
+  .valuation-bridge > div:nth-child(-n + 2) { border-bottom: 1px solid var(--border); }
+  .valuation-debt-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 460px) {
+  .valuation-bridge { grid-template-columns: 1fr; }
+  .valuation-bridge > div { border-right: 0; border-bottom: 1px solid var(--border); }
+  .valuation-bridge > div:last-child { border-bottom: 0; }
+}
