@@ -31,6 +31,7 @@ import { useMemo, useState } from "react";
 import dashboardData from "../lib/dashboard-data.json";
 import bdcUniverseData from "../lib/bdc-universe.json";
 import bslReferenceMarksData from "../lib/bsl-reference-marks.json";
+import etfImpliedBdcMarksData from "../lib/etf-implied-bdc-marks.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import fundingMarketData from "../lib/bdc-funding-market.json";
 import liabilityStackData from "../lib/liability-stack.json";
@@ -710,6 +711,82 @@ type BslReferenceData = {
   sources: { name: string; url: string }[];
 };
 
+type EtfCreditResearch = {
+  issuer_match_key: string;
+  headline: string;
+  research_date: string;
+  signal: "positive" | "negative" | "mixed";
+  summary: string;
+  risk_tags: string[];
+  sources: { title: string; url: string }[];
+};
+type EtfFacilityObservation = {
+  etf: string;
+  report_date: string;
+  loan_title: string;
+  maturity: string;
+  rate: number | null;
+  rate_gap_pp: number | null;
+  implied_mark: number;
+  principal_mm: number;
+  identifier_key: string;
+  match_quality: string;
+  source_url: string;
+  score: number;
+  maturity_precision: string;
+};
+type EtfFacilityMatch = {
+  issuer_match_key: string;
+  issuer: string;
+  bdc_fund: Fund;
+  bdc_category: string;
+  bdc_tier: string;
+  bdc_maturity: string;
+  bdc_rate: number | null;
+  bdc_principal_mm: number;
+  bdc_cost_mm: number;
+  bdc_fair_value_mm: number;
+  bdc_mark_on_principal: number | null;
+  bdc_mark_to_cost: number | null;
+  etf_implied_mark: number;
+  etf_implied_low: number;
+  etf_implied_high: number;
+  etf_funds: string[];
+  etf_observations: EtfFacilityObservation[];
+  bdc_minus_etf_pp: number | null;
+  classification: string;
+  confidence: "high" | "medium";
+  rounding_warning: boolean;
+  evidence: string[];
+  research: EtfCreditResearch | null;
+};
+type EtfImpliedBdcData = {
+  meta: {
+    generated_at_utc: string;
+    as_of_date: string;
+    facility_match_count: number;
+    facility_issuer_count: number;
+    high_confidence_count: number;
+    directional_borrower_fund_count: number;
+    methodology: string;
+    critical_limitation: string;
+  };
+  facility_matches: EtfFacilityMatch[];
+  directional_matches: Array<{
+    issuer_match_key: string;
+    issuer: string;
+    bdc_fund: Fund;
+    reference_mark: number;
+    reference_date: string;
+    reference_status: string;
+    bdc_issuer_mark_to_cost: number | null;
+    classification: string;
+    confidence: "low";
+    reason: string;
+  }>;
+  company_research: EtfCreditResearch[];
+};
+
 type QuarterlyFactRow = {
   fund: Fund;
   period_end: string;
@@ -1154,6 +1231,7 @@ const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const fundingMarket = fundingMarketData as unknown as FundingMarketData;
 const bslReferenceMarks = bslReferenceMarksData as unknown as BslReferenceData;
+const etfImpliedBdcMarks = etfImpliedBdcMarksData as unknown as EtfImpliedBdcData;
 const liabilityStack = liabilityStackData as LiabilityStackData;
 const quarterlyFacts = quarterlyFactsData as QuarterlyFactsData;
 const researchSignals = researchSignalsData as ResearchSignalsData;
@@ -5037,6 +5115,75 @@ function BslReferenceMonitor({
   );
 }
 
+function EtfImpliedPricing({
+  selectedFund,
+  onOpenTimelineIssuer
+}: {
+  selectedFund: Fund | "All";
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const rows = etfImpliedBdcMarks.facility_matches.filter(
+    (row) => selectedFund === "All" || row.bdc_fund === selectedFund
+  );
+  return (
+    <Panel
+      title="ETF-Implied Facility Pricing"
+      subtitle="Probable same-facility matches translate public senior-loan ETF marks into an auditable BDC reference range. The comparison uses FV/principal—not FV/cost—because loan par is the closest common denominator."
+      icon={Gauge}
+      action={<span className="bsl-asof">{rows.length} matched facilities</span>}
+    >
+      {rows.length ? (
+        <div className="table-wrap implied-pricing-wrap">
+          <table className="implied-pricing-table">
+            <thead>
+              <tr>
+                <th>BDC position</th>
+                <th>Facility evidence</th>
+                <th className="right">BDC schedule</th>
+                <th className="right">ETF-implied</th>
+                <th className="right">Difference</th>
+                <th>Confidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={`${row.issuer_match_key}-${row.bdc_fund}-${row.bdc_maturity}-${row.bdc_rate}`}>
+                  <td className="issuer-cell">
+                    <a className="issuer-link" href="#timeline" onClick={(event) => { event.preventDefault(); onOpenTimelineIssuer(row.issuer_match_key); }}>
+                      <strong>{row.issuer}</strong>
+                    </a>
+                    <span><FundBadge fund={row.bdc_fund} /> {row.bdc_tier}</span>
+                  </td>
+                  <td className="implied-evidence-cell">
+                    <strong>{row.bdc_maturity} · {row.bdc_rate === null ? "rate n/a" : formatPct(row.bdc_rate, 2)}</strong>
+                    <span>{row.etf_funds.join(" / ")} · {row.evidence.slice(1).join(" · ")}</span>
+                  </td>
+                  <td className="right">
+                    <strong>{row.rounding_warning ? "rounded" : formatMark(row.bdc_mark_on_principal)}</strong>
+                    <small>{formatMm(row.bdc_fair_value_mm)} FV</small>
+                  </td>
+                  <td className="right implied-range">
+                    <strong>{formatMark(row.etf_implied_mark)}</strong>
+                    <small>{formatMark(row.etf_implied_low)}–{formatMark(row.etf_implied_high)}</small>
+                  </td>
+                  <td className={`right ${row.rounding_warning ? "" : toneClass(row.bdc_minus_etf_pp)}`}>
+                    {row.rounding_warning ? "n/m" : formatSignedPp(row.bdc_minus_etf_pp)}
+                  </td>
+                  <td><span className={`bsl-confidence ${row.confidence}`}>{row.confidence}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : <div className="empty-state">No probable same-facility ETF match is available for the selected fund.</div>}
+      <div className="bsl-reference-note">
+        <ShieldCheck />
+        <p>{etfImpliedBdcMarks.meta.methodology} {etfImpliedBdcMarks.meta.critical_limitation}</p>
+      </div>
+    </Panel>
+  );
+}
+
 function Exposure({
   selectedFund,
   onOpenTimelineIssuer
@@ -5130,6 +5277,8 @@ function Exposure({
       <Callout title="How to read exposure">{data.narrative.exposure}</Callout>
 
       <BslReferenceMonitor selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
+
+      <EtfImpliedPricing selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
       <MarkDivergence selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
@@ -5590,6 +5739,70 @@ function BslReferenceTimeline({
   );
 }
 
+function EtfImpliedPricingDetail({
+  rows,
+  research
+}: {
+  rows: EtfFacilityMatch[];
+  research: EtfCreditResearch | undefined;
+}) {
+  if (!rows.length && !research) return null;
+  return (
+    <Panel
+      title="Facility Pricing & Credit Research"
+      subtitle="Specific facility evidence is separated from company-level research so market marks, capital structure, and operating developments do not get conflated."
+      icon={FileSearch}
+    >
+      {rows.length ? (
+        <div className="implied-facility-grid">
+          {rows.map((row) => (
+            <section key={`${row.bdc_fund}-${row.bdc_maturity}-${row.bdc_rate}`} className="implied-facility-card">
+              <div className="implied-facility-topline">
+                <div><FundBadge fund={row.bdc_fund} /><span>{row.bdc_tier}</span></div>
+                <span className={`bsl-confidence ${row.confidence}`}>{row.confidence} match</span>
+              </div>
+              <h3>{row.bdc_maturity} maturity · {row.bdc_rate === null ? "rate unavailable" : formatPct(row.bdc_rate, 2)}</h3>
+              <div className="implied-facility-marks">
+                <div><span>ETF-implied</span><strong>{formatMark(row.etf_implied_mark)}</strong><small>{formatMark(row.etf_implied_low)}–{formatMark(row.etf_implied_high)}</small></div>
+                <div><span>BDC schedule</span><strong>{row.rounding_warning ? "rounded" : formatMark(row.bdc_mark_on_principal)}</strong><small>FV / principal</small></div>
+                <div><span>ETF holders</span><strong>{row.etf_funds.join(" / ")}</strong><small>{row.etf_observations.length} corroborating observations</small></div>
+              </div>
+              <div className="implied-observation-list">
+                {row.etf_observations.map((observation) => (
+                  <a key={`${observation.etf}-${observation.report_date}`} href={observation.source_url} target="_blank" rel="noreferrer">
+                    <span>{observation.etf} · {formatShortDate(observation.report_date)}</span>
+                    <strong>{formatMark(observation.implied_mark)}</strong>
+                    <small>{observation.loan_title} · {observation.identifier_key}</small>
+                    <ExternalLink />
+                  </a>
+                ))}
+              </div>
+              {row.rounding_warning ? <p className="implied-rounding-warning"><AlertTriangle />The BDC position is too coarsely rounded for a meaningful point-gap comparison.</p> : null}
+            </section>
+          ))}
+        </div>
+      ) : <div className="empty-state">No probable same-facility ETF match is available; the borrower-level reference remains directional.</div>}
+
+      {research ? (
+        <section className={`credit-research-brief signal-${research.signal}`}>
+          <div className="credit-research-heading">
+            <div>
+              <span>Public-source credit research · {formatDate(research.research_date)}</span>
+              <h3>{research.headline}</h3>
+            </div>
+            <span className={`credit-signal ${research.signal}`}>{research.signal}</span>
+          </div>
+          <p>{research.summary}</p>
+          <div className="credit-risk-tags">{research.risk_tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+          <div className="source-links">
+            {research.sources.map((source) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer"><ExternalLink />{source.title}</a>)}
+          </div>
+        </section>
+      ) : null}
+    </Panel>
+  );
+}
+
 function Timeline({
   selectedFund,
   selectedIssuerKey,
@@ -5663,6 +5876,10 @@ function Timeline({
     (row) => row.issuer_match_key === selectedIssuerKey
   );
   const bslReference = bslReferenceMarks.matches.find((row) => row.issuer_match_key === selectedIssuerKey);
+  const etfFacilityRows = etfImpliedBdcMarks.facility_matches.filter(
+    (row) => row.issuer_match_key === selectedIssuerKey && (selectedFund === "All" || row.bdc_fund === selectedFund)
+  );
+  const creditResearch = etfImpliedBdcMarks.company_research.find((row) => row.issuer_match_key === selectedIssuerKey);
 
   return (
     <div className="grid">
@@ -5722,6 +5939,8 @@ function Timeline({
       </section>
 
       {bslReference ? <BslReferenceTimeline match={bslReference} selectedFund={selectedFund} /> : null}
+
+      {etfFacilityRows.length || creditResearch ? <EtfImpliedPricingDetail rows={etfFacilityRows} research={creditResearch} /> : null}
 
       <div className="grid two-col capital-timeline-grid">
         <Panel

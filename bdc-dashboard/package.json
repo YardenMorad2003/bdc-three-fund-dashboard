@@ -7,7 +7,7 @@
     "facts": "py -X utf8 scripts/export-quarterly-facts.py",
     "signals": "py -X utf8 scripts/export-research-signals.py",
     "funding": "py -X utf8 scripts/export-bdc-funding-market.py",
-    "nport": "py -X utf8 scripts/export-nport-bsl-marks.py && py -X utf8 scripts/export-bsl-dashboard-reference.py",
+    "nport": "py -X utf8 scripts/export-nport-bsl-marks.py && py -X utf8 scripts/export-bsl-dashboard-reference.py && py -X utf8 scripts/export-etf-implied-bdc-marks.py",
     "universe": "py -X utf8 scripts/export-edgartools-bdc-universe.py",
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",

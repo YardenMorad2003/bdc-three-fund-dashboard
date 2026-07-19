@@ -1,0 +1,1044 @@
+{
+  "meta": {
+    "generated_at_utc": "2026-07-19T23:20:58+00:00",
+    "as_of_date": "2026-04-30",
+    "facility_match_count": 5,
+    "facility_issuer_count": 5,
+    "high_confidence_count": 4,
+    "directional_borrower_fund_count": 39,
+    "methodology": "ETF-implied marks use the median of the most recent matching FTSL, BKLN, and SRLN facility observations. A facility match requires the same borrower, maturity within 31 days, compatible tier, and\u2014when both are available\u2014an all-in rate within 150 bp. The range is a confidence band, not a bid/ask spread.",
+    "critical_limitation": "BDC schedules generally omit CUSIPs. Even high-confidence rows remain probable rather than legally confirmed instrument matches. Small BDC positions can be materially distorted by schedule rounding."
+  },
+  "facility_matches": [
+    {
+      "issuer_match_key": "PROOFPOINT",
+      "issuer": "Proofpoint, Inc. (13)",
+      "bdc_fund": "ARCC",
+      "bdc_category": "First lien senior secured loan",
+      "bdc_tier": "First lien / senior secured",
+      "bdc_maturity": "08/2028",
+      "bdc_rate": 6.7,
+      "bdc_principal_mm": 1.0,
+      "bdc_cost_mm": 0.9,
+      "bdc_fair_value_mm": 0.9,
+      "bdc_mark_on_principal": 90.0,
+      "bdc_mark_to_cost": 100.0,
+      "etf_implied_mark": 96.9585,
+      "etf_implied_low": 95.9585,
+      "etf_implied_high": 97.9585,
+      "etf_funds": [
+        "BKLN",
+        "FTSL",
+        "SRLN"
+      ],
+      "etf_observations": [
+        {
+          "etf": "BKLN",
+          "report_date": "2026-02-28",
+          "loan_title": "Proofpoint, Inc., Term Loan",
+          "maturity": "2028-08-31",
+          "rate": 6.67194,
+          "rate_gap_pp": 0.0281,
+          "implied_mark": 96.0155,
+          "principal_mm": 1.229,
+          "identifier_key": "CUSIP:74345HAJ0",
+          "match_quality": "CUSIP direct",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1378872/000137887226000876/0001378872-26-000876-index.htm",
+          "score": 94,
+          "maturity_precision": "month"
+        },
+        {
+          "etf": "FTSL",
+          "report_date": "2026-04-30",
+          "loan_title": "PROOFPOINT INC 08/31/28",
+          "maturity": "2028-08-31",
+          "rate": 6.69961,
+          "rate_gap_pp": 0.0004,
+          "implied_mark": 97.2655,
+          "principal_mm": 29.002,
+          "identifier_key": "FALLBACK:PROOFPOINT|2028-08-31|PROOFPOINT INC 08 31 28",
+          "match_quality": "Ambiguous borrower/maturity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1517936/000094040026024897/0000940400-26-024897-index.htm",
+          "score": 94,
+          "maturity_precision": "month"
+        },
+        {
+          "etf": "SRLN",
+          "report_date": "2026-03-31",
+          "loan_title": "Proofpoint Inc 2025 Repriced Term Loan",
+          "maturity": "2028-08-31",
+          "rate": 6.7,
+          "rate_gap_pp": 0.0,
+          "implied_mark": 96.9585,
+          "principal_mm": 27.611,
+          "identifier_key": "CUSIP:74345HAJ0",
+          "match_quality": "CUSIP direct",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1516212/000141036826055477/0001410368-26-055477-index.htm",
+          "score": 94,
+          "maturity_precision": "month"
+        }
+      ],
+      "bdc_minus_etf_pp": -6.9585,
+      "classification": "probable same facility",
+      "confidence": "high",
+      "rounding_warning": true,
+      "evidence": [
+        "Borrower match",
+        "Same maturity",
+        "Compatible capital tier",
+        "All-in rate within 35 bp"
+      ],
+      "research": {
+        "issuer_match_key": "PROOFPOINT",
+        "headline": "Acquisition financing changed the debt stack in 2025",
+        "research_date": "2025-06-16",
+        "signal": "mixed",
+        "summary": "A roughly $1.6 billion financing package was launched to fund Proofpoint's Hornetsecurity acquisition and refinance debt. Current facility matching therefore relies on the repriced 2028 term-loan maturity and rate rather than older borrower-level debt descriptions.",
+        "risk_tags": [
+          "acquisition financing",
+          "refinancing",
+          "software",
+          "Thoma Bravo"
+        ],
+        "sources": [
+          {
+            "title": "Proofpoint Hornetsecurity acquisition financing",
+            "url": "https://news.bloombergtax.com/private-equity/goldman-launches-loan-for-proofpoints-hornetsecurity-purchase?context=search&index=2"
+          },
+          {
+            "title": "Proofpoint portfolio company page",
+            "url": "https://www.thomabravo.com/portfolio/proofpoint"
+          }
+        ]
+      }
+    },
+    {
+      "issuer_match_key": "EDELMAN FINANCIAL CENTER",
+      "issuer": "The Edelman Financial Center, LLC",
+      "bdc_fund": "ARCC",
+      "bdc_category": "Second lien senior secured loan",
+      "bdc_tier": "Second lien",
+      "bdc_maturity": "10/2028",
+      "bdc_rate": 8.92,
+      "bdc_principal_mm": 0.1,
+      "bdc_cost_mm": 0.1,
+      "bdc_fair_value_mm": 0.1,
+      "bdc_mark_on_principal": 100.0,
+      "bdc_mark_to_cost": 100.0,
+      "etf_implied_mark": 99.275,
+      "etf_implied_low": 97.775,
+      "etf_implied_high": 100.775,
+      "etf_funds": [
+        "SRLN"
+      ],
+      "etf_observations": [
+        {
+          "etf": "SRLN",
+          "report_date": "2026-03-31",
+          "loan_title": "Edelman Financial Center LLC 2024 2nd Lien Term Loan",
+          "maturity": "2028-10-06",
+          "rate": 8.92,
+          "rate_gap_pp": 0.0,
+          "implied_mark": 99.275,
+          "principal_mm": 7.331,
+          "identifier_key": "CUSIP:27943TAC3",
+          "match_quality": "CUSIP direct",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1516212/000141036826055477/0001410368-26-055477-index.htm",
+          "score": 94,
+          "maturity_precision": "month"
+        }
+      ],
+      "bdc_minus_etf_pp": 0.725,
+      "classification": "probable same facility",
+      "confidence": "high",
+      "rounding_warning": true,
+      "evidence": [
+        "Borrower match",
+        "Same maturity",
+        "Compatible capital tier",
+        "All-in rate within 35 bp"
+      ],
+      "research": {
+        "issuer_match_key": "EDELMAN FINANCIAL CENTER",
+        "headline": "Second-lien maturity was extended to October 2028",
+        "research_date": "2024-05-20",
+        "signal": "mixed",
+        "summary": "The $575 million second-lien term loan was amended and extended from July 2026 to October 2028. S&P assigned a CCC+ debt rating to the proposed facility, making the exact second-lien match more informative than a borrower-wide average.",
+        "risk_tags": [
+          "CCC+ debt",
+          "second lien",
+          "2028 maturity",
+          "amend-and-extend"
+        ],
+        "sources": [
+          {
+            "title": "Edelman proposed second-lien term loan rated CCC+",
+            "url": "https://www.spglobal.com/ratings/pt/regulatory/article/-/view/type/HTML/id/3176937"
+          }
+        ]
+      }
+    },
+    {
+      "issuer_match_key": "PROJECT RUBY ULTIMATE PARENT",
+      "issuer": "Project Ruby Ultimate Parent Corp.",
+      "bdc_fund": "BXSL",
+      "bdc_category": "First Lien Debt - non-controlled/non-affiliated",
+      "bdc_tier": "First lien / senior secured",
+      "bdc_maturity": "3/10/2028",
+      "bdc_rate": 6.53,
+      "bdc_principal_mm": 8.227,
+      "bdc_cost_mm": 8.227,
+      "bdc_fair_value_mm": 8.2,
+      "bdc_mark_on_principal": 99.6718,
+      "bdc_mark_to_cost": 99.6718,
+      "etf_implied_mark": 99.8775,
+      "etf_implied_low": 98.8775,
+      "etf_implied_high": 100.8775,
+      "etf_funds": [
+        "FTSL",
+        "SRLN"
+      ],
+      "etf_observations": [
+        {
+          "etf": "FTSL",
+          "report_date": "2026-04-30",
+          "loan_title": "PROJECT RUBY UL 03/10/28",
+          "maturity": "2028-03-10",
+          "rate": 6.51665,
+          "rate_gap_pp": 0.0133,
+          "implied_mark": 100.088,
+          "principal_mm": 18.158,
+          "identifier_key": "FALLBACK:PROJECT RUBY ULTIMATE PARENT|2028-03-10|PROJECT RUBY UL 03 10 28",
+          "match_quality": "Ambiguous borrower/maturity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1517936/000094040026024897/0000940400-26-024897-index.htm",
+          "score": 94,
+          "maturity_precision": "day"
+        },
+        {
+          "etf": "SRLN",
+          "report_date": "2026-03-31",
+          "loan_title": "Project Ruby Ultimate Parent Corp 2025 Term Loan B",
+          "maturity": "2028-03-10",
+          "rate": 6.53,
+          "rate_gap_pp": 0.0,
+          "implied_mark": 99.667,
+          "principal_mm": 6.503,
+          "identifier_key": "CUSIP:74339UBA7",
+          "match_quality": "CUSIP direct",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1516212/000141036826055477/0001410368-26-055477-index.htm",
+          "score": 94,
+          "maturity_precision": "day"
+        }
+      ],
+      "bdc_minus_etf_pp": -0.2057,
+      "classification": "probable same facility",
+      "confidence": "high",
+      "rounding_warning": false,
+      "evidence": [
+        "Borrower match",
+        "Same maturity",
+        "Compatible capital tier",
+        "All-in rate within 35 bp"
+      ],
+      "research": null
+    },
+    {
+      "issuer_match_key": "THEVELIA US",
+      "issuer": "Thevelia US, LLC",
+      "bdc_fund": "BXSL",
+      "bdc_category": "First Lien Debt - non-controlled/non-affiliated",
+      "bdc_tier": "First lien / senior secured",
+      "bdc_maturity": "6/18/2029",
+      "bdc_rate": 6.7,
+      "bdc_principal_mm": 1.267,
+      "bdc_cost_mm": 1.267,
+      "bdc_fair_value_mm": 1.246,
+      "bdc_mark_on_principal": 98.3425,
+      "bdc_mark_to_cost": 98.3425,
+      "etf_implied_mark": 98.375,
+      "etf_implied_low": 96.875,
+      "etf_implied_high": 99.875,
+      "etf_funds": [
+        "SRLN"
+      ],
+      "etf_observations": [
+        {
+          "etf": "SRLN",
+          "report_date": "2026-03-31",
+          "loan_title": "Thevelia (US) LLC 2024 Term Loan B",
+          "maturity": "2029-06-18",
+          "rate": 6.7,
+          "rate_gap_pp": 0.0,
+          "implied_mark": 98.375,
+          "principal_mm": 12.911,
+          "identifier_key": "CUSIP:88372KAH3",
+          "match_quality": "CUSIP direct",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1516212/000141036826055477/0001410368-26-055477-index.htm",
+          "score": 94,
+          "maturity_precision": "day"
+        }
+      ],
+      "bdc_minus_etf_pp": -0.0325,
+      "classification": "probable same facility",
+      "confidence": "high",
+      "rounding_warning": false,
+      "evidence": [
+        "Borrower match",
+        "Same maturity",
+        "Compatible capital tier",
+        "All-in rate within 35 bp"
+      ],
+      "research": null
+    },
+    {
+      "issuer_match_key": "CLOUD SOFTWARE GROUP",
+      "issuer": "Cloud Software Group Inc",
+      "bdc_fund": "FSK",
+      "bdc_category": "Other Senior Secured Debt",
+      "bdc_tier": "First lien / senior secured",
+      "bdc_maturity": "03/2029",
+      "bdc_rate": 6.5,
+      "bdc_principal_mm": 0.7,
+      "bdc_cost_mm": 0.6,
+      "bdc_fair_value_mm": 0.7,
+      "bdc_mark_on_principal": 100.0,
+      "bdc_mark_to_cost": 116.6667,
+      "etf_implied_mark": 100.2215,
+      "etf_implied_low": 99.2215,
+      "etf_implied_high": 101.2215,
+      "etf_funds": [
+        "BKLN",
+        "FTSL",
+        "SRLN"
+      ],
+      "etf_observations": [
+        {
+          "etf": "BKLN",
+          "report_date": "2025-05-31",
+          "loan_title": "Cloud Software Group, Inc., Term Loan B",
+          "maturity": "2029-03-30",
+          "rate": 7.79917,
+          "rate_gap_pp": 1.2992,
+          "implied_mark": 99.8755,
+          "principal_mm": 70.48,
+          "identifier_key": "CUSIP:88632NBF6",
+          "match_quality": "CUSIP direct",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1378872/000175272425183689/0001752724-25-183689-index.htm",
+          "score": 76,
+          "maturity_precision": "month"
+        },
+        {
+          "etf": "FTSL",
+          "report_date": "2025-07-31",
+          "loan_title": "CLOUD SOFTWARE 03/29/29",
+          "maturity": "2029-03-30",
+          "rate": 7.79561,
+          "rate_gap_pp": 1.2956,
+          "implied_mark": 100.284,
+          "principal_mm": 2.57,
+          "identifier_key": "FALLBACK:CLOUD SOFTWARE GROUP|2029-03-30|CLOUD SOFTWARE 03 29 29",
+          "match_quality": "Ambiguous borrower/maturity",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1517936/000094040025002929/0000940400-25-002929-index.htm",
+          "score": 76,
+          "maturity_precision": "month"
+        },
+        {
+          "etf": "SRLN",
+          "report_date": "2025-06-30",
+          "loan_title": "Cloud Software Group Inc 2024 1st Lien Term Loan B",
+          "maturity": "2029-03-29",
+          "rate": 7.8,
+          "rate_gap_pp": 1.3,
+          "implied_mark": 100.2215,
+          "principal_mm": 78.307,
+          "identifier_key": "CUSIP:88632NBF6",
+          "match_quality": "CUSIP direct",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1516212/000175272425211176/0001752724-25-211176-index.htm",
+          "score": 76,
+          "maturity_precision": "month"
+        }
+      ],
+      "bdc_minus_etf_pp": -0.2215,
+      "classification": "probable same facility",
+      "confidence": "medium",
+      "rounding_warning": true,
+      "evidence": [
+        "Borrower match",
+        "Same maturity",
+        "Compatible capital tier",
+        "Rate evidence incomplete or time-shifted"
+      ],
+      "research": {
+        "issuer_match_key": "CLOUD SOFTWARE GROUP",
+        "headline": "Large, layered capital structure makes tranche identity essential",
+        "research_date": "2026-02-20",
+        "signal": "mixed",
+        "summary": "Cloud Software has substantial first- and second-lien debt with materially different recovery expectations. Its acquisition of Arctera closed outside the borrowing group, reinforcing that borrower-level headlines and marks should not be applied blindly across facilities.",
+        "risk_tags": [
+          "software",
+          "capital-structure complexity",
+          "first/second lien",
+          "acquisition"
+        ],
+        "sources": [
+          {
+            "title": "Cloud Software first-lien notes and recovery analysis",
+            "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3166873"
+          },
+          {
+            "title": "Arctera ratings withdrawn after Cloud Software acquisition",
+            "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/sourceId/101666669"
+          }
+        ]
+      }
+    }
+  ],
+  "directional_matches": [
+    {
+      "issuer_match_key": "CORNERSTONE ONDEMAND",
+      "issuer": "Cornerstone OnDemand, Inc.",
+      "bdc_fund": "OBDC",
+      "reference_mark": 73.4065,
+      "reference_date": "2026-03-31",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 70.7243,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "PERATON",
+      "issuer": "Peraton Corp",
+      "bdc_fund": "FSK",
+      "reference_mark": 85.7325,
+      "reference_date": "2026-04-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 74.4893,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "PERATON",
+      "issuer": "Peraton Corp",
+      "bdc_fund": "OBDC",
+      "reference_mark": 85.7325,
+      "reference_date": "2026-04-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 74.4893,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "LHS BORROWER",
+      "issuer": "LHS Borrower, LLC",
+      "bdc_fund": "BBDC",
+      "reference_mark": 92.167,
+      "reference_date": "2025-06-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 100.1742,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "IRIS",
+      "issuer": "Iris Buyer, LLC",
+      "bdc_fund": "BXSL",
+      "reference_mark": 93.973,
+      "reference_date": "2026-03-31",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 101.8974,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "MITNICK CORPORATE PURCHASER",
+      "issuer": "Mitnick Corporate Purchaser, Inc.",
+      "bdc_fund": "TSLX",
+      "reference_mark": 94.625,
+      "reference_date": "2022-09-30",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 43.1677,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "SOLERA",
+      "issuer": "Solera LLC",
+      "bdc_fund": "FSK",
+      "reference_mark": 95.713,
+      "reference_date": "2022-05-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 80.1473,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "TRUCORDIA INSURANCE",
+      "issuer": "Trucordia Insurance Holdings, LLC",
+      "bdc_fund": "OBDC",
+      "reference_mark": 95.75,
+      "reference_date": "2026-04-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 98.1636,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "PACKAGING COORDINATORS",
+      "issuer": "Packaging Coordinators Midco, Inc.",
+      "bdc_fund": "OBDC",
+      "reference_mark": 96.469,
+      "reference_date": "2022-10-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 100.0153,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "PIKE",
+      "issuer": "Pike Corp",
+      "bdc_fund": "ARCC",
+      "reference_mark": 98.789,
+      "reference_date": "2022-12-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 98.9292,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "PIKE",
+      "issuer": "Pike Corp",
+      "bdc_fund": "FSK",
+      "reference_mark": 98.789,
+      "reference_date": "2022-12-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 98.9292,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "TRUIST INSURANCE",
+      "issuer": "Truist Insurance Holdings, LLC",
+      "bdc_fund": "OBDC",
+      "reference_mark": 99.2699,
+      "reference_date": "2026-04-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 98.9424,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "NAVEX",
+      "issuer": "NAVEX TopCo, Inc.",
+      "bdc_fund": "BXSL",
+      "reference_mark": 99.4125,
+      "reference_date": "2021-03-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 101.2104,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "MINOTAUR ACQUISITION",
+      "issuer": "Minotaur Acquisition, Inc. (dba Inspira Financial)",
+      "bdc_fund": "OBDC",
+      "reference_mark": 100.0,
+      "reference_date": "2023-09-30",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 100.883,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "NEXUS",
+      "issuer": "Nexus Buyer LLC",
+      "bdc_fund": "ARCC",
+      "reference_mark": 100.0,
+      "reference_date": "2026-03-31",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 97.3344,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "HYLAND SOFTWARE",
+      "issuer": "Hyland Software, Inc",
+      "bdc_fund": "ARCC",
+      "reference_mark": 100.051,
+      "reference_date": "2023-08-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 99.3798,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "HYLAND SOFTWARE",
+      "issuer": "Hyland Software, Inc",
+      "bdc_fund": "OBDC",
+      "reference_mark": 100.051,
+      "reference_date": "2023-08-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 99.3798,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "FIESTA PURCHASER",
+      "issuer": "Fiesta Purchaser, Inc. (dba Shearer's Foods)",
+      "bdc_fund": "OBDC",
+      "reference_mark": 100.0855,
+      "reference_date": "2025-12-31",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 89.1205,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "BRAVE PARENT",
+      "issuer": "Brave Parent Holdings, Inc.",
+      "bdc_fund": "BXSL",
+      "reference_mark": 100.0895,
+      "reference_date": "2021-09-30",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 100.7344,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "PETVET CARE CENTERS",
+      "issuer": "PetVet Care Centers LLC",
+      "bdc_fund": "ARCC",
+      "reference_mark": 100.1125,
+      "reference_date": "2021-12-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 88.156,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "PETVET CARE CENTERS",
+      "issuer": "PetVet Care Centers LLC",
+      "bdc_fund": "OBDC",
+      "reference_mark": 100.1125,
+      "reference_date": "2021-12-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 88.156,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "ML",
+      "issuer": "ML Holdco, Inc. (13)",
+      "bdc_fund": "ARCC",
+      "reference_mark": 100.175,
+      "reference_date": "2024-03-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 98.0198,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "ML",
+      "issuer": "ML Holdco, Inc. (13)",
+      "bdc_fund": "BXSL",
+      "reference_mark": 100.175,
+      "reference_date": "2024-03-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 98.0198,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "CCI",
+      "issuer": "CCI Buyer, Inc.",
+      "bdc_fund": "BXSL",
+      "reference_mark": 100.1805,
+      "reference_date": "2025-03-31",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 100.3675,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "FLEXERA SOFTWARE",
+      "issuer": "Flexera Software LLC",
+      "bdc_fund": "ARCC",
+      "reference_mark": 100.1965,
+      "reference_date": "2025-06-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 97.8547,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "FLEXERA SOFTWARE",
+      "issuer": "Flexera Software LLC",
+      "bdc_fund": "BXSL",
+      "reference_mark": 100.1965,
+      "reference_date": "2025-06-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 97.8547,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "FLEXERA SOFTWARE",
+      "issuer": "Flexera Software LLC",
+      "bdc_fund": "FSK",
+      "reference_mark": 100.1965,
+      "reference_date": "2025-06-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 97.8547,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "FLEXERA SOFTWARE",
+      "issuer": "Flexera Software LLC",
+      "bdc_fund": "OBDC",
+      "reference_mark": 100.1965,
+      "reference_date": "2025-06-30",
+      "reference_status": "current",
+      "bdc_issuer_mark_to_cost": 97.8547,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "GIGAMON",
+      "issuer": "Gigamon Inc",
+      "bdc_fund": "BXSL",
+      "reference_mark": 100.2035,
+      "reference_date": "2021-12-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 95.3464,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "GIGAMON",
+      "issuer": "Gigamon Inc",
+      "bdc_fund": "FSK",
+      "reference_mark": 100.2035,
+      "reference_date": "2021-12-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 95.3464,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "CAMBREX",
+      "issuer": "Cambrex Corp",
+      "bdc_fund": "BXSL",
+      "reference_mark": 100.2675,
+      "reference_date": "2021-09-30",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 101.0871,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "CAMBREX",
+      "issuer": "Cambrex Corp",
+      "bdc_fund": "FSK",
+      "reference_mark": 100.2675,
+      "reference_date": "2021-09-30",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 101.0871,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "CAMBREX",
+      "issuer": "Cambrex Corp",
+      "bdc_fund": "OBDC",
+      "reference_mark": 100.2675,
+      "reference_date": "2021-09-30",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 101.0871,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "CT TECHNOLOGIES",
+      "issuer": "CT Technologies Intermediate Holdings, Inc.",
+      "bdc_fund": "BXSL",
+      "reference_mark": 100.3125,
+      "reference_date": "2024-07-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 100.6582,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "CT TECHNOLOGIES",
+      "issuer": "CT Technologies Intermediate Holdings, Inc.",
+      "bdc_fund": "OBDC",
+      "reference_mark": 100.3125,
+      "reference_date": "2024-07-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 100.6582,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "SEVERIN ACQUISITION",
+      "issuer": "Severin Acquisition, LLC",
+      "bdc_fund": "ARCC",
+      "reference_mark": 100.3595,
+      "reference_date": "2024-07-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 97.9208,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "SEVERIN ACQUISITION",
+      "issuer": "Severin Acquisition, LLC",
+      "bdc_fund": "OBDC",
+      "reference_mark": 100.3595,
+      "reference_date": "2024-07-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 97.9208,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "SEVERIN ACQUISITION",
+      "issuer": "Severin Acquisition, LLC",
+      "bdc_fund": "TSLX",
+      "reference_mark": 100.3595,
+      "reference_date": "2024-07-31",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 97.9208,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    },
+    {
+      "issuer_match_key": "CAMBIUM LEARNING GROUP",
+      "issuer": "Cambium Learning Group, Inc.",
+      "bdc_fund": "BXSL",
+      "reference_mark": 100.6875,
+      "reference_date": "2021-06-30",
+      "reference_status": "historical_only",
+      "bdc_issuer_mark_to_cost": 97.3199,
+      "classification": "borrower-only directional reference",
+      "confidence": "low",
+      "reason": "The borrower matches, but the available schedule fields do not identify the same maturity, rate, and tier."
+    }
+  ],
+  "company_research": [
+    {
+      "issuer_match_key": "CORNERSTONE ONDEMAND",
+      "headline": "Lender coordination raises refinancing and liability-management risk",
+      "research_date": "2026-05-22",
+      "signal": "negative",
+      "summary": "A majority of lenders to the roughly $2.1 billion first-lien term loan due in 2028 reportedly entered a cooperation agreement for potential debt talks. The public ETF mark subsequently sits in the low 70s, while Cornerstone continues to report operating and product milestones.",
+      "risk_tags": [
+        "lender talks",
+        "2028 maturity",
+        "software",
+        "liability management"
+      ],
+      "sources": [
+        {
+          "title": "Software Firm Cornerstone's Lenders Sign Pact for Debt Talks",
+          "url": "https://news.bloomberglaw.com/bankruptcy-law/software-firm-cornerstones-lenders-sign-pact-for-debt-talks"
+        },
+        {
+          "title": "Cornerstone achieves DISA Impact Level 4 authorization",
+          "url": "https://www.cornerstoneondemand.com/company/news-room/press-releases/cornerstone-achieves-us-federal-government-authorization-with-defense-information-systems-agency-disa-impact-level-4-il4/"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "PERATON",
+      "headline": "CCC+ downgrade and a difficult 2028 refinancing wall",
+      "research_date": "2026-04-17",
+      "signal": "negative",
+      "summary": "S&P lowered Peraton to CCC+ with a negative outlook, citing weaker expected earnings and cash flow, a book-to-bill ratio below 1x, and the need to refinance approximately $5.7 billion of first-lien debt due February 2028.",
+      "risk_tags": [
+        "CCC+",
+        "negative outlook",
+        "2028 maturity",
+        "free-cash-flow deficit"
+      ],
+      "sources": [
+        {
+          "title": "Peraton ratings lowered to CCC+",
+          "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3547769"
+        },
+        {
+          "title": "Peraton company overview",
+          "url": "https://www.peraton.com/company"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "KASEYA",
+      "headline": "Downgrade confirms weakening software-credit momentum",
+      "research_date": "2026-06-26",
+      "signal": "negative",
+      "summary": "S&P's June 2026 BSL surveillance records a downgrade of Kaseya to B- from B with a stable outlook. That action is directionally consistent with the ETF mark falling to roughly 80 cents.",
+      "risk_tags": [
+        "downgrade",
+        "B-",
+        "software",
+        "strategic transformation"
+      ],
+      "sources": [
+        {
+          "title": "S&P 2026 U.S. BSL Index surveillance",
+          "url": "https://www.spglobal.com/ratings/en/regulatory/article/sf-credit-brief-clo-insights-2026-us-bsl-index-no-fireworks-here-bsl-clos-reduce-tech-related-exposures-while-ccc-buckets-rise-modestly-and-b-assets-decrease-s101694497"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "CLOUD SOFTWARE GROUP",
+      "headline": "Large, layered capital structure makes tranche identity essential",
+      "research_date": "2026-02-20",
+      "signal": "mixed",
+      "summary": "Cloud Software has substantial first- and second-lien debt with materially different recovery expectations. Its acquisition of Arctera closed outside the borrowing group, reinforcing that borrower-level headlines and marks should not be applied blindly across facilities.",
+      "risk_tags": [
+        "software",
+        "capital-structure complexity",
+        "first/second lien",
+        "acquisition"
+      ],
+      "sources": [
+        {
+          "title": "Cloud Software first-lien notes and recovery analysis",
+          "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3166873"
+        },
+        {
+          "title": "Arctera ratings withdrawn after Cloud Software acquisition",
+          "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/sourceId/101666669"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "TRUCORDIA INSURANCE",
+      "headline": "2025 refinancing extended the runway and added sponsor equity",
+      "research_date": "2025-06-27",
+      "signal": "positive",
+      "summary": "Trucordia completed a comprehensive refinancing that included a $1.94 billion seven-year term loan B, a $400 million revolver, second-lien financing, and a new Carlyle equity investment.",
+      "risk_tags": [
+        "refinancing completed",
+        "sponsor equity",
+        "acquisition strategy",
+        "insurance brokerage"
+      ],
+      "sources": [
+        {
+          "title": "Trucordia refinancing announcement",
+          "url": "https://www.trucordia.com/news/trucordia-announces-completion-of-comprehensive-debt-refinancing-to-support-strategic-goals"
+        },
+        {
+          "title": "Trucordia credit facilities transaction summary",
+          "url": "https://www.stblaw.com/about-us/news/view/2025/06/27/trucordia-completes-refinancing"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "PROOFPOINT",
+      "headline": "Acquisition financing changed the debt stack in 2025",
+      "research_date": "2025-06-16",
+      "signal": "mixed",
+      "summary": "A roughly $1.6 billion financing package was launched to fund Proofpoint's Hornetsecurity acquisition and refinance debt. Current facility matching therefore relies on the repriced 2028 term-loan maturity and rate rather than older borrower-level debt descriptions.",
+      "risk_tags": [
+        "acquisition financing",
+        "refinancing",
+        "software",
+        "Thoma Bravo"
+      ],
+      "sources": [
+        {
+          "title": "Proofpoint Hornetsecurity acquisition financing",
+          "url": "https://news.bloombergtax.com/private-equity/goldman-launches-loan-for-proofpoints-hornetsecurity-purchase?context=search&index=2"
+        },
+        {
+          "title": "Proofpoint portfolio company page",
+          "url": "https://www.thomabravo.com/portfolio/proofpoint"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "EDELMAN FINANCIAL CENTER",
+      "headline": "Second-lien maturity was extended to October 2028",
+      "research_date": "2024-05-20",
+      "signal": "mixed",
+      "summary": "The $575 million second-lien term loan was amended and extended from July 2026 to October 2028. S&P assigned a CCC+ debt rating to the proposed facility, making the exact second-lien match more informative than a borrower-wide average.",
+      "risk_tags": [
+        "CCC+ debt",
+        "second lien",
+        "2028 maturity",
+        "amend-and-extend"
+      ],
+      "sources": [
+        {
+          "title": "Edelman proposed second-lien term loan rated CCC+",
+          "url": "https://www.spglobal.com/ratings/pt/regulatory/article/-/view/type/HTML/id/3176937"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "FLEXERA SOFTWARE",
+      "headline": "Multiple new facilities reduce the value of a borrower-only comparison",
+      "research_date": "2026-03-05",
+      "signal": "mixed",
+      "summary": "Public filings show separate first-lien facilities maturing in 2028 and 2032 with different spreads. ETF marks should only be translated to a BDC position after matching the specific maturity and currency.",
+      "risk_tags": [
+        "multiple facilities",
+        "software",
+        "currency",
+        "facility identity"
+      ],
+      "sources": [
+        {
+          "title": "Public filing with Flexera first-lien facilities",
+          "url": "https://www.sec.gov/Archives/edgar/data/1959568/000119312526116346/ck0001959568-20251231.htm"
+        },
+        {
+          "title": "Flexera majority investment by Thoma Bravo",
+          "url": "https://www.flexera.com/about-us/press-center/flexera-agrees-to-sell-majority-interest-to-thoma-bravo"
+        }
+      ]
+    }
+  ]
+}

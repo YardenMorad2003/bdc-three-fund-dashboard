@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "as_of_date": "2026-07-19",
+    "scope": "Public-source credit research for material or stressed borrowers that overlap the BDC and senior-loan ETF datasets.",
+    "methodology": "Research signals provide context for observed marks and refinancing risk. They do not mechanically determine fair value and are kept separate from the ETF-implied pricing calculation."
+  },
+  "rows": [
+    {
+      "issuer_match_key": "CORNERSTONE ONDEMAND",
+      "headline": "Lender coordination raises refinancing and liability-management risk",
+      "research_date": "2026-05-22",
+      "signal": "negative",
+      "summary": "A majority of lenders to the roughly $2.1 billion first-lien term loan due in 2028 reportedly entered a cooperation agreement for potential debt talks. The public ETF mark subsequently sits in the low 70s, while Cornerstone continues to report operating and product milestones.",
+      "risk_tags": ["lender talks", "2028 maturity", "software", "liability management"],
+      "sources": [
+        {
+          "title": "Software Firm Cornerstone's Lenders Sign Pact for Debt Talks",
+          "url": "https://news.bloomberglaw.com/bankruptcy-law/software-firm-cornerstones-lenders-sign-pact-for-debt-talks"
+        },
+        {
+          "title": "Cornerstone achieves DISA Impact Level 4 authorization",
+          "url": "https://www.cornerstoneondemand.com/company/news-room/press-releases/cornerstone-achieves-us-federal-government-authorization-with-defense-information-systems-agency-disa-impact-level-4-il4/"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "PERATON",
+      "headline": "CCC+ downgrade and a difficult 2028 refinancing wall",
+      "research_date": "2026-04-17",
+      "signal": "negative",
+      "summary": "S&P lowered Peraton to CCC+ with a negative outlook, citing weaker expected earnings and cash flow, a book-to-bill ratio below 1x, and the need to refinance approximately $5.7 billion of first-lien debt due February 2028.",
+      "risk_tags": ["CCC+", "negative outlook", "2028 maturity", "free-cash-flow deficit"],
+      "sources": [
+        {
+          "title": "Peraton ratings lowered to CCC+",
+          "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3547769"
+        },
+        {
+          "title": "Peraton company overview",
+          "url": "https://www.peraton.com/company"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "KASEYA",
+      "headline": "Downgrade confirms weakening software-credit momentum",
+      "research_date": "2026-06-26",
+      "signal": "negative",
+      "summary": "S&P's June 2026 BSL surveillance records a downgrade of Kaseya to B- from B with a stable outlook. That action is directionally consistent with the ETF mark falling to roughly 80 cents.",
+      "risk_tags": ["downgrade", "B-", "software", "strategic transformation"],
+      "sources": [
+        {
+          "title": "S&P 2026 U.S. BSL Index surveillance",
+          "url": "https://www.spglobal.com/ratings/en/regulatory/article/sf-credit-brief-clo-insights-2026-us-bsl-index-no-fireworks-here-bsl-clos-reduce-tech-related-exposures-while-ccc-buckets-rise-modestly-and-b-assets-decrease-s101694497"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "CLOUD SOFTWARE GROUP",
+      "headline": "Large, layered capital structure makes tranche identity essential",
+      "research_date": "2026-02-20",
+      "signal": "mixed",
+      "summary": "Cloud Software has substantial first- and second-lien debt with materially different recovery expectations. Its acquisition of Arctera closed outside the borrowing group, reinforcing that borrower-level headlines and marks should not be applied blindly across facilities.",
+      "risk_tags": ["software", "capital-structure complexity", "first/second lien", "acquisition"],
+      "sources": [
+        {
+          "title": "Cloud Software first-lien notes and recovery analysis",
+          "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3166873"
+        },
+        {
+          "title": "Arctera ratings withdrawn after Cloud Software acquisition",
+          "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/sourceId/101666669"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "TRUCORDIA INSURANCE",
+      "headline": "2025 refinancing extended the runway and added sponsor equity",
+      "research_date": "2025-06-27",
+      "signal": "positive",
+      "summary": "Trucordia completed a comprehensive refinancing that included a $1.94 billion seven-year term loan B, a $400 million revolver, second-lien financing, and a new Carlyle equity investment.",
+      "risk_tags": ["refinancing completed", "sponsor equity", "acquisition strategy", "insurance brokerage"],
+      "sources": [
+        {
+          "title": "Trucordia refinancing announcement",
+          "url": "https://www.trucordia.com/news/trucordia-announces-completion-of-comprehensive-debt-refinancing-to-support-strategic-goals"
+        },
+        {
+          "title": "Trucordia credit facilities transaction summary",
+          "url": "https://www.stblaw.com/about-us/news/view/2025/06/27/trucordia-completes-refinancing"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "PROOFPOINT",
+      "headline": "Acquisition financing changed the debt stack in 2025",
+      "research_date": "2025-06-16",
+      "signal": "mixed",
+      "summary": "A roughly $1.6 billion financing package was launched to fund Proofpoint's Hornetsecurity acquisition and refinance debt. Current facility matching therefore relies on the repriced 2028 term-loan maturity and rate rather than older borrower-level debt descriptions.",
+      "risk_tags": ["acquisition financing", "refinancing", "software", "Thoma Bravo"],
+      "sources": [
+        {
+          "title": "Proofpoint Hornetsecurity acquisition financing",
+          "url": "https://news.bloombergtax.com/private-equity/goldman-launches-loan-for-proofpoints-hornetsecurity-purchase?context=search&index=2"
+        },
+        {
+          "title": "Proofpoint portfolio company page",
+          "url": "https://www.thomabravo.com/portfolio/proofpoint"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "EDELMAN FINANCIAL CENTER",
+      "headline": "Second-lien maturity was extended to October 2028",
+      "research_date": "2024-05-20",
+      "signal": "mixed",
+      "summary": "The $575 million second-lien term loan was amended and extended from July 2026 to October 2028. S&P assigned a CCC+ debt rating to the proposed facility, making the exact second-lien match more informative than a borrower-wide average.",
+      "risk_tags": ["CCC+ debt", "second lien", "2028 maturity", "amend-and-extend"],
+      "sources": [
+        {
+          "title": "Edelman proposed second-lien term loan rated CCC+",
+          "url": "https://www.spglobal.com/ratings/pt/regulatory/article/-/view/type/HTML/id/3176937"
+        }
+      ]
+    },
+    {
+      "issuer_match_key": "FLEXERA SOFTWARE",
+      "headline": "Multiple new facilities reduce the value of a borrower-only comparison",
+      "research_date": "2026-03-05",
+      "signal": "mixed",
+      "summary": "Public filings show separate first-lien facilities maturing in 2028 and 2032 with different spreads. ETF marks should only be translated to a BDC position after matching the specific maturity and currency.",
+      "risk_tags": ["multiple facilities", "software", "currency", "facility identity"],
+      "sources": [
+        {
+          "title": "Public filing with Flexera first-lien facilities",
+          "url": "https://www.sec.gov/Archives/edgar/data/1959568/000119312526116346/ck0001959568-20251231.htm"
+        },
+        {
+          "title": "Flexera majority investment by Thoma Bravo",
+          "url": "https://www.flexera.com/about-us/press-center/flexera-agrees-to-sell-majority-interest-to-thoma-bravo"
+        }
+      ]
+    }
+  ]
+}
