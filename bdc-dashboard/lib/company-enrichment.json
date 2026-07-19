@@ -5341,5 +5341,246 @@
     ],
     "confidence": "low",
     "notes": "Source-derived schedule context from centralized holdings rows for BXSL through 2026-03-31. Sponsor assertions are omitted until a separate company-owner source is added."
+  },
+  {
+    "issuer_match_key": "SEVERIN ACQUISITION",
+    "display_name": "PowerSchool",
+    "mapped_company": "Severin Acquisition, LLC / PowerSchool Group LLC",
+    "description": "PowerSchool provides cloud software used by K-12 school systems for student information, enrollment, learning, assessment, special education, finance, human resources, communications, and analytics.",
+    "current_sponsor": "Bain Capital majority owner; Vista Equity Partners and Onex Partners retained minority investments",
+    "sponsor_history": [
+      {
+        "date": "2024-10",
+        "event": "Bain Capital completed its acquisition of PowerSchool; Vista Equity Partners and Onex Partners retained minority investments.",
+        "source_url": "https://www.powerschool.com/company/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "PowerSchool company and ownership history",
+        "url": "https://www.powerschool.com/company/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Corporate records and filed schedules link Severin Acquisition to the PowerSchool borrower group."
+  },
+  {
+    "issuer_match_key": "ANAPLAN",
+    "display_name": "Anaplan",
+    "mapped_company": "Anaplan, Inc.",
+    "description": "Anaplan provides a cloud-native enterprise planning platform used to connect financial, sales, supply-chain, workforce, and operational planning across organizations.",
+    "current_sponsor": "Thoma Bravo",
+    "sponsor_history": [
+      {
+        "date": "2022-06",
+        "event": "Thoma Bravo completed the take-private acquisition of Anaplan.",
+        "source_url": "https://www.anaplan.com/news/thoma-bravo-completes-acquisition-of-anaplan/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Anaplan acquisition by Thoma Bravo",
+        "url": "https://www.anaplan.com/news/thoma-bravo-completes-acquisition-of-anaplan/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The filed issuer name is the operating company name."
+  },
+  {
+    "issuer_match_key": "THG ACQUISITION",
+    "display_name": "The Hilb Group",
+    "mapped_company": "THG Acquisition, LLC / The Hilb Group",
+    "description": "The Hilb Group is a U.S. middle-market insurance brokerage offering property and casualty, employee benefits, and specialty advisory services through a national agency network.",
+    "current_sponsor": "The Carlyle Group",
+    "sponsor_history": [
+      {
+        "date": "2015",
+        "event": "Abry Partners invested in The Hilb Group and supported its acquisition-led expansion.",
+        "source_url": "https://www.hilbgroup.com/blog/the-hilb-group-announces-definitive-agreement-to-be-acquired-by-the-carlyle-group/"
+      },
+      {
+        "date": "2019-10",
+        "event": "The Hilb Group agreed to a majority acquisition by investment funds affiliated with Carlyle.",
+        "source_url": "https://www.hilbgroup.com/blog/the-hilb-group-announces-definitive-agreement-to-be-acquired-by-the-carlyle-group/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Hilb Group transaction with Carlyle",
+        "url": "https://www.hilbgroup.com/blog/the-hilb-group-announces-definitive-agreement-to-be-acquired-by-the-carlyle-group/"
+      },
+      {
+        "title": "Hilb Group 2024 refinancing and company scale",
+        "url": "https://www.hilbgroup.com/blog/hilb-group-announces-successful-completion-of-debt-refinancing-reinforcing-growth-strategy-and-capability/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "THG is the acquisition and financing vehicle used for The Hilb Group."
+  },
+  {
+    "issuer_match_key": "BAMBOO US",
+    "display_name": "Simtra BioPharma Solutions",
+    "mapped_company": "Bamboo US BidCo LLC / Simtra BioPharma Solutions",
+    "description": "Simtra BioPharma Solutions is a contract development and manufacturing organization specializing in sterile injectable products, clinical development support, and commercial fill-finish services.",
+    "current_sponsor": "Advent International and Warburg Pincus",
+    "sponsor_history": [
+      {
+        "date": "2023-10",
+        "event": "Advent International and Warburg Pincus completed the acquisition of Baxter's BioPharma Solutions business and established it as Simtra.",
+        "source_url": "https://www.adventinternational.com/news/advent-international-and-warburg-pincus-complete-acquisition-of-baxters-biopharma-solutions-business/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Simtra acquisition and standalone launch",
+        "url": "https://www.adventinternational.com/news/advent-international-and-warburg-pincus-complete-acquisition-of-baxters-biopharma-solutions-business/"
+      },
+      {
+        "title": "Simtra company overview",
+        "url": "https://simtra.com/who-we-are/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "Filed schedules identify the Bamboo acquisition vehicle at Simtra's former Baxter operating address."
+  },
+  {
+    "issuer_match_key": "ICEFALL PARENT",
+    "display_name": "EngageSmart",
+    "mapped_company": "Icefall Parent, Inc. / EngageSmart, Inc.",
+    "description": "EngageSmart provides vertically tailored SaaS platforms for customer engagement, digital payments, and self-service workflows, including SimplePractice, InvoiceCloud, and DonorDrive.",
+    "current_sponsor": "Vista Equity Partners, with General Atlantic retaining a minority position",
+    "sponsor_history": [
+      {
+        "date": "2024-01",
+        "event": "Vista Equity Partners completed the acquisition of EngageSmart; General Atlantic continued as a minority investor.",
+        "source_url": "https://www.vistaequitypartners.com/news/vista-equity-partners-completes-acquisition-of-engagesmart/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Vista acquisition of EngageSmart",
+        "url": "https://www.vistaequitypartners.com/news/vista-equity-partners-completes-acquisition-of-engagesmart/"
+      },
+      {
+        "title": "EngageSmart at General Atlantic",
+        "url": "https://www.generalatlantic.com/investment/engagesmart/"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules identify Icefall Parent as d/b/a EngageSmart."
+  },
+  {
+    "issuer_match_key": "AI TITAN PARENT",
+    "display_name": "Prometheus Group",
+    "mapped_company": "AI Titan Parent, Inc. / Prometheus Group",
+    "description": "Prometheus Group provides enterprise asset management software for planning, scheduling, maintenance, operations, shutdowns, turnarounds, and asset-performance workflows in asset-intensive industries.",
+    "current_sponsor": "Advent International, Leonard Green & Partners, Genstar Capital, management, and founder ownership",
+    "sponsor_history": [
+      {
+        "date": "2019",
+        "event": "Genstar Capital acquired Prometheus Group and partnered with management and the founder.",
+        "source_url": "https://www.prometheusgroup.com/resources/posts/advent-international-and-leonard-green-partners-to-partner-with-genstar-capital-and-management-to-drive-next-chapter-of-growth-at-prometheus-group"
+      },
+      {
+        "date": "2024-06",
+        "event": "Advent International and Leonard Green & Partners announced strategic investments alongside Genstar, management, and the founder.",
+        "source_url": "https://www.prometheusgroup.com/resources/posts/advent-international-and-leonard-green-partners-to-partner-with-genstar-capital-and-management-to-drive-next-chapter-of-growth-at-prometheus-group"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Prometheus Group sponsor partnership",
+        "url": "https://www.prometheusgroup.com/resources/posts/advent-international-and-leonard-green-partners-to-partner-with-genstar-capital-and-management-to-drive-next-chapter-of-growth-at-prometheus-group"
+      },
+      {
+        "title": "SEC schedule identifying AI Titan as Prometheus Group",
+        "url": "https://www.blueowltechnologyfinance.com/investors/sec-filings/all-sec-filings/content/0001747777-26-000019/ortf-20260331.htm"
+      }
+    ],
+    "confidence": "high",
+    "notes": "BDC schedules explicitly show AI Titan Parent as d/b/a Prometheus Group."
+  },
+  {
+    "issuer_match_key": "PETVET CARE CENTERS",
+    "display_name": "PetVet Care Centers",
+    "mapped_company": "PetVet Care Centers, LLC",
+    "description": "PetVet Care Centers owns and supports a network of general-practice, emergency, and specialty veterinary hospitals while preserving local hospital brands and clinical leadership.",
+    "current_sponsor": "KKR",
+    "sponsor_history": [
+      {
+        "date": "2015-01",
+        "event": "Ontario Teachers' Pension Plan acquired PetVet from L Catterton, which retained a minority interest.",
+        "source_url": "https://www.otpp.com/en-ca/about-us/news-and-insights/2015/ontario-teachers-acquires-petvet/"
+      },
+      {
+        "date": "2017-12",
+        "event": "KKR agreed to acquire PetVet from Ontario Teachers', L Catterton, and other shareholders.",
+        "source_url": "https://www.lcatterton.com/pdf/2018-LC-PetVet.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "title": "PetVet company overview",
+        "url": "https://www.petvetcarecenters.com/site/about"
+      },
+      {
+        "title": "Ontario Teachers' acquisition of PetVet",
+        "url": "https://www.otpp.com/en-ca/about-us/news-and-insights/2015/ontario-teachers-acquires-petvet/"
+      },
+      {
+        "title": "KKR acquisition of PetVet",
+        "url": "https://www.lcatterton.com/pdf/2018-LC-PetVet.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The issuer name directly matches the operating-company name."
+  },
+  {
+    "issuer_match_key": "HYLAND SOFTWARE",
+    "display_name": "Hyland",
+    "mapped_company": "Hyland Software, Inc.",
+    "description": "Hyland develops enterprise content, process, and application-intelligence software used to manage documents, records, workflows, and unstructured business information.",
+    "current_sponsor": "Thoma Bravo",
+    "sponsor_history": [
+      {
+        "date": "2007",
+        "event": "Thoma Bravo took a controlling stake in Hyland Software.",
+        "source_url": "https://www.hyland.com/en/company/about/history"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Hyland company history",
+        "url": "https://www.hyland.com/en/company/about/history"
+      },
+      {
+        "title": "Hyland acquisitions",
+        "url": "https://www.hyland.com/en/company/about/acquisitions"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The filed issuer name directly identifies Hyland Software."
+  },
+  {
+    "issuer_match_key": "COUPA",
+    "display_name": "Coupa",
+    "mapped_company": "Coupa Software Inc.",
+    "description": "Coupa provides cloud business-spend management software spanning procurement, invoicing, expenses, payments, sourcing, supply-chain design, treasury, and supplier-risk workflows.",
+    "current_sponsor": "Thoma Bravo",
+    "sponsor_history": [
+      {
+        "date": "2023-02",
+        "event": "Thoma Bravo completed its acquisition of Coupa and took the company private.",
+        "source_url": "https://get.coupa.com/rs/950-OLU-185/images/2023_ESG-Report.pdf"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Coupa 2023 ESG report and ownership update",
+        "url": "https://get.coupa.com/rs/950-OLU-185/images/2023_ESG-Report.pdf"
+      }
+    ],
+    "confidence": "high",
+    "notes": "The filed issuer name directly identifies Coupa."
   }
 ]

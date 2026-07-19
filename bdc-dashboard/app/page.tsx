@@ -3911,6 +3911,58 @@ function Financials({ selectedFund }: { selectedFund: Fund | "All" }) {
   );
 }
 
+function CrossFundSpotlightCard({
+  row,
+  index,
+  onOpenTimelineIssuer
+}: {
+  row: CrossFundIssuer;
+  index: number;
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+  const fundBreakdown = [...row.fund_breakdown].sort((a, b) => b.fair_value_mm - a.fair_value_mm);
+  const maxFundValue = Math.max(...fundBreakdown.map((item) => item.fair_value_mm), 1);
+
+  return (
+    <article className="issuer-spotlight">
+      <div className="spotlight-topline">
+        <span>{String(index + 1).padStart(2, "0")} / Cross-fund</span>
+        <button type="button" onClick={() => onOpenTimelineIssuer(row.issuer_match_key)}>
+          Open timeline <ArrowUpRight />
+        </button>
+      </div>
+      <h3>{enrichment?.display_name || row.representative_issuer_name}</h3>
+      <p className="spotlight-legal">{enrichment?.mapped_company || row.representative_issuer_name}</p>
+
+      <div className="spotlight-stat-grid">
+        <div><span>Funds</span><strong>{row.fund_count}</strong></div>
+        <div><span>Fair value</span><strong>{formatMm(row.fair_value_mm)}</strong></div>
+        <div><span>FV / cost</span><strong>{formatCentsOnDollar(row.fair_value_mm, row.amortized_cost_mm)}</strong></div>
+      </div>
+
+      <p className="spotlight-description">
+        {enrichment?.description || `The normalized issuer key links ${row.fund_count} verified BDC portfolios at the latest common period.`}
+      </p>
+
+      <div className="spotlight-sponsor">
+        <span>{enrichment && !isSourceDerivedEnrichment(enrichment) ? "Current sponsor" : "Research status"}</span>
+        <strong>{enrichment && !isSourceDerivedEnrichment(enrichment) ? enrichment.current_sponsor : "Schedule evidence mapped"}</strong>
+      </div>
+
+      <div className="spotlight-funds" aria-label={`${row.issuer_match_key} fund exposure`}>
+        {fundBreakdown.map((item) => (
+          <div className="spotlight-fund-row" key={`${row.issuer_match_key}-${item.fund}`}>
+            <span>{item.fund}</span>
+            <i><b style={{ width: `${(item.fair_value_mm / maxFundValue) * 100}%` }} /></i>
+            <strong>{formatMm(item.fair_value_mm, 1)}</strong>
+          </div>
+        ))}
+      </div>
+    </article>
+  );
+}
+
 function Exposure({
   selectedFund,
   onOpenTimelineIssuer
@@ -3918,6 +3970,8 @@ function Exposure({
   selectedFund: Fund | "All";
   onOpenTimelineIssuer: (issuerMatchKey: string) => void;
 }) {
+  const [crossFundQuery, setCrossFundQuery] = useState("");
+  const [minimumFundCount, setMinimumFundCount] = useState(2);
   const categoryRows =
     selectedFund === "All"
       ? data.category_totals_latest.map((item) => ({
@@ -3936,30 +3990,135 @@ function Exposure({
     selectedFund === "All"
       ? data.cross_fund_issuer_latest
       : data.cross_fund_issuer_latest.filter((item) => item.funds.includes(selectedFund));
+  const rankedCrossFundIssuers = [...crossFundIssuers].sort(
+    (a, b) => b.fund_count - a.fund_count || b.fair_value_mm - a.fair_value_mm
+  );
+  const normalizedCrossFundQuery = crossFundQuery.trim().toLowerCase();
+  const filteredCrossFundIssuers = rankedCrossFundIssuers.filter((row) => {
+    if (row.fund_count < minimumFundCount) return false;
+    if (!normalizedCrossFundQuery) return true;
+    const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+    return [
+      row.issuer_match_key,
+      row.representative_issuer_name,
+      row.issuer_name_variants.join(" "),
+      enrichment?.display_name,
+      enrichment?.mapped_company,
+      enrichment?.current_sponsor
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase()
+      .includes(normalizedCrossFundQuery);
+  });
+  const spotlightRows = rankedCrossFundIssuers
+    .filter((row) => {
+      const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+      return enrichment && !isSourceDerivedEnrichment(enrichment);
+    })
+    .slice(0, 6);
+  const crossFundFairValue = sumBy(crossFundIssuers, (row) => row.fair_value_mm);
+  const maximumOverlap = Math.max(...crossFundIssuers.map((row) => row.fund_count), 0);
+  const sourcedProfileCount = crossFundIssuers.filter((row) => {
+    const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+    return enrichment && !isSourceDerivedEnrichment(enrichment);
+  }).length;
 
   return (
     <div className="grid">
+      <div className="grid kpi-grid exposure-kpi-grid">
+        <MetricCard
+          title="Cross-fund issuer groups"
+          value={formatNumber(crossFundIssuers.length)}
+          note="normalized latest-period borrower overlaps."
+          icon={FileSearch}
+        />
+        <MetricCard
+          title="Matched fair value"
+          value={formatMm(crossFundFairValue)}
+          note="aggregate exposure represented by overlapping issuer groups."
+          icon={WalletCards}
+        />
+        <MetricCard
+          title="Maximum overlap"
+          value={`${maximumOverlap} funds`}
+          note="widest verified BDC footprint for one borrower key."
+          icon={Layers3}
+        />
+        <MetricCard
+          title="Sourced profiles"
+          value={formatNumber(sourcedProfileCount)}
+          note="company and sponsor records linked to cross-fund names."
+          icon={History}
+        />
+      </div>
+
       <Callout title="How to read exposure">{data.narrative.exposure}</Callout>
 
       <Panel
-        title="Cross-Fund Issuer Matches"
-        subtitle={`The derived match key lifts latest-period overlap from ${data.raw_cross_fund_issuer_count_latest} raw display-name groups to ${data.cross_fund_issuer_latest.length} issuer groups. It also shows where different funds can value the same borrower differently at the same time.`}
+        title="Cross-Fund Research Board"
+        subtitle="The highest-overlap borrowers with sourced company context, sponsor ownership, current fair value, and fund-by-fund footprint."
         icon={FileSearch}
+      >
+        <div className="issuer-spotlight-grid">
+          {spotlightRows.map((row, index) => (
+            <CrossFundSpotlightCard
+              row={row}
+              index={index}
+              key={row.issuer_match_key}
+              onOpenTimelineIssuer={onOpenTimelineIssuer}
+            />
+          ))}
+        </div>
+      </Panel>
+
+      <Panel
+        title="Cross-Fund Issuer Matches"
+        subtitle={`${formatNumber(filteredCrossFundIssuers.length)} issuer groups match the current research filters. The derived match key lifts latest-period overlap from ${data.raw_cross_fund_issuer_count_latest} raw display-name groups to ${data.cross_fund_issuer_latest.length} normalized groups.`}
+        icon={FileSearch}
+        action={
+          <div className="cross-fund-controls">
+            <div className="search-wrap compact-search">
+              <Search />
+              <input
+                className="search"
+                value={crossFundQuery}
+                onChange={(event) => setCrossFundQuery(event.target.value)}
+                placeholder="Search company, sponsor, or match key"
+                aria-label="Search cross-fund issuers"
+              />
+            </div>
+            <select
+              className="select"
+              value={minimumFundCount}
+              onChange={(event) => setMinimumFundCount(Number(event.target.value))}
+              aria-label="Minimum number of overlapping funds"
+            >
+              <option value={2}>2+ funds</option>
+              <option value={3}>3+ funds</option>
+              <option value={4}>4+ funds</option>
+              <option value={5}>5+ funds</option>
+            </select>
+          </div>
+        }
       >
         <div className="table-wrap">
           <table>
             <thead>
               <tr>
                 <th>Match key</th>
+                <th>Company / sponsor</th>
                 <th>Funds</th>
                 <th className="right">Rows</th>
                 <th className="right">Fair value</th>
+                <th className="right">FV / cost</th>
                 <th>Source display variants</th>
               </tr>
             </thead>
             <tbody>
-              {crossFundIssuers.map((row) => {
+              {filteredCrossFundIssuers.map((row) => {
                 const hasTimelinePage = timelineIssuerKeys.has(row.issuer_match_key);
+                const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
                 return (
                   <tr key={row.issuer_match_key}>
                     <td className="issuer-cell">
@@ -3979,6 +4138,10 @@ function Exposure({
                       )}
                       <span>{row.representative_issuer_name}</span>
                     </td>
+                    <td className="company-map-cell">
+                      <strong>{enrichment?.display_name || "Research pending"}</strong>
+                      <span>{enrichment && !isSourceDerivedEnrichment(enrichment) ? enrichment.current_sponsor : "Schedule evidence only"}</span>
+                    </td>
                     <td>
                       <div className="badge-row">
                         {row.funds.map((fund) => (
@@ -3988,6 +4151,7 @@ function Exposure({
                     </td>
                     <td className="right">{formatNumber(row.holding_rows)}</td>
                     <td className="right nowrap">{formatMm(row.fair_value_mm)}</td>
+                    <td className="right nowrap">{formatCentsOnDollar(row.fair_value_mm, row.amortized_cost_mm)}</td>
                     <td>
                       <div className="variant-list">{row.issuer_name_variants.join(" | ")}</div>
                     </td>
@@ -4175,10 +4339,12 @@ function IssuerTimelineChart({ rows, visibleFunds }: { rows: LoanTimelinePeriod[
 
 function Timeline({
   selectedFund,
-  selectedIssuerKey
+  selectedIssuerKey,
+  onSelectIssuer
 }: {
   selectedFund: Fund | "All";
   selectedIssuerKey: string;
+  onSelectIssuer: (issuerMatchKey: string) => void;
 }) {
   const visibleFunds = selectedFund === "All" ? funds : [selectedFund];
   const issuer = data.loan_timeline_issuers.find((item) => item.issuer_match_key === selectedIssuerKey);
@@ -4210,6 +4376,26 @@ function Timeline({
   const firstPeriod = periodKeys[0] || null;
   const latestFairValue = latestPeriod ? periodTotals[latestPeriod] : 0;
   const maxFairValue = Math.max(...Object.values(periodTotals), 0);
+  const priorPeriod = periodKeys.length > 1 ? periodKeys[periodKeys.length - 2] : null;
+  const priorFairValue = priorPeriod ? periodTotals[priorPeriod] : null;
+  const quarterChangePct = priorFairValue ? ((latestFairValue - priorFairValue) / priorFairValue) * 100 : null;
+  const latestPeriodRows = latestPeriod ? periodRows.filter((row) => row.filing_period_end === latestPeriod) : [];
+  const latestCost = sumBy(latestPeriodRows, (row) => row.amortized_cost_mm);
+  const latestMark = latestFairValue - latestCost;
+  const currentFundFootprint = latestPeriodRows
+    .slice()
+    .sort((a, b) => b.fair_value_mm - a.fair_value_mm);
+  const maxCurrentFundValue = Math.max(...currentFundFootprint.map((row) => row.fair_value_mm), 1);
+  const issuerFundSet = new Set(issuer?.funds || []);
+  const relatedIssuers = data.cross_fund_issuer_latest
+    .filter((row) => row.issuer_match_key !== selectedIssuerKey)
+    .map((row) => ({
+      ...row,
+      sharedFunds: row.funds.filter((fund) => issuerFundSet.has(fund)).length
+    }))
+    .filter((row) => row.sharedFunds > 0)
+    .sort((a, b) => b.sharedFunds - a.sharedFunds || b.fund_count - a.fund_count || b.fair_value_mm - a.fair_value_mm)
+    .slice(0, 8);
   const sourceDerivedEnrichment = isSourceDerivedEnrichment(enrichment);
   const scheduleEvidenceRows = (latestPeriod ? periodRows.filter((row) => row.filing_period_end === latestPeriod) : periodRows)
     .slice()
@@ -4246,6 +4432,34 @@ function Timeline({
           icon={Layers3}
         />
       </div>
+
+      <section className="issuer-research-brief">
+        <div className="issuer-brief-copy">
+          <span className="research-kicker">Issuer research brief / {selectedIssuerKey || "unmapped"}</span>
+          <h2>{enrichment?.display_name || issuer?.display_name || selectedIssuerKey}</h2>
+          <p>{enrichment?.description || "This borrower is currently represented by schedule-derived exposure and timeline evidence."}</p>
+        </div>
+        <div className="issuer-brief-facts">
+          <div>
+            <span>Current sponsor</span>
+            <strong>{enrichment && !sourceDerivedEnrichment ? enrichment.current_sponsor : "Research pending"}</strong>
+          </div>
+          <div>
+            <span>Verified footprint</span>
+            <strong>{issuer?.funds.join(", ") || visibleFunds.join(", ")}</strong>
+          </div>
+          <div>
+            <span>Current mark</span>
+            <strong>{formatCentsOnDollar(latestFairValue, latestCost)} <small>{formatMm(latestMark)} vs cost</small></strong>
+          </div>
+          <div>
+            <span>Quarter movement</span>
+            <strong className={typeof quarterChangePct === "number" && quarterChangePct < 0 ? "negative" : "positive"}>
+              {formatPct(quarterChangePct)} <small>{priorPeriod ? `since ${shortPeriod(priorPeriod)}` : "no prior quarter"}</small>
+            </strong>
+          </div>
+        </div>
+      </section>
 
       <div className="grid two-col">
         <Panel
@@ -4328,6 +4542,52 @@ function Timeline({
           ) : (
             <div className="empty-state">No sourced company enrichment is available for this issuer.</div>
           )}
+        </Panel>
+      </div>
+
+      <div className="grid two-col timeline-overview-grid">
+        <Panel
+          title="Current Fund Footprint"
+          subtitle={latestPeriod ? `Latest funded exposure by BDC at ${formatDate(latestPeriod)}.` : "No current-period footprint is available."}
+          icon={Layers3}
+        >
+          {currentFundFootprint.length ? (
+            <div className="timeline-fund-footprint">
+              {currentFundFootprint.map((row) => (
+                <div className="timeline-fund-row" key={`${row.fund}-${row.filing_period_end}`}>
+                  <FundBadge fund={row.fund} />
+                  <div className="timeline-fund-bar"><i style={{ width: `${(row.fair_value_mm / maxCurrentFundValue) * 100}%` }} /></div>
+                  <div className="timeline-fund-values">
+                    <strong>{formatMm(row.fair_value_mm)}</strong>
+                    <span>{formatCentsOnDollar(row.fair_value_mm, row.amortized_cost_mm)} of cost</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">No current fund exposure matches this view.</div>
+          )}
+        </Panel>
+
+        <Panel
+          title="Related Cross-Fund Borrowers"
+          subtitle="Other normalized borrowers with the closest verified-fund footprint."
+          icon={FileSearch}
+        >
+          <div className="related-issuer-list">
+            {relatedIssuers.map((row) => {
+              const relatedEnrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+              return (
+                <button type="button" key={row.issuer_match_key} onClick={() => onSelectIssuer(row.issuer_match_key)}>
+                  <span className="related-issuer-name">
+                    <strong>{relatedEnrichment?.display_name || row.representative_issuer_name}</strong>
+                    <small>{row.sharedFunds} shared funds · {row.funds.join(", ")}</small>
+                  </span>
+                  <span className="related-issuer-value">{formatMm(row.fair_value_mm)} <ArrowUpRight /></span>
+                </button>
+              );
+            })}
+          </div>
         </Panel>
       </div>
 
@@ -5507,8 +5767,10 @@ function Quality() {
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<Tab>("overview");
   const [selectedFund, setSelectedFund] = useState<Fund | "All">("All");
-  const [selectedTimelineIssuer, setSelectedTimelineIssuer] = useState(
-    data.loan_timeline_issuers[0]?.issuer_match_key || ""
+  const [selectedTimelineIssuer, setSelectedTimelineIssuer] = useState(() =>
+    [...data.loan_timeline_issuers].sort(
+      (a, b) => b.funds.length - a.funds.length || b.latest_fair_value_mm - a.latest_fair_value_mm
+    )[0]?.issuer_match_key || ""
   );
   const [searchTerm, setSearchTerm] = useState("");
   const openTimelineIssuer = (issuerMatchKey: string) => {
@@ -5528,6 +5790,9 @@ export default function DashboardPage() {
     { id: "quality", label: "Quality + Methodology", icon: ShieldCheck }
   ];
   const activeTabLabel = tabs.find((tab) => tab.id === activeTab)?.label || "Overview";
+  const sortedTimelineIssuers = [...data.loan_timeline_issuers].sort(
+    (a, b) => b.funds.length - a.funds.length || b.latest_fair_value_mm - a.latest_fair_value_mm
+  );
 
   return (
     <main className="app-shell">
@@ -5614,11 +5879,11 @@ export default function DashboardPage() {
                 onChange={(event) => setSelectedTimelineIssuer(event.target.value)}
                 title="Issuer timeline"
               >
-                {data.loan_timeline_issuers.map((issuer) => {
+                {sortedTimelineIssuers.map((issuer) => {
                   const enriched = companyEnrichment.find((item) => item.issuer_match_key === issuer.issuer_match_key);
                   return (
                     <option key={issuer.issuer_match_key} value={issuer.issuer_match_key}>
-                      {enriched?.display_name || issuer.display_name || issuer.issuer_match_key}
+                      {enriched?.display_name || issuer.display_name || issuer.issuer_match_key} · {issuer.funds.length} fund{issuer.funds.length === 1 ? "" : "s"}
                     </option>
                   );
                 })}
@@ -5646,7 +5911,11 @@ export default function DashboardPage() {
           <Exposure selectedFund={selectedFund} onOpenTimelineIssuer={openTimelineIssuer} />
         ) : null}
         {activeTab === "timeline" ? (
-          <Timeline selectedFund={selectedFund} selectedIssuerKey={selectedTimelineIssuer} />
+          <Timeline
+            selectedFund={selectedFund}
+            selectedIssuerKey={selectedTimelineIssuer}
+            onSelectIssuer={setSelectedTimelineIssuer}
+          />
         ) : null}
         {activeTab === "holdings" ? <Holdings selectedFund={selectedFund} searchTerm={searchTerm} /> : null}
         {activeTab === "liabilities" ? <Liabilities selectedFund={selectedFund} /> : null}

@@ -2367,6 +2367,350 @@ tbody tr:hover td {
   background: #252c2f;
 }
 
+.issuer-spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  padding: 1px;
+  background: var(--border);
+}
+
+.issuer-spotlight {
+  min-width: 0;
+  padding: 20px;
+  background: #1a2022;
+}
+
+.spotlight-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  color: #7f8989;
+  font: 700 9px/1.2 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.spotlight-topline button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  color: #d7d4cc;
+  font: inherit;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.spotlight-topline button:hover {
+  color: var(--accent);
+}
+
+.spotlight-topline svg,
+.related-issuer-value svg {
+  width: 13px;
+  height: 13px;
+}
+
+.issuer-spotlight h3 {
+  margin: 0;
+  color: #eeeae1;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.spotlight-legal {
+  min-height: 18px;
+  margin: 5px 0 17px;
+  color: #849091;
+  font-size: 12px;
+}
+
+.spotlight-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.spotlight-stat-grid > div {
+  min-width: 0;
+  padding: 13px 10px 13px 0;
+}
+
+.spotlight-stat-grid > div + div {
+  padding-left: 13px;
+  border-left: 1px solid var(--border);
+}
+
+.spotlight-stat-grid span,
+.spotlight-sponsor span,
+.issuer-brief-facts span {
+  display: block;
+  margin-bottom: 6px;
+  color: #7f8989;
+  font: 700 8px/1 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.spotlight-stat-grid strong {
+  color: #dedbd3;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.spotlight-description {
+  min-height: 60px;
+  margin: 17px 0;
+  color: #abb2af;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.spotlight-sponsor {
+  padding: 12px 13px;
+  border-left: 2px solid var(--accent);
+  background: #20272a;
+}
+
+.spotlight-sponsor strong {
+  color: #ebe7de;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.spotlight-funds {
+  display: grid;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.spotlight-fund-row {
+  display: grid;
+  grid-template-columns: 42px minmax(50px, 1fr) 62px;
+  align-items: center;
+  gap: 10px;
+  color: #879191;
+  font: 700 9px/1 Consolas, "Liberation Mono", monospace;
+}
+
+.spotlight-fund-row > i,
+.timeline-fund-bar {
+  display: block;
+  height: 2px;
+  background: #343d40;
+}
+
+.spotlight-fund-row > i b,
+.timeline-fund-bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.spotlight-fund-row strong {
+  color: #c8cbc5;
+  font-weight: 500;
+  text-align: right;
+}
+
+.cross-fund-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.compact-search {
+  width: min(310px, 34vw);
+}
+
+.company-map-cell strong,
+.company-map-cell span {
+  display: block;
+}
+
+.company-map-cell strong {
+  color: #dcd9d1;
+  font-size: 12px;
+}
+
+.company-map-cell span {
+  margin-top: 3px;
+  color: #7f8989;
+  font-size: 10px;
+}
+
+.issuer-research-brief {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(430px, 0.85fr);
+  border-top: 3px solid #d5d0c6;
+  border-bottom: 1px solid var(--border);
+  background: #1a2022;
+}
+
+.issuer-brief-copy {
+  padding: 24px 26px 26px;
+}
+
+.research-kicker {
+  color: var(--accent);
+  font: 700 9px/1 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.issuer-brief-copy h2 {
+  margin: 14px 0 8px;
+  color: #eeeae1;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.issuer-brief-copy p {
+  max-width: 720px;
+  margin: 0;
+  color: #a9b0ae;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.issuer-brief-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-left: 1px solid var(--border);
+}
+
+.issuer-brief-facts > div {
+  min-width: 0;
+  padding: 20px;
+}
+
+.issuer-brief-facts > div:nth-child(2n) {
+  border-left: 1px solid var(--border);
+}
+
+.issuer-brief-facts > div:nth-child(n + 3) {
+  border-top: 1px solid var(--border);
+}
+
+.issuer-brief-facts strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #e4e1d9;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.issuer-brief-facts strong.positive {
+  color: #8fb69f;
+}
+
+.issuer-brief-facts strong.negative {
+  color: #e27b68;
+}
+
+.issuer-brief-facts small {
+  display: block;
+  margin-top: 4px;
+  color: #7f8989;
+  font: 400 9px/1.35 Consolas, "Liberation Mono", monospace;
+}
+
+.timeline-fund-footprint,
+.related-issuer-list {
+  display: grid;
+}
+
+.timeline-fund-row {
+  display: grid;
+  grid-template-columns: 66px minmax(90px, 1fr) 110px;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-fund-row:last-child,
+.related-issuer-list button:last-child {
+  border-bottom: 0;
+}
+
+.timeline-fund-values {
+  text-align: right;
+}
+
+.timeline-fund-values strong,
+.timeline-fund-values span {
+  display: block;
+}
+
+.timeline-fund-values strong {
+  color: #e0ddd5;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.timeline-fund-values span {
+  margin-top: 3px;
+  color: #7f8989;
+  font: 400 9px/1.2 Consolas, "Liberation Mono", monospace;
+}
+
+.related-issuer-list button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 59px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.related-issuer-list button:hover .related-issuer-name strong,
+.related-issuer-list button:hover .related-issuer-value {
+  color: var(--accent);
+}
+
+.related-issuer-name strong,
+.related-issuer-name small {
+  display: block;
+}
+
+.related-issuer-name strong {
+  overflow: hidden;
+  color: #dcd9d1;
+  font-size: 12px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.related-issuer-name small {
+  margin-top: 5px;
+  color: #7f8989;
+  font: 400 9px/1 Consolas, "Liberation Mono", monospace;
+}
+
+.related-issuer-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #bfc4bf;
+  font: 500 10px/1 Consolas, "Liberation Mono", monospace;
+}
+
 .badge.exposure-unfunded {
   background: #2a241d;
   color: #e4aa66;
@@ -2393,6 +2737,16 @@ tbody tr:hover td {
 
   .content {
     padding-left: 36px;
+  }
+
+  .issuer-spotlight-grid,
+  .issuer-research-brief {
+    grid-template-columns: 1fr;
+  }
+
+  .issuer-brief-facts {
+    border-top: 1px solid var(--border);
+    border-left: 0;
   }
 }
 
@@ -2476,5 +2830,31 @@ tbody tr:hover td {
 
   .metric-card:nth-child(4) {
     border-top: 1px solid var(--border);
+  }
+
+  .cross-fund-controls {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .compact-search {
+    width: 100%;
+  }
+
+  .issuer-brief-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .issuer-brief-facts > div:nth-child(2n) {
+    border-left: 0;
+  }
+
+  .issuer-brief-facts > div + div {
+    border-top: 1px solid var(--border);
+  }
+
+  .timeline-fund-row {
+    grid-template-columns: 58px minmax(54px, 1fr) 100px;
+    gap: 10px;
   }
 }
