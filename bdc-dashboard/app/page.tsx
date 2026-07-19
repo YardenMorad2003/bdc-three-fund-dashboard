@@ -33,6 +33,7 @@ import bdcUniverseData from "../lib/bdc-universe.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import liabilityStackData from "../lib/liability-stack.json";
 import quarterlyFactsData from "../lib/quarterly-bdc-facts.json";
+import researchSignalsData from "../lib/research-signals.json";
 import trancheComparisonData from "../lib/tranche-comparison.json";
 
 type Fund =
@@ -57,6 +58,7 @@ type WatchlistBucketFilter = "All" | "Non-accrual" | "Shadow below 90" | "Watch 
 type SortDirection = "asc" | "desc";
 type HoldingsSortKey = "amortized_cost_mm" | "fair_value_mm" | "mark_vs_cost_mm" | "fv_to_cost";
 type MarkComparisonMode = "facility" | "company" | "structure";
+type SignalFilter = "all" | "review" | "discount" | "deterioration" | "disagreement" | "crowding" | "structure";
 type DeteriorationExposureFilter = "All" | "Debt" | "Equity / ABF" | "Mixed / Other";
 type DeteriorationInstrumentBucket = "Debt" | "Equity / ABF" | "Mixed / Other";
 
@@ -283,6 +285,79 @@ type LeadLagSummaryRow = {
   minimum_junior_fv_to_cost_pct: number;
   minimum_senior_fv_to_cost_pct: number;
   periods: string[];
+};
+
+type SignalTag =
+  | "deep_discount"
+  | "below_cost"
+  | "rapid_deterioration"
+  | "emerging_deterioration"
+  | "audited_disagreement"
+  | "crowded"
+  | "senior_first"
+  | "junior_first"
+  | "stable_context";
+
+type IssuerResearchSignal = {
+  issuer_match_key: string;
+  display_name: string;
+  mapped_company: string;
+  funds: Fund[];
+  fund_count: number;
+  fair_value_mm: number;
+  amortized_cost_mm: number;
+  latest_fv_to_cost_pct: number | null;
+  prior_period: string | null;
+  prior_fv_to_cost_pct: number | null;
+  qoq_change_pp: number | null;
+  portfolio_mark_spread_pp: number | null;
+  audited_same_facility_gap_pp: number | null;
+  audited_fund_pair: string | null;
+  audited_conservative_fund: Fund | "Tie" | null;
+  pairwise_lead_lag_tests: number;
+  senior_first_pair_count: number;
+  junior_first_pair_count: number;
+  priority_score: number;
+  priority_band: "review" | "watch" | "monitor" | "context";
+  priority_rank: number;
+  score_components: Record<string, number>;
+  signal_tags: SignalTag[];
+};
+
+type FundPairLeadLagRow = LeadLagSummaryRow & {
+  comparison_scope: "cross-fund" | "within-fund";
+  junior_fund: Fund;
+  senior_fund: Fund;
+};
+
+type ResearchSignalsData = {
+  meta: {
+    generated_at_utc: string;
+    latest_period: string;
+    methodology: string;
+    pairwise_lead_lag_methodology: string;
+    signal_count: number;
+    review_count: number;
+    watch_count: number;
+    monitor_count: number;
+    deep_discount_count: number;
+    rapid_deterioration_count: number;
+    audited_disagreement_count: number;
+    crowded_count: number;
+    pairwise_lead_lag_count: number;
+    cross_fund_pairwise_count: number;
+    junior_first_pair_count: number;
+    senior_first_pair_count: number;
+  };
+  signal_definitions: Record<SignalTag, { label: string; description: string }>;
+  issuer_signals: IssuerResearchSignal[];
+  fund_pair_lead_lag: FundPairLeadLagRow[];
+  headline_insights: {
+    largest_material_decline: IssuerResearchSignal | null;
+    largest_material_discount: IssuerResearchSignal | null;
+    widest_audited_gap: IssuerResearchSignal | null;
+    most_crowded: IssuerResearchSignal | null;
+  };
 };
 
 type TrancheComparisonData = {
@@ -922,6 +997,7 @@ const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const liabilityStack = liabilityStackData as LiabilityStackData;
 const quarterlyFacts = quarterlyFactsData as QuarterlyFactsData;
+const researchSignals = researchSignalsData as ResearchSignalsData;
 const trancheComparison = trancheComparisonData as TrancheComparisonData;
 const funds: Fund[] = ["ARCC", "BBDC", "BXSL", "FSK", "GBDC", "MAIN", "OBDC", "TSLX"];
 const institutionalFunds: Fund[] = ["BXSL", "FSK", "TSLX"];
@@ -2576,6 +2652,281 @@ function widestCrossFundMarkDifference() {
     .sort((a, b) => b.differencePp - a.differencePp)[0];
 }
 
+function signalMatchesFilter(row: IssuerResearchSignal, filter: SignalFilter) {
+  if (filter === "all") return true;
+  if (filter === "review") return row.priority_band === "review" || row.priority_band === "watch";
+  if (filter === "discount") return row.signal_tags.includes("deep_discount") || row.signal_tags.includes("below_cost");
+  if (filter === "deterioration") {
+    return row.signal_tags.includes("rapid_deterioration") || row.signal_tags.includes("emerging_deterioration");
+  }
+  if (filter === "disagreement") return row.signal_tags.includes("audited_disagreement");
+  if (filter === "crowding") return row.signal_tags.includes("crowded");
+  return row.signal_tags.includes("senior_first") || row.signal_tags.includes("junior_first");
+}
+
+function SignalChip({ tag }: { tag: SignalTag }) {
+  const definition = researchSignals.signal_definitions[tag];
+  return (
+    <span className={`signal-chip ${tag}`} title={definition.description}>
+      {definition.label}
+    </span>
+  );
+}
+
+function SignalRiskMap({
+  rows,
+  onOpenTimelineIssuer
+}: {
+  rows: IssuerResearchSignal[];
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const { tooltip, showTooltip, hideTooltip } = useChartTooltip();
+  const chartRows = rows.filter(
+    (row): row is IssuerResearchSignal & { latest_fv_to_cost_pct: number; qoq_change_pp: number } =>
+      typeof row.latest_fv_to_cost_pct === "number" && typeof row.qoq_change_pp === "number"
+  );
+  const width = 760;
+  const height = 380;
+  const margin = { top: 24, right: 28, bottom: 48, left: 58 };
+  const innerWidth = width - margin.left - margin.right;
+  const innerHeight = height - margin.top - margin.bottom;
+  const xMin = 50;
+  const xMax = 110;
+  const yMin = -35;
+  const yMax = 10;
+  const x = (value: number) => margin.left + ((Math.max(xMin, Math.min(xMax, value)) - xMin) / (xMax - xMin)) * innerWidth;
+  const y = (value: number) => margin.top + ((yMax - Math.max(yMin, Math.min(yMax, value))) / (yMax - yMin)) * innerHeight;
+  const maximumFairValue = Math.max(...chartRows.map((row) => row.fair_value_mm), 1);
+  const xTicks = [50, 60, 70, 80, 90, 100, 110];
+  const yTicks = [-30, -20, -10, 0, 10];
+  const labelledKeys = new Set(chartRows.slice(0, 6).map((row) => row.issuer_match_key));
+
+  return (
+    <div className="signal-map-shell" onMouseLeave={hideTooltip}>
+      <svg
+        className="signal-map"
+        viewBox={`0 0 ${width} ${height}`}
+        role="img"
+        aria-label="Cross-fund issuer signal map. Horizontal position is latest fair value to cost; vertical position is quarter-over-quarter change. Larger points represent larger fair value."
+      >
+        <title>Cross-fund issuer signal map</title>
+        <desc>Issuers further left trade at deeper discounts. Issuers lower on the chart deteriorated more in the latest quarter.</desc>
+        {xTicks.map((tick) => (
+          <g key={`signal-x-${tick}`}>
+            <line className={tick === 100 ? "signal-map-par" : "signal-map-grid"} x1={x(tick)} x2={x(tick)} y1={margin.top} y2={height - margin.bottom} />
+            <text className="signal-map-axis" x={x(tick)} y={height - margin.bottom + 20} textAnchor="middle">{tick}%</text>
+          </g>
+        ))}
+        {yTicks.map((tick) => (
+          <g key={`signal-y-${tick}`}>
+            <line className={tick === 0 ? "signal-map-par" : "signal-map-grid"} x1={margin.left} x2={width - margin.right} y1={y(tick)} y2={y(tick)} />
+            <text className="signal-map-axis" x={margin.left - 12} y={y(tick) + 4} textAnchor="end">{tick > 0 ? "+" : ""}{tick}pp</text>
+          </g>
+        ))}
+        <text className="signal-map-caption" x={margin.left} y={14}>IMPROVING</text>
+        <text className="signal-map-caption" x={margin.left} y={height - 8}>DETERIORATING</text>
+        <text className="signal-map-title" x={margin.left + innerWidth / 2} y={height - 8} textAnchor="middle">Latest FV / cost →</text>
+        {chartRows.map((row) => {
+          const radius = 4 + Math.sqrt(row.fair_value_mm / maximumFairValue) * 8;
+          return (
+            <a
+              className="signal-map-point"
+              data-band={row.priority_band}
+              href="#timeline"
+              key={row.issuer_match_key}
+              aria-label={`${row.display_name}: priority ${row.priority_score}, ${formatPct(row.latest_fv_to_cost_pct, 1)} of cost, ${formatSignedPp(row.qoq_change_pp)} quarter change`}
+              onClick={(event) => {
+                event.preventDefault();
+                onOpenTimelineIssuer(row.issuer_match_key);
+              }}
+            >
+              <circle
+                className={`signal-map-dot band-${row.priority_band}`}
+                cx={x(row.latest_fv_to_cost_pct)}
+                cy={y(row.qoq_change_pp)}
+                r={radius}
+                onMouseMove={(event) =>
+                  showTooltip(event, {
+                    title: row.display_name,
+                    value: `${formatPct(row.latest_fv_to_cost_pct, 1)} of cost`,
+                    detail: `${formatSignedPp(row.qoq_change_pp)} QoQ · ${formatMm(row.fair_value_mm)} · ${row.fund_count} funds`
+                  })
+                }
+              />
+              {labelledKeys.has(row.issuer_match_key) ? (
+                <text
+                  className="signal-map-label"
+                  x={x(row.latest_fv_to_cost_pct) + radius + 5}
+                  y={y(row.qoq_change_pp) - radius - 3}
+                >
+                  {row.display_name}
+                </text>
+              ) : null}
+            </a>
+          );
+        })}
+      </svg>
+      <ChartTooltip tooltip={tooltip} />
+    </div>
+  );
+}
+
+function ResearchSignalBriefing({
+  selectedFund,
+  onOpenTimelineIssuer
+}: {
+  selectedFund: Fund | "All";
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const [signalFilter, setSignalFilter] = useState<SignalFilter>("all");
+  const [signalQuery, setSignalQuery] = useState("");
+  const scopeRows = researchSignals.issuer_signals.filter(
+    (row) => selectedFund === "All" || row.funds.includes(selectedFund)
+  );
+  const normalizedQuery = signalQuery.trim().toLowerCase();
+  const filteredRows = scopeRows.filter((row) => {
+    if (!signalMatchesFilter(row, signalFilter)) return false;
+    if (!normalizedQuery) return true;
+    return [row.display_name, row.mapped_company, row.issuer_match_key, row.funds.join(" "), row.signal_tags.join(" ")]
+      .join(" ")
+      .toLowerCase()
+      .includes(normalizedQuery);
+  });
+  const visibleRows = filteredRows.slice(0, 12);
+  const priorityRows = scopeRows.filter((row) => row.priority_band === "review" || row.priority_band === "watch");
+  const priorityFairValue = sumBy(priorityRows, (row) => row.fair_value_mm);
+  const materialRows = scopeRows.filter((row) => row.fair_value_mm >= 20);
+  const largestDecline = materialRows
+    .filter((row) => typeof row.qoq_change_pp === "number")
+    .sort((a, b) => Number(a.qoq_change_pp) - Number(b.qoq_change_pp))[0];
+  const largestDiscount = materialRows
+    .filter((row) => typeof row.latest_fv_to_cost_pct === "number")
+    .sort((a, b) => Number(a.latest_fv_to_cost_pct) - Number(b.latest_fv_to_cost_pct))[0];
+  const widestGap = scopeRows
+    .filter((row) => typeof row.audited_same_facility_gap_pp === "number")
+    .sort((a, b) => Number(b.audited_same_facility_gap_pp) - Number(a.audited_same_facility_gap_pp))[0];
+  const mostCrowded = [...scopeRows].sort((a, b) => b.fund_count - a.fund_count || b.fair_value_mm - a.fair_value_mm)[0];
+
+  return (
+    <section className="signal-briefing" aria-labelledby="signal-briefing-title">
+      <header className="signal-briefing-header">
+        <div>
+          <span className="research-kicker">Decision layer / {selectedFund === "All" ? "cross-fund" : selectedFund}</span>
+          <h2 id="signal-briefing-title">Where the portfolio needs attention</h2>
+          <p>
+            One queue combines discount, change, audited same-loan disagreement, materiality, and ownership breadth.
+            Structural differences remain separate from directly comparable loan marks.
+          </p>
+        </div>
+        <div className="signal-briefing-count">
+          <span>Priority exposure</span>
+          <strong>{formatMm(priorityFairValue)}</strong>
+          <small>{formatNumber(priorityRows.length)} review or watch issuers</small>
+        </div>
+      </header>
+
+      <div className="signal-headlines">
+        <button className="signal-headline" type="button" onClick={() => largestDecline && onOpenTimelineIssuer(largestDecline.issuer_match_key)}>
+          <span>Largest material decline</span>
+          <strong>{largestDecline?.display_name || "No comparable quarter"}</strong>
+          <small>{largestDecline ? `${formatSignedPp(largestDecline.qoq_change_pp)} QoQ · ${formatMm(largestDecline.fair_value_mm)}` : "—"}</small>
+        </button>
+        <button className="signal-headline" type="button" onClick={() => largestDiscount && onOpenTimelineIssuer(largestDiscount.issuer_match_key)}>
+          <span>Deepest material discount</span>
+          <strong>{largestDiscount?.display_name || "No cost mark"}</strong>
+          <small>{largestDiscount ? `${formatPct(largestDiscount.latest_fv_to_cost_pct, 1)} of cost · ${formatMm(largestDiscount.fair_value_mm)}` : "—"}</small>
+        </button>
+        <button className="signal-headline" type="button" onClick={() => widestGap && onOpenTimelineIssuer(widestGap.issuer_match_key)}>
+          <span>Widest audited loan gap</span>
+          <strong>{widestGap?.display_name || "No matched loan"}</strong>
+          <small>{widestGap ? `${formatPct(widestGap.audited_same_facility_gap_pp, 1)} · ${widestGap.audited_fund_pair}` : "—"}</small>
+        </button>
+        <button className="signal-headline" type="button" onClick={() => mostCrowded && onOpenTimelineIssuer(mostCrowded.issuer_match_key)}>
+          <span>Most widely held</span>
+          <strong>{mostCrowded?.display_name || "No overlap"}</strong>
+          <small>{mostCrowded ? `${mostCrowded.fund_count} funds · ${formatMm(mostCrowded.fair_value_mm)}` : "—"}</small>
+        </button>
+      </div>
+
+      <div className="signal-controls">
+        <div className="view-switch signal-filter-row" aria-label="Research signal filter">
+          {([
+            ["all", "All"],
+            ["review", "Priority"],
+            ["discount", "Discount"],
+            ["deterioration", "Deterioration"],
+            ["disagreement", "Loan gaps"],
+            ["crowding", "Crowding"],
+            ["structure", "Structure"]
+          ] as Array<[SignalFilter, string]>).map(([value, label]) => (
+            <button key={value} type="button" className={signalFilter === value ? "active" : ""} onClick={() => setSignalFilter(value)}>
+              {label}
+            </button>
+          ))}
+        </div>
+        <div className="search-wrap compact-search">
+          <Search />
+          <input
+            className="search signal-search"
+            value={signalQuery}
+            onChange={(event) => setSignalQuery(event.target.value)}
+            placeholder="Search company, fund, or signal"
+            aria-label="Search research signals"
+          />
+        </div>
+      </div>
+
+      <div className="signal-workbench">
+        <div className="signal-map-column">
+          <div className="signal-section-heading">
+            <div>
+              <span>Change vs. valuation</span>
+              <h3>Signal map</h3>
+            </div>
+            <small>Left is cheaper · lower is deteriorating · size is fair value</small>
+          </div>
+          <SignalRiskMap rows={filteredRows} onOpenTimelineIssuer={onOpenTimelineIssuer} />
+        </div>
+
+        <div className="signal-queue-column">
+          <div className="signal-section-heading">
+            <div>
+              <span>Ranked for review</span>
+              <h3>Issuer queue</h3>
+            </div>
+            <small>{formatNumber(filteredRows.length)} matches</small>
+          </div>
+          <div className="signal-queue">
+            {visibleRows.map((row) => (
+              <button className="signal-queue-row" type="button" key={row.issuer_match_key} onClick={() => onOpenTimelineIssuer(row.issuer_match_key)}>
+                <span className={`signal-score ${row.priority_band}`}>{Math.round(row.priority_score)}</span>
+                <span className="signal-queue-name">
+                  <strong>{row.display_name}</strong>
+                  <small>{row.funds.join(" · ")} · {formatMm(row.fair_value_mm)}</small>
+                  <span className="signal-chip-row">
+                    {row.signal_tags.filter((tag) => tag !== "stable_context").slice(0, 2).map((tag) => <SignalChip key={`${row.issuer_match_key}-${tag}`} tag={tag} />)}
+                  </span>
+                </span>
+                <span className="signal-queue-metric">
+                  <strong>{formatPct(row.latest_fv_to_cost_pct, 1)}</strong>
+                  <small>{formatSignedPp(row.qoq_change_pp)}</small>
+                </span>
+                <ArrowUpRight />
+              </button>
+            ))}
+          </div>
+          {!visibleRows.length ? <div className="empty-state">No issuer signals match this research view.</div> : null}
+        </div>
+      </div>
+
+      <footer className="signal-method">
+        <strong>Method note</strong>
+        <p><b>Triage, not a rating.</b> {researchSignals.meta.methodology}</p>
+      </footer>
+    </section>
+  );
+}
+
 function KeyObservations() {
   const fundedLatestRows = data.holdings_detail_latest.filter((row) => row.exposure_type === "funded");
   const fundedFairValue = sumBy(fundedLatestRows, (row) => row.fair_value_mm);
@@ -2658,7 +3009,13 @@ function KeyObservations() {
   );
 }
 
-function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
+function Overview({
+  selectedFund,
+  onOpenTimelineIssuer
+}: {
+  selectedFund: Fund | "All";
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
   const isAllFunds = selectedFund === "All";
   const visibleLatest = data.latest_by_fund.filter((item) => isAllFunds || item.fund === selectedFund);
   const visibleChanges = data.change_by_fund.filter((item) => isAllFunds || item.fund === selectedFund);
@@ -2691,6 +3048,8 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
 
   return (
     <div className="grid">
+      <ResearchSignalBriefing selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
+
       <div className="grid kpi-grid">
         <MetricCard
           title="Latest fair value"
@@ -2723,13 +3082,7 @@ function Overview({ selectedFund }: { selectedFund: Fund | "All" }) {
         />
       </div>
 
-      <Callout title={isAllFunds ? "What this first cut says" : `What ${selectedFund} says`}>{overviewNarrative}</Callout>
-
-      <KeyObservations />
-
-      <BdcPrimer selectedFund={selectedFund} />
-
-      <ProjectMotivation />
+      <Callout title={isAllFunds ? "Portfolio read" : `${selectedFund} portfolio read`}>{overviewNarrative}</Callout>
 
       <OverviewTrendCharts selectedFund={selectedFund} />
 
@@ -4235,9 +4588,17 @@ function MarkDivergence({
     });
   const topRows = rows.slice(0, 4);
   const visibleStructureIssuers = new Set(rows.map((row) => row.issuer_match_key));
-  const leadLagRows = trancheComparison.lead_lag_summary
+  const leadLagRows = researchSignals.fund_pair_lead_lag
     .filter((row) => visibleStructureIssuers.has(row.issuer_match_key))
     .slice(0, 6);
+  const visibleLeadLagTests = researchSignals.fund_pair_lead_lag.filter((row) =>
+    visibleStructureIssuers.has(row.issuer_match_key)
+  );
+  const visibleLeadLagCounts = {
+    juniorFirst: visibleLeadLagTests.filter((row) => row.lead_lag_status === "junior_first").length,
+    simultaneous: visibleLeadLagTests.filter((row) => row.lead_lag_status === "simultaneous").length,
+    seniorFirst: visibleLeadLagTests.filter((row) => row.lead_lag_status === "senior_first").length
+  };
 
   return (
     <Panel
@@ -4281,18 +4642,18 @@ function MarkDivergence({
           <div className="lead-lag-overview-heading">
             <div>
               <span>Quarter-by-quarter evidence</span>
-              <h3>Who crossed below 95% of cost first?</h3>
+              <h3>Which fund&apos;s tier crossed below 95% first?</h3>
             </div>
-            <p>{formatNumber(trancheComparison.meta.junior_first_count)} junior-first · {formatNumber(trancheComparison.meta.simultaneous_count)} same-quarter · {formatNumber(trancheComparison.meta.senior_first_count)} senior-first</p>
+            <p>{formatNumber(visibleLeadLagCounts.juniorFirst)} junior-first · {formatNumber(visibleLeadLagCounts.simultaneous)} same-quarter · {formatNumber(visibleLeadLagCounts.seniorFirst)} senior-first</p>
           </div>
           <div className="lead-lag-overview-grid">
             {leadLagRows.map((row) => {
               const enrichment = findCompanyEnrichment(row.issuer_match_key);
               return (
-                <button type="button" key={`${row.issuer_match_key}-${row.junior_tier}`} onClick={() => onOpenTimelineIssuer(row.issuer_match_key)}>
+                <button type="button" key={`${row.issuer_match_key}-${row.junior_fund}-${row.senior_fund}-${row.junior_tier}`} onClick={() => onOpenTimelineIssuer(row.issuer_match_key)}>
                   <span className={`waterfall-signal lead-${row.lead_lag_status}`}>{leadLagLabel(row.lead_lag_status)}</span>
                   <strong>{enrichment?.display_name || row.issuer_match_key}</strong>
-                  <small>{row.junior_tier}</small>
+                  <small>{row.junior_fund} {row.junior_tier} → {row.senior_fund} first lien · {row.comparison_scope}</small>
                   <div>
                     <span>Junior {row.junior_first_below_95_period ? shortPeriod(row.junior_first_below_95_period) : "never"}</span>
                     <span>Senior {row.senior_first_below_95_period ? shortPeriod(row.senior_first_below_95_period) : "never"}</span>
@@ -4951,7 +5312,7 @@ function Timeline({
   const capitalTierRows = trancheComparison.capital_structure_timeline.filter(
     (row) => row.issuer_match_key === selectedIssuerKey
   );
-  const issuerLeadLagRows = trancheComparison.lead_lag_summary.filter(
+  const issuerLeadLagRows = researchSignals.fund_pair_lead_lag.filter(
     (row) => row.issuer_match_key === selectedIssuerKey
   );
 
@@ -5022,19 +5383,23 @@ function Timeline({
         </Panel>
 
         <Panel
-          title="Junior-vs-Senior Lead-Lag Test"
-          subtitle="First sub-95 and sub-90 quarters are tested only where junior and first-lien tiers overlap for at least two periods."
+          title="Fund-Pair Junior-vs-Senior Test"
+          subtitle="Each row isolates one junior-holding fund against one first-lien-holding fund. Cross-fund and within-fund evidence are labeled explicitly."
           icon={History}
         >
           {issuerLeadLagRows.length ? (
             <div className="lead-lag-detail-list">
               {issuerLeadLagRows.map((row) => (
-                <section key={`${row.issuer_match_key}-${row.junior_tier}`}>
+                <section key={`${row.issuer_match_key}-${row.junior_fund}-${row.senior_fund}-${row.junior_tier}`}>
                   <div className="lead-lag-detail-topline">
                     <span className={`waterfall-signal lead-${row.lead_lag_status}`}>{leadLagLabel(row.lead_lag_status)}</span>
-                    <small>{row.common_period_count} common quarters</small>
+                    <small>{row.comparison_scope} · {row.common_period_count} common quarters</small>
                   </div>
-                  <h3>{row.junior_tier}</h3>
+                  <div className="lead-lag-fund-pair">
+                    <div><FundBadge fund={row.junior_fund} /><span>{row.junior_tier}</span></div>
+                    <strong>→</strong>
+                    <div><FundBadge fund={row.senior_fund} /><span>{row.senior_tier}</span></div>
+                  </div>
                   <div className="lead-lag-breach-grid">
                     <div><span>Junior first &lt;95</span><strong>{row.junior_first_below_95_period ? shortPeriod(row.junior_first_below_95_period) : "Never"}</strong></div>
                     <div><span>Senior first &lt;95</span><strong>{row.senior_first_below_95_period ? shortPeriod(row.senior_first_below_95_period) : "Never"}</strong></div>
@@ -5056,9 +5421,9 @@ function Timeline({
               ))}
             </div>
           ) : (
-            <div className="empty-state">This issuer does not have at least two common quarters of explicit junior and first-lien tier coverage.</div>
+            <div className="empty-state">No explicit junior-fund and senior-fund pair has two common quarters with at least $1mm of cost in each tier.</div>
           )}
-          <div className="lead-lag-method">{trancheComparison.meta.lead_lag_methodology}</div>
+          <div className="lead-lag-method">{researchSignals.meta.pairwise_lead_lag_methodology}</div>
         </Panel>
       </div>
 
@@ -6379,18 +6744,19 @@ export default function DashboardPage() {
     setActiveTab("timeline");
   };
 
-  const tabs: Array<{ id: Tab; label: string; icon: LucideIcon }> = [
-    { id: "overview", label: "Overview", icon: BarChart3 },
-    { id: "financials", label: "Financials", icon: WalletCards },
-    { id: "deterioration", label: "Deterioration", icon: AlertTriangle },
-    { id: "exposure", label: "Exposure", icon: Layers3 },
-    { id: "timeline", label: "Timeline", icon: LineChart },
-    { id: "holdings", label: "Holdings", icon: Table2 },
-    { id: "liabilities", label: "Liabilities", icon: Gauge },
-    { id: "universe", label: "BDC Universe", icon: Database },
-    { id: "quality", label: "Quality + Methodology", icon: ShieldCheck }
+  const tabs: Array<{ id: Tab; label: string; icon: LucideIcon; group: string; description: string }> = [
+    { id: "overview", label: "Research briefing", icon: BarChart3, group: "Decide", description: "Ranked portfolio signals and the latest cross-fund read." },
+    { id: "deterioration", label: "Credit migration", icon: AlertTriangle, group: "Decide", description: "Issuer marks moving toward potential non-accrual stress." },
+    { id: "exposure", label: "Cross-fund exposure", icon: Layers3, group: "Decide", description: "Crowding, matched-loan marks, and capital-structure comparisons." },
+    { id: "timeline", label: "Issuer timeline", icon: LineChart, group: "Investigate", description: "Quarterly exposure, tier marks, fund-pair lead-lag, and sponsor history." },
+    { id: "holdings", label: "Security detail", icon: Table2, group: "Investigate", description: "Searchable as-filed schedule rows and instrument evidence." },
+    { id: "financials", label: "Fund financials", icon: WalletCards, group: "Fund", description: "NAV, income quality, dividends, leverage, and investment activity." },
+    { id: "liabilities", label: "Liability stack", icon: Gauge, group: "Fund", description: "Debt instruments, maturity walls, and refinancing context." },
+    { id: "universe", label: "BDC coverage", icon: Database, group: "Reference", description: "EdgarTools coverage and the wider BDC expansion universe." },
+    { id: "quality", label: "Methods + quality", icon: ShieldCheck, group: "Reference", description: "Reconciliation, methodology, sources, and limitations." }
   ];
-  const activeTabLabel = tabs.find((tab) => tab.id === activeTab)?.label || "Overview";
+  const activeTabMeta = tabs.find((tab) => tab.id === activeTab) || tabs[0];
+  const activeTabLabel = activeTabMeta.label;
   const sortedTimelineIssuers = [...data.loan_timeline_issuers].sort(
     (a, b) => b.funds.length - a.funds.length || b.latest_fair_value_mm - a.latest_fair_value_mm
   );
@@ -6406,24 +6772,26 @@ export default function DashboardPage() {
         <p className="rail-label">Portfolio workbench</p>
         <nav className="tabs" aria-label="Dashboard sections">
           {tabs.map((tab, index) => (
-            <button
-              className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              title={tab.label}
-              type="button"
-            >
-              <span className="tab-index">{String(index + 1).padStart(2, "0")}</span>
-              <span>{tab.label}</span>
-            </button>
+            <div className="rail-nav-entry" key={tab.id}>
+              {index === 0 || tabs[index - 1].group !== tab.group ? <p className="rail-nav-group">{tab.group}</p> : null}
+              <button
+                className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
+                onClick={() => setActiveTab(tab.id)}
+                title={tab.description}
+                type="button"
+              >
+                <tab.icon aria-hidden="true" />
+                <span>{tab.label}</span>
+              </button>
+            </div>
           ))}
         </nav>
 
         <section className="rail-studies" aria-label="Pinned research views">
           <p className="rail-label">Pinned studies</p>
-          <button type="button" onClick={() => setActiveTab("financials")}><span>A1</span>Quarter comparison</button>
-          <button type="button" onClick={() => setActiveTab("deterioration")}><span>B4</span>Credit migration</button>
-          <button type="button" onClick={() => setActiveTab("universe")}><span>D2</span>Expansion queue</button>
+          <button type="button" onClick={() => setActiveTab("overview")}><span>01</span>Priority issuer queue</button>
+          <button type="button" onClick={() => setActiveTab("exposure")}><span>02</span>Comparable loan gaps</button>
+          <button type="button" onClick={() => setActiveTab("timeline")}><span>03</span>Fund-pair lead-lag</button>
         </section>
 
         <section className="rail-status" aria-label="Research coverage status">
@@ -6440,7 +6808,8 @@ export default function DashboardPage() {
           <div className="topbar-inner">
           <div className="brand">
             <p className="eyebrow">Eight public BDCs / {data.meta.latest_period_label}</p>
-            <h1>{activeTab === "overview" ? "Portfolio overview" : activeTabLabel}</h1>
+            <h1>{activeTabLabel}</h1>
+            <p className="workspace-description">{activeTabMeta.description}</p>
           </div>
           <div className="mast-meta">
             <div>
@@ -6505,7 +6874,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {activeTab === "overview" ? <Overview selectedFund={selectedFund} /> : null}
+        {activeTab === "overview" ? <Overview selectedFund={selectedFund} onOpenTimelineIssuer={openTimelineIssuer} /> : null}
         {activeTab === "financials" ? <Financials selectedFund={selectedFund} /> : null}
         {activeTab === "deterioration" ? <Deterioration selectedFund={selectedFund} /> : null}
         {activeTab === "exposure" ? (

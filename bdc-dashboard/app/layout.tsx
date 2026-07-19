@@ -3,19 +3,19 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yardenmorad2003.github.io/bdc-three-fund-dashboard/"),
-  title: "BDC Tracker | Portfolio Overview",
+  title: "BDC Tracker | Cross-Fund Credit Research",
   description:
-    "Filing-based portfolio research for eight verified BDCs, with holdings, credit, financial, and EdgarTools coverage analysis.",
+    "Filing-based research for eight verified BDCs, with ranked issuer signals, cross-fund loan comparisons, credit timelines, and EdgarTools coverage analysis.",
   openGraph: {
-    title: "BDC Tracker | Portfolio Overview",
-    description: "Reconciled BDC holdings through Q1 2026 with credit analytics and an audited EdgarTools expansion cohort.",
-    images: ["https://yardenmorad2003.github.io/bdc-three-fund-dashboard/og.png"]
+    title: "BDC Tracker | Cross-Fund Credit Research",
+    description: "Reconciled BDC holdings through Q1 2026 with ranked issuer signals, audited same-loan marks, and fund-pair lead-lag tests.",
+    images: ["https://yardenmorad2003.github.io/bdc-three-fund-dashboard/og-research.png"]
   },
   twitter: {
     card: "summary_large_image",
-    title: "BDC Tracker | Portfolio Overview",
-    description: "Reconciled BDC holdings through Q1 2026 with credit analytics and an audited EdgarTools expansion cohort.",
-    images: ["https://yardenmorad2003.github.io/bdc-three-fund-dashboard/og.png"]
+    title: "BDC Tracker | Cross-Fund Credit Research",
+    description: "Reconciled BDC holdings through Q1 2026 with ranked issuer signals, audited same-loan marks, and fund-pair lead-lag tests.",
+    images: ["https://yardenmorad2003.github.io/bdc-three-fund-dashboard/og-research.png"]
   }
 };
 
