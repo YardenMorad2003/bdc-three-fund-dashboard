@@ -30,6 +30,7 @@ import type { LucideIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import dashboardData from "../lib/dashboard-data.json";
 import bdcUniverseData from "../lib/bdc-universe.json";
+import bslReferenceMarksData from "../lib/bsl-reference-marks.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import fundingMarketData from "../lib/bdc-funding-market.json";
 import liabilityStackData from "../lib/liability-stack.json";
@@ -634,6 +635,81 @@ type FundingMarketData = {
   sources: { name: string; url: string; role: string }[];
 };
 
+type BslReferencePoint = {
+  report_date: string;
+  implied_mark: number;
+  principal_mm: number;
+  fair_value_mm: number;
+  funds: string[];
+  facility_count: number;
+  source_url: string;
+};
+type BslBdcPoint = {
+  report_date: string;
+  mark_to_cost: number;
+  cost_mm: number;
+  fair_value_mm: number;
+  funds: Fund[];
+};
+type BslReferenceMatch = {
+  issuer_match_key: string;
+  dashboard_display_name: string;
+  nport_borrower: string;
+  match_method: string;
+  match_confidence: "high" | "medium";
+  latest_reference_date: string;
+  latest_reference_mark: number;
+  latest_reference_funds: string[];
+  reference_age_months: number;
+  reference_status: "current" | "historical_only";
+  reference_observation_count: number;
+  change_3m: number | null;
+  change_12m: number | null;
+  minimum_reference_mark: number;
+  minimum_reference_date: string;
+  bdc_latest_mark_to_cost: number | null;
+  bdc_current_funds: Fund[];
+  bdc_current_cost_mm: number;
+  bdc_current_fair_value_mm: number;
+  bdc_minus_reference_pp: number | null;
+  nport_first_below_95: string | null;
+  bdc_first_below_95: string | null;
+  nport_lead_months_at_95: number | null;
+  nport_first_below_90: string | null;
+  bdc_first_below_90: string | null;
+  nport_lead_months_at_90: number | null;
+  history: BslReferencePoint[];
+  bdc_history: BslBdcPoint[];
+};
+type BslReferenceData = {
+  meta: {
+    generated_at_utc: string;
+    filing_count: number;
+    holding_count: number;
+    valid_mark_count: number;
+    zero_principal_count: number;
+    ambiguous_identifier_count: number;
+    earliest_report_date: string;
+    latest_report_date: string;
+    funds: string[];
+    methodology: string;
+    dashboard_match_count: number;
+    high_confidence_match_count: number;
+    current_match_count: number;
+    current_below_98_count: number;
+    current_below_95_count: number;
+    current_below_90_count: number;
+    scope_note: string;
+  };
+  matches: BslReferenceMatch[];
+  insights: {
+    largest_12m_declines: BslReferenceMatch[];
+    largest_bdc_reference_gaps: BslReferenceMatch[];
+    reference_led_bdc_below_95: BslReferenceMatch[];
+  };
+  sources: { name: string; url: string }[];
+};
+
 type QuarterlyFactRow = {
   fund: Fund;
   period_end: string;
@@ -1077,6 +1153,7 @@ const data = dashboardData as unknown as DashboardData;
 const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const fundingMarket = fundingMarketData as unknown as FundingMarketData;
+const bslReferenceMarks = bslReferenceMarksData as unknown as BslReferenceData;
 const liabilityStack = liabilityStackData as LiabilityStackData;
 const quarterlyFacts = quarterlyFactsData as QuarterlyFactsData;
 const researchSignals = researchSignalsData as ResearchSignalsData;
@@ -1249,6 +1326,14 @@ function formatSignedPp(value: number | null | undefined, digits = 1) {
     maximumFractionDigits: digits,
     minimumFractionDigits: digits
   }).format(Math.abs(value))} pp`;
+}
+
+function formatMark(value: number | null | undefined, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(value)) return "n/a";
+  return `${new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: digits,
+    minimumFractionDigits: digits
+  }).format(value)}\u00a2`;
 }
 
 function toneClass(value: number | null | undefined) {
@@ -4866,6 +4951,92 @@ function MarkDivergence({
   );
 }
 
+function BslReferenceMonitor({
+  selectedFund,
+  onOpenTimelineIssuer
+}: {
+  selectedFund: Fund | "All";
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const rows = bslReferenceMarks.matches
+    .filter((row) => row.reference_status === "current")
+    .filter((row) => selectedFund === "All" || row.bdc_current_funds.includes(selectedFund))
+    .sort((a, b) => a.latest_reference_mark - b.latest_reference_mark);
+  const below95 = rows.filter((row) => row.latest_reference_mark < 95).length;
+  const declining = rows.filter((row) => typeof row.change_12m === "number" && row.change_12m <= -3).length;
+  const visibleRows = rows.slice(0, 18);
+
+  return (
+    <Panel
+      title="BSL Reference Monitor"
+      subtitle="Borrower-level marks reconstructed from public FTSL, BKLN, and SRLN Form N-PORT filings, ranked from weakest to strongest. These are periodic fund valuations—not executable bids—and may represent different facilities or tranches than the BDC position."
+      icon={Activity}
+      action={<span className="bsl-asof">through {formatShortDate(bslReferenceMarks.meta.latest_report_date)}</span>}
+    >
+      <div className="bsl-summary-strip" aria-label="N-PORT reference coverage summary">
+        <div><span>SEC filings</span><strong>{formatNumber(bslReferenceMarks.meta.filing_count)}</strong></div>
+        <div><span>Loan rows</span><strong>{formatNumber(bslReferenceMarks.meta.holding_count)}</strong></div>
+        <div><span>Visible matches</span><strong>{formatNumber(rows.length)}</strong></div>
+        <div><span>Below 95</span><strong className={below95 ? "negative" : ""}>{formatNumber(below95)}</strong></div>
+        <div><span>Down ≥3 pts / 12m</span><strong className={declining ? "negative" : ""}>{formatNumber(declining)}</strong></div>
+      </div>
+
+      {visibleRows.length ? (
+        <div className="table-wrap bsl-monitor-wrap">
+          <table className="bsl-monitor-table">
+            <thead>
+              <tr>
+                <th>Issuer</th>
+                <th className="right">Reference</th>
+                <th>Observation</th>
+                <th className="right">12m move</th>
+                <th className="right">BDC debt</th>
+                <th className="right">BDC − ref.</th>
+                <th>Match</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibleRows.map((row) => {
+                const canOpen = timelineIssuerKeys.has(row.issuer_match_key);
+                return (
+                  <tr key={row.issuer_match_key}>
+                    <td className="issuer-cell">
+                      {canOpen ? (
+                        <a className="issuer-link" href="#timeline" onClick={(event) => { event.preventDefault(); onOpenTimelineIssuer(row.issuer_match_key); }}>
+                          <strong>{row.dashboard_display_name}</strong>
+                        </a>
+                      ) : <strong>{row.dashboard_display_name}</strong>}
+                      <span>{row.bdc_current_funds.join(", ") || "historical BDC exposure"}</span>
+                    </td>
+                    <td className={`right bsl-mark ${row.latest_reference_mark < 90 ? "bsl-stress" : row.latest_reference_mark < 95 ? "bsl-watch" : ""}`}>
+                      <strong>{formatMark(row.latest_reference_mark)}</strong>
+                    </td>
+                    <td className="nowrap">
+                      <span className="bsl-observation-date">{formatShortDate(row.latest_reference_date)}</span>
+                      <small>{row.latest_reference_funds.join(" · ")}</small>
+                    </td>
+                    <td className={`right ${toneClass(row.change_12m)}`}>{formatSignedPp(row.change_12m)}</td>
+                    <td className="right">{formatMark(row.bdc_latest_mark_to_cost)}</td>
+                    <td className={`right ${toneClass(row.bdc_minus_reference_pp)}`}>{formatSignedPp(row.bdc_minus_reference_pp)}</td>
+                    <td><span className={`bsl-confidence ${row.match_confidence}`}>{row.match_confidence}</span></td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      ) : <div className="empty-state">No current N-PORT borrower match is held by the selected fund.</div>}
+
+      <div className="bsl-reference-note">
+        <ShieldCheck />
+        <p>
+          Current means the latest public reference observation is within 15 months of the dataset endpoint. Historical-only matches remain visible on issuer timelines. A spread to the BDC mark is a research prompt, not proof of mispricing.
+        </p>
+      </div>
+    </Panel>
+  );
+}
+
 function Exposure({
   selectedFund,
   onOpenTimelineIssuer
@@ -4957,6 +5128,8 @@ function Exposure({
       </div>
 
       <Callout title="How to read exposure">{data.narrative.exposure}</Callout>
+
+      <BslReferenceMonitor selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
       <MarkDivergence selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
@@ -5330,6 +5503,93 @@ function CapitalStructureTimelineChart({ rows }: { rows: CapitalStructureTimelin
   );
 }
 
+function BslReferenceTimeline({
+  match,
+  selectedFund
+}: {
+  match: BslReferenceMatch;
+  selectedFund: Fund | "All";
+}) {
+  const referencePoints = match.history;
+  const bdcPoints = match.bdc_history.filter((point) => selectedFund === "All" || point.funds.includes(selectedFund));
+  const allPoints = [
+    ...referencePoints.map((point) => ({ date: point.report_date, value: point.implied_mark })),
+    ...bdcPoints.map((point) => ({ date: point.report_date, value: point.mark_to_cost }))
+  ];
+  if (!allPoints.length) return null;
+
+  const width = 920;
+  const height = 270;
+  const left = 46;
+  const right = 22;
+  const top = 24;
+  const bottom = 42;
+  const dates = allPoints.map((point) => new Date(`${point.date}T00:00:00`).getTime());
+  const minDate = Math.min(...dates);
+  const maxDate = Math.max(...dates);
+  const rawMin = Math.min(...allPoints.map((point) => point.value), 90);
+  const rawMax = Math.max(...allPoints.map((point) => point.value), 100);
+  const minValue = Math.max(0, Math.floor((rawMin - 4) / 5) * 5);
+  const maxValue = Math.ceil((rawMax + 3) / 5) * 5;
+  const xFor = (date: string) => {
+    const value = new Date(`${date}T00:00:00`).getTime();
+    return left + ((value - minDate) / Math.max(maxDate - minDate, 1)) * (width - left - right);
+  };
+  const yFor = (value: number) => top + ((maxValue - value) / Math.max(maxValue - minValue, 1)) * (height - top - bottom);
+  const pathFor = (points: Array<{ report_date: string; implied_mark?: number; mark_to_cost?: number }>) =>
+    points.map((point) => `${xFor(point.report_date)},${yFor(point.implied_mark ?? point.mark_to_cost ?? 0)}`).join(" ");
+  const years = Array.from(new Set(allPoints.map((point) => point.date.slice(0, 4)))).filter((_, index, items) =>
+    items.length <= 6 || index === 0 || index === items.length - 1 || index % Math.ceil(items.length / 5) === 0
+  );
+  const latestBdcPoint = bdcPoints[bdcPoints.length - 1];
+
+  return (
+    <Panel
+      title="Public BSL Reference Path"
+      subtitle="SEC-reported senior-loan ETF valuations are overlaid with the BDC's quarterly debt FV/cost history at the borrower level. Facility, tranche, and valuation-policy differences can remain."
+      icon={LineChart}
+      action={<span className={`bsl-status ${match.reference_status}`}>{match.reference_status === "current" ? "current reference" : "historical reference"}</span>}
+    >
+      <div className="bsl-timeline-summary">
+        <div><span>Latest ETF mark</span><strong className={match.latest_reference_mark < 95 ? "negative" : ""}>{formatMark(match.latest_reference_mark)}</strong><small>{formatShortDate(match.latest_reference_date)} · {match.latest_reference_funds.join(" / ")}</small></div>
+        <div><span>12m reference move</span><strong className={toneClass(match.change_12m)}>{formatSignedPp(match.change_12m)}</strong><small>{match.reference_observation_count} public observations</small></div>
+        <div><span>Latest BDC debt mark</span><strong>{formatMark(latestBdcPoint?.mark_to_cost ?? match.bdc_latest_mark_to_cost)}</strong><small>{latestBdcPoint ? `${formatShortDate(latestBdcPoint.report_date)} · ${latestBdcPoint.funds.join(" / ")}` : "latest matched BDC debt"}</small></div>
+        <div><span>BDC minus reference</span><strong className={toneClass(match.bdc_minus_reference_pp)}>{formatSignedPp(match.bdc_minus_reference_pp)}</strong><small>borrower-level comparison</small></div>
+      </div>
+
+      <div className="bsl-timeline-chart">
+        <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby="bsl-chart-title bsl-chart-desc">
+          <title id="bsl-chart-title">{match.dashboard_display_name} public BSL reference and BDC debt marks</title>
+          <desc id="bsl-chart-desc">A time series of N-PORT implied marks and BDC fair-value-to-cost marks with 95 and 90 cent review guides.</desc>
+          {[90, 95, 100].filter((value) => value >= minValue && value <= maxValue).map((value) => (
+            <g key={value}>
+              <line className={`bsl-guide ${value < 100 ? "threshold" : ""}`} x1={left} x2={width - right} y1={yFor(value)} y2={yFor(value)} />
+              <text className="bsl-axis-label" x={left - 8} y={yFor(value) + 4} textAnchor="end">{value}</text>
+            </g>
+          ))}
+          {years.map((year) => {
+            const date = allPoints.find((point) => point.date.startsWith(year))?.date || `${year}-01-01`;
+            return <text key={year} className="bsl-axis-label" x={xFor(date)} y={height - 12} textAnchor="middle">{year}</text>;
+          })}
+          {referencePoints.length > 1 ? <polyline className="bsl-line reference" points={pathFor(referencePoints)} /> : null}
+          {bdcPoints.length > 1 ? <polyline className="bsl-line bdc" points={pathFor(bdcPoints)} /> : null}
+          {referencePoints.map((point) => (
+            <a key={`ref-${point.report_date}`} href={point.source_url} target="_blank" rel="noreferrer" aria-label={`${formatShortDate(point.report_date)} SEC reference ${formatMark(point.implied_mark)}`}>
+              <circle className="bsl-dot reference" cx={xFor(point.report_date)} cy={yFor(point.implied_mark)} r={3.6} />
+            </a>
+          ))}
+          {bdcPoints.map((point) => <circle key={`bdc-${point.report_date}`} className="bsl-dot bdc" cx={xFor(point.report_date)} cy={yFor(point.mark_to_cost)} r={3.2} />)}
+        </svg>
+        <div className="bsl-chart-legend"><span className="reference">Public ETF reference</span><span className="bdc">BDC debt FV / cost</span><span className="guide">95 / 90 review guides</span></div>
+      </div>
+      <div className="bsl-reference-note">
+        <Info />
+        <p>{bslReferenceMarks.meta.methodology} The overlay compares borrower-level paths; it does not assert that the funds own the same instrument.</p>
+      </div>
+    </Panel>
+  );
+}
+
 function Timeline({
   selectedFund,
   selectedIssuerKey,
@@ -5402,6 +5662,7 @@ function Timeline({
   const issuerLeadLagRows = researchSignals.fund_pair_lead_lag.filter(
     (row) => row.issuer_match_key === selectedIssuerKey
   );
+  const bslReference = bslReferenceMarks.matches.find((row) => row.issuer_match_key === selectedIssuerKey);
 
   return (
     <div className="grid">
@@ -5459,6 +5720,8 @@ function Timeline({
           </div>
         </div>
       </section>
+
+      {bslReference ? <BslReferenceTimeline match={bslReference} selectedFund={selectedFund} /> : null}
 
       <div className="grid two-col capital-timeline-grid">
         <Panel

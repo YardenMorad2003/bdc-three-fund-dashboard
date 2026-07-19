@@ -4315,3 +4315,320 @@ tbody tr:hover td {
     grid-column: 2;
   }
 }
+
+/* Public senior-loan ETF reference layer */
+.bsl-asof,
+.bsl-status,
+.bsl-confidence {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  color: #9ba7a6;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.bsl-asof,
+.bsl-status {
+  min-height: 26px;
+  padding: 0 9px;
+}
+
+.bsl-status.current {
+  border-color: rgba(105, 174, 147, .36);
+  color: #79ba99;
+}
+
+.bsl-status.historical_only {
+  border-color: rgba(199, 112, 70, .38);
+  color: #d28b68;
+}
+
+.bsl-summary-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: -18px -18px 18px;
+  border-bottom: 1px solid var(--border);
+  background: #171d1f;
+}
+
+.bsl-summary-strip > div {
+  min-width: 0;
+  padding: 14px 16px;
+  border-right: 1px solid var(--border);
+}
+
+.bsl-summary-strip > div:last-child {
+  border-right: 0;
+}
+
+.bsl-summary-strip span,
+.bsl-timeline-summary span {
+  display: block;
+  color: #7f8b8b;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.bsl-summary-strip strong {
+  display: block;
+  margin-top: 5px;
+  color: #e8e4db;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.bsl-monitor-wrap {
+  max-height: 560px;
+  border: 1px solid var(--border);
+}
+
+.bsl-monitor-table {
+  min-width: 880px;
+}
+
+.bsl-monitor-table thead th {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background: #171d1f;
+}
+
+.bsl-monitor-table tbody tr:hover {
+  background: rgba(111, 157, 165, .07);
+}
+
+.bsl-monitor-table small,
+.bsl-observation-date {
+  display: block;
+}
+
+.bsl-monitor-table small {
+  margin-top: 3px;
+  color: #778484;
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.bsl-mark strong {
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.bsl-mark.bsl-watch strong {
+  color: #e3ad69;
+}
+
+.bsl-mark.bsl-stress strong {
+  color: #df846d;
+}
+
+.bsl-confidence {
+  min-height: 20px;
+  padding: 0 7px;
+}
+
+.bsl-confidence.high {
+  border-color: rgba(105, 174, 147, .3);
+  color: #79ba99;
+}
+
+.bsl-confidence.medium {
+  border-color: rgba(222, 165, 93, .32);
+  color: #dca566;
+}
+
+.bsl-reference-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 14px;
+  color: #889493;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.bsl-reference-note svg {
+  width: 14px;
+  min-width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  color: #6f9da5;
+}
+
+.bsl-reference-note p {
+  margin: 0;
+}
+
+.bsl-timeline-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: -18px -18px 18px;
+  border-bottom: 1px solid var(--border);
+  background: #171d1f;
+}
+
+.bsl-timeline-summary > div {
+  min-width: 0;
+  padding: 15px 17px;
+  border-right: 1px solid var(--border);
+}
+
+.bsl-timeline-summary > div:last-child {
+  border-right: 0;
+}
+
+.bsl-timeline-summary strong,
+.bsl-timeline-summary small {
+  display: block;
+}
+
+.bsl-timeline-summary strong {
+  margin-top: 7px;
+  color: #e8e4db;
+  font-family: var(--font-mono);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.bsl-timeline-summary small {
+  overflow: hidden;
+  margin-top: 4px;
+  color: #778484;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bsl-timeline-chart {
+  border: 1px solid var(--border);
+  background: #151b1d;
+}
+
+.bsl-timeline-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 250px;
+}
+
+.bsl-guide {
+  stroke: #344043;
+  stroke-width: 1;
+}
+
+.bsl-guide.threshold {
+  stroke: #5c4840;
+  stroke-dasharray: 5 5;
+}
+
+.bsl-axis-label {
+  fill: #708080;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.bsl-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.3;
+}
+
+.bsl-line.reference {
+  stroke: #6f9da5;
+}
+
+.bsl-line.bdc {
+  stroke: #c77046;
+}
+
+.bsl-dot {
+  stroke: #151b1d;
+  stroke-width: 1.3;
+}
+
+.bsl-dot.reference {
+  fill: #88b4bb;
+}
+
+.bsl-dot.bdc {
+  fill: #d9865e;
+}
+
+.bsl-timeline-chart a:hover .bsl-dot {
+  r: 5px;
+  stroke: #e8e4db;
+}
+
+.bsl-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  color: #8d9797;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.bsl-chart-legend span::before {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  margin: 0 6px 3px 0;
+  background: currentColor;
+  content: "";
+}
+
+.bsl-chart-legend .reference { color: #88b4bb; }
+.bsl-chart-legend .bdc { color: #d9865e; }
+.bsl-chart-legend .guide { color: #7b655b; }
+
+@media (max-width: 900px) {
+  .bsl-summary-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .bsl-summary-strip > div:nth-child(3) {
+    border-right: 0;
+  }
+
+  .bsl-timeline-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bsl-timeline-summary > div:nth-child(2) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .bsl-summary-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bsl-summary-strip > div:nth-child(3) {
+    border-right: 1px solid var(--border);
+  }
+
+  .bsl-summary-strip > div:nth-child(even) {
+    border-right: 0;
+  }
+
+  .bsl-timeline-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .bsl-timeline-summary > div {
+    border-right: 0;
+  }
+}
