@@ -2620,6 +2620,30 @@ tbody tr:hover td {
   color: #dc9b58;
 }
 
+.waterfall-signal {
+  display: inline-flex;
+  align-items: center;
+  min-height: 23px;
+  padding: 0 7px;
+  border: 1px solid var(--border);
+  color: #9ca5a3;
+  font: 700 8px/1 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.waterfall-signal.signal-expected_waterfall {
+  border-color: #315c49;
+  background: #1b2923;
+  color: #8fc0a4;
+}
+
+.waterfall-signal.signal-inversion {
+  border-color: #6f4932;
+  background: #2b211b;
+  color: #dfa06f;
+}
+
 .tie-note {
   margin-left: 6px;
   color: #7f8989;

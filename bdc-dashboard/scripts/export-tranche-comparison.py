@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from itertools import combinations
 from pathlib import Path
@@ -13,8 +13,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = PROJECT_ROOT.parent
 AUDIT_DB = WORKSPACE_ROOT / "output" / "bdc_fv_par_audit" / "bdc_fv_par_same_facility_audit.sqlite"
 OUTPUT_PATH = PROJECT_ROOT / "lib" / "tranche-comparison.json"
+DASHBOARD_DATA_PATH = PROJECT_ROOT / "lib" / "dashboard-data.json"
 MATERIAL_PRINCIPAL_FLOOR_MM = 5.0
 SPREAD_TOLERANCE_PCT = 0.061
+MATERIAL_TIER_COST_FLOOR_MM = 1.0
 
 
 def records(connection: sqlite3.Connection, query: str, parameters: tuple[Any, ...] = ()) -> list[dict[str, Any]]:
@@ -127,6 +129,158 @@ def build_different_tranche_gaps(connection: sqlite3.Connection, latest_period: 
     return gaps[:250], len(gaps), company_count
 
 
+CAPITAL_TIERS: dict[str, int] = {
+    "Common equity / warrants": 0,
+    "Preferred equity": 1,
+    "Junior / unsecured debt": 2,
+    "First-lien senior secured": 3,
+}
+
+
+def classify_capital_tier(row: dict[str, Any]) -> str | None:
+    text = " ".join(
+        str(row.get(field) or "")
+        for field in ("investment_category", "instrument_type", "investment_description")
+    ).lower().replace("-", " ")
+    if any(term in text for term in ("preferred equity", "preferred stock", "preferred shares", "preferred interest")):
+        return "Preferred equity"
+    if any(
+        term in text
+        for term in (
+            "common equity",
+            "common stock",
+            "common shares",
+            "equity interest",
+            "membership interest",
+            "member interest",
+            "partnership interest",
+            "warrant",
+        )
+    ):
+        return "Common equity / warrants"
+    if any(
+        term in text
+        for term in (
+            "second lien",
+            "subordinated",
+            "mezzanine",
+            "junior debt",
+            "unsecured loan",
+            "unsecured note",
+        )
+    ):
+        return "Junior / unsecured debt"
+    if any(
+        term in text
+        for term in (
+            "first lien",
+            "senior secured",
+            "senior loan",
+            "unitranche",
+        )
+    ):
+        return "First-lien senior secured"
+    return None
+
+
+def build_capital_structure_pairs() -> tuple[list[dict[str, Any]], dict[str, int]]:
+    dashboard = json.loads(DASHBOARD_DATA_PATH.read_text(encoding="utf-8"))
+    cross_fund_keys = {row["issuer_match_key"] for row in dashboard["cross_fund_issuer_latest"]}
+    buckets: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for row in dashboard["holdings_detail_latest"]:
+        issuer = row.get("issuer_match_key")
+        if not issuer or issuer not in cross_fund_keys or row.get("exposure_type") != "funded":
+            continue
+        tier = classify_capital_tier(row)
+        if not tier:
+            continue
+        cost = float(row.get("amortized_cost_mm") or 0.0)
+        fair_value = float(row.get("fair_value_mm") or 0.0)
+        key = (issuer, str(row["fund"]), tier)
+        bucket = buckets.setdefault(
+            key,
+            {
+                "issuer_match_key": issuer,
+                "fund": row["fund"],
+                "tier": tier,
+                "tier_rank": CAPITAL_TIERS[tier],
+                "amortized_cost_mm": 0.0,
+                "fair_value_mm": 0.0,
+                "holding_rows": 0,
+                "instrument_labels": set(),
+            },
+        )
+        bucket["amortized_cost_mm"] += cost
+        bucket["fair_value_mm"] += fair_value
+        bucket["holding_rows"] += 1
+        label = row.get("investment_description") or row.get("instrument_type") or row.get("investment_category")
+        if label:
+            bucket["instrument_labels"].add(str(label))
+
+    by_issuer: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for bucket in buckets.values():
+        cost = float(bucket["amortized_cost_mm"])
+        if cost < MATERIAL_TIER_COST_FLOOR_MM:
+            continue
+        bucket["amortized_cost_mm"] = round(cost, 6)
+        bucket["fair_value_mm"] = round(float(bucket["fair_value_mm"]), 6)
+        bucket["fv_to_cost_pct"] = round(float(bucket["fair_value_mm"]) / cost * 100.0, 6)
+        bucket["instrument_labels"] = sorted(bucket["instrument_labels"])[:4]
+        by_issuer[str(bucket["issuer_match_key"])].append(bucket)
+
+    pairs: list[dict[str, Any]] = []
+    for issuer, issuer_buckets in by_issuer.items():
+        for a, b in combinations(issuer_buckets, 2):
+            if a["tier_rank"] == b["tier_rank"]:
+                continue
+            junior, senior = (a, b) if a["tier_rank"] < b["tier_rank"] else (b, a)
+            signed_gap = float(senior["fv_to_cost_pct"]) - float(junior["fv_to_cost_pct"])
+            status = "flat"
+            if signed_gap >= 5.0:
+                status = "expected_waterfall"
+            elif signed_gap <= -5.0:
+                status = "inversion"
+            pairs.append(
+                {
+                    "issuer_match_key": issuer,
+                    "comparison_scope": "cross-fund" if junior["fund"] != senior["fund"] else "within-fund",
+                    "junior_fund": junior["fund"],
+                    "senior_fund": senior["fund"],
+                    "junior_tier": junior["tier"],
+                    "senior_tier": senior["tier"],
+                    "junior_holding_rows": junior["holding_rows"],
+                    "senior_holding_rows": senior["holding_rows"],
+                    "junior_amortized_cost_mm": junior["amortized_cost_mm"],
+                    "junior_fair_value_mm": junior["fair_value_mm"],
+                    "junior_fv_to_cost_pct": junior["fv_to_cost_pct"],
+                    "senior_amortized_cost_mm": senior["amortized_cost_mm"],
+                    "senior_fair_value_mm": senior["fair_value_mm"],
+                    "senior_fv_to_cost_pct": senior["fv_to_cost_pct"],
+                    "senior_minus_junior_gap_pp": round(signed_gap, 6),
+                    "absolute_gap_pp": round(abs(signed_gap), 6),
+                    "waterfall_status": status,
+                    "junior_instrument_labels": junior["instrument_labels"],
+                    "senior_instrument_labels": senior["instrument_labels"],
+                }
+            )
+    status_order = {"expected_waterfall": 0, "inversion": 1, "flat": 2}
+    pairs.sort(
+        key=lambda row: (
+            status_order[row["waterfall_status"]],
+            -float(row["absolute_gap_pp"]),
+            row["issuer_match_key"],
+        )
+    )
+    counts = Counter(row["waterfall_status"] for row in pairs)
+    return pairs, {
+        "pair_count": len(pairs),
+        "company_count": len({row["issuer_match_key"] for row in pairs}),
+        "expected_waterfall_count": counts["expected_waterfall"],
+        "inversion_count": counts["inversion"],
+        "flat_count": counts["flat"],
+    }
+
+
 def main() -> None:
     if not AUDIT_DB.exists():
         raise FileNotFoundError(f"Audit database not found: {AUDIT_DB}")
@@ -183,6 +337,7 @@ def main() -> None:
     different_tranche_gaps, different_tranche_pair_count, different_tranche_company_count = build_different_tranche_gaps(
         connection, latest_period
     )
+    capital_structure_pairs, capital_structure_counts = build_capital_structure_pairs()
 
     reason_counts: Counter[str] = Counter()
     for row in connection.execute(
@@ -209,13 +364,21 @@ def main() -> None:
             "different_tranche_pair_count": different_tranche_pair_count,
             "different_tranche_company_count": different_tranche_company_count,
             "material_principal_floor_mm": MATERIAL_PRINCIPAL_FLOOR_MM,
+            "capital_structure_pair_count": capital_structure_counts["pair_count"],
+            "capital_structure_company_count": capital_structure_counts["company_count"],
+            "expected_waterfall_count": capital_structure_counts["expected_waterfall_count"],
+            "capital_structure_inversion_count": capital_structure_counts["inversion_count"],
+            "capital_structure_flat_count": capital_structure_counts["flat_count"],
+            "material_tier_cost_floor_mm": MATERIAL_TIER_COST_FLOOR_MM,
             "spread_tolerance_bps": float(metrics["spread_tolerance_pct"]) * 100,
             "methodology": "Comparable facilities must be first-lien USD loans with complete principal, plausible FV/par, the same maturity month and reference rate, compatible facility types, and spread or fixed coupon within the stated tolerance.",
             "different_tranche_methodology": "Different-tranche pairs must be first-lien USD debt with at least $5mm of disclosed principal in each facility, a current or future maturity, a SOFR or stated fixed-rate structure, and FV/principal between 25% and 125%. At least one maturity, rate, coupon, lien, or non-equivalent facility-type field must differ.",
+            "capital_structure_methodology": "Capital-structure pairs aggregate funded holdings by issuer, fund, and explicit seniority label, then compare FV/cost for common equity or warrants, preferred equity, junior or unsecured debt, and first-lien senior secured debt. Each tier must have at least $1mm of amortized cost. A 5 percentage-point separation defines either an expected junior-first waterfall or an inversion.",
         },
         "facility_gaps": facility_gaps,
         "company_gaps": company_gaps,
         "different_tranche_gaps": different_tranche_gaps,
+        "capital_structure_pairs": capital_structure_pairs,
         "persistence": persistence,
         "abstention_reasons": [
             {"reason": reason, "count": count}
@@ -227,6 +390,7 @@ def main() -> None:
     print(f"Facility gaps: {len(facility_gaps)}")
     print(f"Company gaps: {len(company_gaps)}")
     print(f"Different-tranche gaps: {len(different_tranche_gaps)}")
+    print(f"Capital-structure pairs: {len(capital_structure_pairs)}")
 
 
 if __name__ == "__main__":

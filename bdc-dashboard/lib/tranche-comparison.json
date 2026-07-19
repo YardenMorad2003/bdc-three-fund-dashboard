@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at_utc": "2026-07-19T03:06:36+00:00",
+    "generated_at_utc": "2026-07-19T03:16:40+00:00",
     "latest_period": "2026-03-31",
     "candidate_count": 189,
     "par_covered_candidate_count": 143,
@@ -10,9 +10,16 @@
     "different_tranche_pair_count": 14,
     "different_tranche_company_count": 8,
     "material_principal_floor_mm": 5.0,
+    "capital_structure_pair_count": 26,
+    "capital_structure_company_count": 18,
+    "expected_waterfall_count": 4,
+    "capital_structure_inversion_count": 7,
+    "capital_structure_flat_count": 15,
+    "material_tier_cost_floor_mm": 1.0,
     "spread_tolerance_bps": 6.1,
     "methodology": "Comparable facilities must be first-lien USD loans with complete principal, plausible FV/par, the same maturity month and reference rate, compatible facility types, and spread or fixed coupon within the stated tolerance.",
-    "different_tranche_methodology": "Different-tranche pairs must be first-lien USD debt with at least $5mm of disclosed principal in each facility, a current or future maturity, a SOFR or stated fixed-rate structure, and FV/principal between 25% and 125%. At least one maturity, rate, coupon, lien, or non-equivalent facility-type field must differ."
+    "different_tranche_methodology": "Different-tranche pairs must be first-lien USD debt with at least $5mm of disclosed principal in each facility, a current or future maturity, a SOFR or stated fixed-rate structure, and FV/principal between 25% and 125%. At least one maturity, rate, coupon, lien, or non-equivalent facility-type field must differ.",
+    "capital_structure_methodology": "Capital-structure pairs aggregate funded holdings by issuer, fund, and explicit seniority label, then compare FV/cost for common equity or warrants, preferred equity, junior or unsecured debt, and first-lien senior secured debt. Each tier must have at least $1mm of amortized cost. A 5 percentage-point separation defines either an expected junior-first waterfall or an inversion."
   },
   "facility_gaps": [
     {
@@ -1188,6 +1195,676 @@
       "lower_mark_fund": "Tie",
       "structural_differences": [
         "spread: 5.3 vs 5.8"
+      ]
+    }
+  ],
+  "capital_structure_pairs": [
+    {
+      "issuer_match_key": "QAD",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "OBDC",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 1.186,
+      "junior_fair_value_mm": 0.939,
+      "junior_fv_to_cost_pct": 79.173693,
+      "senior_amortized_cost_mm": 68.879,
+      "senior_fair_value_mm": 68.405,
+      "senior_fv_to_cost_pct": 99.311837,
+      "senior_minus_junior_gap_pp": 20.138144,
+      "absolute_gap_pp": 20.138144,
+      "waterfall_status": "expected_waterfall",
+      "junior_instrument_labels": [
+        "QAD, Inc. | Preferred stock | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "QAD, Inc. | First lien senior secured loan | Non-Affiliated"
+      ]
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "OBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 65.333,
+      "junior_fair_value_mm": 57.003,
+      "junior_fv_to_cost_pct": 87.249935,
+      "senior_amortized_cost_mm": 184.439,
+      "senior_fair_value_mm": 178.817,
+      "senior_fv_to_cost_pct": 96.951838,
+      "senior_minus_junior_gap_pp": 9.701903,
+      "absolute_gap_pp": 9.701903,
+      "waterfall_status": "expected_waterfall",
+      "junior_instrument_labels": [
+        "Inovalon Holdings, Inc. | Second lien senior secured loan | Non-Affiliated"
+      ],
+      "senior_instrument_labels": [
+        "Inovalon Holdings, Inc."
+      ]
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "comparison_scope": "within-fund",
+      "junior_fund": "OBDC",
+      "senior_fund": "OBDC",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 65.333,
+      "junior_fair_value_mm": 57.003,
+      "junior_fv_to_cost_pct": 87.249935,
+      "senior_amortized_cost_mm": 154.253,
+      "senior_fair_value_mm": 148.633,
+      "senior_fv_to_cost_pct": 96.356635,
+      "senior_minus_junior_gap_pp": 9.1067,
+      "absolute_gap_pp": 9.1067,
+      "waterfall_status": "expected_waterfall",
+      "junior_instrument_labels": [
+        "Inovalon Holdings, Inc. | Second lien senior secured loan | Non-Affiliated"
+      ],
+      "senior_instrument_labels": [
+        "Inovalon Holdings, Inc.| First lien senior secured loan | Non-Affiliated"
+      ]
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "ARCC",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 4,
+      "senior_holding_rows": 2,
+      "junior_amortized_cost_mm": 57.285,
+      "junior_fair_value_mm": 48.682,
+      "junior_fv_to_cost_pct": 84.982107,
+      "senior_amortized_cost_mm": 1.0,
+      "senior_fair_value_mm": 0.9,
+      "senior_fv_to_cost_pct": 90.0,
+      "senior_minus_junior_gap_pp": 5.017893,
+      "absolute_gap_pp": 5.017893,
+      "waterfall_status": "expected_waterfall",
+      "junior_instrument_labels": [
+        "Revalize, Inc. | Preferred stock 1 | Non-Affiliated Issuer",
+        "Revalize, Inc. | Preferred stock 2 | Non-Affiliated Issuer",
+        "Revalize, Inc. | Preferred stock 3 | Non-Affiliated Issuer",
+        "Revalize, Inc. | Preferred stock 4 | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "First lien senior secured loan",
+        "First lien senior secured revolving loan"
+      ]
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "BBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Common equity / warrants",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 1.2,
+      "junior_fair_value_mm": 4.716,
+      "junior_fv_to_cost_pct": 393.0,
+      "senior_amortized_cost_mm": 147.421,
+      "senior_fair_value_mm": 148.007,
+      "senior_fv_to_cost_pct": 100.397501,
+      "senior_minus_junior_gap_pp": -292.602499,
+      "absolute_gap_pp": 292.602499,
+      "waterfall_status": "inversion",
+      "junior_instrument_labels": [
+        "Shelf Bidco Ltd | Common Stock"
+      ],
+      "senior_instrument_labels": [
+        "Shelf Bidco, Ltd."
+      ]
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "OBDC",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 2,
+      "junior_amortized_cost_mm": 4.613,
+      "junior_fair_value_mm": 6.359,
+      "junior_fv_to_cost_pct": 137.849556,
+      "senior_amortized_cost_mm": 23.004,
+      "senior_fair_value_mm": 22.378,
+      "senior_fv_to_cost_pct": 97.278734,
+      "senior_minus_junior_gap_pp": -40.570822,
+      "absolute_gap_pp": 40.570822,
+      "waterfall_status": "inversion",
+      "junior_instrument_labels": [
+        "PDI TA Holdings, Inc. | Preferred stock | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "PDI TA Holdings, Inc. | First lien senior secured loan | Non-Affiliated",
+        "PDI TA Holdings, Inc. | First lien senior secured revolving loan | Non-Affiliated"
+      ]
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "TSLX",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 2,
+      "junior_amortized_cost_mm": 4.613,
+      "junior_fair_value_mm": 6.359,
+      "junior_fv_to_cost_pct": 137.849556,
+      "senior_amortized_cost_mm": 21.526,
+      "senior_fair_value_mm": 21.271,
+      "senior_fv_to_cost_pct": 98.815386,
+      "senior_minus_junior_gap_pp": -39.03417,
+      "absolute_gap_pp": 39.03417,
+      "waterfall_status": "inversion",
+      "junior_instrument_labels": [
+        "PDI TA Holdings, Inc. | Preferred stock | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "First-lien loan ($ 20,232 par, due 2/2031 )",
+        "First-lien revolving loan ($ 1,531 par, due 2/2031 )"
+      ]
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 2,
+      "junior_amortized_cost_mm": 4.613,
+      "junior_fair_value_mm": 6.359,
+      "junior_fv_to_cost_pct": 137.849556,
+      "senior_amortized_cost_mm": 50.244,
+      "senior_fair_value_mm": 50.09,
+      "senior_fv_to_cost_pct": 99.693496,
+      "senior_minus_junior_gap_pp": -38.15606,
+      "absolute_gap_pp": 38.15606,
+      "waterfall_status": "inversion",
+      "junior_instrument_labels": [
+        "PDI TA Holdings, Inc. | Preferred stock | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "PDI TA Holdings, Inc."
+      ]
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 3,
+      "junior_amortized_cost_mm": 1.119,
+      "junior_fair_value_mm": 1.142,
+      "junior_fv_to_cost_pct": 102.055407,
+      "senior_amortized_cost_mm": 8.785,
+      "senior_fair_value_mm": 7.855,
+      "senior_fv_to_cost_pct": 89.413773,
+      "senior_minus_junior_gap_pp": -12.641634,
+      "absolute_gap_pp": 12.641634,
+      "waterfall_status": "inversion",
+      "junior_instrument_labels": [
+        "ADCS Clinics Intermediate Holdings, LLC | Preferred stock | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "ADCS Clinics Intermediate Holdings, LLC"
+      ]
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "TSLX",
+      "senior_fund": "ARCC",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 2.827,
+      "junior_fair_value_mm": 3.204,
+      "junior_fv_to_cost_pct": 113.335692,
+      "senior_amortized_cost_mm": 45.9,
+      "senior_fair_value_mm": 46.5,
+      "senior_fv_to_cost_pct": 101.30719,
+      "senior_minus_junior_gap_pp": -12.028502,
+      "absolute_gap_pp": 12.028502,
+      "waterfall_status": "inversion",
+      "junior_instrument_labels": [
+        "Second-lien loan ($ 2,854 par, due 6/2027 )"
+      ],
+      "senior_instrument_labels": [
+        "First lien senior secured loan"
+      ]
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "comparison_scope": "within-fund",
+      "junior_fund": "TSLX",
+      "senior_fund": "TSLX",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 2.827,
+      "junior_fair_value_mm": 3.204,
+      "junior_fv_to_cost_pct": 113.335692,
+      "senior_amortized_cost_mm": 51.544,
+      "senior_fair_value_mm": 53.396,
+      "senior_fv_to_cost_pct": 103.593047,
+      "senior_minus_junior_gap_pp": -9.742645,
+      "absolute_gap_pp": 9.742645,
+      "waterfall_status": "inversion",
+      "junior_instrument_labels": [
+        "Second-lien loan ($ 2,854 par, due 6/2027 )"
+      ],
+      "senior_instrument_labels": [
+        "First-lien loan ($ 52,094 par, due 3/2029 ) (3)"
+      ]
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "OBDC",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 3,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 60.657,
+      "junior_fair_value_mm": 62.404,
+      "junior_fv_to_cost_pct": 102.880129,
+      "senior_amortized_cost_mm": 9.424,
+      "senior_fair_value_mm": 9.254,
+      "senior_fv_to_cost_pct": 98.196095,
+      "senior_minus_junior_gap_pp": -4.684034,
+      "absolute_gap_pp": 4.684034,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "GS Acquisitionco, Inc. | Preferred stock 1 | Non-Affiliated Issuer",
+        "GS Acquisitionco, Inc. | Preferred stock 2 | Non-Affiliated Issuer",
+        "GS Acquisitionco, Inc. | Preferred stock 3 | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "GS Acquisitionco, Inc. (dba insightsoftware) I First lien senior secured loan | Non-Affiliated"
+      ]
+    },
+    {
+      "issuer_match_key": "HEARTLAND VETERINARY PARTNERS",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "BBDC",
+      "senior_fund": "GBDC",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 3,
+      "junior_amortized_cost_mm": 15.947,
+      "junior_fair_value_mm": 15.207,
+      "junior_fv_to_cost_pct": 95.359629,
+      "senior_amortized_cost_mm": 3.678,
+      "senior_fair_value_mm": 3.676,
+      "senior_fv_to_cost_pct": 99.945623,
+      "senior_minus_junior_gap_pp": 4.585994,
+      "absolute_gap_pp": 4.585994,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Heartland Veterinary Partners, LLC | Subordinated Term Loan"
+      ],
+      "senior_instrument_labels": [
+        "Heartland Veterinary Partners LLC | Senior secured 1 | Non-Affiliated Issuer",
+        "Heartland Veterinary Partners LLC | Senior secured 2 | Non-Affiliated Issuer",
+        "Heartland Veterinary Partners LLC | Senior secured 3 | Non-Affiliated Issuer"
+      ]
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 3,
+      "senior_holding_rows": 2,
+      "junior_amortized_cost_mm": 60.657,
+      "junior_fair_value_mm": 62.404,
+      "junior_fv_to_cost_pct": 102.880129,
+      "senior_amortized_cost_mm": 7.263,
+      "senior_fair_value_mm": 7.179,
+      "senior_fv_to_cost_pct": 98.843453,
+      "senior_minus_junior_gap_pp": -4.036676,
+      "absolute_gap_pp": 4.036676,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "GS Acquisitionco, Inc. | Preferred stock 1 | Non-Affiliated Issuer",
+        "GS Acquisitionco, Inc. | Preferred stock 2 | Non-Affiliated Issuer",
+        "GS Acquisitionco, Inc. | Preferred stock 3 | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "GS Acquisitionco, Inc."
+      ]
+    },
+    {
+      "issuer_match_key": "DILIGENT",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 2,
+      "senior_holding_rows": 2,
+      "junior_amortized_cost_mm": 36.86,
+      "junior_fair_value_mm": 38.208,
+      "junior_fv_to_cost_pct": 103.657081,
+      "senior_amortized_cost_mm": 58.038,
+      "senior_fair_value_mm": 58.2,
+      "senior_fv_to_cost_pct": 100.279127,
+      "senior_minus_junior_gap_pp": -3.377954,
+      "absolute_gap_pp": 3.377954,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Diligent Corporation | Preferred stock 1 | Non-Affiliated Issuer",
+        "Diligent Corporation | Preferred stock 2 | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "Diligent Corp."
+      ]
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "ARCC",
+      "senior_fund": "TSLX",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 2,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 7.2,
+      "junior_fair_value_mm": 7.2,
+      "junior_fv_to_cost_pct": 100.0,
+      "senior_amortized_cost_mm": 55.135,
+      "senior_fair_value_mm": 56.157,
+      "senior_fv_to_cost_pct": 101.853632,
+      "senior_minus_junior_gap_pp": 1.853632,
+      "absolute_gap_pp": 1.853632,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Senior subordinated loan"
+      ],
+      "senior_instrument_labels": [
+        "First-lien holdco loan ($ 56,017 par, due 10/2030 )"
+      ]
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "comparison_scope": "within-fund",
+      "junior_fund": "BXSL",
+      "senior_fund": "BXSL",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 2,
+      "senior_holding_rows": 4,
+      "junior_amortized_cost_mm": 27.621,
+      "junior_fair_value_mm": 27.013,
+      "junior_fv_to_cost_pct": 97.798776,
+      "senior_amortized_cost_mm": 87.1,
+      "senior_fair_value_mm": 86.567,
+      "senior_fv_to_cost_pct": 99.38806,
+      "senior_minus_junior_gap_pp": 1.589284,
+      "absolute_gap_pp": 1.589284,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Denali Holdco, Ltd."
+      ],
+      "senior_instrument_labels": [
+        "Denali Bidco, Ltd.",
+        "Denali Intermediate Holdings, Inc.",
+        "Denali TopCo, LLC"
+      ]
+    },
+    {
+      "issuer_match_key": "MINERVA",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "OBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 13.836,
+      "junior_fair_value_mm": 13.536,
+      "junior_fv_to_cost_pct": 97.831743,
+      "senior_amortized_cost_mm": 6.364,
+      "senior_fair_value_mm": 6.322,
+      "senior_fv_to_cost_pct": 99.340038,
+      "senior_minus_junior_gap_pp": 1.508295,
+      "absolute_gap_pp": 1.508295,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Minerva Holdco, Inc. | Senior A Preferred Stock | Non-Affiliated"
+      ],
+      "senior_instrument_labels": [
+        "Minerva Bidco, Ltd."
+      ]
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "ARCC",
+      "senior_fund": "TSLX",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 4.7,
+      "junior_fair_value_mm": 4.8,
+      "junior_fv_to_cost_pct": 102.12766,
+      "senior_amortized_cost_mm": 51.544,
+      "senior_fair_value_mm": 53.396,
+      "senior_fv_to_cost_pct": 103.593047,
+      "senior_minus_junior_gap_pp": 1.465387,
+      "absolute_gap_pp": 1.465387,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Second lien senior secured loan"
+      ],
+      "senior_instrument_labels": [
+        "First-lien loan ($ 52,094 par, due 3/2029 ) (3)"
+      ]
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "BXSL",
+      "senior_fund": "OBDC",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 2,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 27.621,
+      "junior_fair_value_mm": 27.013,
+      "junior_fv_to_cost_pct": 97.798776,
+      "senior_amortized_cost_mm": 76.091,
+      "senior_fair_value_mm": 75.434,
+      "senior_fv_to_cost_pct": 99.13656,
+      "senior_minus_junior_gap_pp": 1.337784,
+      "absolute_gap_pp": 1.337784,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Denali Holdco, Ltd."
+      ],
+      "senior_instrument_labels": [
+        "Denali Intermediate Holdings, Inc. (dba Dun & Bradstreet) | First lien senior secured loan | Non-Affiliated"
+      ]
+    },
+    {
+      "issuer_match_key": "INSIGHT BORROWER",
+      "comparison_scope": "within-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "GBDC",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 3,
+      "junior_amortized_cost_mm": 2.748,
+      "junior_fair_value_mm": 2.821,
+      "junior_fv_to_cost_pct": 102.656477,
+      "senior_amortized_cost_mm": 2.606,
+      "senior_fair_value_mm": 2.646,
+      "senior_fv_to_cost_pct": 101.534919,
+      "senior_minus_junior_gap_pp": -1.121558,
+      "absolute_gap_pp": 1.121558,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Insight Borrower, LLC | Preferred stock | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "Insight Borrower, LLC | Senior secured 1 | Non-Affiliated Issuer",
+        "Insight Borrower, LLC | Senior secured 2 | Non-Affiliated Issuer",
+        "Insight Borrower, LLC | Senior secured 3 | Non-Affiliated Issuer"
+      ]
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "OBDC",
+      "senior_fund": "ARCC",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 2,
+      "junior_amortized_cost_mm": 24.874,
+      "junior_fair_value_mm": 25.099,
+      "junior_fv_to_cost_pct": 100.904559,
+      "senior_amortized_cost_mm": 21.3,
+      "senior_fair_value_mm": 21.3,
+      "senior_fv_to_cost_pct": 100.0,
+      "senior_minus_junior_gap_pp": -0.904559,
+      "absolute_gap_pp": 0.904559,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Diamond Mezzanine 24 LLC (dba United Risk) | First lien senior secured loan | Non-Affiliated"
+      ],
+      "senior_instrument_labels": [
+        "First lien senior secured loan",
+        "First lien senior secured revolving loan"
+      ]
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "comparison_scope": "within-fund",
+      "junior_fund": "ARCC",
+      "senior_fund": "ARCC",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 4.7,
+      "junior_fair_value_mm": 4.8,
+      "junior_fv_to_cost_pct": 102.12766,
+      "senior_amortized_cost_mm": 45.9,
+      "senior_fair_value_mm": 46.5,
+      "senior_fv_to_cost_pct": 101.30719,
+      "senior_minus_junior_gap_pp": -0.82047,
+      "absolute_gap_pp": 0.82047,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Second lien senior secured loan"
+      ],
+      "senior_instrument_labels": [
+        "First lien senior secured loan"
+      ]
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "BBDC",
+      "senior_fund": "ARCC",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 2,
+      "junior_amortized_cost_mm": 4.44,
+      "junior_fair_value_mm": 3.95,
+      "junior_fv_to_cost_pct": 88.963964,
+      "senior_amortized_cost_mm": 52.3,
+      "senior_fair_value_mm": 46.1,
+      "senior_fv_to_cost_pct": 88.145315,
+      "senior_minus_junior_gap_pp": -0.818649,
+      "absolute_gap_pp": 0.818649,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Burgess Point Purchaser Corporation | Second Lien Senior Secured Term Loan"
+      ],
+      "senior_instrument_labels": [
+        "First lien senior secured loan"
+      ]
+    },
+    {
+      "issuer_match_key": "OPTIMIZELY NORTH AMERICA",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Common equity / warrants",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 3,
+      "junior_amortized_cost_mm": 1.016,
+      "junior_fair_value_mm": 1.009,
+      "junior_fv_to_cost_pct": 99.311024,
+      "senior_amortized_cost_mm": 12.234,
+      "senior_fair_value_mm": 12.174,
+      "senior_fv_to_cost_pct": 99.509564,
+      "senior_minus_junior_gap_pp": 0.19854,
+      "absolute_gap_pp": 0.19854,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Optimizely North America, Inc. | Common stock | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "Optimizely North America, Inc."
+      ]
+    },
+    {
+      "issuer_match_key": "MODERNIZING MEDICINE",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "GBDC",
+      "senior_fund": "BXSL",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "junior_holding_rows": 1,
+      "senior_holding_rows": 1,
+      "junior_amortized_cost_mm": 5.009,
+      "junior_fair_value_mm": 5.058,
+      "junior_fv_to_cost_pct": 100.978239,
+      "senior_amortized_cost_mm": 8.937,
+      "senior_fair_value_mm": 9.013,
+      "senior_fv_to_cost_pct": 100.850397,
+      "senior_minus_junior_gap_pp": -0.127842,
+      "absolute_gap_pp": 0.127842,
+      "waterfall_status": "flat",
+      "junior_instrument_labels": [
+        "Modernizing Medicine, Inc. | Preferred stock | Non-Affiliated Issuer"
+      ],
+      "senior_instrument_labels": [
+        "Modernizing Medicine, Inc."
       ]
     }
   ],
