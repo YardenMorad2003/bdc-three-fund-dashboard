@@ -27,6 +27,18 @@ FUND_NAMES = {
 }
 TIMELINE_ISSUER_LIMIT = 200
 
+# The generic issuer normalizer intentionally strips acquisition-vehicle suffixes,
+# but a handful of short names become false matches when the remaining token is
+# too generic. Keep these evidence-reviewed exceptions close to the dashboard
+# export so every derived Exposure and Timeline aggregate uses the corrected key.
+ISSUER_MATCH_KEY_OVERRIDES = {
+    "Continental Buyer, Inc.": "CONTINENTAL BUYER",
+    "Continental Buyer Inc": "CONTINENTAL BUYER",
+    "Continental Finance Company, LLC": "CONTINENTAL FINANCE",
+    "Minerva Bidco, Ltd.": "MINERVA BIDCO",
+    "Minerva Holdco, Inc.": "MINERVA HOLDCO",
+}
+
 CATEGORY_EXPR = """
 case
     when fund = 'TSLX' then
@@ -73,7 +85,71 @@ end
 def connect() -> sqlite3.Connection:
     con = sqlite3.connect(DB_PATH.resolve().as_uri() + "?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
+    install_issuer_match_key_overrides(con)
     return con
+
+
+def install_issuer_match_key_overrides(con: sqlite3.Connection) -> None:
+    """Shadow issuer-key views in TEMP with reviewed collision corrections."""
+
+    def resolved_key(issuer_name: str | None, issuer_match_key: str | None) -> str | None:
+        return ISSUER_MATCH_KEY_OVERRIDES.get(issuer_name or "", issuer_match_key)
+
+    con.create_function("resolved_issuer_match_key", 2, resolved_key, deterministic=True)
+
+    columns = [row[1] for row in con.execute("pragma main.table_info(security_level_holdings)")]
+    select_columns = []
+    for column in columns:
+        quoted = f'"{column}"'
+        if column == "issuer_match_key":
+            select_columns.append(
+                'resolved_issuer_match_key("issuer_name", "issuer_match_key") as "issuer_match_key"'
+            )
+        else:
+            select_columns.append(quoted)
+    projection = ", ".join(select_columns)
+
+    con.execute(
+        f"create temp table security_level_holdings as "
+        f"select {projection} from main.security_level_holdings"
+    )
+    con.execute(
+        "create temp table funded_security_level_holdings as "
+        "select * from temp.security_level_holdings "
+        "where coalesce(is_unfunded_commitment, 0) = 0"
+    )
+    con.executescript(
+        """
+        create temp view fund_issuer_match_period_exposure as
+        select
+            fund,
+            filing_period_end,
+            coalesce(issuer_match_key, 'UNKNOWN') as issuer_match_key,
+            min(issuer_name) as representative_issuer_name,
+            group_concat(distinct issuer_name) as issuer_name_variants,
+            count(*) as holding_rows,
+            round(sum(amortized_cost_mm), 6) as amortized_cost_mm,
+            round(sum(fair_value_mm), 6) as fair_value_mm
+        from temp.funded_security_level_holdings
+        group by fund, filing_period_end, coalesce(issuer_match_key, 'UNKNOWN');
+
+        create temp view cross_fund_issuer_period_exposure as
+        select
+            filing_period_end,
+            issuer_match_key,
+            min(representative_issuer_name) as representative_issuer_name,
+            group_concat(distinct fund) as funds,
+            count(distinct fund) as fund_count,
+            sum(holding_rows) as holding_rows,
+            round(sum(amortized_cost_mm), 6) as amortized_cost_mm,
+            round(sum(fair_value_mm), 6) as fair_value_mm,
+            group_concat(distinct issuer_name_variants) as issuer_name_variants
+        from temp.fund_issuer_match_period_exposure
+        where issuer_match_key <> 'UNKNOWN'
+        group by filing_period_end, issuer_match_key
+        having count(distinct fund) >= 2;
+        """
+    )
 
 
 def rows(con: sqlite3.Connection, sql: str, params: tuple[Any, ...] = ()) -> list[dict[str, Any]]:

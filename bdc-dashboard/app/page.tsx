@@ -1175,6 +1175,11 @@ function isSourceDerivedEnrichment(enrichment: CompanyEnrichment | undefined) {
   return enrichment.notes.startsWith("Source-derived schedule context");
 }
 
+function findCompanyEnrichment(issuerMatchKey: string) {
+  const matches = companyEnrichment.filter((item) => item.issuer_match_key === issuerMatchKey);
+  return matches.find((item) => !isSourceDerivedEnrichment(item)) || matches[0];
+}
+
 function parseJsonStringArray(value: string | null | undefined) {
   if (!value) return [];
   try {
@@ -4114,7 +4119,7 @@ function CrossFundSpotlightCard({
   index: number;
   onOpenTimelineIssuer: (issuerMatchKey: string) => void;
 }) {
-  const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+  const enrichment = findCompanyEnrichment(row.issuer_match_key);
   const fundBreakdown = [...row.fund_breakdown].sort((a, b) => b.fair_value_mm - a.fair_value_mm);
   const maxFundValue = Math.max(...fundBreakdown.map((item) => item.fair_value_mm), 1);
 
@@ -4184,7 +4189,7 @@ function MarkDivergence({
         : trancheComparison.capital_structure_pairs;
   const rows = sourceRows
     .map((row) => {
-      const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+      const enrichment = findCompanyEnrichment(row.issuer_match_key);
       const facility = mode === "facility" ? (row as FacilityGapRow) : null;
       const company = mode === "company" ? (row as CompanyGapRow) : null;
       const structure = mode === "structure" ? (row as CapitalStructurePairRow) : null;
@@ -4282,7 +4287,7 @@ function MarkDivergence({
           </div>
           <div className="lead-lag-overview-grid">
             {leadLagRows.map((row) => {
-              const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+              const enrichment = findCompanyEnrichment(row.issuer_match_key);
               return (
                 <button type="button" key={`${row.issuer_match_key}-${row.junior_tier}`} onClick={() => onOpenTimelineIssuer(row.issuer_match_key)}>
                   <span className={`waterfall-signal lead-${row.lead_lag_status}`}>{leadLagLabel(row.lead_lag_status)}</span>
@@ -4447,7 +4452,7 @@ function Exposure({
   const filteredCrossFundIssuers = rankedCrossFundIssuers.filter((row) => {
     if (row.fund_count < minimumFundCount) return false;
     if (!normalizedCrossFundQuery) return true;
-    const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+    const enrichment = findCompanyEnrichment(row.issuer_match_key);
     return [
       row.issuer_match_key,
       row.representative_issuer_name,
@@ -4463,14 +4468,14 @@ function Exposure({
   });
   const spotlightRows = rankedCrossFundIssuers
     .filter((row) => {
-      const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+      const enrichment = findCompanyEnrichment(row.issuer_match_key);
       return enrichment && !isSourceDerivedEnrichment(enrichment);
     })
     .slice(0, 6);
   const crossFundFairValue = sumBy(crossFundIssuers, (row) => row.fair_value_mm);
   const maximumOverlap = Math.max(...crossFundIssuers.map((row) => row.fund_count), 0);
   const sourcedProfileCount = crossFundIssuers.filter((row) => {
-    const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+    const enrichment = findCompanyEnrichment(row.issuer_match_key);
     return enrichment && !isSourceDerivedEnrichment(enrichment);
   }).length;
 
@@ -4570,7 +4575,7 @@ function Exposure({
             <tbody>
               {filteredCrossFundIssuers.map((row) => {
                 const hasTimelinePage = timelineIssuerKeys.has(row.issuer_match_key);
-                const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+                const enrichment = findCompanyEnrichment(row.issuer_match_key);
                 return (
                   <tr key={row.issuer_match_key}>
                     <td className="issuer-cell">
@@ -4888,7 +4893,7 @@ function Timeline({
 }) {
   const visibleFunds = selectedFund === "All" ? funds : [selectedFund];
   const issuer = data.loan_timeline_issuers.find((item) => item.issuer_match_key === selectedIssuerKey);
-  const enrichment = companyEnrichment.find((item) => item.issuer_match_key === selectedIssuerKey);
+  const enrichment = findCompanyEnrichment(selectedIssuerKey);
   const periodRows = useMemo(
     () =>
       data.loan_timeline_periods.filter(
@@ -5172,7 +5177,7 @@ function Timeline({
         >
           <div className="related-issuer-list">
             {relatedIssuers.map((row) => {
-              const relatedEnrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+              const relatedEnrichment = findCompanyEnrichment(row.issuer_match_key);
               return (
                 <button type="button" key={row.issuer_match_key} onClick={() => onSelectIssuer(row.issuer_match_key)}>
                   <span className="related-issuer-name">
@@ -6476,7 +6481,7 @@ export default function DashboardPage() {
                 title="Issuer timeline"
               >
                 {sortedTimelineIssuers.map((issuer) => {
-                  const enriched = companyEnrichment.find((item) => item.issuer_match_key === issuer.issuer_match_key);
+                  const enriched = findCompanyEnrichment(issuer.issuer_match_key);
                   return (
                     <option key={issuer.issuer_match_key} value={issuer.issuer_match_key}>
                       {enriched?.display_name || issuer.display_name || issuer.issuer_match_key} · {issuer.funds.length} fund{issuer.funds.length === 1 ? "" : "s"}

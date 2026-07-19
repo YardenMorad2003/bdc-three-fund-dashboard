@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at_utc": "2026-07-19T03:46:57+00:00",
+    "generated_at_utc": "2026-07-19T04:43:51+00:00",
     "latest_period": "2026-03-31",
     "candidate_count": 189,
     "par_covered_candidate_count": 143,
@@ -10,18 +10,18 @@
     "different_tranche_pair_count": 14,
     "different_tranche_company_count": 8,
     "material_principal_floor_mm": 5.0,
-    "capital_structure_pair_count": 26,
-    "capital_structure_company_count": 18,
+    "capital_structure_pair_count": 25,
+    "capital_structure_company_count": 17,
     "expected_waterfall_count": 4,
     "capital_structure_inversion_count": 7,
-    "capital_structure_flat_count": 15,
+    "capital_structure_flat_count": 14,
     "material_tier_cost_floor_mm": 1.0,
-    "lead_lag_summary_count": 15,
-    "lead_lag_company_count": 15,
+    "lead_lag_summary_count": 14,
+    "lead_lag_company_count": 14,
     "junior_first_count": 1,
     "simultaneous_count": 3,
     "senior_first_count": 1,
-    "no_breach_count": 10,
+    "no_breach_count": 9,
     "spread_tolerance_bps": 6.1,
     "methodology": "Comparable facilities must be first-lien USD loans with complete principal, plausible FV/par, the same maturity month and reference rate, compatible facility types, and spread or fixed coupon within the stated tolerance.",
     "different_tranche_methodology": "Different-tranche pairs must be first-lien USD debt with at least $5mm of disclosed principal in each facility, a current or future maturity, a SOFR or stated fixed-rate structure, and FV/principal between 25% and 125%. At least one maturity, rate, coupon, lien, or non-equivalent facility-type field must differ.",
@@ -1647,31 +1647,6 @@
       ]
     },
     {
-      "issuer_match_key": "MINERVA",
-      "comparison_scope": "cross-fund",
-      "junior_fund": "OBDC",
-      "senior_fund": "BXSL",
-      "junior_tier": "Preferred equity",
-      "senior_tier": "First-lien senior secured",
-      "junior_holding_rows": 1,
-      "senior_holding_rows": 1,
-      "junior_amortized_cost_mm": 13.836,
-      "junior_fair_value_mm": 13.536,
-      "junior_fv_to_cost_pct": 97.831743,
-      "senior_amortized_cost_mm": 6.364,
-      "senior_fair_value_mm": 6.322,
-      "senior_fv_to_cost_pct": 99.340038,
-      "senior_minus_junior_gap_pp": 1.508295,
-      "absolute_gap_pp": 1.508295,
-      "waterfall_status": "flat",
-      "junior_instrument_labels": [
-        "Minerva Holdco, Inc. | Senior A Preferred Stock | Non-Affiliated"
-      ],
-      "senior_instrument_labels": [
-        "Minerva Bidco, Ltd."
-      ]
-    },
-    {
       "issuer_match_key": "EQUINOX",
       "comparison_scope": "cross-fund",
       "junior_fund": "ARCC",
@@ -3264,71 +3239,6 @@
       "fv_to_cost_pct": 96.68076
     },
     {
-      "issuer_match_key": "MINERVA",
-      "filing_period_end": "2025-09-30",
-      "tier": "First-lien senior secured",
-      "tier_rank": 3,
-      "amortized_cost_mm": 1.68,
-      "fair_value_mm": 1.677,
-      "holding_rows": 1,
-      "funds": [
-        "BXSL"
-      ],
-      "fv_to_cost_pct": 99.821429
-    },
-    {
-      "issuer_match_key": "MINERVA",
-      "filing_period_end": "2025-12-31",
-      "tier": "Preferred equity",
-      "tier_rank": 1,
-      "amortized_cost_mm": 13.46,
-      "fair_value_mm": 13.558,
-      "holding_rows": 1,
-      "funds": [
-        "OBDC"
-      ],
-      "fv_to_cost_pct": 100.728083
-    },
-    {
-      "issuer_match_key": "MINERVA",
-      "filing_period_end": "2025-12-31",
-      "tier": "First-lien senior secured",
-      "tier_rank": 3,
-      "amortized_cost_mm": 6.36,
-      "fair_value_mm": 6.438,
-      "holding_rows": 1,
-      "funds": [
-        "BXSL"
-      ],
-      "fv_to_cost_pct": 101.226415
-    },
-    {
-      "issuer_match_key": "MINERVA",
-      "filing_period_end": "2026-03-31",
-      "tier": "Preferred equity",
-      "tier_rank": 1,
-      "amortized_cost_mm": 13.836,
-      "fair_value_mm": 13.536,
-      "holding_rows": 1,
-      "funds": [
-        "OBDC"
-      ],
-      "fv_to_cost_pct": 97.831743
-    },
-    {
-      "issuer_match_key": "MINERVA",
-      "filing_period_end": "2026-03-31",
-      "tier": "First-lien senior secured",
-      "tier_rank": 3,
-      "amortized_cost_mm": 6.364,
-      "fair_value_mm": 6.322,
-      "holding_rows": 1,
-      "funds": [
-        "BXSL"
-      ],
-      "fv_to_cost_pct": 99.340038
-    },
-    {
       "issuer_match_key": "PDI TA",
       "filing_period_end": "2024-12-31",
       "tier": "First-lien senior secured",
@@ -3811,29 +3721,6 @@
       "periods": [
         "2025-03-31",
         "2025-09-30",
-        "2025-12-31",
-        "2026-03-31"
-      ]
-    },
-    {
-      "issuer_match_key": "MINERVA",
-      "junior_tier": "Preferred equity",
-      "senior_tier": "First-lien senior secured",
-      "common_period_count": 2,
-      "first_common_period": "2025-12-31",
-      "latest_common_period": "2026-03-31",
-      "junior_first_below_95_period": null,
-      "senior_first_below_95_period": null,
-      "junior_first_below_90_period": null,
-      "senior_first_below_90_period": null,
-      "lead_lag_status": "no_breach",
-      "lead_quarters_at_95": null,
-      "latest_junior_fv_to_cost_pct": 97.831743,
-      "latest_senior_fv_to_cost_pct": 99.340038,
-      "latest_senior_minus_junior_gap_pp": 1.508295,
-      "minimum_junior_fv_to_cost_pct": 97.831743,
-      "minimum_senior_fv_to_cost_pct": 99.340038,
-      "periods": [
         "2025-12-31",
         "2026-03-31"
       ]
