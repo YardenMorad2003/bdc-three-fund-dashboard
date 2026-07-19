@@ -281,6 +281,133 @@ def build_capital_structure_pairs() -> tuple[list[dict[str, Any]], dict[str, int
     }
 
 
+def first_breach(periods: list[str], marks: dict[str, float], threshold: float) -> str | None:
+    return next((period for period in periods if marks.get(period, 999.0) < threshold), None)
+
+
+def build_capital_structure_timeline() -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, int]]:
+    dashboard = json.loads(DASHBOARD_DATA_PATH.read_text(encoding="utf-8"))
+    buckets: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for row in dashboard["loan_timeline_securities"]:
+        issuer = row.get("issuer_match_key")
+        period = row.get("filing_period_end")
+        if not issuer or not period or row.get("exposure_type") != "funded":
+            continue
+        tier = classify_capital_tier(row)
+        if not tier:
+            continue
+        key = (str(issuer), str(period), tier)
+        bucket = buckets.setdefault(
+            key,
+            {
+                "issuer_match_key": issuer,
+                "filing_period_end": period,
+                "tier": tier,
+                "tier_rank": CAPITAL_TIERS[tier],
+                "amortized_cost_mm": 0.0,
+                "fair_value_mm": 0.0,
+                "holding_rows": 0,
+                "funds": set(),
+            },
+        )
+        bucket["amortized_cost_mm"] += float(row.get("amortized_cost_mm") or 0.0)
+        bucket["fair_value_mm"] += float(row.get("fair_value_mm") or 0.0)
+        bucket["holding_rows"] += 1
+        bucket["funds"].add(str(row["fund"]))
+
+    timeline_rows: list[dict[str, Any]] = []
+    by_issuer_tier: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    for bucket in buckets.values():
+        cost = float(bucket["amortized_cost_mm"])
+        if cost < MATERIAL_TIER_COST_FLOOR_MM:
+            continue
+        bucket["amortized_cost_mm"] = round(cost, 6)
+        bucket["fair_value_mm"] = round(float(bucket["fair_value_mm"]), 6)
+        bucket["fv_to_cost_pct"] = round(float(bucket["fair_value_mm"]) / cost * 100.0, 6)
+        bucket["funds"] = sorted(bucket["funds"])
+        timeline_rows.append(bucket)
+        by_issuer_tier[(str(bucket["issuer_match_key"]), str(bucket["tier"]))].append(bucket)
+
+    issuer_tiers: dict[str, set[str]] = defaultdict(set)
+    for issuer, tier in by_issuer_tier:
+        issuer_tiers[issuer].add(tier)
+
+    summaries: list[dict[str, Any]] = []
+    senior_tier = "First-lien senior secured"
+    for issuer, tiers in issuer_tiers.items():
+        if senior_tier not in tiers:
+            continue
+        senior_rows = by_issuer_tier[(issuer, senior_tier)]
+        senior_marks = {str(row["filing_period_end"]): float(row["fv_to_cost_pct"]) for row in senior_rows}
+        for junior_tier in sorted((tier for tier in tiers if CAPITAL_TIERS[tier] < CAPITAL_TIERS[senior_tier]), key=CAPITAL_TIERS.get):
+            junior_rows = by_issuer_tier[(issuer, junior_tier)]
+            junior_marks = {str(row["filing_period_end"]): float(row["fv_to_cost_pct"]) for row in junior_rows}
+            common_periods = sorted(set(junior_marks) & set(senior_marks))
+            if len(common_periods) < 2:
+                continue
+
+            junior_95 = first_breach(common_periods, junior_marks, 95.0)
+            senior_95 = first_breach(common_periods, senior_marks, 95.0)
+            junior_90 = first_breach(common_periods, junior_marks, 90.0)
+            senior_90 = first_breach(common_periods, senior_marks, 90.0)
+            status = "no_breach"
+            lead_quarters: int | None = None
+            if junior_95 and senior_95:
+                junior_index = common_periods.index(junior_95)
+                senior_index = common_periods.index(senior_95)
+                lead_quarters = senior_index - junior_index
+                status = "junior_first" if lead_quarters > 0 else "senior_first" if lead_quarters < 0 else "simultaneous"
+            elif junior_95:
+                status = "junior_first"
+            elif senior_95:
+                status = "senior_first"
+
+            latest_period = common_periods[-1]
+            summaries.append(
+                {
+                    "issuer_match_key": issuer,
+                    "junior_tier": junior_tier,
+                    "senior_tier": senior_tier,
+                    "common_period_count": len(common_periods),
+                    "first_common_period": common_periods[0],
+                    "latest_common_period": latest_period,
+                    "junior_first_below_95_period": junior_95,
+                    "senior_first_below_95_period": senior_95,
+                    "junior_first_below_90_period": junior_90,
+                    "senior_first_below_90_period": senior_90,
+                    "lead_lag_status": status,
+                    "lead_quarters_at_95": lead_quarters,
+                    "latest_junior_fv_to_cost_pct": junior_marks[latest_period],
+                    "latest_senior_fv_to_cost_pct": senior_marks[latest_period],
+                    "latest_senior_minus_junior_gap_pp": round(senior_marks[latest_period] - junior_marks[latest_period], 6),
+                    "minimum_junior_fv_to_cost_pct": min(junior_marks[period] for period in common_periods),
+                    "minimum_senior_fv_to_cost_pct": min(senior_marks[period] for period in common_periods),
+                    "periods": common_periods,
+                }
+            )
+
+    status_order = {"junior_first": 0, "simultaneous": 1, "senior_first": 2, "no_breach": 3}
+    summaries.sort(
+        key=lambda row: (
+            status_order[row["lead_lag_status"]],
+            -float(row["latest_senior_minus_junior_gap_pp"]),
+            row["issuer_match_key"],
+        )
+    )
+    summary_issuers = {row["issuer_match_key"] for row in summaries}
+    timeline_rows = [row for row in timeline_rows if row["issuer_match_key"] in summary_issuers]
+    timeline_rows.sort(key=lambda row: (row["issuer_match_key"], row["filing_period_end"], row["tier_rank"]))
+    counts = Counter(row["lead_lag_status"] for row in summaries)
+    return timeline_rows, summaries, {
+        "summary_count": len(summaries),
+        "company_count": len({row["issuer_match_key"] for row in summaries}),
+        "junior_first_count": counts["junior_first"],
+        "simultaneous_count": counts["simultaneous"],
+        "senior_first_count": counts["senior_first"],
+        "no_breach_count": counts["no_breach"],
+    }
+
+
 def main() -> None:
     if not AUDIT_DB.exists():
         raise FileNotFoundError(f"Audit database not found: {AUDIT_DB}")
@@ -338,6 +465,7 @@ def main() -> None:
         connection, latest_period
     )
     capital_structure_pairs, capital_structure_counts = build_capital_structure_pairs()
+    capital_structure_timeline, lead_lag_summary, lead_lag_counts = build_capital_structure_timeline()
 
     reason_counts: Counter[str] = Counter()
     for row in connection.execute(
@@ -370,15 +498,24 @@ def main() -> None:
             "capital_structure_inversion_count": capital_structure_counts["inversion_count"],
             "capital_structure_flat_count": capital_structure_counts["flat_count"],
             "material_tier_cost_floor_mm": MATERIAL_TIER_COST_FLOOR_MM,
+            "lead_lag_summary_count": lead_lag_counts["summary_count"],
+            "lead_lag_company_count": lead_lag_counts["company_count"],
+            "junior_first_count": lead_lag_counts["junior_first_count"],
+            "simultaneous_count": lead_lag_counts["simultaneous_count"],
+            "senior_first_count": lead_lag_counts["senior_first_count"],
+            "no_breach_count": lead_lag_counts["no_breach_count"],
             "spread_tolerance_bps": float(metrics["spread_tolerance_pct"]) * 100,
             "methodology": "Comparable facilities must be first-lien USD loans with complete principal, plausible FV/par, the same maturity month and reference rate, compatible facility types, and spread or fixed coupon within the stated tolerance.",
             "different_tranche_methodology": "Different-tranche pairs must be first-lien USD debt with at least $5mm of disclosed principal in each facility, a current or future maturity, a SOFR or stated fixed-rate structure, and FV/principal between 25% and 125%. At least one maturity, rate, coupon, lien, or non-equivalent facility-type field must differ.",
             "capital_structure_methodology": "Capital-structure pairs aggregate funded holdings by issuer, fund, and explicit seniority label, then compare FV/cost for common equity or warrants, preferred equity, junior or unsecured debt, and first-lien senior secured debt. Each tier must have at least $1mm of amortized cost. A 5 percentage-point separation defines either an expected junior-first waterfall or an inversion.",
+            "lead_lag_methodology": "Lead-lag tests use only quarters where both the junior tier and first-lien senior secured tier have at least $1mm of amortized cost. The first quarter below 95% of cost is the primary breach; below 90% is retained as a deeper-stress checkpoint. At least two common quarters are required.",
         },
         "facility_gaps": facility_gaps,
         "company_gaps": company_gaps,
         "different_tranche_gaps": different_tranche_gaps,
         "capital_structure_pairs": capital_structure_pairs,
+        "capital_structure_timeline": capital_structure_timeline,
+        "lead_lag_summary": lead_lag_summary,
         "persistence": persistence,
         "abstention_reasons": [
             {"reason": reason, "count": count}
@@ -391,6 +528,7 @@ def main() -> None:
     print(f"Company gaps: {len(company_gaps)}")
     print(f"Different-tranche gaps: {len(different_tranche_gaps)}")
     print(f"Capital-structure pairs: {len(capital_structure_pairs)}")
+    print(f"Lead-lag summaries: {len(lead_lag_summary)}")
 
 
 if __name__ == "__main__":

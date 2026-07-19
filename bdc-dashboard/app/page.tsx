@@ -252,6 +252,39 @@ type CapitalStructurePairRow = {
   senior_instrument_labels: string[];
 };
 
+type CapitalStructureTimelineRow = {
+  issuer_match_key: string;
+  filing_period_end: string;
+  tier: string;
+  tier_rank: number;
+  amortized_cost_mm: number;
+  fair_value_mm: number;
+  holding_rows: number;
+  funds: Fund[];
+  fv_to_cost_pct: number;
+};
+
+type LeadLagSummaryRow = {
+  issuer_match_key: string;
+  junior_tier: string;
+  senior_tier: string;
+  common_period_count: number;
+  first_common_period: string;
+  latest_common_period: string;
+  junior_first_below_95_period: string | null;
+  senior_first_below_95_period: string | null;
+  junior_first_below_90_period: string | null;
+  senior_first_below_90_period: string | null;
+  lead_lag_status: "junior_first" | "simultaneous" | "senior_first" | "no_breach";
+  lead_quarters_at_95: number | null;
+  latest_junior_fv_to_cost_pct: number;
+  latest_senior_fv_to_cost_pct: number;
+  latest_senior_minus_junior_gap_pp: number;
+  minimum_junior_fv_to_cost_pct: number;
+  minimum_senior_fv_to_cost_pct: number;
+  periods: string[];
+};
+
 type TrancheComparisonData = {
   meta: {
     generated_at_utc: string;
@@ -270,15 +303,24 @@ type TrancheComparisonData = {
     capital_structure_inversion_count: number;
     capital_structure_flat_count: number;
     material_tier_cost_floor_mm: number;
+    lead_lag_summary_count: number;
+    lead_lag_company_count: number;
+    junior_first_count: number;
+    simultaneous_count: number;
+    senior_first_count: number;
+    no_breach_count: number;
     spread_tolerance_bps: number;
     methodology: string;
     different_tranche_methodology: string;
     capital_structure_methodology: string;
+    lead_lag_methodology: string;
   };
   facility_gaps: FacilityGapRow[];
   company_gaps: CompanyGapRow[];
   different_tranche_gaps: DifferentTrancheGapRow[];
   capital_structure_pairs: CapitalStructurePairRow[];
+  capital_structure_timeline: CapitalStructureTimelineRow[];
+  lead_lag_summary: LeadLagSummaryRow[];
   persistence: Array<{
     issuer_match_key: string;
     fund_pair: string;
@@ -908,6 +950,13 @@ const rateColors: Record<string, string> = {
   "Fixed-rate": "#16a34a",
   "Rate not stated": "#a1a1aa",
   "Other rate text": "#7c3aed"
+};
+
+const capitalTierColors: Record<string, string> = {
+  "Common equity / warrants": "#d36b52",
+  "Preferred equity": "#d59a55",
+  "Junior / unsecured debt": "#a789bd",
+  "First-lien senior secured": "#77a8a0"
 };
 
 const bucketColors: Record<string, string> = {
@@ -4180,6 +4229,10 @@ function MarkDivergence({
         .includes(normalizedQuery);
     });
   const topRows = rows.slice(0, 4);
+  const visibleStructureIssuers = new Set(rows.map((row) => row.issuer_match_key));
+  const leadLagRows = trancheComparison.lead_lag_summary
+    .filter((row) => visibleStructureIssuers.has(row.issuer_match_key))
+    .slice(0, 6);
 
   return (
     <Panel
@@ -4217,6 +4270,35 @@ function MarkDivergence({
           <strong>{formatNumber(mode === "structure" ? trancheComparison.meta.capital_structure_inversion_count : trancheComparison.meta.comparable_candidate_count)}</strong>
         </div>
       </div>
+
+      {mode === "structure" ? (
+        <div className="lead-lag-overview">
+          <div className="lead-lag-overview-heading">
+            <div>
+              <span>Quarter-by-quarter evidence</span>
+              <h3>Who crossed below 95% of cost first?</h3>
+            </div>
+            <p>{formatNumber(trancheComparison.meta.junior_first_count)} junior-first · {formatNumber(trancheComparison.meta.simultaneous_count)} same-quarter · {formatNumber(trancheComparison.meta.senior_first_count)} senior-first</p>
+          </div>
+          <div className="lead-lag-overview-grid">
+            {leadLagRows.map((row) => {
+              const enrichment = companyEnrichment.find((item) => item.issuer_match_key === row.issuer_match_key);
+              return (
+                <button type="button" key={`${row.issuer_match_key}-${row.junior_tier}`} onClick={() => onOpenTimelineIssuer(row.issuer_match_key)}>
+                  <span className={`waterfall-signal lead-${row.lead_lag_status}`}>{leadLagLabel(row.lead_lag_status)}</span>
+                  <strong>{enrichment?.display_name || row.issuer_match_key}</strong>
+                  <small>{row.junior_tier}</small>
+                  <div>
+                    <span>Junior {row.junior_first_below_95_period ? shortPeriod(row.junior_first_below_95_period) : "never"}</span>
+                    <span>Senior {row.senior_first_below_95_period ? shortPeriod(row.senior_first_below_95_period) : "never"}</span>
+                  </div>
+                  <ArrowUpRight />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
 
       <div className="mark-gap-board">
         {topRows.map((row, index) => (
@@ -4707,6 +4789,94 @@ function IssuerTimelineChart({ rows, visibleFunds }: { rows: LoanTimelinePeriod[
   );
 }
 
+function leadLagLabel(status: LeadLagSummaryRow["lead_lag_status"]) {
+  if (status === "junior_first") return "Junior led";
+  if (status === "simultaneous") return "Same-quarter breach";
+  if (status === "senior_first") return "Senior led";
+  return "No sub-95 breach";
+}
+
+function CapitalStructureTimelineChart({ rows }: { rows: CapitalStructureTimelineRow[] }) {
+  const { tooltip, showTooltip, hideTooltip } = useChartTooltip();
+  if (!rows.length) return <div className="empty-state">No multi-quarter capital-structure series is available for this issuer.</div>;
+
+  const periods = uniqueSorted(rows.map((row) => row.filing_period_end));
+  const tiers = uniqueSorted(rows.map((row) => row.tier)).sort(
+    (a, b) => (rows.find((row) => row.tier === a)?.tier_rank || 0) - (rows.find((row) => row.tier === b)?.tier_rank || 0)
+  );
+  const values = rows.map((row) => row.fv_to_cost_pct);
+  const minimum = Math.min(...values);
+  const maximum = Math.max(...values);
+  const yMin = Math.max(0, Math.floor((minimum - 10) / 10) * 10);
+  const yMax = Math.max(yMin + 20, Math.ceil((maximum + 10) / 10) * 10);
+  const ticks = uniqueSorted([String(yMin), "90", "95", "100", String(yMax)])
+    .map(Number)
+    .filter((value) => value >= yMin && value <= yMax)
+    .sort((a, b) => a - b);
+  const width = 760;
+  const height = 310;
+  const margin = { top: 20, right: 20, bottom: 48, left: 58 };
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+  const xFor = (index: number) => periods.length <= 1 ? margin.left + plotWidth / 2 : margin.left + (index / (periods.length - 1)) * plotWidth;
+  const yFor = (value: number) => margin.top + (1 - (value - yMin) / Math.max(yMax - yMin, 1)) * plotHeight;
+
+  return (
+    <div className="metric-chart-wrap line-chart-wrap capital-tier-chart" onMouseLeave={hideTooltip}>
+      <svg className="metric-svg line-svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Capital structure mark-to-cost over time">
+        {ticks.map((tick) => (
+          <g key={tick}>
+            <line className={tick === 90 || tick === 95 ? "stress-threshold-line" : "chart-grid-line"} x1={margin.left} x2={width - margin.right} y1={yFor(tick)} y2={yFor(tick)} />
+            <text className="chart-axis-label" x={margin.left - 10} y={yFor(tick) + 4} textAnchor="end">{formatPct(tick, 0)}</text>
+          </g>
+        ))}
+        <line className="chart-axis-line" x1={margin.left} x2={width - margin.right} y1={height - margin.bottom} y2={height - margin.bottom} />
+        {periods.map((period, index) => <text className="chart-axis-label" key={period} x={xFor(index)} y={height - 18} textAnchor="middle">{shortPeriod(period)}</text>)}
+        {tiers.map((tier) => {
+          let drawing = false;
+          const tierRows = rows.filter((row) => row.tier === tier);
+          const path = periods.map((period, index) => {
+            const row = tierRows.find((item) => item.filing_period_end === period);
+            if (!row) {
+              drawing = false;
+              return "";
+            }
+            const command = drawing ? "L" : "M";
+            drawing = true;
+            return `${command} ${xFor(index).toFixed(2)} ${yFor(row.fv_to_cost_pct).toFixed(2)}`;
+          }).filter(Boolean).join(" ");
+          return (
+            <g key={tier}>
+              <path className="chart-line" d={path} stroke={capitalTierColors[tier] || "#8d9797"} />
+              {tierRows.map((row) => {
+                const index = periods.indexOf(row.filing_period_end);
+                return (
+                  <circle
+                    className="chart-point"
+                    key={`${tier}-${row.filing_period_end}`}
+                    cx={xFor(index)}
+                    cy={yFor(row.fv_to_cost_pct)}
+                    r={4}
+                    fill={capitalTierColors[tier] || "#8d9797"}
+                    onMouseMove={(event) => showTooltip(event, {
+                      title: `${tier} · ${formatDate(row.filing_period_end)}`,
+                      value: formatPct(row.fv_to_cost_pct, 1),
+                      detail: `${row.funds.join(", ")} · ${formatMm(row.fair_value_mm)} fair value`,
+                      color: capitalTierColors[tier]
+                    })}
+                  />
+                );
+              })}
+            </g>
+          );
+        })}
+      </svg>
+      <Legend colors={Object.fromEntries(tiers.map((tier) => [tier, capitalTierColors[tier] || "#8d9797"]))} />
+      <ChartTooltip tooltip={tooltip} />
+    </div>
+  );
+}
+
 function Timeline({
   selectedFund,
   selectedIssuerKey,
@@ -4773,6 +4943,12 @@ function Timeline({
   const sortedPeriods = [...periodRows].sort((a, b) =>
     `${b.filing_period_end}-${b.fund}`.localeCompare(`${a.filing_period_end}-${a.fund}`)
   );
+  const capitalTierRows = trancheComparison.capital_structure_timeline.filter(
+    (row) => row.issuer_match_key === selectedIssuerKey
+  );
+  const issuerLeadLagRows = trancheComparison.lead_lag_summary.filter(
+    (row) => row.issuer_match_key === selectedIssuerKey
+  );
 
   return (
     <div className="grid">
@@ -4830,6 +5006,56 @@ function Timeline({
           </div>
         </div>
       </section>
+
+      <div className="grid two-col capital-timeline-grid">
+        <Panel
+          title="Capital Structure Mark Path"
+          subtitle="Quarterly FV/cost by explicit capital tier, aggregated across the verified funds holding this issuer. Dashed guides mark 95% and 90% of cost."
+          icon={LineChart}
+        >
+          <CapitalStructureTimelineChart rows={capitalTierRows} />
+        </Panel>
+
+        <Panel
+          title="Junior-vs-Senior Lead-Lag Test"
+          subtitle="First sub-95 and sub-90 quarters are tested only where junior and first-lien tiers overlap for at least two periods."
+          icon={History}
+        >
+          {issuerLeadLagRows.length ? (
+            <div className="lead-lag-detail-list">
+              {issuerLeadLagRows.map((row) => (
+                <section key={`${row.issuer_match_key}-${row.junior_tier}`}>
+                  <div className="lead-lag-detail-topline">
+                    <span className={`waterfall-signal lead-${row.lead_lag_status}`}>{leadLagLabel(row.lead_lag_status)}</span>
+                    <small>{row.common_period_count} common quarters</small>
+                  </div>
+                  <h3>{row.junior_tier}</h3>
+                  <div className="lead-lag-breach-grid">
+                    <div><span>Junior first &lt;95</span><strong>{row.junior_first_below_95_period ? shortPeriod(row.junior_first_below_95_period) : "Never"}</strong></div>
+                    <div><span>Senior first &lt;95</span><strong>{row.senior_first_below_95_period ? shortPeriod(row.senior_first_below_95_period) : "Never"}</strong></div>
+                    <div><span>Latest junior</span><strong>{formatPct(row.latest_junior_fv_to_cost_pct, 1)}</strong></div>
+                    <div><span>Latest senior</span><strong>{formatPct(row.latest_senior_fv_to_cost_pct, 1)}</strong></div>
+                  </div>
+                  <p>
+                    {row.lead_lag_status === "junior_first"
+                      ? row.senior_first_below_95_period
+                        ? `Junior capital crossed first by ${formatNumber(row.lead_quarters_at_95)} quarter${row.lead_quarters_at_95 === 1 ? "" : "s"}.`
+                        : "Junior capital crossed below 95% while first-lien senior debt has remained above the threshold."
+                      : row.lead_lag_status === "simultaneous"
+                        ? "Both tiers first crossed below 95% in the same observed quarter."
+                        : row.lead_lag_status === "senior_first"
+                          ? "Senior debt crossed below 95% before the junior tier—a mark-order inversion requiring instrument-level review."
+                          : "Neither tier crossed below 95% during their common observation window."}
+                  </p>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">This issuer does not have at least two common quarters of explicit junior and first-lien tier coverage.</div>
+          )}
+          <div className="lead-lag-method">{trancheComparison.meta.lead_lag_methodology}</div>
+        </Panel>
+      </div>
 
       <div className="grid two-col">
         <Panel

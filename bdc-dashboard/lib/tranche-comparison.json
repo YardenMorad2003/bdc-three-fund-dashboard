@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at_utc": "2026-07-19T03:16:40+00:00",
+    "generated_at_utc": "2026-07-19T03:46:57+00:00",
     "latest_period": "2026-03-31",
     "candidate_count": 189,
     "par_covered_candidate_count": 143,
@@ -16,10 +16,17 @@
     "capital_structure_inversion_count": 7,
     "capital_structure_flat_count": 15,
     "material_tier_cost_floor_mm": 1.0,
+    "lead_lag_summary_count": 15,
+    "lead_lag_company_count": 15,
+    "junior_first_count": 1,
+    "simultaneous_count": 3,
+    "senior_first_count": 1,
+    "no_breach_count": 10,
     "spread_tolerance_bps": 6.1,
     "methodology": "Comparable facilities must be first-lien USD loans with complete principal, plausible FV/par, the same maturity month and reference rate, compatible facility types, and spread or fixed coupon within the stated tolerance.",
     "different_tranche_methodology": "Different-tranche pairs must be first-lien USD debt with at least $5mm of disclosed principal in each facility, a current or future maturity, a SOFR or stated fixed-rate structure, and FV/principal between 25% and 125%. At least one maturity, rate, coupon, lien, or non-equivalent facility-type field must differ.",
-    "capital_structure_methodology": "Capital-structure pairs aggregate funded holdings by issuer, fund, and explicit seniority label, then compare FV/cost for common equity or warrants, preferred equity, junior or unsecured debt, and first-lien senior secured debt. Each tier must have at least $1mm of amortized cost. A 5 percentage-point separation defines either an expected junior-first waterfall or an inversion."
+    "capital_structure_methodology": "Capital-structure pairs aggregate funded holdings by issuer, fund, and explicit seniority label, then compare FV/cost for common equity or warrants, preferred equity, junior or unsecured debt, and first-lien senior secured debt. Each tier must have at least $1mm of amortized cost. A 5 percentage-point separation defines either an expected junior-first waterfall or an inversion.",
+    "lead_lag_methodology": "Lead-lag tests use only quarters where both the junior tier and first-lien senior secured tier have at least $1mm of amortized cost. The first quarter below 95% of cost is the primary breach; below 90% is retained as a deeper-stress checkpoint. At least two common quarters are required."
   },
   "facility_gaps": [
     {
@@ -1865,6 +1872,2162 @@
       ],
       "senior_instrument_labels": [
         "Modernizing Medicine, Inc."
+      ]
+    }
+  ],
+  "capital_structure_timeline": [
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2022-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.428,
+      "fair_value_mm": 8.419,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.893213
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2023-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.386,
+      "fair_value_mm": 8.464,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.930122
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.444,
+      "fair_value_mm": 8.515,
+      "holding_rows": 3,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.840834
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.617,
+      "fair_value_mm": 8.678,
+      "holding_rows": 3,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.707903
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.417,
+      "fair_value_mm": 8.47,
+      "holding_rows": 3,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.629678
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2025-09-30",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 1.119,
+      "fair_value_mm": 1.154,
+      "holding_rows": 1,
+      "funds": [
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 103.127793
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.478,
+      "fair_value_mm": 8.524,
+      "holding_rows": 3,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.542581
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.464,
+      "fair_value_mm": 8.502,
+      "holding_rows": 3,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.44896
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2026-03-31",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 1.119,
+      "fair_value_mm": 1.142,
+      "holding_rows": 1,
+      "funds": [
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 102.055407
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.785,
+      "fair_value_mm": 7.855,
+      "holding_rows": 3,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 89.413773
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2023-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 13.0,
+      "fair_value_mm": 13.0,
+      "holding_rows": 1,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2023-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 80.2,
+      "fair_value_mm": 80.1,
+      "holding_rows": 2,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 99.875312
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2024-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 22.4,
+      "fair_value_mm": 22.3,
+      "holding_rows": 2,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 99.553571
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 105.3,
+      "fair_value_mm": 106.3,
+      "holding_rows": 3,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 100.949668
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2025-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 23.3,
+      "fair_value_mm": 24.3,
+      "holding_rows": 1,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 104.291845
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 116.7,
+      "fair_value_mm": 119.8,
+      "holding_rows": 3,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 102.656384
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2025-06-30",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 24.1,
+      "fair_value_mm": 25.1,
+      "holding_rows": 1,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 104.149378
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 123.5,
+      "fair_value_mm": 125.5,
+      "holding_rows": 2,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 101.619433
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2025-09-30",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 24.9,
+      "fair_value_mm": 25.9,
+      "holding_rows": 1,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 104.016064
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 123.2,
+      "fair_value_mm": 125.3,
+      "holding_rows": 2,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 101.704545
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 124.3,
+      "fair_value_mm": 126.3,
+      "holding_rows": 3,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 101.60901
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 125.1,
+      "fair_value_mm": 127.0,
+      "holding_rows": 3,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 101.518785
+    },
+    {
+      "issuer_match_key": "ASSOCIATIONS",
+      "filing_period_end": "2025-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 201.437,
+      "fair_value_mm": 202.868,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.710396
+    },
+    {
+      "issuer_match_key": "ASSOCIATIONS",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 444.229,
+      "fair_value_mm": 446.001,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.398893
+    },
+    {
+      "issuer_match_key": "ASSOCIATIONS",
+      "filing_period_end": "2026-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 202.704,
+      "fair_value_mm": 204.04,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.659089
+    },
+    {
+      "issuer_match_key": "ASSOCIATIONS",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 426.69,
+      "fair_value_mm": 428.329,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.38412
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2023-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 34.586,
+      "fair_value_mm": 35.175,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.703001
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 39.456,
+      "fair_value_mm": 40.955,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 103.799169
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2025-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 6.4,
+      "fair_value_mm": 6.4,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 49.272,
+      "fair_value_mm": 50.914,
+      "holding_rows": 1,
+      "funds": [
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 103.332522
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2025-06-30",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 6.6,
+      "fair_value_mm": 6.6,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2025-09-30",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 6.7,
+      "fair_value_mm": 6.7,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 51.889,
+      "fair_value_mm": 53.763,
+      "holding_rows": 1,
+      "funds": [
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 103.611555
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2025-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 7.0,
+      "fair_value_mm": 7.0,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 53.519,
+      "fair_value_mm": 55.388,
+      "holding_rows": 1,
+      "funds": [
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 103.492218
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2026-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 7.2,
+      "fair_value_mm": 7.2,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 55.135,
+      "fair_value_mm": 56.157,
+      "holding_rows": 1,
+      "funds": [
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.853632
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2022-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 4.2,
+      "fair_value_mm": 3.3,
+      "holding_rows": 1,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 78.571429
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2022-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 64.3,
+      "fair_value_mm": 28.2,
+      "holding_rows": 2,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 43.856921
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2023-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 4.2,
+      "fair_value_mm": 0.0,
+      "holding_rows": 1,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 0.0
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2023-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 57.4,
+      "fair_value_mm": 33.2,
+      "holding_rows": 2,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 57.839721
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 78.037,
+      "fair_value_mm": 78.505,
+      "holding_rows": 2,
+      "funds": [
+        "FSK",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 100.599716
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 75.64,
+      "fair_value_mm": 76.184,
+      "holding_rows": 2,
+      "funds": [
+        "FSK",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 100.719196
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 25.4,
+      "fair_value_mm": 25.7,
+      "holding_rows": 1,
+      "funds": [
+        "FSK"
+      ],
+      "fv_to_cost_pct": 101.181102
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 70.848,
+      "fair_value_mm": 72.019,
+      "holding_rows": 2,
+      "funds": [
+        "FSK",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.652834
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 69.052,
+      "fair_value_mm": 70.092,
+      "holding_rows": 2,
+      "funds": [
+        "FSK",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.506111
+    },
+    {
+      "issuer_match_key": "BELK",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 65.431,
+      "fair_value_mm": 66.206,
+      "holding_rows": 2,
+      "funds": [
+        "FSK",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.184454
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2022-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 4.4,
+      "fair_value_mm": 4.3,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 97.727273
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2023-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 20.7,
+      "fair_value_mm": 20.8,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.483092
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 20.7,
+      "fair_value_mm": 19.3,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 93.236715
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 20.7,
+      "fair_value_mm": 19.3,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 93.236715
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 20.7,
+      "fair_value_mm": 18.5,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 89.371981
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 20.8,
+      "fair_value_mm": 18.7,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 89.903846
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2025-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 4.435,
+      "fair_value_mm": 3.986,
+      "holding_rows": 1,
+      "funds": [
+        "BBDC"
+      ],
+      "fv_to_cost_pct": 89.875986
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 20.8,
+      "fair_value_mm": 18.3,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 87.980769
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2026-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 4.44,
+      "fair_value_mm": 3.95,
+      "holding_rows": 1,
+      "funds": [
+        "BBDC"
+      ],
+      "fv_to_cost_pct": 88.963964
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 52.3,
+      "fair_value_mm": 46.1,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 88.145315
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2023-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 6.126,
+      "fair_value_mm": 4.051,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 66.127979
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.191,
+      "fair_value_mm": 8.204,
+      "holding_rows": 4,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.158711
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.205,
+      "fair_value_mm": 8.503,
+      "holding_rows": 4,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 103.631932
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 8.221,
+      "fair_value_mm": 9.124,
+      "holding_rows": 4,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 110.984065
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2025-09-30",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 26.023,
+      "fair_value_mm": 26.01,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.950044
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 87.152,
+      "fair_value_mm": 87.849,
+      "holding_rows": 5,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.799752
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2025-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 26.918,
+      "fair_value_mm": 26.925,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.026005
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 163.401,
+      "fair_value_mm": 164.232,
+      "holding_rows": 6,
+      "funds": [
+        "BXSL",
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.508565
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2026-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 27.886,
+      "fair_value_mm": 27.268,
+      "holding_rows": 4,
+      "funds": [
+        "BXSL",
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 97.783834
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 163.191,
+      "fair_value_mm": 162.001,
+      "holding_rows": 5,
+      "funds": [
+        "BXSL",
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 99.270793
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 15.0,
+      "fair_value_mm": 14.8,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 98.666667
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 13.9,
+      "fair_value_mm": 13.8,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 99.280576
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 18.8,
+      "fair_value_mm": 18.8,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 19.7,
+      "fair_value_mm": 19.7,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "filing_period_end": "2025-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 24.686,
+      "fair_value_mm": 24.922,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.956007
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 19.7,
+      "fair_value_mm": 19.7,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "filing_period_end": "2026-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 24.874,
+      "fair_value_mm": 25.099,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.904559
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 21.3,
+      "fair_value_mm": 21.3,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2024-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 6.097,
+      "fair_value_mm": 6.288,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 103.132688
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 92.334,
+      "fair_value_mm": 94.014,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.819481
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2025-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 6.394,
+      "fair_value_mm": 6.594,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 103.127932
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 93.366,
+      "fair_value_mm": 95.553,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 102.342394
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2025-06-30",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 4.2,
+      "fair_value_mm": 4.2,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 44.4,
+      "fair_value_mm": 45.2,
+      "holding_rows": 1,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 101.801802
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2025-09-30",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 2.602,
+      "fair_value_mm": 2.771,
+      "holding_rows": 1,
+      "funds": [
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 106.495004
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 50.565,
+      "fair_value_mm": 52.437,
+      "holding_rows": 1,
+      "funds": [
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 103.702166
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2025-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 7.213,
+      "fair_value_mm": 7.84,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 108.692638
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 96.626,
+      "fair_value_mm": 99.577,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 103.054043
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2026-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 7.527,
+      "fair_value_mm": 8.004,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 106.337186
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 97.444,
+      "fair_value_mm": 99.896,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 102.516317
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 5.88,
+      "fair_value_mm": 5.872,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.863946
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 5.869,
+      "fair_value_mm": 5.857,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.795536
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 6.4,
+      "fair_value_mm": 6.381,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.703125
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "filing_period_end": "2025-09-30",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 6.949,
+      "fair_value_mm": 7.051,
+      "holding_rows": 3,
+      "funds": [
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 101.467837
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 6.903,
+      "fair_value_mm": 6.834,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.000435
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 16.356,
+      "fair_value_mm": 16.373,
+      "holding_rows": 3,
+      "funds": [
+        "BXSL",
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.103937
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "filing_period_end": "2026-03-31",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 60.657,
+      "fair_value_mm": 62.404,
+      "holding_rows": 3,
+      "funds": [
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 102.880129
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 16.687,
+      "fair_value_mm": 16.433,
+      "holding_rows": 3,
+      "funds": [
+        "BXSL",
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 98.477857
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2022-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 103.883,
+      "fair_value_mm": 104.979,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 101.055033
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2023-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 107.835,
+      "fair_value_mm": 109.329,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 101.38545
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 118.938,
+      "fair_value_mm": 120.492,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 101.306563
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 119.293,
+      "fair_value_mm": 120.748,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 101.219686
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 180.309,
+      "fair_value_mm": 182.492,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 101.210699
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 182.362,
+      "fair_value_mm": 184.545,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 101.19707
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2025-12-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 63.316,
+      "fair_value_mm": 58.25,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 91.998863
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 336.129,
+      "fair_value_mm": 335.247,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL",
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 99.737601
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2026-03-31",
+      "tier": "Junior / unsecured debt",
+      "tier_rank": 2,
+      "amortized_cost_mm": 65.333,
+      "fair_value_mm": 57.003,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 87.249935
+    },
+    {
+      "issuer_match_key": "INOVALON",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 338.692,
+      "fair_value_mm": 327.45,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL",
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 96.68076
+    },
+    {
+      "issuer_match_key": "MINERVA",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 1.68,
+      "fair_value_mm": 1.677,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.821429
+    },
+    {
+      "issuer_match_key": "MINERVA",
+      "filing_period_end": "2025-12-31",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 13.46,
+      "fair_value_mm": 13.558,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 100.728083
+    },
+    {
+      "issuer_match_key": "MINERVA",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 6.36,
+      "fair_value_mm": 6.438,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 101.226415
+    },
+    {
+      "issuer_match_key": "MINERVA",
+      "filing_period_end": "2026-03-31",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 13.836,
+      "fair_value_mm": 13.536,
+      "holding_rows": 1,
+      "funds": [
+        "OBDC"
+      ],
+      "fv_to_cost_pct": 97.831743
+    },
+    {
+      "issuer_match_key": "MINERVA",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 6.364,
+      "fair_value_mm": 6.322,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.340038
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 59.437,
+      "fair_value_mm": 60.001,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 100.948904
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 67.263,
+      "fair_value_mm": 68.11,
+      "holding_rows": 4,
+      "funds": [
+        "BXSL",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.259236
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 48.547,
+      "fair_value_mm": 49.09,
+      "holding_rows": 2,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 101.118504
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "filing_period_end": "2025-09-30",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 4.613,
+      "fair_value_mm": 6.591,
+      "holding_rows": 1,
+      "funds": [
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 142.878821
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 69.138,
+      "fair_value_mm": 69.987,
+      "holding_rows": 4,
+      "funds": [
+        "BXSL",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.227979
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 93.492,
+      "fair_value_mm": 94.461,
+      "holding_rows": 5,
+      "funds": [
+        "BXSL",
+        "OBDC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 101.036452
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "filing_period_end": "2026-03-31",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 4.613,
+      "fair_value_mm": 6.359,
+      "holding_rows": 1,
+      "funds": [
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 137.849556
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 94.774,
+      "fair_value_mm": 93.739,
+      "holding_rows": 6,
+      "funds": [
+        "BXSL",
+        "OBDC",
+        "TSLX"
+      ],
+      "fv_to_cost_pct": 98.907928
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 1.3,
+      "fair_value_mm": 1.2,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 92.307692
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 1.2,
+      "fair_value_mm": 1.1,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 91.666667
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 1.4,
+      "fair_value_mm": 1.2,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 85.714286
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "filing_period_end": "2025-09-30",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 41.951,
+      "fair_value_mm": 34.049,
+      "holding_rows": 2,
+      "funds": [
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 81.163739
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 1.3,
+      "fair_value_mm": 1.1,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 84.615385
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 1.3,
+      "fair_value_mm": 1.1,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 84.615385
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "filing_period_end": "2026-03-31",
+      "tier": "Preferred equity",
+      "tier_rank": 1,
+      "amortized_cost_mm": 57.285,
+      "fair_value_mm": 48.682,
+      "holding_rows": 4,
+      "funds": [
+        "GBDC"
+      ],
+      "fv_to_cost_pct": 84.982107
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 1.0,
+      "fair_value_mm": 0.9,
+      "holding_rows": 2,
+      "funds": [
+        "ARCC"
+      ],
+      "fv_to_cost_pct": 90.0
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2022-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 4.938,
+      "fair_value_mm": 4.938,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.0
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2023-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 4.947,
+      "fair_value_mm": 5.053,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 102.142713
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2024-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 149.153,
+      "fair_value_mm": 149.131,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 99.98525
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2025-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 148.805,
+      "fair_value_mm": 149.506,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.471086
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2025-06-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 148.459,
+      "fair_value_mm": 149.131,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.45265
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2025-09-30",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 148.112,
+      "fair_value_mm": 148.757,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.435481
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2025-12-31",
+      "tier": "Common equity / warrants",
+      "tier_rank": 0,
+      "amortized_cost_mm": 1.2,
+      "fair_value_mm": 4.704,
+      "holding_rows": 1,
+      "funds": [
+        "BBDC"
+      ],
+      "fv_to_cost_pct": 392.0
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2025-12-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 147.768,
+      "fair_value_mm": 148.382,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.415516
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2026-03-31",
+      "tier": "Common equity / warrants",
+      "tier_rank": 0,
+      "amortized_cost_mm": 1.2,
+      "fair_value_mm": 4.716,
+      "holding_rows": 1,
+      "funds": [
+        "BBDC"
+      ],
+      "fv_to_cost_pct": 393.0
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "filing_period_end": "2026-03-31",
+      "tier": "First-lien senior secured",
+      "tier_rank": 3,
+      "amortized_cost_mm": 147.421,
+      "fair_value_mm": 148.007,
+      "holding_rows": 1,
+      "funds": [
+        "BXSL"
+      ],
+      "fv_to_cost_pct": 100.397501
+    }
+  ],
+  "lead_lag_summary": [
+    {
+      "issuer_match_key": "INOVALON",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-12-31",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": "2025-12-31",
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": "2026-03-31",
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "junior_first",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 87.249935,
+      "latest_senior_fv_to_cost_pct": 96.68076,
+      "latest_senior_minus_junior_gap_pp": 9.430825,
+      "minimum_junior_fv_to_cost_pct": 87.249935,
+      "minimum_senior_fv_to_cost_pct": 96.68076,
+      "periods": [
+        "2025-12-31",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "BELK",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2022-12-31",
+      "latest_common_period": "2023-12-31",
+      "junior_first_below_95_period": "2022-12-31",
+      "senior_first_below_95_period": "2022-12-31",
+      "junior_first_below_90_period": "2022-12-31",
+      "senior_first_below_90_period": "2022-12-31",
+      "lead_lag_status": "simultaneous",
+      "lead_quarters_at_95": 0,
+      "latest_junior_fv_to_cost_pct": 0.0,
+      "latest_senior_fv_to_cost_pct": 57.839721,
+      "latest_senior_minus_junior_gap_pp": 57.839721,
+      "minimum_junior_fv_to_cost_pct": 0.0,
+      "minimum_senior_fv_to_cost_pct": 43.856921,
+      "periods": [
+        "2022-12-31",
+        "2023-12-31"
+      ]
+    },
+    {
+      "issuer_match_key": "REVALIZE",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-09-30",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": "2025-09-30",
+      "senior_first_below_95_period": "2025-09-30",
+      "junior_first_below_90_period": "2025-09-30",
+      "senior_first_below_90_period": "2025-09-30",
+      "lead_lag_status": "simultaneous",
+      "lead_quarters_at_95": 0,
+      "latest_junior_fv_to_cost_pct": 84.982107,
+      "latest_senior_fv_to_cost_pct": 90.0,
+      "latest_senior_minus_junior_gap_pp": 5.017893,
+      "minimum_junior_fv_to_cost_pct": 81.163739,
+      "minimum_senior_fv_to_cost_pct": 84.615385,
+      "periods": [
+        "2025-09-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "BURGESS POINT PURCHASER",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-12-31",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": "2025-12-31",
+      "senior_first_below_95_period": "2025-12-31",
+      "junior_first_below_90_period": "2025-12-31",
+      "senior_first_below_90_period": "2025-12-31",
+      "lead_lag_status": "simultaneous",
+      "lead_quarters_at_95": 0,
+      "latest_junior_fv_to_cost_pct": 88.963964,
+      "latest_senior_fv_to_cost_pct": 88.145315,
+      "latest_senior_minus_junior_gap_pp": -0.818649,
+      "minimum_junior_fv_to_cost_pct": 88.963964,
+      "minimum_senior_fv_to_cost_pct": 87.980769,
+      "periods": [
+        "2025-12-31",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "ADCS CLINICS",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-09-30",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": "2026-03-31",
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": "2026-03-31",
+      "lead_lag_status": "senior_first",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 102.055407,
+      "latest_senior_fv_to_cost_pct": 89.413773,
+      "latest_senior_minus_junior_gap_pp": -12.641634,
+      "minimum_junior_fv_to_cost_pct": 102.055407,
+      "minimum_senior_fv_to_cost_pct": 89.413773,
+      "periods": [
+        "2025-09-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "BCTO IGNITION PURCHASER",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 4,
+      "first_common_period": "2025-03-31",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 100.0,
+      "latest_senior_fv_to_cost_pct": 101.853632,
+      "latest_senior_minus_junior_gap_pp": 1.853632,
+      "minimum_junior_fv_to_cost_pct": 100.0,
+      "minimum_senior_fv_to_cost_pct": 101.853632,
+      "periods": [
+        "2025-03-31",
+        "2025-09-30",
+        "2025-12-31",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "MINERVA",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-12-31",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 97.831743,
+      "latest_senior_fv_to_cost_pct": 99.340038,
+      "latest_senior_minus_junior_gap_pp": 1.508295,
+      "minimum_junior_fv_to_cost_pct": 97.831743,
+      "minimum_senior_fv_to_cost_pct": 99.340038,
+      "periods": [
+        "2025-12-31",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "DENALI",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 3,
+      "first_common_period": "2025-09-30",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 97.783834,
+      "latest_senior_fv_to_cost_pct": 99.270793,
+      "latest_senior_minus_junior_gap_pp": 1.486959,
+      "minimum_junior_fv_to_cost_pct": 97.783834,
+      "minimum_senior_fv_to_cost_pct": 99.270793,
+      "periods": [
+        "2025-09-30",
+        "2025-12-31",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "ASSOCIATIONS",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-12-31",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 100.659089,
+      "latest_senior_fv_to_cost_pct": 100.38412,
+      "latest_senior_minus_junior_gap_pp": -0.274969,
+      "minimum_junior_fv_to_cost_pct": 100.659089,
+      "minimum_senior_fv_to_cost_pct": 100.38412,
+      "periods": [
+        "2025-12-31",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "DIAMOND MEZZANINE 24",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-12-31",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 100.904559,
+      "latest_senior_fv_to_cost_pct": 100.0,
+      "latest_senior_minus_junior_gap_pp": -0.904559,
+      "minimum_junior_fv_to_cost_pct": 100.904559,
+      "minimum_senior_fv_to_cost_pct": 100.0,
+      "periods": [
+        "2025-12-31",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "APEX SERVICE PARTNERS",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 5,
+      "first_common_period": "2023-12-31",
+      "latest_common_period": "2025-09-30",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 104.016064,
+      "latest_senior_fv_to_cost_pct": 101.704545,
+      "latest_senior_minus_junior_gap_pp": -2.311519,
+      "minimum_junior_fv_to_cost_pct": 99.553571,
+      "minimum_senior_fv_to_cost_pct": 99.875312,
+      "periods": [
+        "2023-12-31",
+        "2024-12-31",
+        "2025-03-31",
+        "2025-06-30",
+        "2025-09-30"
+      ]
+    },
+    {
+      "issuer_match_key": "EQUINOX",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 6,
+      "first_common_period": "2024-12-31",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 106.337186,
+      "latest_senior_fv_to_cost_pct": 102.516317,
+      "latest_senior_minus_junior_gap_pp": -3.820869,
+      "minimum_junior_fv_to_cost_pct": 100.0,
+      "minimum_senior_fv_to_cost_pct": 101.801802,
+      "periods": [
+        "2024-12-31",
+        "2025-03-31",
+        "2025-06-30",
+        "2025-09-30",
+        "2025-12-31",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "GS ACQUISITIONCO",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-09-30",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 102.880129,
+      "latest_senior_fv_to_cost_pct": 98.477857,
+      "latest_senior_minus_junior_gap_pp": -4.402272,
+      "minimum_junior_fv_to_cost_pct": 101.467837,
+      "minimum_senior_fv_to_cost_pct": 98.477857,
+      "periods": [
+        "2025-09-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "PDI TA",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-09-30",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 137.849556,
+      "latest_senior_fv_to_cost_pct": 98.907928,
+      "latest_senior_minus_junior_gap_pp": -38.941628,
+      "minimum_junior_fv_to_cost_pct": 137.849556,
+      "minimum_senior_fv_to_cost_pct": 98.907928,
+      "periods": [
+        "2025-09-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "SHELF",
+      "junior_tier": "Common equity / warrants",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2025-12-31",
+      "latest_common_period": "2026-03-31",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 393.0,
+      "latest_senior_fv_to_cost_pct": 100.397501,
+      "latest_senior_minus_junior_gap_pp": -292.602499,
+      "minimum_junior_fv_to_cost_pct": 392.0,
+      "minimum_senior_fv_to_cost_pct": 100.397501,
+      "periods": [
+        "2025-12-31",
+        "2026-03-31"
       ]
     }
   ],
