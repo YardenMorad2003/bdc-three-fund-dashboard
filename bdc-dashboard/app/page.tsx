@@ -30,11 +30,15 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import dashboardData from "../lib/dashboard-data.json";
+import arccQuarterlyUpdateData from "../lib/arcc-quarterly-update.json";
 import bdcUniverseData from "../lib/bdc-universe.json";
 import bslReferenceMarksData from "../lib/bsl-reference-marks.json";
 import businessPeerPricingData from "../lib/business-peer-pricing.json";
 import bdcMarketValuationData from "../lib/bdc-market-valuation.json";
+import bdcEquityPositioningData from "../lib/bdc-equity-positioning.json";
 import etfImpliedBdcMarksData from "../lib/etf-implied-bdc-marks.json";
+import freeSourceIntelligenceData from "../lib/free-source-intelligence.json";
+import nportConsensusMarksData from "../lib/nport-consensus-marks.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import fundingMarketData from "../lib/bdc-funding-market.json";
 import liabilityStackData from "../lib/liability-stack.json";
@@ -59,7 +63,7 @@ type Fund =
   | "PSEC"
   | "TCPC"
   | "TSLX";
-type Tab = "overview" | "valuation" | "financials" | "deterioration" | "exposure" | "timeline" | "holdings" | "liabilities" | "universe" | "quality";
+type Tab = "overview" | "valuation" | "evidence" | "financials" | "deterioration" | "exposure" | "timeline" | "holdings" | "liabilities" | "universe" | "sources" | "quality";
 type WatchlistBucketFilter = "All" | "Non-accrual" | "Shadow below 90" | "Watch 90-97" | "QoQ deterioration";
 type SortDirection = "asc" | "desc";
 type HoldingsSortKey = "amortized_cost_mm" | "fair_value_mm" | "mark_vs_cost_mm" | "fv_to_cost";
@@ -1233,6 +1237,69 @@ type QuarterlyFactsData = {
   limitations: string[];
 };
 
+type ArccQuarterlyUpdate = {
+  meta: {
+    period_end: string;
+    prior_period_end: string;
+    filing_date: string;
+  };
+  headline: { stance: string; summary: string };
+  reported: {
+    current: {
+      core_eps: number;
+      gaap_nii_per_share: number;
+      dividend_per_share: number;
+      nav_per_share: number;
+      net_unrealized_gain_loss_mm: number;
+      debt_to_equity_x: number;
+      borrowing_availability_mm: number;
+      gross_commitments_mm: number;
+      exits_of_commitments_mm: number;
+      reported_non_accrual_cost_pct: number;
+      reported_non_accrual_fv_pct: number;
+      grade_1_fv_mm: number;
+      grade_2_fv_mm: number;
+    };
+    changes: {
+      gaap_nii_per_share: number;
+      nav_per_share: number;
+      nav_per_share_pct: number;
+      debt_to_equity_x: number;
+      reported_non_accrual_cost_pp: number;
+      reported_non_accrual_fv_pp: number;
+      grade_1_2_fv_mm: number;
+    };
+    dividend_coverage_pct: number;
+    core_eps_dividend_coverage_pct: number;
+  };
+  schedule: {
+    mark_gap_change_mm: number;
+    new_non_accrual_issuers: Array<{
+      issuer_match_key: string;
+      issuer: string;
+      amortized_cost_mm: number;
+      fair_value_mm: number;
+      fv_to_cost_pct: number | null;
+    }>;
+    largest_mark_deterioration: Array<{
+      issuer_match_key: string;
+      issuer: string;
+      q2_fair_value_mm: number;
+      q2_fv_to_cost_pct: number | null;
+      qoq_fv_to_cost_change_pp: number | null;
+      qoq_mark_gap_change_mm: number;
+      new_non_accrual_q2: boolean;
+    }>;
+  };
+  market_reaction: {
+    report_day_change_pct: number;
+    latest_date: string;
+    latest_close: number;
+    change_since_pre_report_pct: number;
+  };
+  sources: Array<{ name: string; url: string }>;
+};
+
 type DashboardData = {
   meta: {
     generated_at_utc: string;
@@ -1362,13 +1429,161 @@ type BdcUniverseData = {
   limitations: string[];
 };
 
+type FreeSourceStatus = {
+  id: string;
+  name: string;
+  category: string;
+  status: "refreshed" | "available_not_refreshed" | "credential_required" | "error";
+  records: number;
+  as_of: string | null;
+  confidence: string;
+  url: string;
+  message: string;
+  credential_env: string | null;
+};
+
+type FreeSourceIntelligence = {
+  meta: {
+    generated_at_utc: string;
+    borrower_universe_count: number;
+    status_counts: Record<string, number>;
+    promotion_rule: string;
+  };
+  source_status: FreeSourceStatus[];
+  sec_bdc?: {
+    package_period?: string;
+    package_url?: string;
+    schedule_rows_by_fund?: Record<string, number>;
+    debt_numeric_candidates?: Array<{ ticker: Fund; tag: string; filed: string; source_url: string }>;
+  };
+  etf_holdings?: {
+    funds?: Array<{
+      etf: string;
+      as_of: string | null;
+      row_count: number;
+      marked_row_count?: number;
+      matched_bdc_borrower_count?: number;
+      source_url: string;
+      error?: string;
+    }>;
+  };
+  entity_resolution?: {
+    form_d?: { matches?: Array<{ dashboard_name: string; form_d_issuer_name: string; confidence: string; source_url: string }> };
+    gleif?: { candidates?: Array<{ dashboard_name: string; legal_name: string; lei: string; confidence: string; source_url: string }> };
+    openfigi?: { queries?: Array<{ cusip: string; data: unknown[]; error?: string }> };
+  };
+  market?: { quotes?: Array<{ ticker: Fund; price: number; price_date: string; source_url: string }> };
+  macro?: { series?: Array<{ series_id: string; label: string; observation_date: string; value: number; source_url: string }> };
+  insiders?: { transactions?: Array<{ ticker: Fund; transaction_date: string; transaction_code: string; shares: number | null; price_per_share: number | null; owners: string[]; source_url: string }> };
+  institutional_ownership?: { positions?: unknown[]; enabled?: boolean };
+  legal?: { alerts?: Array<{ dashboard_name: string; case_name: string; court: string; date_filed: string; absolute_url: string; confidence: string }> };
+  limitations: string[];
+};
+
+type NportConsensusSnapshot = {
+  report_date: string;
+  fund_count: number;
+  holding_count: number;
+  consensus_status: "independent_consensus" | "single_fund_observation";
+  median_fund_mark: number;
+  mean_fund_mark: number;
+  balance_weighted_mark: number;
+  low_fund_mark: number;
+  high_fund_mark: number;
+  range_pp: number;
+  stddev_pp: number | null;
+  balance_mm: number;
+  fair_value_mm: number;
+  observations: Array<{
+    fund: string;
+    registrant: string;
+    mark: number;
+    balance_mm: number;
+    holding_count: number;
+    source_url: string;
+  }>;
+};
+
+type NportConsensusData = {
+  meta: {
+    generated_at_utc: string;
+    archive_file: string;
+    holding_rows_scanned: number;
+    eligible_usd_debt_rows: number;
+    matched_holding_rows: number;
+    matched_issuer_count: number;
+    independent_consensus_issuer_count: number;
+    rejected_ambiguous_alias_count: number;
+    methodology: string;
+    promotion_rule: string;
+  };
+  issuers: Array<{
+    issuer_match_key: string;
+    dashboard_display_name: string;
+    latest_observation: NportConsensusSnapshot;
+    latest_independent_consensus: NportConsensusSnapshot | null;
+    consensus_observation_count: number;
+    bdc_latest: { mark_to_cost: number | null; cost_mm: number; fair_value_mm: number; funds: Fund[] } | null;
+    bdc_minus_nport_pp: number | null;
+  }>;
+  limitations: string[];
+};
+
+type EquityPositionFund<T> = { ticker: Fund; latest: T | null; history: T[] };
+type EquityPositioningData = {
+  meta: {
+    generated_at_utc: string;
+    source_status: Array<{ id: string; status: string; as_of: string | null; records: number; refresh_mode?: string }>;
+    methodology: string;
+    promotion_rule: string;
+  };
+  bizd: {
+    as_of: string | null;
+    holdings: Array<{ ticker: Fund; name: string; figi: string; shares: number | null; market_value: number | null; weight_pct: number | null }>;
+    history: Array<{ as_of: string; holdings: unknown[] }>;
+  };
+  short_interest: {
+    as_of: string | null;
+    funds: Array<EquityPositionFund<{
+      settlement_date: string;
+      short_interest_shares: number | null;
+      change_pct: number | null;
+      average_daily_volume: number | null;
+      days_to_cover: number | null;
+    }>>;
+  };
+  short_volume: {
+    as_of: string | null;
+    funds: Array<EquityPositionFund<{
+      trade_date: string;
+      short_volume: number;
+      total_volume: number;
+      short_volume_ratio_pct: number | null;
+    }> & { ratio_5d_pct: number | null; ratio_20d_pct: number | null }>;
+  };
+  fails_to_deliver: {
+    as_of: string | null;
+    funds: Array<EquityPositionFund<{
+      settlement_date: string;
+      fails_shares: number;
+      price: number | null;
+      fail_value: number;
+    }> & { average_fails_20obs: number | null; maximum_fails_20obs: number | null }>;
+  };
+  limitations: string[];
+};
+
 const data = dashboardData as unknown as DashboardData;
+const arccQuarterlyUpdate = arccQuarterlyUpdateData as unknown as ArccQuarterlyUpdate;
 const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
+const freeSourceIntelligence = freeSourceIntelligenceData as unknown as FreeSourceIntelligence;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const fundingMarket = fundingMarketData as unknown as FundingMarketData;
 const bslReferenceMarks = bslReferenceMarksData as unknown as BslReferenceData;
 const businessPeerPricing = businessPeerPricingData as unknown as BusinessPeerPricingData;
 const bdcMarketValuation = bdcMarketValuationData as unknown as BdcMarketValuationData;
+const bdcEquityPositioning = bdcEquityPositioningData as unknown as EquityPositioningData;
+const nportConsensusMarks = nportConsensusMarksData as unknown as NportConsensusData;
 const businessPeerByKey = new Map(businessPeerPricing.peer_universe.map((row) => [row.normalized_borrower, row]));
 const etfImpliedBdcMarks = etfImpliedBdcMarksData as unknown as EtfImpliedBdcData;
 const liabilityStack = liabilityStackData as LiabilityStackData;
@@ -3398,6 +3613,124 @@ function KeyObservations() {
   );
 }
 
+function ArccQuarterlyUpdatePanel() {
+  const update = arccQuarterlyUpdate;
+  const current = update.reported.current;
+  const changes = update.reported.changes;
+  const grade12 = current.grade_1_fv_mm + current.grade_2_fv_mm;
+  const visibleDeterioration = update.schedule.largest_mark_deterioration.slice(0, 5);
+
+  return (
+    <section className="arcc-update" aria-labelledby="arcc-update-title">
+      <header className="arcc-update-header">
+        <div>
+          <span className="research-kicker">New filing / ARCC / Q2 2026</span>
+          <h2 id="arcc-update-title">Coverage holds; credit pressure edges higher</h2>
+          <p>{update.headline.summary}</p>
+        </div>
+        <div className="arcc-update-stamp">
+          <FundBadge fund="ARCC" />
+          <span>Filed {formatDate(update.meta.filing_date)}</span>
+        </div>
+      </header>
+
+      <div className="arcc-update-metrics">
+        <div>
+          <span>NII / dividend</span>
+          <strong>{formatPerShare(current.gaap_nii_per_share)} / {formatPerShare(current.dividend_per_share)}</strong>
+          <small>{formatPct(update.reported.dividend_coverage_pct, 1)} GAAP coverage · {formatPct(update.reported.core_eps_dividend_coverage_pct, 1)} core</small>
+        </div>
+        <div>
+          <span>NAV per share</span>
+          <strong>{formatPerShare(current.nav_per_share)}</strong>
+          <small>{formatPct(changes.nav_per_share_pct, 1)} QoQ</small>
+        </div>
+        <div>
+          <span>Non-accruals</span>
+          <strong>{formatPct(current.reported_non_accrual_fv_pct, 1)} FV</strong>
+          <small>{formatSignedPp(changes.reported_non_accrual_fv_pp)} · {formatPct(current.reported_non_accrual_cost_pct, 1)} of cost</small>
+        </div>
+        <div>
+          <span>Grade 1 + 2</span>
+          <strong>{formatMm(grade12, 0)}</strong>
+          <small>{formatMm(changes.grade_1_2_fv_mm, 0)} QoQ · {current.debt_to_equity_x.toFixed(2)}× debt/equity</small>
+        </div>
+      </div>
+
+      <div className="arcc-update-body">
+        <div className="arcc-update-read">
+          <span className="signal-section-kicker">Analyst read</span>
+          <h3>{update.headline.stance}</h3>
+          <p>
+            The regular dividend remains covered by GAAP NII, but Core EPS is one cent below the payout. NAV fell by {formatPerShare(Math.abs(changes.nav_per_share))},
+            the schedule&apos;s aggregate mark-versus-cost gap worsened by {formatMm(Math.abs(update.schedule.mark_gap_change_mm))}, and reported non-accruals moved up.
+            This is a credit-monitoring signal, not a liquidity alarm: ARCC still reports {formatMm(current.borrowing_availability_mm, 0)} of borrowing availability.
+          </p>
+          <div className="arcc-update-tape">
+            <span>Post-report tape</span>
+            <strong>{formatPerShare(update.market_reaction.latest_close)}</strong>
+            <small>{formatPct(update.market_reaction.change_since_pre_report_pct, 1)} from the pre-report close · {formatDate(update.market_reaction.latest_date)}</small>
+          </div>
+          <div className="arcc-update-sources">
+            {update.sources.map((source) => (
+              <a href={source.url} target="_blank" rel="noreferrer" key={source.url}>
+                {source.name} <ExternalLink aria-hidden="true" size={12} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="arcc-update-watch">
+          <span className="signal-section-kicker">New non-accrual loan rows</span>
+          <div className="arcc-nonaccrual-list">
+            {update.schedule.new_non_accrual_issuers.map((row) => (
+              <div key={row.issuer_match_key}>
+                <span>{row.issuer}</span>
+                <strong>{formatMm(row.amortized_cost_mm, 1)}</strong>
+                <small>{formatPct(row.fv_to_cost_pct, 1)} FV / cost</small>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="arcc-update-table-wrap">
+        <div className="signal-section-heading">
+          <div>
+            <span>Largest issuer-level deterioration</span>
+            <h3>Where the marks moved</h3>
+          </div>
+          <small>Q2 vs. Q1 · funded schedule rows</small>
+        </div>
+        <div className="table-wrap">
+          <table className="compact-wide-table">
+            <thead>
+              <tr>
+                <th>Issuer</th>
+                <th className="right">Q2 fair value</th>
+                <th className="right">FV / cost</th>
+                <th className="right">QoQ mark</th>
+                <th className="right">Gap change</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibleDeterioration.map((row) => (
+                <tr key={row.issuer_match_key}>
+                  <td>{row.issuer}{row.new_non_accrual_q2 ? <span className="arcc-new-na">New NA</span> : null}</td>
+                  <td className="right">{formatMm(row.q2_fair_value_mm, 1)}</td>
+                  <td className="right">{formatPct(row.q2_fv_to_cost_pct, 1)}</td>
+                  <td className="right negative">{formatSignedPp(row.qoq_fv_to_cost_change_pp)}</td>
+                  <td className="right negative">{formatMm(row.qoq_mark_gap_change_mm, 1)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Overview({
   selectedFund,
   onOpenTimelineIssuer
@@ -3437,6 +3770,8 @@ function Overview({
 
   return (
     <div className="grid">
+      {selectedFund === "All" || selectedFund === "ARCC" ? <ArccQuarterlyUpdatePanel /> : null}
+
       <ResearchSignalBriefing selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
       <div className="grid kpi-grid">
@@ -7791,6 +8126,337 @@ function Universe() {
   );
 }
 
+function MarketEvidence({
+  selectedFund,
+  onOpenTimelineIssuer
+}: {
+  selectedFund: Fund | "All";
+  onOpenTimelineIssuer: (issuerMatchKey: string) => void;
+}) {
+  const consensusRows = nportConsensusMarks.issuers
+    .filter((row) => selectedFund === "All" || row.bdc_latest?.funds.includes(selectedFund))
+    .map((row) => ({ ...row, comparison: row.latest_independent_consensus || row.latest_observation }))
+    .sort((a, b) => a.comparison.median_fund_mark - b.comparison.median_fund_mark);
+  const positioningTickers = selectedFund === "All" ? funds : [selectedFund];
+  const bizdByTicker = new Map(bdcEquityPositioning.bizd.holdings.map((row) => [row.ticker, row]));
+  const interestByTicker = new Map(bdcEquityPositioning.short_interest.funds.map((row) => [row.ticker, row]));
+  const volumeByTicker = new Map(bdcEquityPositioning.short_volume.funds.map((row) => [row.ticker, row]));
+  const ftdByTicker = new Map(bdcEquityPositioning.fails_to_deliver.funds.map((row) => [row.ticker, row]));
+  const stressedConsensus = consensusRows.filter((row) => row.latest_independent_consensus && row.comparison.median_fund_mark < 95).length;
+  const refreshedSources = bdcEquityPositioning.meta.source_status.filter((row) => row.status === "refreshed").length;
+
+  return (
+    <div className="grid">
+      <div className="section-heading">
+        <Activity />
+        <div>
+          <h2>Consensus marks + equity positioning</h2>
+          <p>Independent public-fund marks and source-direct market-position observations, kept outside the valuation score.</p>
+        </div>
+      </div>
+
+      <div className="grid kpi-grid">
+        <MetricCard
+          title="N-PORT issuers matched"
+          value={formatNumber(nportConsensusMarks.meta.matched_issuer_count)}
+          note={`${formatNumber(nportConsensusMarks.meta.independent_consensus_issuer_count)} have two or more independent funds on one report date.`}
+          icon={Layers3}
+        />
+        <MetricCard
+          title="Consensus below 95"
+          value={formatNumber(stressedConsensus)}
+          note={selectedFund === "All" ? "Across the current eight-fund borrower universe." : `Among borrowers currently held by ${selectedFund}.`}
+          icon={AlertTriangle}
+        />
+        <MetricCard
+          title="Position sources live"
+          value={`${refreshedSources}/${bdcEquityPositioning.meta.source_status.length}`}
+          note={`FINRA short interest through ${bdcEquityPositioning.short_interest.as_of ? formatDate(bdcEquityPositioning.short_interest.as_of) : "n/a"}.`}
+          icon={Database}
+        />
+        <MetricCard
+          title="BIZD snapshot"
+          value={bdcEquityPositioning.bizd.as_of ? formatShortDate(bdcEquityPositioning.bizd.as_of) : "n/a"}
+          note={`${formatNumber(bdcEquityPositioning.bizd.history.length)} locally retained daily snapshot${bdcEquityPositioning.bizd.history.length === 1 ? "" : "s"}; weight-change signals begin with snapshot two.`}
+          icon={LineChart}
+        />
+      </div>
+
+      <Callout title="Research-only promotion gate">
+        {nportConsensusMarks.meta.promotion_rule} {bdcEquityPositioning.meta.promotion_rule}
+      </Callout>
+
+      <Panel
+        title="Broad Form N-PORT borrower marks"
+        subtitle={`${formatNumber(nportConsensusMarks.meta.holding_rows_scanned)} public holdings streamed from ${nportConsensusMarks.meta.archive_file}; exact normalized-name joins only.`}
+        icon={Layers3}
+      >
+        <div className="table-wrap">
+          <table className="compact-wide-table">
+            <thead>
+              <tr>
+                <th>Borrower</th>
+                <th>Report</th>
+                <th className="right">Funds</th>
+                <th className="right">Median mark</th>
+                <th className="right">Range</th>
+                <th className="right">BDC mark / cost</th>
+                <th className="right">BDC gap</th>
+              </tr>
+            </thead>
+            <tbody>
+              {consensusRows.map((row) => (
+                <tr key={row.issuer_match_key}>
+                  <td className="issuer-cell">
+                    <a className="issuer-link" href="#timeline" onClick={(event) => { event.preventDefault(); onOpenTimelineIssuer(row.issuer_match_key); }}>
+                      <strong>{row.dashboard_display_name}</strong>
+                    </a>
+                    <span>{row.latest_independent_consensus ? `${row.consensus_observation_count} consensus dates` : "Single-fund observation only"}</span>
+                  </td>
+                  <td>
+                    {formatDate(row.comparison.report_date)}
+                    {row.comparison.observations[0]?.source_url ? <><br /><a href={row.comparison.observations[0].source_url} target="_blank" rel="noreferrer">SEC filing <ExternalLink aria-hidden="true" size={12} /></a></> : null}
+                  </td>
+                  <td className="right">{formatNumber(row.comparison.fund_count)}</td>
+                  <td className="right"><strong>{formatMark(row.comparison.median_fund_mark, 1)}</strong></td>
+                  <td className="right">{formatMark(row.comparison.low_fund_mark, 1)}–{formatMark(row.comparison.high_fund_mark, 1)}</td>
+                  <td className="right">{formatMark(row.bdc_latest?.mark_to_cost, 1)}</td>
+                  <td className="right">{formatSignedPp(row.bdc_minus_nport_pp, 1)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Panel>
+
+      <Panel
+        title="Listed-equity positioning"
+        subtitle="BIZD ownership weight, consolidated short interest, off-exchange short-sale volume, and settlement fails answer different questions."
+        icon={Activity}
+      >
+        <div className="table-wrap">
+          <table className="compact-wide-table">
+            <thead>
+              <tr>
+                <th>BDC</th>
+                <th className="right">BIZD weight</th>
+                <th className="right">Short interest</th>
+                <th className="right">SI change</th>
+                <th className="right">Days to cover</th>
+                <th className="right">20d short volume</th>
+                <th className="right">Latest fails</th>
+                <th>Dates</th>
+              </tr>
+            </thead>
+            <tbody>
+              {positioningTickers.map((ticker) => {
+                const bizd = bizdByTicker.get(ticker);
+                const interest = interestByTicker.get(ticker);
+                const volume = volumeByTicker.get(ticker);
+                const ftd = ftdByTicker.get(ticker);
+                return (
+                  <tr key={ticker}>
+                    <td><FundBadge fund={ticker} /></td>
+                    <td className="right">{formatPct(bizd?.weight_pct, 2)}</td>
+                    <td className="right">{formatNumber(interest?.latest?.short_interest_shares)}</td>
+                    <td className="right">{formatPct(interest?.latest?.change_pct, 1)}</td>
+                    <td className="right">{interest?.latest?.days_to_cover?.toFixed(2) ?? "n/a"}</td>
+                    <td className="right">{formatPct(volume?.ratio_20d_pct, 1)}</td>
+                    <td className="right">{formatNumber(ftd?.latest?.fails_shares)}</td>
+                    <td>
+                      <small>SI {interest?.latest ? formatShortDate(interest.latest.settlement_date) : "n/a"}</small><br />
+                      <small>Vol {volume?.latest ? formatShortDate(volume.latest.trade_date) : "n/a"} · FTD {ftd?.latest ? formatShortDate(ftd.latest.settlement_date) : "n/a"}</small>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </Panel>
+
+      <div className="grid limitation-grid">
+        {[...nportConsensusMarks.limitations, ...bdcEquityPositioning.limitations].map((limitation) => (
+          <section className="panel limitation" key={limitation}>
+            <h3>Evidence guardrail</h3>
+            <p>{limitation}</p>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FreeSources() {
+  const statusRows = freeSourceIntelligence.source_status;
+  const refreshedCount = statusRows.filter((row) => row.status === "refreshed").length;
+  const liveRecordCount = statusRows
+    .filter((row) => row.status === "refreshed")
+    .reduce((total, row) => total + row.records, 0);
+  const etfFunds = freeSourceIntelligence.etf_holdings?.funds || [];
+  const macroSeries = freeSourceIntelligence.macro?.series || [];
+  const formDMatches = freeSourceIntelligence.entity_resolution?.form_d?.matches || [];
+  const gleifCandidates = freeSourceIntelligence.entity_resolution?.gleif?.candidates || [];
+  const insiderTransactions = freeSourceIntelligence.insiders?.transactions || [];
+  const legalAlerts = freeSourceIntelligence.legal?.alerts || [];
+  const debtCandidates = freeSourceIntelligence.sec_bdc?.debt_numeric_candidates || [];
+  const candidateCount = formDMatches.length + gleifCandidates.length + legalAlerts.length + debtCandidates.length;
+
+  const statusLabel = (status: FreeSourceStatus["status"]) => ({
+    refreshed: "Refreshed",
+    available_not_refreshed: "Available / not run",
+    credential_required: "Credential needed",
+    error: "Refresh error"
+  }[status]);
+
+  return (
+    <div className="grid">
+      <div className="section-heading">
+        <Database />
+        <div>
+          <h2>Free-source intelligence</h2>
+          <p>Direct public data, optional credentialed APIs, and review-only identity or event candidates.</p>
+        </div>
+      </div>
+
+      <div className="grid kpi-grid">
+        <MetricCard
+          title="Sources refreshed"
+          value={`${refreshedCount}/${statusRows.length}`}
+          note={`Snapshot generated ${formatDate(freeSourceIntelligence.meta.generated_at_utc)}.`}
+          icon={Database}
+        />
+        <MetricCard
+          title="Parsed source rows"
+          value={formatNumber(liveRecordCount)}
+          note="Provider rows or mapped instruments reported by successful source adapters."
+          icon={Layers3}
+        />
+        <MetricCard
+          title="Review candidates"
+          value={formatNumber(candidateCount)}
+          note="Entity, legal, and debt-note candidates stay outside canonical joins until reviewed."
+          icon={FileSearch}
+        />
+        <MetricCard
+          title="Macro series"
+          value={formatNumber(macroSeries.length)}
+          note="FRED high-yield spread and SLOOS lending-standard observations."
+          icon={TrendingUp}
+        />
+      </div>
+
+      <Callout title="Promotion gate">{freeSourceIntelligence.meta.promotion_rule}</Callout>
+
+      <Panel
+        title="Source refresh registry"
+        subtitle="A credential requirement or an unrun heavy file is never presented as zero events."
+        icon={ShieldCheck}
+      >
+        <div className="table-wrap">
+          <table className="compact-wide-table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>As of</th>
+                <th className="right">Rows</th>
+                <th>Coverage note</th>
+              </tr>
+            </thead>
+            <tbody>
+              {statusRows.map((row) => (
+                <tr key={row.id}>
+                  <td>
+                    <a href={row.url} target="_blank" rel="noreferrer">
+                      {row.name} <ExternalLink aria-hidden="true" size={13} />
+                    </a>
+                  </td>
+                  <td>{row.category}</td>
+                  <td><span className={`pill ${row.status === "refreshed" ? "ok" : ""}`}>{statusLabel(row.status)}</span></td>
+                  <td>{row.as_of ? formatDate(row.as_of) : "—"}</td>
+                  <td className="right">{row.records ? formatNumber(row.records) : "—"}</td>
+                  <td>{row.message}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Panel>
+
+      <div className="grid two-col">
+        <Panel title="Daily senior-loan ETF files" subtitle="Issuer-published holdings; mark inference requires market value and par/shares." icon={LineChart}>
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr><th>ETF</th><th>As of</th><th className="right">Rows</th><th className="right">Marks</th><th className="right">BDC matches</th></tr>
+              </thead>
+              <tbody>
+                {etfFunds.map((row) => (
+                  <tr key={row.etf}>
+                    <td><a href={row.source_url} target="_blank" rel="noreferrer">{row.etf} <ExternalLink aria-hidden="true" size={13} /></a></td>
+                    <td>{row.as_of ? formatDate(row.as_of) : row.error || "Not refreshed"}</td>
+                    <td className="right">{formatNumber(row.row_count)}</td>
+                    <td className="right">{formatNumber(row.marked_row_count || 0)}</td>
+                    <td className="right">{formatNumber(row.matched_bdc_borrower_count || 0)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Panel>
+
+        <Panel title="Entity and instrument resolution" subtitle="Exact-name Form D links, LEIs, and OpenFIGI mappings remain auditable candidates." icon={FileSearch}>
+          <div className="quality-methodology-grid">
+            <section><h3>SEC Form D</h3><p>{formatNumber(formDMatches.length)} exact normalized-name candidates from the latest quarterly package.</p></section>
+            <section><h3>GLEIF</h3><p>{formatNumber(gleifCandidates.length)} LEI candidates across the highest-exposure borrower query set.</p></section>
+            <section><h3>OpenFIGI</h3><p>{formatNumber((freeSourceIntelligence.entity_resolution?.openfigi?.queries || []).filter((row) => row.data.length).length)} BDC note CUSIPs mapped.</p></section>
+            <section><h3>Borrower universe</h3><p>{formatNumber(freeSourceIntelligence.meta.borrower_universe_count)} current normalized issuer keys are available for conservative matching.</p></section>
+          </div>
+        </Panel>
+      </div>
+
+      <div className="grid two-col">
+        <Panel title="Macro credit backdrop" subtitle="Latest public FRED observations; units follow each source series." icon={TrendingUp}>
+          <div className="table-wrap">
+            <table>
+              <thead><tr><th>Series</th><th>Observation</th><th className="right">Value</th></tr></thead>
+              <tbody>
+                {macroSeries.map((row) => (
+                  <tr key={row.series_id}>
+                    <td><a href={row.source_url} target="_blank" rel="noreferrer">{row.label}</a><br /><small>{row.series_id}</small></td>
+                    <td>{formatDate(row.observation_date)}</td>
+                    <td className="right">{row.value.toFixed(2)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Panel>
+
+        <Panel title="Ownership and event inputs" subtitle="Observed rows are separate from valuation scores until an explicit model rule is approved." icon={Activity}>
+          <div className="quality-methodology-grid">
+            <section><h3>BDC insider P/S trades</h3><p>{formatNumber(insiderTransactions.length)} open-market purchase or sale observations in the latest SEC bulk package.</p></section>
+            <section><h3>SEC debt facts</h3><p>{formatNumber(debtCandidates.length)} raw numeric candidates for tender, repurchase, redemption, borrowing, and note reconciliation.</p></section>
+            <section><h3>Institutional ownership</h3><p>{freeSourceIntelligence.institutional_ownership?.enabled ? `${formatNumber(freeSourceIntelligence.institutional_ownership.positions?.length || 0)} parsed 13F positions.` : "13F connector ready; heavy quarterly table not downloaded by default."}</p></section>
+            <section><h3>Legal alerts</h3><p>{formatNumber(legalAlerts.length)} review candidates. A missing CourtListener credential is not interpreted as no litigation.</p></section>
+          </div>
+        </Panel>
+      </div>
+
+      <div className="grid limitation-grid">
+        {freeSourceIntelligence.limitations.map((limitation) => (
+          <section className="panel limitation" key={limitation}>
+            <h3>Source guardrail</h3>
+            <p>{limitation}</p>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Quality() {
   return (
     <div className="grid">
@@ -8013,6 +8679,7 @@ export default function DashboardPage() {
   const tabs: Array<{ id: Tab; label: string; icon: LucideIcon; group: string; description: string }> = [
     { id: "overview", label: "Research briefing", icon: BarChart3, group: "Decide", description: "Ranked portfolio signals and the latest cross-fund read." },
     { id: "valuation", label: "BDC valuation", icon: BadgeDollarSign, group: "Decide", description: "Aggregate market discount, BSL loan re-marks, and funding resilience." },
+    { id: "evidence", label: "Consensus + positioning", icon: Activity, group: "Decide", description: "Broad N-PORT marks, BIZD weights, short interest, short volume, and settlement fails." },
     { id: "deterioration", label: "Credit migration", icon: AlertTriangle, group: "Decide", description: "Issuer marks moving toward potential non-accrual stress." },
     { id: "exposure", label: "Cross-fund exposure", icon: Layers3, group: "Decide", description: "Crowding, matched-loan marks, and capital-structure comparisons." },
     { id: "timeline", label: "Issuer timeline", icon: LineChart, group: "Investigate", description: "Quarterly exposure, tier marks, fund-pair lead-lag, and sponsor history." },
@@ -8020,6 +8687,7 @@ export default function DashboardPage() {
     { id: "financials", label: "Fund financials", icon: WalletCards, group: "Fund", description: "NAV, income quality, dividends, leverage, and investment activity." },
     { id: "liabilities", label: "Funding market", icon: Gauge, group: "Fund", description: "SEC note issuance, TRACE trading, maturity walls, and filed liability detail." },
     { id: "universe", label: "BDC coverage", icon: Database, group: "Reference", description: "EdgarTools coverage and the wider BDC expansion universe." },
+    { id: "sources", label: "Free-source feeds", icon: FileSearch, group: "Reference", description: "Refresh status, public data rows, entity candidates, market inputs, and event feeds." },
     { id: "quality", label: "Methods + quality", icon: ShieldCheck, group: "Reference", description: "Reconciliation, methodology, sources, and limitations." }
   ];
   const activeTabMeta = tabs.find((tab) => tab.id === activeTab) || tabs[0];
@@ -8037,6 +8705,20 @@ export default function DashboardPage() {
         </div>
 
         <p className="rail-label">Portfolio workbench</p>
+        <label className="mobile-section-nav">
+          <span>Dashboard section</span>
+          <select
+            aria-label="Dashboard section"
+            value={activeTab}
+            onChange={(event) => setActiveTab(event.target.value as Tab)}
+          >
+            {tabs.map((tab) => (
+              <option key={tab.id} value={tab.id}>
+                {tab.group} · {tab.label}
+              </option>
+            ))}
+          </select>
+        </label>
         <nav className="tabs" aria-label="Dashboard sections">
           {tabs.map((tab, index) => (
             <div className="rail-nav-entry" key={tab.id}>
@@ -8143,6 +8825,7 @@ export default function DashboardPage() {
 
         {activeTab === "overview" ? <Overview selectedFund={selectedFund} onOpenTimelineIssuer={openTimelineIssuer} /> : null}
         {activeTab === "valuation" ? <BdcValuation selectedFund={selectedFund} onOpenTimelineIssuer={openTimelineIssuer} /> : null}
+        {activeTab === "evidence" ? <MarketEvidence selectedFund={selectedFund} onOpenTimelineIssuer={openTimelineIssuer} /> : null}
         {activeTab === "financials" ? <Financials selectedFund={selectedFund} /> : null}
         {activeTab === "deterioration" ? <Deterioration selectedFund={selectedFund} /> : null}
         {activeTab === "exposure" ? (
@@ -8158,6 +8841,7 @@ export default function DashboardPage() {
         {activeTab === "holdings" ? <Holdings selectedFund={selectedFund} searchTerm={searchTerm} /> : null}
         {activeTab === "liabilities" ? <Liabilities selectedFund={selectedFund} /> : null}
         {activeTab === "universe" ? <Universe /> : null}
+        {activeTab === "sources" ? <FreeSources /> : null}
         {activeTab === "quality" ? <Quality /> : null}
       </div>
       </section>

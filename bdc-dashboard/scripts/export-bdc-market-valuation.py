@@ -11,14 +11,16 @@ PEER_PATH = PROJECT_ROOT / "lib" / "business-peer-pricing.json"
 FUNDING_PATH = PROJECT_ROOT / "lib" / "bdc-funding-market.json"
 DASHBOARD_PATH = PROJECT_ROOT / "lib" / "dashboard-data.json"
 OUTPUT_PATH = PROJECT_ROOT / "lib" / "bdc-market-valuation.json"
+FREE_SOURCES_PATH = PROJECT_ROOT / "lib" / "free-source-intelligence.json"
 MAX_LOAN_REMARK_PP = 25.0
 
 
 # Quarter-end balance-sheet facts are kept as a small, auditable snapshot. The
-# source links below are official issuer or SEC materials for March 31, 2026.
+# source links below are official issuer or SEC materials. ARCC is updated
+# through June 30, 2026; the remaining funds are through March 31, 2026.
 FUND_FINANCIALS: dict[str, dict[str, Any]] = {
-    "ARCC": {"nav_per_share": 19.59, "net_assets_mm": 14065.0, "debt_mm": 15848.0, "debt_to_equity_x": 1.13,
-             "unsecured_debt_pct": None, "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000162828026027685/arccq1-2026exhibit991.htm"},
+    "ARCC": {"nav_per_share": 19.35, "net_assets_mm": 13891.0, "debt_mm": 15800.0, "debt_to_equity_x": 1.15,
+             "nav_date": "2026-06-30", "unsecured_debt_pct": None, "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000162828026050303/arccq2-2026exhibit991.htm"},
     "BBDC": {"nav_per_share": 11.02, "net_assets_mm": 1153.45, "debt_mm": 1425.202, "debt_to_equity_x": 1.24,
              "unsecured_debt_pct": 78.7, "source_url": "https://ir.barings.com/news-events/press-releases/detail/473/barings-bdc-inc-reports-first-quarter-2026-results-and-announces-quarterly-cash-dividend-of-0-26-per-share"},
     "BXSL": {"nav_per_share": 26.26, "net_assets_mm": 6100.0, "debt_mm": 8076.0, "debt_to_equity_x": 1.32,
@@ -37,7 +39,7 @@ FUND_FINANCIALS: dict[str, dict[str, Any]] = {
 
 
 MARKET_CLOSES: dict[str, dict[str, Any]] = {
-    "ARCC": {"price": 19.17, "price_date": "2026-07-17"},
+    "ARCC": {"price": 18.76, "price_date": "2026-07-31"},
     "BBDC": {"price": 8.50, "price_date": "2026-07-17"},
     "BXSL": {"price": 23.82, "price_date": "2026-07-17"},
     "FSK": {"price": 10.93, "price_date": "2026-07-17"},
@@ -63,8 +65,15 @@ def main() -> None:
     peer_data = json.loads(PEER_PATH.read_text(encoding="utf-8"))
     funding_data = json.loads(FUNDING_PATH.read_text(encoding="utf-8"))
     dashboard = json.loads(DASHBOARD_PATH.read_text(encoding="utf-8"))
+    free_sources = json.loads(FREE_SOURCES_PATH.read_text(encoding="utf-8")) if FREE_SOURCES_PATH.exists() else {}
+    refreshed_quotes = {
+        row["ticker"]: row
+        for row in free_sources.get("market", {}).get("quotes", [])
+        if row.get("ticker") in FUND_FINANCIALS and row.get("price") is not None and row.get("price_date")
+    }
     funding_by_fund = {row["ticker"]: row for row in funding_data["funds"]}
-    total_fv_by_fund = {row["fund"]: float(row["fair_value_mm"]) for row in dashboard["latest_by_fund"]}
+    latest_fund_rows = dashboard.get("latest_available_by_fund", dashboard["latest_by_fund"])
+    total_fv_by_fund = {row["fund"]: float(row["fair_value_mm"]) for row in latest_fund_rows}
     as_of = date.fromisoformat(funding_data["meta"]["as_of_date"])
     rows = []
 
@@ -90,7 +99,15 @@ def main() -> None:
         coverage_pct = comparable_fv / total_fv_by_fund[fund] * 100 if total_fv_by_fund.get(fund) else 0
         nav_impact_pct = asset_adjustment / financials["net_assets_mm"] * 100
         adjusted_nav = financials["nav_per_share"] * (1 + nav_impact_pct / 100)
-        market = MARKET_CLOSES[fund]
+        market = dict(MARKET_CLOSES[fund])
+        refreshed_quote = refreshed_quotes.get(fund)
+        if refreshed_quote and refreshed_quote["price_date"] >= market["price_date"]:
+            market = {
+                "price": float(refreshed_quote["price"]),
+                "price_date": refreshed_quote["price_date"],
+                "source_url": refreshed_quote.get("source_url"),
+                "provider": "Massive",
+            }
         price_to_nav = market["price"] / financials["nav_per_share"] * 100
         price_to_adjusted_nav = market["price"] / adjusted_nav * 100
 
@@ -127,7 +144,7 @@ def main() -> None:
             "price": market["price"],
             "price_date": market["price_date"],
             "nav_per_share": financials["nav_per_share"],
-            "nav_date": "2026-03-31",
+            "nav_date": financials.get("nav_date", "2026-03-31"),
             "reported_price_to_nav_pct": round(price_to_nav, 4),
             "reported_premium_discount_pct": round(price_to_nav - 100, 4),
             "comparable_loan_count": len(estimates),
@@ -159,7 +176,8 @@ def main() -> None:
             "screen_confidence": "higher" if coverage_pct >= 40 and funding["trace_matched_series_count"] else "medium" if coverage_pct >= 20 else "limited",
             "interpretation": interpretation,
             "financial_source_url": financials["source_url"],
-            "market_source_url": f"https://stockanalysis.com/stocks/{fund.lower()}/history/",
+            "market_source_url": market.get("source_url") or f"https://stockanalysis.com/stocks/{fund.lower()}/history/",
+            "market_data_provider": market.get("provider") or "audited static close",
         })
 
     rows.sort(key=lambda row: (-row["aggregate_value_score"], row["fund"]))
@@ -186,8 +204,9 @@ def main() -> None:
         "meta": {
             "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "market_price_through": max(row["price_date"] for row in rows),
-            "nav_date": "2026-03-31",
+            "nav_date": max(row["nav_date"] for row in rows),
             "fund_count": len(rows),
+            "free_source_market_quotes_used": sum(1 for row in rows if row["market_data_provider"] == "Massive"),
             "methodology": "Each fund's covered senior loans are re-marked from the BDC schedule mark toward the selected BSL operating-model peer median. Individual gaps are winsorized at plus or minus 25 price points so one impaired or imperfectly matched loan cannot dominate the fund. The dollar adjustment is applied to reported net assets while uncovered assets and all liabilities remain at reported value. The public share price is then compared with this BSL-adjusted NAV.",
             "score_methodology": "The 0-100 aggregate value score weights market price versus BSL-adjusted NAV at 70%, funding resilience at 20%, and comparable-loan coverage at 10%. Funding resilience combines gross debt-to-equity, observed near-term note maturities, and TRACE yield where available; a neutral bond-market input is used where TRACE coverage is absent.",
             "caveats": [
@@ -204,7 +223,7 @@ def main() -> None:
         "loan_screen": loan_rows,
         "sources": [
             {"name": "Recent BDC closing prices", "url": "https://stockanalysis.com/stocks/arcc/history/", "role": "Public closing-price snapshot; each row retains its ticker-specific URL."},
-            {"name": "SEC and issuer Q1 2026 materials", "url": "https://www.sec.gov/edgar/search/", "role": "NAV, net assets, debt, and leverage; each row retains its fund-specific source URL."},
+            {"name": "SEC and issuer Q1/Q2 2026 materials", "url": "https://www.sec.gov/edgar/search/", "role": "NAV, net assets, debt, and leverage; each row retains its fund-specific source URL and observation date."},
             {"name": "SEC Form N-PORT data sets", "url": "https://www.sec.gov/data-research/sec-markets-data/form-n-port-data-sets", "role": "Public senior-loan ETF marks."},
             {"name": "FINRA TRACE", "url": "https://www.finra.org/finra-data/fixed-income", "role": "Observed BDC bond trades and yields where matched."},
         ],

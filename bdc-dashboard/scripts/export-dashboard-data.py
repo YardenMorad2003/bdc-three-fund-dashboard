@@ -354,6 +354,30 @@ def build_data() -> dict[str, Any]:
             (latest_period,),
         )
 
+        latest_available_by_fund = rows(
+            con,
+            """
+            with latest_periods as (
+                select fund, max(filing_period_end) as filing_period_end
+                from fund_period_summary
+                group by fund
+            )
+            select
+                summary.fund,
+                summary.filing_period_end,
+                summary.report_type,
+                summary.holding_rows,
+                round(summary.amortized_cost_mm, 6) as amortized_cost_mm,
+                round(summary.fair_value_mm, 6) as fair_value_mm,
+                round(summary.mark_vs_cost_mm, 6) as mark_vs_cost_mm
+            from fund_period_summary summary
+            join latest_periods latest
+              on latest.fund = summary.fund
+             and latest.filing_period_end = summary.filing_period_end
+            order by summary.fund
+            """,
+        )
+
         raw_cross_fund_issuer_count = one(
             con,
             """
@@ -785,6 +809,49 @@ def build_data() -> dict[str, Any]:
             (latest_period,),
         )
 
+        holdings_detail_latest_by_fund = rows(
+            con,
+            """
+            with latest_periods as (
+                select fund, max(filing_period_end) as filing_period_end
+                from fund_period_summary
+                group by fund
+            )
+            select
+                holding.fund,
+                holding.filing_period_end,
+                holding.issuer_name,
+                holding.issuer_match_key,
+                holding.industry,
+                holding.investment_category,
+                holding.instrument_type,
+                holding.investment_description,
+                holding.rate_raw,
+                holding.reference_base_rate,
+                holding.spread_pct,
+                holding.fixed_coupon_pct,
+                holding.pik_rate_pct,
+                holding.maturity_date,
+                holding.amount_kind,
+                holding.amount_currency,
+                holding.amount_value,
+                holding.principal_mm,
+                holding.shares_units,
+                holding.exposure_type,
+                holding.is_unfunded_commitment,
+                round(holding.amortized_cost_mm, 6) as amortized_cost_mm,
+                round(holding.fair_value_mm, 6) as fair_value_mm,
+                round(holding.fair_value_mm - holding.amortized_cost_mm, 6) as mark_vs_cost_mm,
+                holding.pct_net_assets,
+                holding.source_lineage_json
+            from security_level_holdings holding
+            join latest_periods latest
+              on latest.fund = holding.fund
+             and latest.filing_period_end = holding.filing_period_end
+            order by holding.fund, holding.issuer_match_key, holding.fair_value_mm desc
+            """,
+        )
+
         all_latest = rows(
             con,
             """
@@ -809,6 +876,10 @@ def build_data() -> dict[str, Any]:
             item["maturity_bucket"] = maturity_bucket(item.get("maturity_date"))
 
         for item in holdings_detail_latest:
+            item["rate_type"] = rate_bucket(item)
+            item["maturity_bucket"] = maturity_bucket(item.get("maturity_date"))
+
+        for item in holdings_detail_latest_by_fund:
             item["rate_type"] = rate_bucket(item)
             item["maturity_bucket"] = maturity_bucket(item.get("maturity_date"))
 
@@ -980,6 +1051,7 @@ def build_data() -> dict[str, Any]:
             "issuer_period_history": issuer_period_history,
             "fund_totals": fund_totals,
             "latest_by_fund": latest_by_fund,
+            "latest_available_by_fund": latest_available_by_fund,
             "change_by_fund": change_by_fund,
             "period_summary": period_summary,
             "time_series": series,
@@ -989,6 +1061,7 @@ def build_data() -> dict[str, Any]:
             "issuer_concentration": concentration,
             "holdings_latest": holdings_latest,
             "holdings_detail_latest": holdings_detail_latest,
+            "holdings_detail_latest_by_fund": holdings_detail_latest_by_fund,
             "rate_mix_latest": group_sum(rate_items, ["fund", "rate_type"], "fair_value_mm"),
             "maturity_buckets_latest": group_sum(maturity_items, ["fund", "maturity_bucket"], "fair_value_mm"),
             "amount_field_summary_latest": group_sum(amount_items, ["fund", "amount_kind", "amount_currency"], "fair_value_mm"),

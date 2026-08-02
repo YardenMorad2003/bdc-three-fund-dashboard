@@ -3263,6 +3263,204 @@ tbody tr:hover td {
   line-height: 1.55;
 }
 
+.arcc-update {
+  margin-bottom: 22px;
+  border-top: 3px solid #8b6bc7;
+  border-bottom: 1px solid var(--border);
+  background: #111719;
+}
+
+.arcc-update-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 32px;
+  padding: 24px 28px 21px;
+}
+
+.arcc-update-header h2 {
+  margin: 5px 0 0;
+  color: #f0ece3;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 3vw, 35px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.arcc-update-header p {
+  max-width: 820px;
+  margin: 10px 0 0;
+  color: #949d9e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.arcc-update-stamp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #838d8f;
+  font: 600 9px/1.4 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.arcc-update-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--border);
+}
+
+.arcc-update-metrics > div {
+  min-width: 0;
+  padding: 16px 18px 17px;
+  background: #151c1f;
+}
+
+.arcc-update-metrics span,
+.arcc-update-tape span {
+  display: block;
+  color: #788386;
+  font: 700 9px/1.35 Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.arcc-update-metrics strong {
+  display: block;
+  margin-top: 7px;
+  color: #ece7dd;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.arcc-update-metrics small,
+.arcc-update-tape small {
+  display: block;
+  margin-top: 6px;
+  color: #98a1a1;
+  font: 500 10px/1.35 Consolas, "Liberation Mono", monospace;
+}
+
+.arcc-update-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
+}
+
+.arcc-update-read,
+.arcc-update-watch,
+.arcc-update-table-wrap {
+  min-width: 0;
+  padding: 22px 28px 24px;
+}
+
+.arcc-update-read {
+  border-right: 1px solid var(--border);
+}
+
+.arcc-update-read h3 {
+  margin: 6px 0 9px;
+  color: #e8e3d9;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.arcc-update-read > p {
+  max-width: 780px;
+  margin: 0;
+  color: #98a1a2;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.arcc-update-tape {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 11px;
+  margin-top: 17px;
+  padding-top: 14px;
+  border-top: 1px solid #2a3336;
+}
+
+.arcc-update-tape strong {
+  color: #e8e3d9;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.arcc-update-tape small {
+  margin: 0;
+}
+
+.arcc-update-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 16px;
+}
+
+.arcc-update-sources a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #9b91bc;
+  font-size: 10px;
+}
+
+.arcc-nonaccrual-list {
+  margin-top: 9px;
+  border-top: 1px solid #2a3336;
+}
+
+.arcc-nonaccrual-list > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3px 14px;
+  padding: 9px 0;
+  border-bottom: 1px solid #252e31;
+}
+
+.arcc-nonaccrual-list span {
+  overflow: hidden;
+  color: #dad6ce;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arcc-nonaccrual-list strong {
+  color: #d4cfc5;
+  font: 600 10px/1.4 Consolas, "Liberation Mono", monospace;
+}
+
+.arcc-nonaccrual-list small {
+  grid-column: 1 / -1;
+  color: #7f8a8c;
+  font: 500 9px/1.3 Consolas, "Liberation Mono", monospace;
+}
+
+.arcc-update-table-wrap {
+  border-top: 1px solid var(--border);
+}
+
+.arcc-new-na {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 4px;
+  border: 1px solid #855d55;
+  color: #d49283;
+  font: 700 8px/1 Consolas, "Liberation Mono", monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
 .signal-briefing {
   margin-bottom: 22px;
   border-top: 3px solid #d4cfc4;
@@ -3933,6 +4131,31 @@ tbody tr:hover td {
     border-top: 1px solid var(--border);
   }
 
+  .arcc-update-header,
+  .arcc-update-body {
+    grid-template-columns: 1fr;
+  }
+
+  .arcc-update-header {
+    gap: 15px;
+    padding: 22px 18px 18px;
+  }
+
+  .arcc-update-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .arcc-update-read,
+  .arcc-update-watch,
+  .arcc-update-table-wrap {
+    padding: 20px 18px 22px;
+  }
+
+  .arcc-update-read {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
   .signal-briefing-header {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -3966,6 +4189,14 @@ tbody tr:hover td {
 }
 
 @media (max-width: 560px) {
+  .arcc-update-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .arcc-update-tape {
+    grid-template-columns: 1fr;
+  }
+
   .signal-headlines {
     grid-template-columns: 1fr;
   }
@@ -5353,4 +5584,199 @@ tbody tr:hover td {
   .valuation-bridge { grid-template-columns: 1fr; }
   .valuation-bridge > div { border-right: 0; border-bottom: 1px solid var(--border); }
   .valuation-bridge > div:last-child { border-bottom: 0; }
+}
+
+/* Mobile dashboard shell: compact, touch-friendly navigation and safe data scrolling. */
+.mobile-section-nav {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .research-rail {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px 14px;
+    border-right: 0;
+    border-bottom: 1px solid #2c3437;
+    background: rgba(13, 18, 20, .97);
+    backdrop-filter: blur(14px);
+  }
+
+  .research-rail::after {
+    right: auto;
+    bottom: -1px;
+    left: 14px;
+    width: 62px;
+    height: 2px;
+  }
+
+  .rail-brand {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .rail-brand strong {
+    font-size: 15px;
+  }
+
+  .rail-brand span {
+    max-width: 190px;
+    margin: 0;
+    overflow: hidden;
+    font-size: 7px;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .research-rail > .rail-label,
+  .research-rail > .tabs {
+    display: none;
+  }
+
+  .mobile-section-nav {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+  }
+
+  .mobile-section-nav span {
+    color: #758083;
+    font: 700 8px/1 Consolas, "Liberation Mono", monospace;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .mobile-section-nav select {
+    width: 100%;
+    min-height: 44px;
+    border: 1px solid #3b4548;
+    background: #171e21;
+    padding: 0 34px 0 12px;
+    color: #ece8df;
+    font-size: 13px;
+  }
+
+  .topbar {
+    position: relative;
+  }
+
+  .topbar-inner {
+    gap: 18px;
+    width: 100%;
+    padding: 20px 14px 18px;
+  }
+
+  .brand h1 {
+    font-size: clamp(28px, 9vw, 38px);
+  }
+
+  .workspace-description {
+    font-size: 12px !important;
+  }
+
+  .mast-meta {
+    gap: 12px;
+  }
+
+  .mast-meta > div {
+    min-width: 0;
+  }
+
+  .mast-meta strong {
+    overflow-wrap: anywhere;
+  }
+
+  .content {
+    width: 100%;
+    padding: 12px 12px 40px;
+  }
+
+  .toolbar {
+    margin-bottom: 14px;
+  }
+
+  .toolbar .control-row,
+  .toolbar .select,
+  .toolbar .issuer-select,
+  .toolbar .search-wrap {
+    width: 100%;
+  }
+
+  .toolbar .select,
+  .toolbar .search,
+  .toolbar button,
+  .view-switch button,
+  .comparison-toolbar button {
+    min-height: 44px;
+  }
+
+  .panel,
+  .arcc-update,
+  .signal-briefing,
+  .valuation-page,
+  .funding-market-layer {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .table-wrap,
+  .arcc-update-table-wrap,
+  .valuation-loan-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .arcc-update-table-wrap table,
+  .valuation-table,
+  .valuation-loan-table {
+    min-width: 690px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-section-nav {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .rail-brand span {
+    display: none;
+  }
+
+  .topbar-inner {
+    padding-top: 17px;
+  }
+
+  .mast-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .arcc-update-header h2,
+  .signal-briefing-header h2,
+  .valuation-hero h2 {
+    font-size: 25px;
+    line-height: 1.08;
+  }
+
+  .arcc-update-header,
+  .arcc-update-read,
+  .arcc-update-watch,
+  .arcc-update-table-wrap,
+  .signal-briefing-header,
+  .signal-map-column,
+  .signal-queue-column {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
 }

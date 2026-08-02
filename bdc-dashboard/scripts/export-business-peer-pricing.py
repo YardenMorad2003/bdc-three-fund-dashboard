@@ -185,7 +185,8 @@ def main() -> None:
         })
 
     grouped_targets: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
-    for row in dashboard["holdings_detail_latest"]:
+    target_holdings = dashboard.get("holdings_detail_latest_by_fund", dashboard["holdings_detail_latest"])
+    for row in target_holdings:
         if is_senior_debt(row) and float(row.get("principal_mm") or 0) > 0:
             grouped_targets[(row["issuer_match_key"], row["fund"])].append(row)
 
