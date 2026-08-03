@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import sqlite3
@@ -34,10 +35,12 @@ try:
     import edgar
     from edgar.bdc import fetch_bdc_dataset, get_bdc_list
 except ImportError as exc:
-    raise SystemExit(
-        "EdgarTools is not importable. Install edgartools>=5.12 and set "
-        "EDGARTOOLS_DEPS when it is outside the active Python environment."
-    ) from exc
+    edgar = None
+    fetch_bdc_dataset = None
+    get_bdc_list = None
+    EDGARTOOLS_IMPORT_ERROR = exc
+else:
+    EDGARTOOLS_IMPORT_ERROR = None
 
 
 VERIFIED_FUNDS = {
@@ -47,6 +50,7 @@ VERIFIED_FUNDS = {
     1422183: ("FSK", "FS KKR Capital Corp."),
     1476765: ("GBDC", "Golub Capital BDC, Inc."),
     1396440: ("MAIN", "Main Street Capital Corporation"),
+    1496099: ("NMFC", "New Mountain Finance Corporation"),
     1655888: ("OBDC", "Blue Owl Capital Corporation"),
     1508655: ("TSLX", "Sixth Street Specialty Lending, Inc."),
 }
@@ -168,6 +172,11 @@ def expansion_audit_rows() -> dict[str, dict[str, Any]]:
 
 
 def build_universe() -> dict[str, Any]:
+    if get_bdc_list is None or fetch_bdc_dataset is None:
+        raise RuntimeError(
+            "EdgarTools is not importable. Install edgartools>=5.12 and set "
+            "EDGARTOOLS_DEPS when it is outside the active Python environment."
+        ) from EDGARTOOLS_IMPORT_ERROR
     registry = get_bdc_list()
     registry_frame = registry.to_dataframe()
     bulk = fetch_bdc_dataset(2025, 1)
@@ -318,16 +327,71 @@ def build_universe() -> dict[str, Any]:
         "limitations": [
             "SEC bulk SOI row counts are tagged fact rows, not canonical security counts.",
             "Bulk availability means the company appears in the quarterly SEC extract; it does not mean its detail has passed the tracker reconciliation gates.",
-            "The requested 11-fund expansion cohort is audited form by form. MAIN, GBDC, and BBDC passed both latest-form checks; the other eight remain review-only because their detailed XBRL did not reconcile or was incomplete.",
+            "The requested 11-fund expansion cohort is audited form by form. MAIN, GBDC, and BBDC passed both latest-form XBRL checks; NMFC was separately promoted through a dedicated primary-schedule extractor, while the remaining seven are review-only because their detailed XBRL did not reconcile or was incomplete.",
             "ARCC and TSLX are included as manual registry exceptions because EdgarTools 5.42.0 does not resolve them in the current BDC registry even though their filings are available by CIK.",
         ],
     }
 
 
+def refresh_verified_from_existing() -> dict[str, Any]:
+    payload = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    verified = verified_rows()
+    cohort_ciks = set(TRACKER_AUDIT_COHORT)
+    for row in payload["rows"]:
+        cik = int(row["cik"])
+        verified_item = verified.get(cik)
+        if not verified_item:
+            continue
+        row["coverage_status"] = "verified_holdings"
+        row["coverage_label"] = "Verified holdings"
+        if cik in cohort_ciks:
+            row["tracker_audit_status"] = "verified"
+        row["verified_latest_period"] = verified_item["latest_period"]
+        row["verified_latest_rows"] = int(verified_item["latest_rows"] or 0)
+        row["verified_latest_fair_value_mm"] = round(
+            float(verified_item["latest_fair_value_mm"] or 0), 6
+        )
+
+    status_order = {"verified_holdings": 0, "bulk_soi_available": 1, "registry_only": 2}
+    payload["rows"].sort(
+        key=lambda item: (
+            status_order[item["coverage_status"]],
+            0 if item["is_active"] is True else 1,
+            item["name"].upper(),
+        )
+    )
+    payload["meta"]["generated_at_utc"] = utc_now()
+    payload["meta"]["verified_funds"] = len(verified)
+    payload["meta"]["expansion_cohort_verified"] = sum(
+        1 for cik in cohort_ciks if cik in verified
+    )
+    payload["meta"]["expansion_cohort_review"] = len(cohort_ciks) - payload["meta"]["expansion_cohort_verified"]
+    payload["limitations"] = [
+        limitation
+        for limitation in payload["limitations"]
+        if not limitation.startswith("The requested 11-fund expansion cohort")
+    ]
+    payload["limitations"].insert(
+        2,
+        "The requested 11-fund expansion cohort is audited form by form. MAIN, GBDC, and BBDC passed both latest-form XBRL checks; NMFC was separately promoted through a dedicated primary-schedule extractor, while the remaining seven are review-only because their detailed XBRL did not reconcile or was incomplete.",
+    )
+    return payload
+
+
 def main() -> None:
-    if not os.environ.get("EDGAR_IDENTITY"):
-        raise SystemExit("Set EDGAR_IDENTITY before querying SEC EDGAR.")
-    payload = build_universe()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--offline-verification-refresh",
+        action="store_true",
+        help="Reuse the existing registry/bulk snapshot and refresh verified coverage from the central database.",
+    )
+    args = parser.parse_args()
+    if args.offline_verification_refresh:
+        payload = refresh_verified_from_existing()
+    else:
+        if not os.environ.get("EDGAR_IDENTITY"):
+            raise SystemExit("Set EDGAR_IDENTITY before querying SEC EDGAR.")
+        payload = build_universe()
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",

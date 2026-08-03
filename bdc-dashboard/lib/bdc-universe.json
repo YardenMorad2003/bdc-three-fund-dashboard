@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generated_at_utc": "2026-07-19T01:24:27+00:00",
+    "generated_at_utc": "2026-08-03T07:10:20+00:00",
     "edgartools_version": "5.42.0",
     "registry_entities": 212,
     "universe_entities": 233,
     "active_registry_entities": 169,
-    "verified_funds": 8,
+    "verified_funds": 9,
     "expansion_cohort_funds": 11,
-    "expansion_cohort_verified": 3,
-    "expansion_cohort_review": 8,
+    "expansion_cohort_verified": 4,
+    "expansion_cohort_review": 7,
     "bulk_period": "2025Q1",
     "bulk_companies": 165,
     "bulk_soi_entries": 114738,
@@ -37,7 +37,7 @@
       "coverage_label": "Verified holdings",
       "tracker_audit_status": null,
       "tracker_audit_forms": {},
-      "verified_latest_period": "2026-03-31",
+      "verified_latest_period": "2026-06-30",
       "verified_latest_rows": 1376,
       "verified_latest_fair_value_mm": 29499.3
     },
@@ -253,6 +253,51 @@
       "verified_latest_period": "2026-03-31",
       "verified_latest_rows": 591,
       "verified_latest_fair_value_mm": 5650.084
+    },
+    {
+      "cik": 1496099,
+      "ticker": "NMFC",
+      "name": "New Mountain Finance Corp",
+      "file_number": "814-00832",
+      "city": "NEW YORK",
+      "state": "NY",
+      "last_filing_date": "2026-05-15",
+      "last_filing_type": "8-K",
+      "is_active": true,
+      "edgartools_registry": true,
+      "manual_registry_exception": false,
+      "bulk_period": "2025Q1",
+      "bulk_soi_fact_rows": 1541,
+      "bulk_forms": [
+        "10-K"
+      ],
+      "bulk_latest_filed": "2025-02-26",
+      "coverage_status": "verified_holdings",
+      "coverage_label": "Verified holdings",
+      "tracker_audit_status": "verified",
+      "tracker_audit_forms": {
+        "10-K": {
+          "report_type": "10-K",
+          "filing_period_end": "2025-12-31",
+          "status": "review",
+          "residual_fair_value_pct": 24.015568124585844,
+          "residual_cost_pct": 22.77791227338206,
+          "raw_rows": 505,
+          "deduplicated_rows": 471
+        },
+        "10-Q": {
+          "report_type": "10-Q",
+          "filing_period_end": "2026-03-31",
+          "status": "review",
+          "residual_fair_value_pct": 28.461527488578398,
+          "residual_cost_pct": 27.55718734929598,
+          "raw_rows": 507,
+          "deduplicated_rows": 479
+        }
+      },
+      "verified_latest_period": "2026-03-31",
+      "verified_latest_rows": 362,
+      "verified_latest_fair_value_mm": 2313.379
     },
     {
       "cik": 1508655,
@@ -2182,51 +2227,6 @@
       "coverage_label": "SEC bulk SOI available",
       "tracker_audit_status": null,
       "tracker_audit_forms": {},
-      "verified_latest_period": null,
-      "verified_latest_rows": 0,
-      "verified_latest_fair_value_mm": null
-    },
-    {
-      "cik": 1496099,
-      "ticker": "NMFC",
-      "name": "New Mountain Finance Corp",
-      "file_number": "814-00832",
-      "city": "NEW YORK",
-      "state": "NY",
-      "last_filing_date": "2026-05-15",
-      "last_filing_type": "8-K",
-      "is_active": true,
-      "edgartools_registry": true,
-      "manual_registry_exception": false,
-      "bulk_period": "2025Q1",
-      "bulk_soi_fact_rows": 1541,
-      "bulk_forms": [
-        "10-K"
-      ],
-      "bulk_latest_filed": "2025-02-26",
-      "coverage_status": "bulk_soi_available",
-      "coverage_label": "SEC bulk SOI available",
-      "tracker_audit_status": "review",
-      "tracker_audit_forms": {
-        "10-K": {
-          "report_type": "10-K",
-          "filing_period_end": "2025-12-31",
-          "status": "review",
-          "residual_fair_value_pct": 24.015568124585844,
-          "residual_cost_pct": 22.77791227338206,
-          "raw_rows": 505,
-          "deduplicated_rows": 471
-        },
-        "10-Q": {
-          "report_type": "10-Q",
-          "filing_period_end": "2026-03-31",
-          "status": "review",
-          "residual_fair_value_pct": 28.461527488578398,
-          "residual_cost_pct": 27.55718734929598,
-          "raw_rows": 507,
-          "deduplicated_rows": 479
-        }
-      },
       "verified_latest_period": null,
       "verified_latest_rows": 0,
       "verified_latest_fair_value_mm": null
@@ -6117,7 +6117,7 @@
   "limitations": [
     "SEC bulk SOI row counts are tagged fact rows, not canonical security counts.",
     "Bulk availability means the company appears in the quarterly SEC extract; it does not mean its detail has passed the tracker reconciliation gates.",
-    "The requested 11-fund expansion cohort is audited form by form. MAIN, GBDC, and BBDC passed both latest-form checks; the other eight remain review-only because their detailed XBRL did not reconcile or was incomplete.",
+    "The requested 11-fund expansion cohort is audited form by form. MAIN, GBDC, and BBDC passed both latest-form XBRL checks; NMFC was separately promoted through a dedicated primary-schedule extractor, while the remaining seven are review-only because their detailed XBRL did not reconcile or was incomplete.",
     "ARCC and TSLX are included as manual registry exceptions because EdgarTools 5.42.0 does not resolve them in the current BDC registry even though their filings are available by CIK."
   ]
 }

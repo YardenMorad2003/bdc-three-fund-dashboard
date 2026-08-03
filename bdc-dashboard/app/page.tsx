@@ -3053,11 +3053,11 @@ function OverviewTrendCharts({ selectedFund }: { selectedFund: Fund | "All" }) {
 }
 
 function BdcPrimer({ selectedFund }: { selectedFund: Fund | "All" }) {
-  const scope = selectedFund === "All" ? "the eight verified BDCs" : selectedFund;
+  const scope = selectedFund === "All" ? "the nine verified BDCs" : selectedFund;
   return (
     <Panel
       title="BDC Primer"
-      subtitle={`Plain-language context for reading ${selectedFund === "All" ? "the eight-fund verified private credit dataset" : `${selectedFund}'s private credit data`}.`}
+      subtitle={`Plain-language context for reading ${selectedFund === "All" ? "the nine-fund verified private credit dataset" : `${selectedFund}'s private credit data`}.`}
       icon={Info}
     >
       <div className="bdc-primer-grid">
@@ -3093,7 +3093,7 @@ function BdcPrimer({ selectedFund }: { selectedFund: Fund | "All" }) {
         </section>
       </div>
       <p className="bdc-primer-source">
-        Source context: SEC Investor.gov BDC bulletin and the eight reconciled filing datasets in the verified tracker.
+        Source context: SEC Investor.gov BDC bulletin and the nine reconciled filing datasets in the verified tracker.
       </p>
     </Panel>
   );
@@ -3573,7 +3573,7 @@ function KeyObservations() {
   return (
     <Panel
       title={`Key Observations as of ${formatSlashDate(data.meta.latest_common_period)}`}
-      subtitle="Quantitative read from the latest common-period eight-fund verified dataset."
+      subtitle="Quantitative read from the latest common-period nine-fund verified dataset."
       icon={Info}
     >
       <ul className="observations-list">
@@ -3759,7 +3759,7 @@ function Overview({
         .filter((item) => item.fund === selectedFund)
         .map((item) => ({ ...item, label: item.investment_category || "Uncategorized" }));
   const concentrationRows = data.issuer_concentration.filter((row) => isAllFunds || row.fund === selectedFund);
-  const selectedName = isAllFunds ? "the eight-fund verified view" : selectedFund;
+  const selectedName = isAllFunds ? "the nine-fund verified view" : selectedFund;
   const overviewNarrative = isAllFunds
     ? data.narrative.overview
     : `${selectedFund}'s latest common-period fair value is ${formatMm(latestTotal)} across ${formatNumber(
@@ -8021,14 +8021,14 @@ function Universe() {
         <MetricCard
           title="Verified holdings"
           value={formatNumber(bdcUniverse.meta.verified_funds)}
-          note="Eight reconciled holdings funds through Q1 2026."
+          note="Nine reconciled holdings funds through Q1 2026."
           icon={ShieldCheck}
         />
       </div>
 
       <Callout title="How to read coverage">
         The universe screen includes every entity found in EdgarTools&apos; current BDC registry or its latest SEC bulk
-        Schedule of Investments dataset. A bulk-data badge is a discovery signal, not a validation stamp. Only the eight
+        Schedule of Investments dataset. A bulk-data badge is a discovery signal, not a validation stamp. Only the nine
         verified funds feed portfolio rankings, issuer overlap, marks, rates, and maturity analytics. The requested
         eleven-fund cohort also shows its tracker audit result below.
       </Callout>
@@ -8165,7 +8165,7 @@ function MarketEvidence({
         <MetricCard
           title="Consensus below 95"
           value={formatNumber(stressedConsensus)}
-          note={selectedFund === "All" ? "Across the current eight-fund borrower universe." : `Among borrowers currently held by ${selectedFund}.`}
+          note={selectedFund === "All" ? "Across the current nine-fund borrower universe." : `Among borrowers currently held by ${selectedFund}.`}
           icon={AlertTriangle}
         />
         <MetricCard
@@ -8756,7 +8756,7 @@ export default function DashboardPage() {
         <header className="topbar">
           <div className="topbar-inner">
           <div className="brand">
-            <p className="eyebrow">Eight public BDCs / {data.meta.latest_period_label}</p>
+            <p className="eyebrow">Nine public BDCs / {data.meta.latest_period_label}</p>
             <h1>{activeTabLabel}</h1>
             <p className="workspace-description">{activeTabMeta.description}</p>
           </div>

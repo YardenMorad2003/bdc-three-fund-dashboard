@@ -14,7 +14,7 @@ WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
 DB_PATH = WORKSPACE_ROOT / "output" / "bdc_tracker_centralized" / "bdc_tracker_holdings.sqlite"
 OUTPUT_PATH = DASHBOARD_ROOT / "lib" / "dashboard-data.json"
 
-FUNDS = ["ARCC", "BBDC", "BXSL", "FSK", "GBDC", "MAIN", "OBDC", "TSLX"]
+FUNDS = ["ARCC", "BBDC", "BXSL", "FSK", "GBDC", "MAIN", "NMFC", "OBDC", "TSLX"]
 FUND_NAMES = {
     "ARCC": "Ares Capital Corporation",
     "BBDC": "Barings BDC, Inc.",
@@ -22,6 +22,7 @@ FUND_NAMES = {
     "FSK": "FS KKR Capital Corp.",
     "GBDC": "Golub Capital BDC, Inc.",
     "MAIN": "Main Street Capital Corporation",
+    "NMFC": "New Mountain Finance Corporation",
     "OBDC": "Blue Owl Capital Corporation",
     "TSLX": "Sixth Street Specialty Lending, Inc.",
 }
@@ -998,8 +999,8 @@ def build_data() -> dict[str, Any]:
 
         limitations = [
             {
-                "title": "Eight verified holdings funds",
-                "body": "Holdings analytics cover ARCC, BBDC, BXSL, FSK, GBDC, MAIN, OBDC, and TSLX after source-level reconciliation. The broader EdgarTools universe is shown separately and is not mixed into verified rankings until each fund passes equivalent detail and aggregate checks.",
+                "title": "Nine verified holdings funds",
+                "body": "Holdings analytics cover ARCC, BBDC, BXSL, FSK, GBDC, MAIN, NMFC, OBDC, and TSLX after source-level reconciliation. The broader EdgarTools universe is shown separately and is not mixed into verified rankings until each fund passes equivalent detail and aggregate checks.",
             },
             {
                 "title": "Current-period holdings only",
@@ -1038,8 +1039,8 @@ def build_data() -> dict[str, Any]:
                 "latest_period_label": "March 31, 2026",
             },
             "narrative": {
-                "overview": "The eight-fund verified view compares scale, direction, and portfolio composition across ARCC, BBDC, BXSL, FSK, GBDC, MAIN, OBDC, and TSLX without blending unreconciled bulk rows into the rankings.",
-                "trend": "All eight verified funds have a common latest period at March 31, 2026. The EdgarTools cohort additions currently contribute their latest annual and quarterly observations, while the original five retain deeper histories.",
+                "overview": "The nine-fund verified view compares scale, direction, and portfolio composition across ARCC, BBDC, BXSL, FSK, GBDC, MAIN, NMFC, OBDC, and TSLX without blending unreconciled bulk rows into the rankings.",
+                "trend": "All nine verified funds have a common latest period at March 31, 2026. NMFC contributes a fully reconciled March 2023-through-March 2026 history from its primary Schedule of Investments; supplemental loan-program schedules are excluded.",
                 "exposure": "Category, issuer, rate, maturity, and match-key views use funded security-level rows to make concentration visible quickly. As-filed schedule rows remain available in the holdings and timeline detail tables, with FSK footnote (x) rows tagged as unfunded commitments.",
                 "quality": "The dashboard is built from the centralized SQLite database, and it carries the source integrity checks, source row counts, and central reconciliation checks into the interface.",
             },
