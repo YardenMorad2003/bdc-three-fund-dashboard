@@ -46,12 +46,19 @@ else:
 VERIFIED_FUNDS = {
     1287750: ("ARCC", "Ares Capital Corporation"),
     1379785: ("BBDC", "Barings BDC, Inc."),
+    1655050: ("BCSF", "Bain Capital Specialty Finance, Inc."),
     1736035: ("BXSL", "Blackstone Secured Lending Fund"),
+    1633336: ("CCAP", "Crescent Capital BDC, Inc."),
+    17313: ("CSWC", "Capital Southwest Corporation"),
     1422183: ("FSK", "FS KKR Capital Corp."),
     1476765: ("GBDC", "Golub Capital BDC, Inc."),
+    1280784: ("HTGC", "Hercules Capital, Inc."),
     1396440: ("MAIN", "Main Street Capital Corporation"),
     1496099: ("NMFC", "New Mountain Finance Corporation"),
     1655888: ("OBDC", "Blue Owl Capital Corporation"),
+    1414932: ("OCSL", "Oaktree Specialty Lending Corporation"),
+    1287032: ("PSEC", "Prospect Capital Corporation"),
+    1370755: ("TCPC", "BlackRock TCP Capital Corp."),
     1508655: ("TSLX", "Sixth Street Specialty Lending, Inc."),
 }
 
@@ -327,7 +334,7 @@ def build_universe() -> dict[str, Any]:
         "limitations": [
             "SEC bulk SOI row counts are tagged fact rows, not canonical security counts.",
             "Bulk availability means the company appears in the quarterly SEC extract; it does not mean its detail has passed the tracker reconciliation gates.",
-            "The requested 11-fund expansion cohort is audited form by form. MAIN, GBDC, and BBDC passed both latest-form XBRL checks; NMFC was separately promoted through a dedicated primary-schedule extractor, while the remaining seven are review-only because their detailed XBRL did not reconcile or was incomplete.",
+            "All 11 funds in the requested expansion cohort now feed verified analytics. MAIN, GBDC, and BBDC passed the generic XBRL checks; HTGC, CSWC, TCPC, BCSF, OCSL, NMFC, CCAP, and PSEC use dedicated reconciled primary-schedule extractors.",
             "ARCC and TSLX are included as manual registry exceptions because EdgarTools 5.42.0 does not resolve them in the current BDC registry even though their filings are available by CIK.",
         ],
     }
@@ -373,7 +380,7 @@ def refresh_verified_from_existing() -> dict[str, Any]:
     ]
     payload["limitations"].insert(
         2,
-        "The requested 11-fund expansion cohort is audited form by form. MAIN, GBDC, and BBDC passed both latest-form XBRL checks; NMFC was separately promoted through a dedicated primary-schedule extractor, while the remaining seven are review-only because their detailed XBRL did not reconcile or was incomplete.",
+        "All 11 funds in the requested expansion cohort now feed verified analytics. MAIN, GBDC, and BBDC passed the generic XBRL checks; HTGC, CSWC, TCPC, BCSF, OCSL, NMFC, CCAP, and PSEC use dedicated reconciled primary-schedule extractors.",
     )
     return payload
 

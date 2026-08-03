@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generated_at_utc": "2026-08-03T07:10:20+00:00",
+    "generated_at_utc": "2026-08-03T19:45:03+00:00",
     "edgartools_version": "5.42.0",
     "registry_entities": 212,
     "universe_entities": 233,
     "active_registry_entities": 169,
-    "verified_funds": 9,
+    "verified_funds": 16,
     "expansion_cohort_funds": 11,
-    "expansion_cohort_verified": 4,
-    "expansion_cohort_review": 7,
+    "expansion_cohort_verified": 11,
+    "expansion_cohort_review": 0,
     "bulk_period": "2025Q1",
     "bulk_companies": 165,
     "bulk_soi_entries": 114738,
@@ -40,6 +40,51 @@
       "verified_latest_period": "2026-06-30",
       "verified_latest_rows": 1376,
       "verified_latest_fair_value_mm": 29499.3
+    },
+    {
+      "cik": 1655050,
+      "ticker": "BCSF",
+      "name": "Bain Capital Specialty Finance, Inc.",
+      "file_number": "814-01175",
+      "city": "BOSTON",
+      "state": "MA",
+      "last_filing_date": "2026-05-22",
+      "last_filing_type": "8-K",
+      "is_active": true,
+      "edgartools_registry": true,
+      "manual_registry_exception": false,
+      "bulk_period": "2025Q1",
+      "bulk_soi_fact_rows": 1842,
+      "bulk_forms": [
+        "10-K"
+      ],
+      "bulk_latest_filed": "2025-02-27",
+      "coverage_status": "verified_holdings",
+      "coverage_label": "Verified holdings",
+      "tracker_audit_status": "verified",
+      "tracker_audit_forms": {
+        "10-K": {
+          "report_type": "10-K",
+          "filing_period_end": "2025-12-31",
+          "status": "review",
+          "residual_fair_value_pct": 62.74946554047518,
+          "residual_cost_pct": 91.73229998237879,
+          "raw_rows": 727,
+          "deduplicated_rows": 727
+        },
+        "10-Q": {
+          "report_type": "10-Q",
+          "filing_period_end": "2026-03-31",
+          "status": "review",
+          "residual_fair_value_pct": 65.24576306915453,
+          "residual_cost_pct": 95.31020299992991,
+          "raw_rows": 761,
+          "deduplicated_rows": 761
+        }
+      },
+      "verified_latest_period": "2026-03-31",
+      "verified_latest_rows": 555,
+      "verified_latest_fair_value_mm": 2470.798
     },
     {
       "cik": 1379785,
@@ -85,6 +130,51 @@
       "verified_latest_period": "2026-03-31",
       "verified_latest_rows": 648,
       "verified_latest_fair_value_mm": 2369.989
+    },
+    {
+      "cik": 1370755,
+      "ticker": "TCPC",
+      "name": "BlackRock TCP Capital Corp.",
+      "file_number": "814-00899",
+      "city": "SANTA MONICA",
+      "state": "CA",
+      "last_filing_date": "2026-05-29",
+      "last_filing_type": "40-33",
+      "is_active": true,
+      "edgartools_registry": true,
+      "manual_registry_exception": false,
+      "bulk_period": "2025Q1",
+      "bulk_soi_fact_rows": 853,
+      "bulk_forms": [
+        "10-K"
+      ],
+      "bulk_latest_filed": "2025-02-27",
+      "coverage_status": "verified_holdings",
+      "coverage_label": "Verified holdings",
+      "tracker_audit_status": "verified",
+      "tracker_audit_forms": {
+        "10-K": {
+          "report_type": "10-K",
+          "filing_period_end": "2025-12-31",
+          "status": "review",
+          "residual_fair_value_pct": 11.250266868414727,
+          "residual_cost_pct": 0.0,
+          "raw_rows": 363,
+          "deduplicated_rows": 361
+        },
+        "10-Q": {
+          "report_type": "10-Q",
+          "filing_period_end": "2026-03-31",
+          "status": "review",
+          "residual_fair_value_pct": 88.98383528300853,
+          "residual_cost_pct": 100.0,
+          "raw_rows": 10,
+          "deduplicated_rows": 9
+        }
+      },
+      "verified_latest_period": "2026-03-31",
+      "verified_latest_rows": 323,
+      "verified_latest_fair_value_mm": 1388.668517
     },
     {
       "cik": 1736035,
@@ -137,6 +227,87 @@
       "verified_latest_period": "2026-03-31",
       "verified_latest_rows": 348,
       "verified_latest_fair_value_mm": 15353.572
+    },
+    {
+      "cik": 17313,
+      "ticker": "CSWC",
+      "name": "CAPITAL SOUTHWEST CORP",
+      "file_number": "814-00061",
+      "city": "DALLAS",
+      "state": "TX",
+      "last_filing_date": "2026-05-27",
+      "last_filing_type": "8-K",
+      "is_active": true,
+      "edgartools_registry": true,
+      "manual_registry_exception": false,
+      "bulk_period": "2025Q1",
+      "bulk_soi_fact_rows": 1277,
+      "bulk_forms": [
+        "10-Q"
+      ],
+      "bulk_latest_filed": "2025-02-04",
+      "coverage_status": "verified_holdings",
+      "coverage_label": "Verified holdings",
+      "tracker_audit_status": "verified",
+      "tracker_audit_forms": {
+        "10-Q": {
+          "report_type": "10-Q",
+          "filing_period_end": "2025-12-31",
+          "status": "review",
+          "residual_fair_value_pct": 8.707055829743156,
+          "residual_cost_pct": 12.78054257065184,
+          "raw_rows": 531,
+          "deduplicated_rows": 362
+        },
+        "10-K": {
+          "report_type": "10-K",
+          "filing_period_end": "2026-03-31",
+          "status": "review",
+          "residual_fair_value_pct": 10.213963623157705,
+          "residual_cost_pct": 13.207518528394857,
+          "raw_rows": 556,
+          "deduplicated_rows": 375
+        }
+      },
+      "verified_latest_period": "2026-03-31",
+      "verified_latest_rows": 423,
+      "verified_latest_fair_value_mm": 2097.446
+    },
+    {
+      "cik": 1633336,
+      "ticker": "CCAP",
+      "name": "Crescent Capital BDC, Inc.",
+      "file_number": "814-01132",
+      "city": "LOS ANGELES",
+      "state": "CA",
+      "last_filing_date": "2026-05-27",
+      "last_filing_type": "8-K",
+      "is_active": true,
+      "edgartools_registry": true,
+      "manual_registry_exception": false,
+      "bulk_period": "2025Q1",
+      "bulk_soi_fact_rows": 1455,
+      "bulk_forms": [
+        "10-K"
+      ],
+      "bulk_latest_filed": "2025-02-19",
+      "coverage_status": "verified_holdings",
+      "coverage_label": "Verified holdings",
+      "tracker_audit_status": "verified",
+      "tracker_audit_forms": {
+        "10-K": {
+          "report_type": "10-K",
+          "filing_period_end": "2025-12-31",
+          "status": "review",
+          "residual_fair_value_pct": 94.65481647764203,
+          "residual_cost_pct": 96.03797672128816,
+          "raw_rows": 62,
+          "deduplicated_rows": 62
+        }
+      },
+      "verified_latest_period": "2026-03-31",
+      "verified_latest_rows": 627,
+      "verified_latest_fair_value_mm": 1562.47
     },
     {
       "cik": 1422183,
@@ -208,6 +379,51 @@
       "verified_latest_period": "2026-03-31",
       "verified_latest_rows": 1743,
       "verified_latest_fair_value_mm": 8317.245
+    },
+    {
+      "cik": 1280784,
+      "ticker": "HTGC",
+      "name": "Hercules Capital, Inc.",
+      "file_number": "814-00702",
+      "city": "SAN MATEO",
+      "state": "CA",
+      "last_filing_date": "2026-05-05",
+      "last_filing_type": "8-K",
+      "is_active": true,
+      "edgartools_registry": true,
+      "manual_registry_exception": false,
+      "bulk_period": "2025Q1",
+      "bulk_soi_fact_rows": 959,
+      "bulk_forms": [
+        "10-K"
+      ],
+      "bulk_latest_filed": "2025-02-13",
+      "coverage_status": "verified_holdings",
+      "coverage_label": "Verified holdings",
+      "tracker_audit_status": "verified",
+      "tracker_audit_forms": {
+        "10-K": {
+          "report_type": "10-K",
+          "filing_period_end": "2025-12-31",
+          "status": "review",
+          "residual_fair_value_pct": 20.512734601667184,
+          "residual_cost_pct": 20.839382986714806,
+          "raw_rows": 364,
+          "deduplicated_rows": 364
+        },
+        "10-Q": {
+          "report_type": "10-Q",
+          "filing_period_end": "2026-03-31",
+          "status": "review",
+          "residual_fair_value_pct": 17.359204425645554,
+          "residual_cost_pct": 17.81314397202942,
+          "raw_rows": 390,
+          "deduplicated_rows": 390
+        }
+      },
+      "verified_latest_period": "2026-06-30",
+      "verified_latest_rows": 360,
+      "verified_latest_fair_value_mm": 4721.987
     },
     {
       "cik": 1396440,
@@ -298,6 +514,94 @@
       "verified_latest_period": "2026-03-31",
       "verified_latest_rows": 362,
       "verified_latest_fair_value_mm": 2313.379
+    },
+    {
+      "cik": 1414932,
+      "ticker": "OCSL",
+      "name": "Oaktree Specialty Lending Corp",
+      "file_number": "814-00755",
+      "city": "LOS ANGLES",
+      "state": "CA",
+      "last_filing_date": "2026-05-05",
+      "last_filing_type": "8-K",
+      "is_active": true,
+      "edgartools_registry": true,
+      "manual_registry_exception": false,
+      "bulk_period": "2025Q1",
+      "bulk_soi_fact_rows": 1328,
+      "bulk_forms": [
+        "10-Q"
+      ],
+      "bulk_latest_filed": "2025-02-04",
+      "coverage_status": "verified_holdings",
+      "coverage_label": "Verified holdings",
+      "tracker_audit_status": "verified",
+      "tracker_audit_forms": {
+        "10-K": {
+          "report_type": "10-K",
+          "filing_period_end": "2025-09-30",
+          "status": "review",
+          "residual_fair_value_pct": 9.086264327817227,
+          "residual_cost_pct": 8.803650716947164,
+          "raw_rows": 447,
+          "deduplicated_rows": 446
+        },
+        "10-Q": {
+          "report_type": "10-Q",
+          "filing_period_end": "2026-03-31",
+          "status": "review",
+          "residual_fair_value_pct": 10.338428571428572,
+          "residual_cost_pct": 10.12991940420522,
+          "raw_rows": 576,
+          "deduplicated_rows": 574
+        }
+      },
+      "verified_latest_period": "2026-03-31",
+      "verified_latest_rows": 371,
+      "verified_latest_fair_value_mm": 2766.367
+    },
+    {
+      "cik": 1287032,
+      "ticker": "PSEC",
+      "name": "PROSPECT CAPITAL CORP",
+      "file_number": "814-00659",
+      "city": "NEW YORK",
+      "state": "NY",
+      "last_filing_date": "2026-05-29",
+      "last_filing_type": "POS EX",
+      "is_active": true,
+      "edgartools_registry": true,
+      "manual_registry_exception": false,
+      "bulk_period": null,
+      "bulk_soi_fact_rows": 0,
+      "bulk_forms": [],
+      "bulk_latest_filed": null,
+      "coverage_status": "verified_holdings",
+      "coverage_label": "Verified holdings",
+      "tracker_audit_status": "verified",
+      "tracker_audit_forms": {
+        "10-K": {
+          "report_type": "10-K",
+          "filing_period_end": "2025-06-30",
+          "status": "review",
+          "residual_fair_value_pct": 57.765441785109985,
+          "residual_cost_pct": 0.0,
+          "raw_rows": 268,
+          "deduplicated_rows": 267
+        },
+        "10-Q": {
+          "report_type": "10-Q",
+          "filing_period_end": "2026-03-31",
+          "status": "review",
+          "residual_fair_value_pct": 56.586129395403226,
+          "residual_cost_pct": 2.769945781468168,
+          "raw_rows": 282,
+          "deduplicated_rows": 258
+        }
+      },
+      "verified_latest_period": "2026-03-31",
+      "verified_latest_rows": 203,
+      "verified_latest_fair_value_mm": 6302.465
     },
     {
       "cik": 1508655,
@@ -664,51 +968,6 @@
       "verified_latest_fair_value_mm": null
     },
     {
-      "cik": 1655050,
-      "ticker": "BCSF",
-      "name": "Bain Capital Specialty Finance, Inc.",
-      "file_number": "814-01175",
-      "city": "BOSTON",
-      "state": "MA",
-      "last_filing_date": "2026-05-22",
-      "last_filing_type": "8-K",
-      "is_active": true,
-      "edgartools_registry": true,
-      "manual_registry_exception": false,
-      "bulk_period": "2025Q1",
-      "bulk_soi_fact_rows": 1842,
-      "bulk_forms": [
-        "10-K"
-      ],
-      "bulk_latest_filed": "2025-02-27",
-      "coverage_status": "bulk_soi_available",
-      "coverage_label": "SEC bulk SOI available",
-      "tracker_audit_status": "review",
-      "tracker_audit_forms": {
-        "10-K": {
-          "report_type": "10-K",
-          "filing_period_end": "2025-12-31",
-          "status": "review",
-          "residual_fair_value_pct": 62.74946554047518,
-          "residual_cost_pct": 91.73229998237879,
-          "raw_rows": 727,
-          "deduplicated_rows": 727
-        },
-        "10-Q": {
-          "report_type": "10-Q",
-          "filing_period_end": "2026-03-31",
-          "status": "review",
-          "residual_fair_value_pct": 65.24576306915453,
-          "residual_cost_pct": 95.31020299992991,
-          "raw_rows": 761,
-          "deduplicated_rows": 761
-        }
-      },
-      "verified_latest_period": null,
-      "verified_latest_rows": 0,
-      "verified_latest_fair_value_mm": null
-    },
-    {
       "cik": 1811972,
       "ticker": null,
       "name": "Barings Capital Investment Corp",
@@ -860,51 +1119,6 @@
       "coverage_label": "SEC bulk SOI available",
       "tracker_audit_status": null,
       "tracker_audit_forms": {},
-      "verified_latest_period": null,
-      "verified_latest_rows": 0,
-      "verified_latest_fair_value_mm": null
-    },
-    {
-      "cik": 1370755,
-      "ticker": "TCPC",
-      "name": "BlackRock TCP Capital Corp.",
-      "file_number": "814-00899",
-      "city": "SANTA MONICA",
-      "state": "CA",
-      "last_filing_date": "2026-05-29",
-      "last_filing_type": "40-33",
-      "is_active": true,
-      "edgartools_registry": true,
-      "manual_registry_exception": false,
-      "bulk_period": "2025Q1",
-      "bulk_soi_fact_rows": 853,
-      "bulk_forms": [
-        "10-K"
-      ],
-      "bulk_latest_filed": "2025-02-27",
-      "coverage_status": "bulk_soi_available",
-      "coverage_label": "SEC bulk SOI available",
-      "tracker_audit_status": "review",
-      "tracker_audit_forms": {
-        "10-K": {
-          "report_type": "10-K",
-          "filing_period_end": "2025-12-31",
-          "status": "review",
-          "residual_fair_value_pct": 11.250266868414727,
-          "residual_cost_pct": 0.0,
-          "raw_rows": 363,
-          "deduplicated_rows": 361
-        },
-        "10-Q": {
-          "report_type": "10-Q",
-          "filing_period_end": "2026-03-31",
-          "status": "review",
-          "residual_fair_value_pct": 88.98383528300853,
-          "residual_cost_pct": 100.0,
-          "raw_rows": 10,
-          "deduplicated_rows": 9
-        }
-      },
       "verified_latest_period": null,
       "verified_latest_rows": 0,
       "verified_latest_fair_value_mm": null
@@ -1066,51 +1280,6 @@
       "verified_latest_fair_value_mm": null
     },
     {
-      "cik": 17313,
-      "ticker": "CSWC",
-      "name": "CAPITAL SOUTHWEST CORP",
-      "file_number": "814-00061",
-      "city": "DALLAS",
-      "state": "TX",
-      "last_filing_date": "2026-05-27",
-      "last_filing_type": "8-K",
-      "is_active": true,
-      "edgartools_registry": true,
-      "manual_registry_exception": false,
-      "bulk_period": "2025Q1",
-      "bulk_soi_fact_rows": 1277,
-      "bulk_forms": [
-        "10-Q"
-      ],
-      "bulk_latest_filed": "2025-02-04",
-      "coverage_status": "bulk_soi_available",
-      "coverage_label": "SEC bulk SOI available",
-      "tracker_audit_status": "review",
-      "tracker_audit_forms": {
-        "10-Q": {
-          "report_type": "10-Q",
-          "filing_period_end": "2025-12-31",
-          "status": "review",
-          "residual_fair_value_pct": 8.707055829743156,
-          "residual_cost_pct": 12.78054257065184,
-          "raw_rows": 531,
-          "deduplicated_rows": 362
-        },
-        "10-K": {
-          "report_type": "10-K",
-          "filing_period_end": "2026-03-31",
-          "status": "review",
-          "residual_fair_value_pct": 10.213963623157705,
-          "residual_cost_pct": 13.207518528394857,
-          "raw_rows": 556,
-          "deduplicated_rows": 375
-        }
-      },
-      "verified_latest_period": null,
-      "verified_latest_rows": 0,
-      "verified_latest_fair_value_mm": null
-    },
-    {
       "cik": 1702510,
       "ticker": null,
       "name": "Carlyle Credit Solutions, Inc.",
@@ -1236,42 +1405,6 @@
       "coverage_label": "SEC bulk SOI available",
       "tracker_audit_status": null,
       "tracker_audit_forms": {},
-      "verified_latest_period": null,
-      "verified_latest_rows": 0,
-      "verified_latest_fair_value_mm": null
-    },
-    {
-      "cik": 1633336,
-      "ticker": "CCAP",
-      "name": "Crescent Capital BDC, Inc.",
-      "file_number": "814-01132",
-      "city": "LOS ANGELES",
-      "state": "CA",
-      "last_filing_date": "2026-05-27",
-      "last_filing_type": "8-K",
-      "is_active": true,
-      "edgartools_registry": true,
-      "manual_registry_exception": false,
-      "bulk_period": "2025Q1",
-      "bulk_soi_fact_rows": 1455,
-      "bulk_forms": [
-        "10-K"
-      ],
-      "bulk_latest_filed": "2025-02-19",
-      "coverage_status": "bulk_soi_available",
-      "coverage_label": "SEC bulk SOI available",
-      "tracker_audit_status": "review",
-      "tracker_audit_forms": {
-        "10-K": {
-          "report_type": "10-K",
-          "filing_period_end": "2025-12-31",
-          "status": "review",
-          "residual_fair_value_pct": 94.65481647764203,
-          "residual_cost_pct": 96.03797672128816,
-          "raw_rows": 62,
-          "deduplicated_rows": 62
-        }
-      },
       "verified_latest_period": null,
       "verified_latest_rows": 0,
       "verified_latest_fair_value_mm": null
@@ -1636,51 +1769,6 @@
       "coverage_label": "SEC bulk SOI available",
       "tracker_audit_status": null,
       "tracker_audit_forms": {},
-      "verified_latest_period": null,
-      "verified_latest_rows": 0,
-      "verified_latest_fair_value_mm": null
-    },
-    {
-      "cik": 1280784,
-      "ticker": "HTGC",
-      "name": "Hercules Capital, Inc.",
-      "file_number": "814-00702",
-      "city": "SAN MATEO",
-      "state": "CA",
-      "last_filing_date": "2026-05-05",
-      "last_filing_type": "8-K",
-      "is_active": true,
-      "edgartools_registry": true,
-      "manual_registry_exception": false,
-      "bulk_period": "2025Q1",
-      "bulk_soi_fact_rows": 959,
-      "bulk_forms": [
-        "10-K"
-      ],
-      "bulk_latest_filed": "2025-02-13",
-      "coverage_status": "bulk_soi_available",
-      "coverage_label": "SEC bulk SOI available",
-      "tracker_audit_status": "review",
-      "tracker_audit_forms": {
-        "10-K": {
-          "report_type": "10-K",
-          "filing_period_end": "2025-12-31",
-          "status": "review",
-          "residual_fair_value_pct": 20.512734601667184,
-          "residual_cost_pct": 20.839382986714806,
-          "raw_rows": 364,
-          "deduplicated_rows": 364
-        },
-        "10-Q": {
-          "report_type": "10-Q",
-          "filing_period_end": "2026-03-31",
-          "status": "review",
-          "residual_fair_value_pct": 17.359204425645554,
-          "residual_cost_pct": 17.81314397202942,
-          "raw_rows": 390,
-          "deduplicated_rows": 390
-        }
-      },
       "verified_latest_period": null,
       "verified_latest_rows": 0,
       "verified_latest_fair_value_mm": null
@@ -2487,51 +2575,6 @@
       "coverage_label": "SEC bulk SOI available",
       "tracker_audit_status": null,
       "tracker_audit_forms": {},
-      "verified_latest_period": null,
-      "verified_latest_rows": 0,
-      "verified_latest_fair_value_mm": null
-    },
-    {
-      "cik": 1414932,
-      "ticker": "OCSL",
-      "name": "Oaktree Specialty Lending Corp",
-      "file_number": "814-00755",
-      "city": "LOS ANGLES",
-      "state": "CA",
-      "last_filing_date": "2026-05-05",
-      "last_filing_type": "8-K",
-      "is_active": true,
-      "edgartools_registry": true,
-      "manual_registry_exception": false,
-      "bulk_period": "2025Q1",
-      "bulk_soi_fact_rows": 1328,
-      "bulk_forms": [
-        "10-Q"
-      ],
-      "bulk_latest_filed": "2025-02-04",
-      "coverage_status": "bulk_soi_available",
-      "coverage_label": "SEC bulk SOI available",
-      "tracker_audit_status": "review",
-      "tracker_audit_forms": {
-        "10-K": {
-          "report_type": "10-K",
-          "filing_period_end": "2025-09-30",
-          "status": "review",
-          "residual_fair_value_pct": 9.086264327817227,
-          "residual_cost_pct": 8.803650716947164,
-          "raw_rows": 447,
-          "deduplicated_rows": 446
-        },
-        "10-Q": {
-          "report_type": "10-Q",
-          "filing_period_end": "2026-03-31",
-          "status": "review",
-          "residual_fair_value_pct": 10.338428571428572,
-          "residual_cost_pct": 10.12991940420522,
-          "raw_rows": 576,
-          "deduplicated_rows": 574
-        }
-      },
       "verified_latest_period": null,
       "verified_latest_rows": 0,
       "verified_latest_fair_value_mm": null
@@ -4655,49 +4698,6 @@
       "verified_latest_fair_value_mm": null
     },
     {
-      "cik": 1287032,
-      "ticker": "PSEC",
-      "name": "PROSPECT CAPITAL CORP",
-      "file_number": "814-00659",
-      "city": "NEW YORK",
-      "state": "NY",
-      "last_filing_date": "2026-05-29",
-      "last_filing_type": "POS EX",
-      "is_active": true,
-      "edgartools_registry": true,
-      "manual_registry_exception": false,
-      "bulk_period": null,
-      "bulk_soi_fact_rows": 0,
-      "bulk_forms": [],
-      "bulk_latest_filed": null,
-      "coverage_status": "registry_only",
-      "coverage_label": "Registry only",
-      "tracker_audit_status": "review",
-      "tracker_audit_forms": {
-        "10-K": {
-          "report_type": "10-K",
-          "filing_period_end": "2025-06-30",
-          "status": "review",
-          "residual_fair_value_pct": 57.765441785109985,
-          "residual_cost_pct": 0.0,
-          "raw_rows": 268,
-          "deduplicated_rows": 267
-        },
-        "10-Q": {
-          "report_type": "10-Q",
-          "filing_period_end": "2026-03-31",
-          "status": "review",
-          "residual_fair_value_pct": 56.586129395403226,
-          "residual_cost_pct": 2.769945781468168,
-          "raw_rows": 282,
-          "deduplicated_rows": 258
-        }
-      },
-      "verified_latest_period": null,
-      "verified_latest_rows": 0,
-      "verified_latest_fair_value_mm": null
-    },
-    {
       "cik": 1521945,
       "ticker": null,
       "name": "Prospect Floating Rate & Alternative Income Fund, Inc.",
@@ -6117,7 +6117,7 @@
   "limitations": [
     "SEC bulk SOI row counts are tagged fact rows, not canonical security counts.",
     "Bulk availability means the company appears in the quarterly SEC extract; it does not mean its detail has passed the tracker reconciliation gates.",
-    "The requested 11-fund expansion cohort is audited form by form. MAIN, GBDC, and BBDC passed both latest-form XBRL checks; NMFC was separately promoted through a dedicated primary-schedule extractor, while the remaining seven are review-only because their detailed XBRL did not reconcile or was incomplete.",
+    "All 11 funds in the requested expansion cohort now feed verified analytics. MAIN, GBDC, and BBDC passed the generic XBRL checks; HTGC, CSWC, TCPC, BCSF, OCSL, NMFC, CCAP, and PSEC use dedicated reconciled primary-schedule extractors.",
     "ARCC and TSLX are included as manual registry exceptions because EdgarTools 5.42.0 does not resolve them in the current BDC registry even though their filings are available by CIK."
   ]
 }

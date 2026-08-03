@@ -14,16 +14,26 @@ WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
 DB_PATH = WORKSPACE_ROOT / "output" / "bdc_tracker_centralized" / "bdc_tracker_holdings.sqlite"
 OUTPUT_PATH = DASHBOARD_ROOT / "lib" / "dashboard-data.json"
 
-FUNDS = ["ARCC", "BBDC", "BXSL", "FSK", "GBDC", "MAIN", "NMFC", "OBDC", "TSLX"]
+FUNDS = [
+    "ARCC", "BBDC", "BCSF", "BXSL", "CCAP", "CSWC", "FSK", "GBDC",
+    "HTGC", "MAIN", "NMFC", "OBDC", "OCSL", "PSEC", "TCPC", "TSLX",
+]
 FUND_NAMES = {
     "ARCC": "Ares Capital Corporation",
     "BBDC": "Barings BDC, Inc.",
+    "BCSF": "Bain Capital Specialty Finance, Inc.",
     "BXSL": "Blackstone Secured Lending Fund",
+    "CCAP": "Crescent Capital BDC, Inc.",
+    "CSWC": "Capital Southwest Corporation",
     "FSK": "FS KKR Capital Corp.",
     "GBDC": "Golub Capital BDC, Inc.",
+    "HTGC": "Hercules Capital, Inc.",
     "MAIN": "Main Street Capital Corporation",
     "NMFC": "New Mountain Finance Corporation",
     "OBDC": "Blue Owl Capital Corporation",
+    "OCSL": "Oaktree Specialty Lending Corporation",
+    "PSEC": "Prospect Capital Corporation",
+    "TCPC": "BlackRock TCP Capital Corp.",
     "TSLX": "Sixth Street Specialty Lending, Inc.",
 }
 TIMELINE_ISSUER_LIMIT = 200
@@ -999,8 +1009,8 @@ def build_data() -> dict[str, Any]:
 
         limitations = [
             {
-                "title": "Nine verified holdings funds",
-                "body": "Holdings analytics cover ARCC, BBDC, BXSL, FSK, GBDC, MAIN, NMFC, OBDC, and TSLX after source-level reconciliation. The broader EdgarTools universe is shown separately and is not mixed into verified rankings until each fund passes equivalent detail and aggregate checks.",
+                "title": "Sixteen verified holdings funds",
+                "body": "Holdings analytics cover ARCC, BBDC, BCSF, BXSL, CCAP, CSWC, FSK, GBDC, HTGC, MAIN, NMFC, OBDC, OCSL, PSEC, TCPC, and TSLX after source-level reconciliation. The broader EdgarTools universe remains separate until each additional fund passes equivalent detail and aggregate checks.",
             },
             {
                 "title": "Current-period holdings only",
@@ -1039,8 +1049,8 @@ def build_data() -> dict[str, Any]:
                 "latest_period_label": "March 31, 2026",
             },
             "narrative": {
-                "overview": "The nine-fund verified view compares scale, direction, and portfolio composition across ARCC, BBDC, BXSL, FSK, GBDC, MAIN, NMFC, OBDC, and TSLX without blending unreconciled bulk rows into the rankings.",
-                "trend": "All nine verified funds have a common latest period at March 31, 2026. NMFC contributes a fully reconciled March 2023-through-March 2026 history from its primary Schedule of Investments; supplemental loan-program schedules are excluded.",
+                "overview": "The sixteen-fund verified view compares scale, direction, and portfolio composition across every reconciled tracked BDC without blending unreconciled bulk rows into the rankings.",
+                "trend": "All sixteen verified funds have a common latest period at March 31, 2026. HTGC also includes its newly filed June 30, 2026 schedule as latest-available data, while common-period comparisons remain aligned to March 31.",
                 "exposure": "Category, issuer, rate, maturity, and match-key views use funded security-level rows to make concentration visible quickly. As-filed schedule rows remain available in the holdings and timeline detail tables, with FSK footnote (x) rows tagged as unfunded commitments.",
                 "quality": "The dashboard is built from the centralized SQLite database, and it carries the source integrity checks, source row counts, and central reconciliation checks into the interface.",
             },

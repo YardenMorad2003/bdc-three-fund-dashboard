@@ -1,6 +1,6 @@
-# Verified Nine-Fund BDC Dashboard
+# Verified Sixteen-Fund BDC Dashboard
 
-Next.js dashboard for the centralized ARCC, BBDC, BXSL, FSK, GBDC, MAIN, NMFC, OBDC, and TSLX holdings database, with an audited EdgarTools/SEC expansion cohort and broader universe directory.
+Next.js dashboard for the centralized ARCC, BBDC, BCSF, BXSL, CCAP, CSWC, FSK, GBDC, HTGC, MAIN, NMFC, OBDC, OCSL, PSEC, TCPC, and TSLX holdings database, with an audited EdgarTools/SEC expansion cohort and broader universe directory.
 
 ## Data
 
@@ -96,7 +96,7 @@ npm run sources:heavy-13f
 
 PACER is not queried because it can incur fees. CourtListener is the free legal-alert layer, and all matches require docket review.
 
-The universe snapshot combines the current EdgarTools BDC registry with its latest listed SEC bulk BDC dataset. Bulk Schedule of Investments rows are discovery coverage only. MAIN, GBDC, and BBDC passed both latest-form reconciliation gates and joined the original five verified holdings funds. NMFC is also promoted through a dedicated primary-schedule extractor covering March 2023 through March 2026; it excludes supplemental loan-program schedules and reconciles every quarter to the filing total. HTGC, CSWC, TCPC, BCSF, OCSL, CCAP, and PSEC remain audit-visible but do not feed portfolio analytics because their default detailed extraction was incomplete or did not reconcile. Financials, deterioration, and liabilities remain presentation/filing-enriched for BXSL, FSK, and TSLX.
+The universe snapshot combines the current EdgarTools BDC registry with its latest listed SEC bulk BDC dataset. Bulk Schedule of Investments rows are discovery coverage only. Every fund in the requested 11-fund expansion cohort now feeds verified analytics: MAIN, GBDC, and BBDC passed the generic reconciliation gates, while NMFC, HTGC, CSWC, TCPC, BCSF, OCSL, CCAP, and PSEC use dedicated primary-schedule extractors. Each promoted schedule reconciles security-level cost and fair value to the filing total. Financials, deterioration, and liabilities remain presentation/filing-enriched for BXSL, FSK, and TSLX.
 
 ## Run
 
