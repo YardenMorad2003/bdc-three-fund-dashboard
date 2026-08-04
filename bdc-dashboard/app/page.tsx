@@ -38,6 +38,7 @@ import bdcMarketValuationData from "../lib/bdc-market-valuation.json";
 import bdcEquityPositioningData from "../lib/bdc-equity-positioning.json";
 import etfImpliedBdcMarksData from "../lib/etf-implied-bdc-marks.json";
 import freeSourceIntelligenceData from "../lib/free-source-intelligence.json";
+import dailyLoanEtfHoldingsData from "../lib/daily-loan-etf-holdings.json";
 import nportConsensusMarksData from "../lib/nport-consensus-marks.json";
 import companyEnrichmentData from "../lib/company-enrichment.json";
 import fundingMarketData from "../lib/bdc-funding-market.json";
@@ -1480,6 +1481,70 @@ type FreeSourceIntelligence = {
   limitations: string[];
 };
 
+type DailyLoanEtfHolding = {
+  ticker: string | null;
+  name: string;
+  identifier: string | null;
+  figi: string | null;
+  cusip: string | null;
+  security_type: string | null;
+  coupon_pct: number | null;
+  maturity_date: string | null;
+  next_call_date: string | null;
+  rating: string | null;
+  par_or_shares: number | null;
+  market_value: number | null;
+  weight_pct: number | null;
+  currency: string | null;
+  implied_mark: number | null;
+};
+
+type DailyLoanEtfFund = {
+  ticker: "SRLN" | "BKLN";
+  name: string;
+  as_of: string;
+  source_page_url: string;
+  source_data_url: string;
+  row_count: number;
+  marked_row_count: number;
+  total_market_value: number;
+  total_weight_pct: number;
+  median_implied_mark: number | null;
+  holdings: DailyLoanEtfHolding[];
+};
+
+type DailyLoanEtfData = {
+  meta: {
+    generated_at_utc: string;
+    fund_count: number;
+    latest_as_of: string | null;
+    snapshot_count: number;
+    schedule: string;
+    methodology: string;
+    source_status: Array<{
+      ticker: "SRLN" | "BKLN";
+      status: "refreshed" | "stale_fallback" | "error";
+      as_of: string | null;
+      records: number;
+      checked_at_utc: string;
+      source_url: string;
+      message: string;
+    }>;
+    errors: string[];
+  };
+  funds: DailyLoanEtfFund[];
+  history: Array<{
+    ticker: "SRLN" | "BKLN";
+    as_of: string;
+    row_count: number;
+    total_market_value: number;
+    total_weight_pct: number;
+    sha256: string;
+    snapshot_path: string;
+  }>;
+  limitations: string[];
+};
+
 type NportConsensusSnapshot = {
   report_date: string;
   fund_count: number;
@@ -1577,6 +1642,7 @@ const data = dashboardData as unknown as DashboardData;
 const arccQuarterlyUpdate = arccQuarterlyUpdateData as unknown as ArccQuarterlyUpdate;
 const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const freeSourceIntelligence = freeSourceIntelligenceData as unknown as FreeSourceIntelligence;
+const dailyLoanEtfHoldings = dailyLoanEtfHoldingsData as unknown as DailyLoanEtfData;
 const companyEnrichment = companyEnrichmentData as CompanyEnrichment[];
 const fundingMarket = fundingMarketData as unknown as FundingMarketData;
 const bslReferenceMarks = bslReferenceMarksData as unknown as BslReferenceData;
@@ -8288,12 +8354,27 @@ function MarketEvidence({
 }
 
 function FreeSources() {
+  const [selectedLoanEtf, setSelectedLoanEtf] = useState<"SRLN" | "BKLN">("SRLN");
+  const [loanEtfQuery, setLoanEtfQuery] = useState("");
   const statusRows = freeSourceIntelligence.source_status;
   const refreshedCount = statusRows.filter((row) => row.status === "refreshed").length;
   const liveRecordCount = statusRows
     .filter((row) => row.status === "refreshed")
     .reduce((total, row) => total + row.records, 0);
-  const etfFunds = freeSourceIntelligence.etf_holdings?.funds || [];
+  const loanEtfFunds = dailyLoanEtfHoldings.funds;
+  const selectedLoanEtfFund = loanEtfFunds.find((fund) => fund.ticker === selectedLoanEtf) || loanEtfFunds[0];
+  const normalizedLoanEtfQuery = loanEtfQuery.trim().toLowerCase();
+  const visibleLoanEtfHoldings = selectedLoanEtfFund
+    ? selectedLoanEtfFund.holdings.filter((holding) => !normalizedLoanEtfQuery || [
+        holding.name,
+        holding.ticker,
+        holding.cusip,
+        holding.identifier,
+        holding.figi,
+        holding.security_type,
+        holding.rating
+      ].some((value) => String(value || "").toLowerCase().includes(normalizedLoanEtfQuery)))
+    : [];
   const macroSeries = freeSourceIntelligence.macro?.series || [];
   const formDMatches = freeSourceIntelligence.entity_resolution?.form_d?.matches || [];
   const gleifCandidates = freeSourceIntelligence.entity_resolution?.gleif?.candidates || [];
@@ -8385,37 +8466,104 @@ function FreeSources() {
         </div>
       </Panel>
 
-      <div className="grid two-col">
-        <Panel title="Daily senior-loan ETF files" subtitle="Issuer-published holdings; mark inference requires market value and par/shares." icon={LineChart}>
-          <div className="table-wrap">
-            <table>
-              <thead>
-                <tr><th>ETF</th><th>As of</th><th className="right">Rows</th><th className="right">Marks</th><th className="right">BDC matches</th></tr>
-              </thead>
-              <tbody>
-                {etfFunds.map((row) => (
-                  <tr key={row.etf}>
-                    <td><a href={row.source_url} target="_blank" rel="noreferrer">{row.etf} <ExternalLink aria-hidden="true" size={13} /></a></td>
-                    <td>{row.as_of ? formatDate(row.as_of) : row.error || "Not refreshed"}</td>
-                    <td className="right">{formatNumber(row.row_count)}</td>
-                    <td className="right">{formatNumber(row.marked_row_count || 0)}</td>
-                    <td className="right">{formatNumber(row.matched_bdc_borrower_count || 0)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Panel>
+      <Panel
+        title="Daily SRLN + BKLN holdings"
+        subtitle="Complete official fund portfolios, normalized to one schema and retained as dated snapshots after each weekday close."
+        icon={LineChart}
+        action={dailyLoanEtfHoldings.meta.latest_as_of ? <span className="bsl-asof">through {formatShortDate(dailyLoanEtfHoldings.meta.latest_as_of)}</span> : null}
+      >
+        <div className="loan-etf-summary" aria-label="Daily loan ETF source coverage">
+          {loanEtfFunds.map((fund) => {
+            const sourceStatus = dailyLoanEtfHoldings.meta.source_status.find((row) => row.ticker === fund.ticker);
+            return (
+              <button
+                type="button"
+                className={`loan-etf-card ${selectedLoanEtf === fund.ticker ? "active" : ""}`}
+                key={fund.ticker}
+                onClick={() => setSelectedLoanEtf(fund.ticker)}
+                aria-pressed={selectedLoanEtf === fund.ticker}
+              >
+                <span>{fund.ticker}</span>
+                <strong>{formatNumber(fund.row_count)} holdings</strong>
+                <small>{formatDate(fund.as_of)} · {formatMm(fund.total_market_value / 1_000_000, 0)} market value</small>
+                <em className={sourceStatus?.status === "refreshed" ? "positive" : "negative"}>
+                  {sourceStatus?.status === "refreshed" ? "Official source refreshed" : "Prior snapshot shown"}
+                </em>
+              </button>
+            );
+          })}
+        </div>
 
-        <Panel title="Entity and instrument resolution" subtitle="Exact-name Form D links, LEIs, and OpenFIGI mappings remain auditable candidates." icon={FileSearch}>
-          <div className="quality-methodology-grid">
-            <section><h3>SEC Form D</h3><p>{formatNumber(formDMatches.length)} exact normalized-name candidates from the latest quarterly package.</p></section>
-            <section><h3>GLEIF</h3><p>{formatNumber(gleifCandidates.length)} LEI candidates across the highest-exposure borrower query set.</p></section>
-            <section><h3>OpenFIGI</h3><p>{formatNumber((freeSourceIntelligence.entity_resolution?.openfigi?.queries || []).filter((row) => row.data.length).length)} BDC note CUSIPs mapped.</p></section>
-            <section><h3>Borrower universe</h3><p>{formatNumber(freeSourceIntelligence.meta.borrower_universe_count)} current normalized issuer keys are available for conservative matching.</p></section>
+        <div className="loan-etf-toolbar">
+          <div className="loan-etf-context">
+            <strong>{selectedLoanEtfFund?.name}</strong>
+            <span>
+              {formatNumber(visibleLoanEtfHoldings.length)} visible of {formatNumber(selectedLoanEtfFund?.row_count || 0)} · {formatNumber(dailyLoanEtfHoldings.meta.snapshot_count)} dated snapshots retained
+            </span>
           </div>
-        </Panel>
-      </div>
+          <div className="search-wrap compact-search">
+            <Search />
+            <input
+              className="search"
+              value={loanEtfQuery}
+              onChange={(event) => setLoanEtfQuery(event.target.value)}
+              placeholder="Search issuer, CUSIP, rating, type"
+              aria-label="Search daily loan ETF holdings"
+            />
+          </div>
+        </div>
+
+        <div className="table-wrap loan-etf-table-wrap">
+          <table className="compact-wide-table loan-etf-table">
+            <thead>
+              <tr>
+                <th>Holding</th>
+                <th>Identifier</th>
+                <th>Type / rating</th>
+                <th className="right">Weight</th>
+                <th className="right">Coupon</th>
+                <th>Maturity</th>
+                <th className="right">Par / shares</th>
+                <th className="right">Market value</th>
+                <th className="right">Implied mark</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibleLoanEtfHoldings.map((holding, index) => (
+                <tr key={`${selectedLoanEtfFund?.ticker}-${holding.cusip || holding.figi || holding.identifier || holding.name}-${index}`}>
+                  <td><strong>{holding.name}</strong>{holding.ticker ? <><br /><small>{holding.ticker}</small></> : null}</td>
+                  <td>{holding.cusip || holding.identifier || "—"}{holding.figi ? <><br /><small>{holding.figi}</small></> : null}</td>
+                  <td>{holding.security_type || "—"}{holding.rating ? <><br /><small>{holding.rating}</small></> : null}</td>
+                  <td className="right">{formatPct(holding.weight_pct, 2)}</td>
+                  <td className="right">{formatPct(holding.coupon_pct, 2)}</td>
+                  <td>{holding.maturity_date ? formatSlashDate(holding.maturity_date) : "—"}</td>
+                  <td className="right">{formatNumber(holding.par_or_shares)}</td>
+                  <td className="right">{holding.market_value === null ? "n/a" : formatMm(holding.market_value / 1_000_000, 2)}</td>
+                  <td className="right">{formatMark(holding.implied_mark, 2)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="loan-etf-footnote">
+          <span>{dailyLoanEtfHoldings.meta.schedule}</span>
+          {selectedLoanEtfFund ? (
+            <a href={selectedLoanEtfFund.source_page_url} target="_blank" rel="noreferrer">
+              Open official {selectedLoanEtfFund.ticker} fund page <ExternalLink aria-hidden="true" size={13} />
+            </a>
+          ) : null}
+        </div>
+      </Panel>
+
+      <Panel title="Entity and instrument resolution" subtitle="Exact-name Form D links, LEIs, and OpenFIGI mappings remain auditable candidates." icon={FileSearch}>
+        <div className="quality-methodology-grid">
+          <section><h3>SEC Form D</h3><p>{formatNumber(formDMatches.length)} exact normalized-name candidates from the latest quarterly package.</p></section>
+          <section><h3>GLEIF</h3><p>{formatNumber(gleifCandidates.length)} LEI candidates across the highest-exposure borrower query set.</p></section>
+          <section><h3>OpenFIGI</h3><p>{formatNumber((freeSourceIntelligence.entity_resolution?.openfigi?.queries || []).filter((row) => row.data.length).length)} BDC note CUSIPs mapped.</p></section>
+          <section><h3>Borrower universe</h3><p>{formatNumber(freeSourceIntelligence.meta.borrower_universe_count)} current normalized issuer keys are available for conservative matching.</p></section>
+        </div>
+      </Panel>
 
       <div className="grid two-col">
         <Panel title="Macro credit backdrop" subtitle="Latest public FRED observations; units follow each source series." icon={TrendingUp}>
@@ -8446,7 +8594,7 @@ function FreeSources() {
       </div>
 
       <div className="grid limitation-grid">
-        {freeSourceIntelligence.limitations.map((limitation) => (
+        {[...freeSourceIntelligence.limitations, ...dailyLoanEtfHoldings.limitations].map((limitation) => (
           <section className="panel limitation" key={limitation}>
             <h3>Source guardrail</h3>
             <p>{limitation}</p>

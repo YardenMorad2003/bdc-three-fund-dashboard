@@ -4615,6 +4615,111 @@ tbody tr:hover td {
   font-weight: 500;
 }
 
+.loan-etf-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.loan-etf-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 5px 12px;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--background);
+  color: var(--foreground);
+  text-align: left;
+  cursor: pointer;
+}
+
+.loan-etf-card:hover,
+.loan-etf-card:focus-visible,
+.loan-etf-card.active {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.loan-etf-card > span {
+  grid-row: 1 / span 3;
+  align-self: start;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font: 700 12px var(--font-mono);
+  letter-spacing: .04em;
+}
+
+.loan-etf-card strong {
+  font-size: 15px;
+}
+
+.loan-etf-card small,
+.loan-etf-card em {
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-style: normal;
+}
+
+.loan-etf-toolbar,
+.loan-etf-footnote {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.loan-etf-toolbar {
+  margin: 6px 0 12px;
+}
+
+.loan-etf-context {
+  display: grid;
+  gap: 3px;
+}
+
+.loan-etf-context span,
+.loan-etf-footnote {
+  color: var(--muted-foreground);
+  font-size: 11px;
+}
+
+.loan-etf-table-wrap {
+  max-height: 560px;
+}
+
+.loan-etf-table td:first-child {
+  min-width: 260px;
+}
+
+.loan-etf-table td:nth-child(3) {
+  min-width: 150px;
+}
+
+.loan-etf-footnote {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.loan-etf-footnote a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.loan-etf-footnote a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
 .bsl-monitor-wrap {
   max-height: 560px;
   border: 1px solid var(--border);
@@ -4843,6 +4948,24 @@ tbody tr:hover td {
 }
 
 @media (max-width: 620px) {
+  .loan-etf-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-etf-toolbar,
+  .loan-etf-footnote {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .loan-etf-toolbar .search-wrap {
+    width: 100%;
+  }
+
+  .loan-etf-footnote a {
+    align-self: flex-start;
+  }
+
   .bsl-summary-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

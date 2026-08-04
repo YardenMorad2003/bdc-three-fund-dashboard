@@ -12,6 +12,7 @@
     "sources:heavy-13f": "py -X utf8 scripts/export-free-source-intelligence.py --heavy-13f",
     "nport:consensus": "py -X utf8 scripts/export-nport-consensus-marks.py",
     "positioning": "py -X utf8 scripts/export-bdc-equity-positioning.py",
+    "loan-etfs": "py -X utf8 scripts/export-daily-loan-etf-holdings.py",
     "market-evidence": "npm run nport:consensus && npm run positioning",
     "nport": "py -X utf8 scripts/export-nport-bsl-marks.py && py -X utf8 scripts/export-bsl-dashboard-reference.py && py -X utf8 scripts/export-etf-implied-bdc-marks.py && py -X utf8 scripts/export-business-peer-pricing.py && py -X utf8 scripts/export-bdc-market-valuation.py",
     "valuation": "py -X utf8 scripts/export-bdc-market-valuation.py",
