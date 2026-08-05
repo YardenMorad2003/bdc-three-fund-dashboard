@@ -32,6 +32,7 @@ import { useMemo, useState } from "react";
 import dashboardData from "../lib/dashboard-data.json";
 import arccQuarterlyUpdateData from "../lib/arcc-quarterly-update.json";
 import ocslQuarterlyUpdateData from "../lib/ocsl-quarterly-update.json";
+import obdcQuarterlyUpdateData from "../lib/obdc-quarterly-update.json";
 import bdcUniverseData from "../lib/bdc-universe.json";
 import bslReferenceMarksData from "../lib/bsl-reference-marks.json";
 import businessPeerPricingData from "../lib/business-peer-pricing.json";
@@ -1343,6 +1344,50 @@ type OcslQuarterlyUpdate = {
   sources: Array<{ name: string; url: string }>;
 };
 
+type ObdcQuarterlyUpdate = {
+  meta: {
+    period_end: string;
+    prior_period_end: string;
+    filing_date: string;
+    fiscal_quarter: string;
+  };
+  headline: { stance: string; summary: string };
+  reported: {
+    gaap_nii_per_share: number;
+    adjusted_nii_per_share: number;
+    nav_per_share: number;
+    prior_nav_per_share: number;
+    total_distribution_per_share: number;
+    non_accrual_fv_pct: number;
+    prior_non_accrual_fv_pct: number;
+    non_accrual_cost_pct: number;
+    prior_non_accrual_cost_pct: number;
+    new_commitments_mm: number;
+    repayments_and_sales_mm: number;
+    portfolio_fair_value_mm: number;
+    net_debt_to_equity_x: number;
+    portfolio_company_count: number;
+    first_lien_pct: number;
+    weighted_average_yield_pct: number;
+  };
+  schedule: {
+    current: { holding_rows: number; amortized_cost_mm: number; fair_value_mm: number };
+    prior: { holding_rows: number; amortized_cost_mm: number; fair_value_mm: number };
+    reported_fair_value_mm: number;
+    fair_value_reconciliation_delta_mm: number;
+    fair_value_change_mm: number;
+    mark_gap_change_mm: number;
+    largest_mark_deterioration: Array<{
+      issuer_match_key: string;
+      issuer: string;
+      fair_value_mm: number;
+      fv_to_cost_pct: number | null;
+      mark_gap_change_mm: number;
+    }>;
+  };
+  sources: Array<{ name: string; url: string }>;
+};
+
 type DashboardData = {
   meta: {
     generated_at_utc: string;
@@ -1685,6 +1730,7 @@ type EquityPositioningData = {
 const data = dashboardData as unknown as DashboardData;
 const arccQuarterlyUpdate = arccQuarterlyUpdateData as unknown as ArccQuarterlyUpdate;
 const ocslQuarterlyUpdate = ocslQuarterlyUpdateData as unknown as OcslQuarterlyUpdate;
+const obdcQuarterlyUpdate = obdcQuarterlyUpdateData as unknown as ObdcQuarterlyUpdate;
 const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const freeSourceIntelligence = freeSourceIntelligenceData as unknown as FreeSourceIntelligence;
 const dailyLoanEtfHoldings = dailyLoanEtfHoldingsData as unknown as DailyLoanEtfData;
@@ -3964,6 +4010,128 @@ function OcslQuarterlyUpdatePanel() {
   );
 }
 
+function ObdcQuarterlyUpdatePanel() {
+  const update = obdcQuarterlyUpdate;
+  const current = update.reported;
+  const schedule = update.schedule;
+  const navChangePct = ((current.nav_per_share / current.prior_nav_per_share) - 1) * 100;
+  const distributionCoverage = (current.adjusted_nii_per_share / current.total_distribution_per_share) * 100;
+  const netActivity = current.new_commitments_mm - current.repayments_and_sales_mm;
+
+  return (
+    <section className="arcc-update" aria-labelledby="obdc-update-title">
+      <header className="arcc-update-header">
+        <div>
+          <span className="research-kicker">New filing / OBDC / {update.meta.fiscal_quarter}</span>
+          <h2 id="obdc-update-title">Income improves; NAV and credit marks soften</h2>
+          <p>{update.headline.summary}</p>
+        </div>
+        <div className="arcc-update-stamp">
+          <FundBadge fund="OBDC" />
+          <span>Filed {formatDate(update.meta.filing_date)}</span>
+        </div>
+      </header>
+
+      <div className="arcc-update-metrics">
+        <div>
+          <span>Adjusted NII / dividend</span>
+          <strong>{formatPerShare(current.adjusted_nii_per_share)} / {formatPerShare(current.total_distribution_per_share)}</strong>
+          <small>{formatPct(distributionCoverage, 1)} coverage</small>
+        </div>
+        <div>
+          <span>NAV per share</span>
+          <strong>{formatPerShare(current.nav_per_share)}</strong>
+          <small>{formatPct(navChangePct, 1)} QoQ</small>
+        </div>
+        <div>
+          <span>Non-accruals</span>
+          <strong>{formatPct(current.non_accrual_fv_pct, 1)} FV</strong>
+          <small>{formatPct(current.non_accrual_cost_pct, 1)} of cost · FV improved from {formatPct(current.prior_non_accrual_fv_pct, 1)}</small>
+        </div>
+        <div>
+          <span>Net investment activity</span>
+          <strong>{formatMm(netActivity, 1)}</strong>
+          <small>{formatMm(current.new_commitments_mm, 1)} committed · {formatMm(current.repayments_and_sales_mm, 1)} repaid/sold</small>
+        </div>
+      </div>
+
+      <div className="arcc-update-body">
+        <div className="arcc-update-read">
+          <span className="signal-section-kicker">Analyst read</span>
+          <h3>{update.headline.stance}</h3>
+          <p>
+            Adjusted NII increased to {formatPerShare(current.adjusted_nii_per_share)} and covered the
+            {" "}{formatPerShare(current.total_distribution_per_share)} combined dividend. The reported portfolio
+            declined to {formatMm(current.portfolio_fair_value_mm, 0)} as repayments and sales exceeded commitments,
+            while the schedule&apos;s aggregate mark-to-cost gap worsened by {formatMm(Math.abs(schedule.mark_gap_change_mm), 1)}.
+            Fair-value non-accruals improved, but the cost measure rose from {formatPct(current.prior_non_accrual_cost_pct, 1)} to {formatPct(current.non_accrual_cost_pct, 1)}.
+          </p>
+          <div className="arcc-update-sources">
+            {update.sources.map((source) => (
+              <a href={source.url} target="_blank" rel="noreferrer" key={source.url}>
+                {source.name} <ExternalLink aria-hidden="true" size={12} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="arcc-update-watch">
+          <span className="signal-section-kicker">Schedule reconciliation</span>
+          <div className="arcc-nonaccrual-list">
+            <div>
+              <span>June holdings</span>
+              <strong>{formatNumber(schedule.current.holding_rows)}</strong>
+              <small>security-level rows</small>
+            </div>
+            <div>
+              <span>Extracted fair value</span>
+              <strong>{formatMm(schedule.current.fair_value_mm, 1)}</strong>
+              <small>{formatMm(schedule.fair_value_reconciliation_delta_mm, 1)} above reported total</small>
+            </div>
+            <div>
+              <span>Net leverage</span>
+              <strong>{current.net_debt_to_equity_x.toFixed(2)}×</strong>
+              <small>{formatPct(current.first_lien_pct, 1)} first lien · {formatPct(current.weighted_average_yield_pct, 1)} yield</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="arcc-update-table-wrap">
+        <div className="signal-section-heading">
+          <div>
+            <span>Largest issuer-level deterioration</span>
+            <h3>Where OBDC&apos;s marks weakened</h3>
+          </div>
+          <small>June vs. March · funded schedule rows</small>
+        </div>
+        <div className="table-wrap">
+          <table className="compact-wide-table">
+            <thead>
+              <tr>
+                <th>Issuer</th>
+                <th className="right">June fair value</th>
+                <th className="right">FV / cost</th>
+                <th className="right">Gap change</th>
+              </tr>
+            </thead>
+            <tbody>
+              {schedule.largest_mark_deterioration.map((row) => (
+                <tr key={row.issuer_match_key}>
+                  <td>{row.issuer}</td>
+                  <td className="right">{formatMm(row.fair_value_mm, 1)}</td>
+                  <td className="right">{formatPct(row.fv_to_cost_pct, 1)}</td>
+                  <td className="right negative">{formatMm(row.mark_gap_change_mm, 1)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Overview({
   selectedFund,
   onOpenTimelineIssuer
@@ -4010,6 +4178,7 @@ function Overview({
     <div className="grid">
       {selectedFund === "All" || selectedFund === "ARCC" ? <ArccQuarterlyUpdatePanel /> : null}
       {selectedFund === "All" || selectedFund === "OCSL" ? <OcslQuarterlyUpdatePanel /> : null}
+      {selectedFund === "All" || selectedFund === "OBDC" ? <ObdcQuarterlyUpdatePanel /> : null}
 
       <ResearchSignalBriefing selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 

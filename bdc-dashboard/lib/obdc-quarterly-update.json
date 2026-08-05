@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "fund": "OBDC",
+    "period_end": "2026-06-30",
+    "prior_period_end": "2026-03-31",
+    "filing_date": "2026-08-05",
+    "fiscal_quarter": "Q2 2026",
+    "generated_at_utc": "2026-08-05T21:10:15.650015+00:00"
+  },
+  "headline": {
+    "stance": "Earnings covered the dividend, but NAV and several credit marks moved lower.",
+    "summary": "Adjusted NII improved and fair-value non-accruals declined, while NAV fell 1.0% and repayments substantially exceeded new commitments."
+  },
+  "reported": {
+    "total_investment_income_mm": 401.342,
+    "gaap_nii_mm": 176.173,
+    "gaap_nii_per_share": 0.36,
+    "adjusted_nii_mm": 170.557,
+    "adjusted_nii_per_share": 0.34,
+    "nav_per_share": 14.26,
+    "prior_nav_per_share": 14.41,
+    "base_distribution_per_share": 0.31,
+    "supplemental_distribution_per_share": 0.02,
+    "total_distribution_per_share": 0.33,
+    "non_accrual_fv_pct": 0.8,
+    "prior_non_accrual_fv_pct": 1.0,
+    "non_accrual_cost_pct": 2.8,
+    "prior_non_accrual_cost_pct": 2.0,
+    "new_commitments_mm": 319.324,
+    "repayments_and_sales_mm": 746.699,
+    "portfolio_fair_value_mm": 14955.049,
+    "net_debt_to_equity_x": 1.11,
+    "portfolio_company_count": 229,
+    "first_lien_pct": 73.2,
+    "weighted_average_yield_pct": 9.9
+  },
+  "schedule": {
+    "current": {
+      "holding_rows": 350,
+      "amortized_cost_mm": 15096.91,
+      "fair_value_mm": 14963.793
+    },
+    "prior": {
+      "holding_rows": 348,
+      "amortized_cost_mm": 15382.635,
+      "fair_value_mm": 15353.572
+    },
+    "reported_fair_value_mm": 14955.049,
+    "fair_value_reconciliation_delta_mm": 8.744,
+    "fair_value_change_mm": -389.779,
+    "mark_gap_change_mm": -104.054,
+    "largest_mark_deterioration": [
+      {
+        "issuer_match_key": "LOPAREX MIDCO B V",
+        "issuer": "Loparex Midco B.V.",
+        "fair_value_mm": 8.338,
+        "fv_to_cost_pct": 6.1609168224506226,
+        "mark_gap_change_mm": -79.11600000000001
+      },
+      {
+        "issuer_match_key": "CORNERSTONE ONDEMAND",
+        "issuer": "Cornerstone OnDemand, Inc.",
+        "fair_value_mm": 132.08599999999998,
+        "fv_to_cost_pct": 56.3894142307643,
+        "mark_gap_change_mm": -26.829000000000008
+      },
+      {
+        "issuer_match_key": "FERADYNE OUTDOORS",
+        "issuer": "Feradyne Outdoors, LLC",
+        "fair_value_mm": 34.688,
+        "fv_to_cost_pct": 44.36032533633434,
+        "mark_gap_change_mm": -15.882999999999996
+      },
+      {
+        "issuer_match_key": "TRUCORDIA INSURANCE",
+        "issuer": "Trucordia Insurance Holdings, LLC",
+        "fair_value_mm": 135.375,
+        "fv_to_cost_pct": 91.07636622958981,
+        "mark_gap_change_mm": -10.534999999999997
+      },
+      {
+        "issuer_match_key": "PLURALSIGHT",
+        "issuer": "Pluralsight, LLC",
+        "fair_value_mm": 23.11,
+        "fv_to_cost_pct": 47.20951135806504,
+        "mark_gap_change_mm": -9.256999999999998
+      },
+      {
+        "issuer_match_key": "DENALI",
+        "issuer": "Denali Intermediate Holdings, Inc. (dba Dun & Bradstreet)",
+        "fair_value_mm": 72.016,
+        "fv_to_cost_pct": 93.25598259608412,
+        "mark_gap_change_mm": -4.551000000000002
+      }
+    ],
+    "excluded_disclosure": {
+      "name": "Blue Owl Cross-Strategy Opportunities LLC (BOCSO)",
+      "cost_mm": 1250.0,
+      "fair_value_mm": 1240.0,
+      "reason": "Footnote transaction disclosure; not a retained OBDC Schedule of Investments position."
+    }
+  },
+  "sources": [
+    {
+      "name": "OBDC Q2 2026 earnings release",
+      "url": "https://www.blueowlcapitalcorporation.com/investors/news-events/press-releases/detail/94/blue-owl-capital-corporation-announces-june-30-2026"
+    },
+    {
+      "name": "OBDC June 2026 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1655888/000165588826000056/obdc-20260630.htm"
+    }
+  ]
+}

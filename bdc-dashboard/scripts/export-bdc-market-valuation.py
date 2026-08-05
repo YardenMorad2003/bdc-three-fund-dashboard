@@ -17,7 +17,7 @@ MAX_LOAN_REMARK_PP = 25.0
 
 # Quarter-end balance-sheet facts are kept as a small, auditable snapshot. The
 # source links below are official issuer or SEC materials. ARCC is updated
-# through June 30, 2026; the remaining funds are through March 31, 2026.
+# through June 30, 2026 for ARCC and OBDC; the remaining funds are through March 31, 2026.
 FUND_FINANCIALS: dict[str, dict[str, Any]] = {
     "ARCC": {"nav_per_share": 19.35, "net_assets_mm": 13891.0, "debt_mm": 15800.0, "debt_to_equity_x": 1.15,
              "nav_date": "2026-06-30", "unsecured_debt_pct": None, "source_url": "https://www.sec.gov/Archives/edgar/data/1287750/000162828026050303/arccq2-2026exhibit991.htm"},
@@ -31,8 +31,8 @@ FUND_FINANCIALS: dict[str, dict[str, Any]] = {
              "unsecured_debt_pct": 50.9, "source_url": "https://www.sec.gov/Archives/edgar/data/1476765/000147676526000033/gbdc-20260331.htm"},
     "MAIN": {"nav_per_share": 33.46, "net_assets_mm": 3093.644, "debt_mm": 2536.0, "debt_to_equity_x": 0.82,
              "unsecured_debt_pct": 71.0, "source_url": "https://www.mainstcapital.com/investors/news-events/press-releases/detail/2763/main-street-announces-first-quarter-2026-results"},
-    "OBDC": {"nav_per_share": 14.41, "net_assets_mm": 7154.0, "debt_mm": 8454.559, "debt_to_equity_x": 1.18,
-             "unsecured_debt_pct": None, "source_url": "https://www.sec.gov/Archives/edgar/data/1655888/000165588826000034/exhibit991-obdcxpressrelea.htm"},
+    "OBDC": {"nav_per_share": 14.26, "net_assets_mm": 7031.759, "debt_mm": 7903.533, "debt_to_equity_x": 1.11,
+             "nav_date": "2026-06-30", "unsecured_debt_pct": 66.4, "source_url": "https://www.blueowlcapitalcorporation.com/investors/news-events/press-releases/detail/94/blue-owl-capital-corporation-announces-june-30-2026"},
     "TSLX": {"nav_per_share": 16.24, "net_assets_mm": 1543.0, "debt_mm": 1827.4, "debt_to_equity_x": 1.18,
              "unsecured_debt_pct": 68.4, "source_url": "https://www.sec.gov/Archives/edgar/data/1508655/000119312526206354/tslx-ex99_1.htm"},
 }

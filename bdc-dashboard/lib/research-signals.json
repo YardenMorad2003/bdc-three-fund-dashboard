@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at_utc": "2026-08-05T16:09:41+00:00",
+    "generated_at_utc": "2026-08-05T21:08:50+00:00",
     "latest_period": "2026-03-31",
     "methodology": "Priority score combines empirical rank with absolute severity: 35% aggregate discount, 28% quarter deterioration, 18% audited same-facility disagreement, 12% exposure materiality, and 7% cross-fund breadth. Discount, deterioration, and disagreement reach full intensity at 20, 10, and 10 percentage points, respectively. A verified senior-first fund-pair breach adds five points. It is a triage tool, not a credit rating.",
     "pairwise_lead_lag_methodology": "Fund-pair lead-lag tests aggregate only within issuer, fund, quarter, and explicit capital tier. Each junior-fund versus senior-fund pair requires at least $1mm of cost in each tier and two common quarters. First crossings below 95% and 90% of cost are reported without pooling lenders.",
@@ -12,10 +12,10 @@
     "rapid_deterioration_count": 29,
     "audited_disagreement_count": 2,
     "crowded_count": 29,
-    "pairwise_lead_lag_count": 43,
-    "cross_fund_pairwise_count": 25,
+    "pairwise_lead_lag_count": 45,
+    "cross_fund_pairwise_count": 27,
     "junior_first_pair_count": 5,
-    "senior_first_pair_count": 4
+    "senior_first_pair_count": 5
   },
   "signal_definitions": {
     "deep_discount": {
@@ -115,7 +115,7 @@
       "audited_same_facility_gap_pp": null,
       "audited_fund_pair": null,
       "audited_conservative_fund": null,
-      "pairwise_lead_lag_tests": 1,
+      "pairwise_lead_lag_tests": 2,
       "senior_first_pair_count": 0,
       "junior_first_pair_count": 0,
       "priority_score": 75.9,
@@ -1047,8 +1047,8 @@
       "audited_same_facility_gap_pp": null,
       "audited_fund_pair": null,
       "audited_conservative_fund": null,
-      "pairwise_lead_lag_tests": 2,
-      "senior_first_pair_count": 2,
+      "pairwise_lead_lag_tests": 3,
+      "senior_first_pair_count": 3,
       "junior_first_pair_count": 0,
       "priority_score": 40.7,
       "priority_band": "monitor",
@@ -12339,23 +12339,24 @@
       "senior_fund": "OBDC",
       "junior_tier": "Junior / unsecured debt",
       "senior_tier": "First-lien senior secured",
-      "common_period_count": 2,
+      "common_period_count": 3,
       "first_common_period": "2025-12-31",
-      "latest_common_period": "2026-03-31",
+      "latest_common_period": "2026-06-30",
       "junior_first_below_95_period": "2025-12-31",
       "senior_first_below_95_period": null,
       "junior_first_below_90_period": "2026-03-31",
       "senior_first_below_90_period": null,
       "lead_lag_status": "junior_first",
       "lead_quarters_at_95": null,
-      "latest_junior_fv_to_cost_pct": 87.249935,
-      "latest_senior_fv_to_cost_pct": 96.356635,
-      "latest_senior_minus_junior_gap_pp": 9.1067,
-      "minimum_junior_fv_to_cost_pct": 87.249935,
-      "minimum_senior_fv_to_cost_pct": 96.356635,
+      "latest_junior_fv_to_cost_pct": 84.000119,
+      "latest_senior_fv_to_cost_pct": 95.364426,
+      "latest_senior_minus_junior_gap_pp": 11.364307,
+      "minimum_junior_fv_to_cost_pct": 84.000119,
+      "minimum_senior_fv_to_cost_pct": 95.364426,
       "periods": [
         "2025-12-31",
-        "2026-03-31"
+        "2026-03-31",
+        "2026-06-30"
       ]
     },
     {
@@ -12416,6 +12417,32 @@
       "latest_senior_minus_junior_gap_pp": -35.925912,
       "minimum_junior_fv_to_cost_pct": 115.878378,
       "minimum_senior_fv_to_cost_pct": 83.938953,
+      "periods": [
+        "2026-03-31",
+        "2026-06-30"
+      ]
+    },
+    {
+      "issuer_match_key": "PETVET CARE CENTERS",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "OCSL",
+      "senior_fund": "OBDC",
+      "junior_tier": "Preferred equity",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2026-03-31",
+      "latest_common_period": "2026-06-30",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": "2026-03-31",
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": "2026-06-30",
+      "lead_lag_status": "senior_first",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 119.864865,
+      "latest_senior_fv_to_cost_pct": 87.138369,
+      "latest_senior_minus_junior_gap_pp": -32.726496,
+      "minimum_junior_fv_to_cost_pct": 115.878378,
+      "minimum_senior_fv_to_cost_pct": 87.138369,
       "periods": [
         "2026-03-31",
         "2026-06-30"
@@ -12494,6 +12521,32 @@
       "latest_senior_minus_junior_gap_pp": -30.103164,
       "minimum_junior_fv_to_cost_pct": 115.878378,
       "minimum_senior_fv_to_cost_pct": 89.761701,
+      "periods": [
+        "2026-03-31",
+        "2026-06-30"
+      ]
+    },
+    {
+      "issuer_match_key": "PLURALSIGHT",
+      "comparison_scope": "cross-fund",
+      "junior_fund": "OCSL",
+      "senior_fund": "OBDC",
+      "junior_tier": "Common equity / warrants",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 2,
+      "first_common_period": "2026-03-31",
+      "latest_common_period": "2026-06-30",
+      "junior_first_below_95_period": "2026-03-31",
+      "senior_first_below_95_period": "2026-03-31",
+      "junior_first_below_90_period": "2026-03-31",
+      "senior_first_below_90_period": "2026-03-31",
+      "lead_lag_status": "simultaneous",
+      "lead_quarters_at_95": 0,
+      "latest_junior_fv_to_cost_pct": 0.0,
+      "latest_senior_fv_to_cost_pct": 47.209511,
+      "latest_senior_minus_junior_gap_pp": 47.209511,
+      "minimum_junior_fv_to_cost_pct": 0.0,
+      "minimum_senior_fv_to_cost_pct": 47.209511,
       "periods": [
         "2026-03-31",
         "2026-06-30"
@@ -12983,23 +13036,24 @@
       "senior_fund": "ARCC",
       "junior_tier": "Junior / unsecured debt",
       "senior_tier": "First-lien senior secured",
-      "common_period_count": 2,
+      "common_period_count": 3,
       "first_common_period": "2025-12-31",
-      "latest_common_period": "2026-03-31",
+      "latest_common_period": "2026-06-30",
       "junior_first_below_95_period": null,
       "senior_first_below_95_period": null,
       "junior_first_below_90_period": null,
       "senior_first_below_90_period": null,
       "lead_lag_status": "no_breach",
       "lead_quarters_at_95": null,
-      "latest_junior_fv_to_cost_pct": 100.904559,
+      "latest_junior_fv_to_cost_pct": 100.858006,
       "latest_senior_fv_to_cost_pct": 100.0,
-      "latest_senior_minus_junior_gap_pp": -0.904559,
-      "minimum_junior_fv_to_cost_pct": 100.904559,
+      "latest_senior_minus_junior_gap_pp": -0.858006,
+      "minimum_junior_fv_to_cost_pct": 100.858006,
       "minimum_senior_fv_to_cost_pct": 100.0,
       "periods": [
         "2025-12-31",
-        "2026-03-31"
+        "2026-03-31",
+        "2026-06-30"
       ]
     },
     {
@@ -13313,32 +13367,6 @@
       ]
     },
     {
-      "issuer_match_key": "ASSOCIATIONS",
-      "comparison_scope": "within-fund",
-      "junior_fund": "OBDC",
-      "senior_fund": "OBDC",
-      "junior_tier": "Junior / unsecured debt",
-      "senior_tier": "First-lien senior secured",
-      "common_period_count": 2,
-      "first_common_period": "2025-12-31",
-      "latest_common_period": "2026-03-31",
-      "junior_first_below_95_period": null,
-      "senior_first_below_95_period": null,
-      "junior_first_below_90_period": null,
-      "senior_first_below_90_period": null,
-      "lead_lag_status": "no_breach",
-      "lead_quarters_at_95": null,
-      "latest_junior_fv_to_cost_pct": 100.659089,
-      "latest_senior_fv_to_cost_pct": 100.38412,
-      "latest_senior_minus_junior_gap_pp": -0.274969,
-      "minimum_junior_fv_to_cost_pct": 100.659089,
-      "minimum_senior_fv_to_cost_pct": 100.38412,
-      "periods": [
-        "2025-12-31",
-        "2026-03-31"
-      ]
-    },
-    {
       "issuer_match_key": "INFOGAIN",
       "comparison_scope": "within-fund",
       "junior_fund": "NMFC",
@@ -13373,6 +13401,33 @@
         "2025-09-30",
         "2025-12-31",
         "2026-03-31"
+      ]
+    },
+    {
+      "issuer_match_key": "ASSOCIATIONS",
+      "comparison_scope": "within-fund",
+      "junior_fund": "OBDC",
+      "senior_fund": "OBDC",
+      "junior_tier": "Junior / unsecured debt",
+      "senior_tier": "First-lien senior secured",
+      "common_period_count": 3,
+      "first_common_period": "2025-12-31",
+      "latest_common_period": "2026-06-30",
+      "junior_first_below_95_period": null,
+      "senior_first_below_95_period": null,
+      "junior_first_below_90_period": null,
+      "senior_first_below_90_period": null,
+      "lead_lag_status": "no_breach",
+      "lead_quarters_at_95": null,
+      "latest_junior_fv_to_cost_pct": 100.606811,
+      "latest_senior_fv_to_cost_pct": 100.455255,
+      "latest_senior_minus_junior_gap_pp": -0.151556,
+      "minimum_junior_fv_to_cost_pct": 100.606811,
+      "minimum_senior_fv_to_cost_pct": 100.38412,
+      "periods": [
+        "2025-12-31",
+        "2026-03-31",
+        "2026-06-30"
       ]
     },
     {
@@ -13456,7 +13511,7 @@
       "audited_same_facility_gap_pp": null,
       "audited_fund_pair": null,
       "audited_conservative_fund": null,
-      "pairwise_lead_lag_tests": 1,
+      "pairwise_lead_lag_tests": 2,
       "senior_first_pair_count": 0,
       "junior_first_pair_count": 0,
       "priority_score": 75.9,
@@ -13496,7 +13551,7 @@
       "audited_same_facility_gap_pp": null,
       "audited_fund_pair": null,
       "audited_conservative_fund": null,
-      "pairwise_lead_lag_tests": 1,
+      "pairwise_lead_lag_tests": 2,
       "senior_first_pair_count": 0,
       "junior_first_pair_count": 0,
       "priority_score": 75.9,
