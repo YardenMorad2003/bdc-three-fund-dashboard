@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "data": "py -X utf8 scripts/export-dashboard-data.py && py -X utf8 scripts/export-quarterly-facts.py && py -X utf8 scripts/export-research-signals.py && py -X utf8 scripts/export-arcc-quarterly-update.py",
+    "data": "py -X utf8 scripts/export-dashboard-data.py && py -X utf8 scripts/export-quarterly-facts.py && py -X utf8 scripts/export-research-signals.py && py -X utf8 scripts/export-arcc-quarterly-update.py && py -X utf8 scripts/export-ocsl-quarterly-update.py",
     "arcc:update": "py -X utf8 scripts/export-arcc-quarterly-update.py",
+    "ocsl:update": "py -X utf8 scripts/export-ocsl-quarterly-update.py",
     "facts": "py -X utf8 scripts/export-quarterly-facts.py",
     "signals": "py -X utf8 scripts/export-research-signals.py",
     "funding": "py -X utf8 scripts/export-bdc-funding-market.py",

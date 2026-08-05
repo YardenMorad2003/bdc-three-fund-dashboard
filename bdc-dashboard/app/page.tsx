@@ -31,6 +31,7 @@ import type { LucideIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import dashboardData from "../lib/dashboard-data.json";
 import arccQuarterlyUpdateData from "../lib/arcc-quarterly-update.json";
+import ocslQuarterlyUpdateData from "../lib/ocsl-quarterly-update.json";
 import bdcUniverseData from "../lib/bdc-universe.json";
 import bslReferenceMarksData from "../lib/bsl-reference-marks.json";
 import businessPeerPricingData from "../lib/business-peer-pricing.json";
@@ -1301,6 +1302,47 @@ type ArccQuarterlyUpdate = {
   sources: Array<{ name: string; url: string }>;
 };
 
+type OcslQuarterlyUpdate = {
+  meta: {
+    period_end: string;
+    prior_period_end: string;
+    filing_date: string;
+    fiscal_quarter: string;
+    calendar_quarter: string;
+  };
+  headline: { stance: string; summary: string };
+  reported: {
+    total_investment_income_mm: number;
+    gaap_nii_per_share: number;
+    adjusted_nii_per_share: number;
+    nav_per_share: number;
+    prior_nav_per_share: number;
+    total_distribution_per_share: number;
+    non_accrual_fv_pct: number;
+    prior_non_accrual_fv_pct: number;
+    non_accrual_cost_pct: number;
+    non_accrual_count: number;
+    prior_non_accrual_count: number;
+    new_commitments_mm: number;
+    repayments_and_exits_mm: number;
+    new_debt_yield_pct: number;
+  };
+  schedule: {
+    current: { holding_rows: number; amortized_cost_mm: number; fair_value_mm: number };
+    prior: { holding_rows: number; amortized_cost_mm: number; fair_value_mm: number };
+    fair_value_change_mm: number;
+    mark_gap_change_mm: number;
+    largest_mark_deterioration: Array<{
+      issuer_match_key: string;
+      issuer: string;
+      fair_value_mm: number;
+      fv_to_cost_pct: number | null;
+      mark_gap_change_mm: number;
+    }>;
+  };
+  sources: Array<{ name: string; url: string }>;
+};
+
 type DashboardData = {
   meta: {
     generated_at_utc: string;
@@ -1320,6 +1362,7 @@ type DashboardData = {
   issuer_period_history: IssuerPeriodHistoryRow[];
   fund_totals: FundTotal[];
   latest_by_fund: FundPeriod[];
+  latest_available_by_fund: FundPeriod[];
   change_by_fund: ChangeByFund[];
   period_summary: FundPeriod[];
   time_series: PeriodPoint[];
@@ -1340,6 +1383,7 @@ type DashboardData = {
   }>;
   holdings_latest: HoldingRow[];
   holdings_detail_latest: HoldingRow[];
+  holdings_detail_latest_by_fund: HoldingRow[];
   rate_mix_latest: Array<{ fund: Fund; rate_type: string; fair_value_mm: number; rows: number }>;
   maturity_buckets_latest: Array<{ fund: Fund; maturity_bucket: string; fair_value_mm: number; rows: number }>;
   amount_field_summary_latest: Array<{
@@ -1640,6 +1684,7 @@ type EquityPositioningData = {
 
 const data = dashboardData as unknown as DashboardData;
 const arccQuarterlyUpdate = arccQuarterlyUpdateData as unknown as ArccQuarterlyUpdate;
+const ocslQuarterlyUpdate = ocslQuarterlyUpdateData as unknown as OcslQuarterlyUpdate;
 const bdcUniverse = bdcUniverseData as unknown as BdcUniverseData;
 const freeSourceIntelligence = freeSourceIntelligenceData as unknown as FreeSourceIntelligence;
 const dailyLoanEtfHoldings = dailyLoanEtfHoldingsData as unknown as DailyLoanEtfData;
@@ -1656,7 +1701,7 @@ const liabilityStack = liabilityStackData as LiabilityStackData;
 const quarterlyFacts = quarterlyFactsData as QuarterlyFactsData;
 const researchSignals = researchSignalsData as ResearchSignalsData;
 const trancheComparison = trancheComparisonData as TrancheComparisonData;
-const funds: Fund[] = ["ARCC", "BBDC", "BXSL", "FSK", "GBDC", "MAIN", "OBDC", "TSLX"];
+const funds: Fund[] = data.meta.funds;
 const institutionalFunds: Fund[] = ["BXSL", "FSK", "TSLX"];
 const timelineIssuerKeys = new Set(data.loan_timeline_issuers.map((issuer) => issuer.issuer_match_key));
 const fundColors: Record<Fund, string> = {
@@ -3797,6 +3842,128 @@ function ArccQuarterlyUpdatePanel() {
   );
 }
 
+function OcslQuarterlyUpdatePanel() {
+  const update = ocslQuarterlyUpdate;
+  const current = update.reported;
+  const schedule = update.schedule;
+  const navChangePct = ((current.nav_per_share / current.prior_nav_per_share) - 1) * 100;
+  const distributionCoverage = (current.adjusted_nii_per_share / current.total_distribution_per_share) * 100;
+  const netActivity = current.new_commitments_mm - current.repayments_and_exits_mm;
+
+  return (
+    <section className="arcc-update" aria-labelledby="ocsl-update-title">
+      <header className="arcc-update-header">
+        <div>
+          <span className="research-kicker">New filing / OCSL / {update.meta.fiscal_quarter} (calendar {update.meta.calendar_quarter})</span>
+          <h2 id="ocsl-update-title">NAV steady; non-accrual burden falls</h2>
+          <p>{update.headline.summary}</p>
+        </div>
+        <div className="arcc-update-stamp">
+          <FundBadge fund="OCSL" />
+          <span>Filed {formatDate(update.meta.filing_date)}</span>
+        </div>
+      </header>
+
+      <div className="arcc-update-metrics">
+        <div>
+          <span>Adjusted NII / distribution</span>
+          <strong>{formatPerShare(current.adjusted_nii_per_share)} / {formatPerShare(current.total_distribution_per_share)}</strong>
+          <small>{formatPct(distributionCoverage, 1)} coverage</small>
+        </div>
+        <div>
+          <span>NAV per share</span>
+          <strong>{formatPerShare(current.nav_per_share)}</strong>
+          <small>{formatPct(navChangePct, 1)} QoQ</small>
+        </div>
+        <div>
+          <span>Non-accruals</span>
+          <strong>{formatPct(current.non_accrual_fv_pct, 1)} FV</strong>
+          <small>down from {formatPct(current.prior_non_accrual_fv_pct, 1)} · {current.non_accrual_count} investments</small>
+        </div>
+        <div>
+          <span>Net investment activity</span>
+          <strong>{formatMm(netActivity, 1)}</strong>
+          <small>{formatMm(current.new_commitments_mm, 1)} committed · {formatMm(current.repayments_and_exits_mm, 1)} repaid/exited</small>
+        </div>
+      </div>
+
+      <div className="arcc-update-body">
+        <div className="arcc-update-read">
+          <span className="signal-section-kicker">Analyst read</span>
+          <h3>{update.headline.stance}</h3>
+          <p>
+            GAAP NII was {formatPerShare(current.gaap_nii_per_share)} per share and adjusted NII covered the
+            {" "}{formatPerShare(current.total_distribution_per_share)} combined regular and supplemental distribution.
+            Portfolio fair value declined {formatMm(Math.abs(schedule.fair_value_change_mm), 1)} as repayments and exits
+            exceeded new commitments, while the aggregate mark-to-cost gap improved by {formatMm(schedule.mark_gap_change_mm, 1)}.
+            New debt investments carried a {formatPct(current.new_debt_yield_pct, 1)} weighted-average yield.
+          </p>
+          <div className="arcc-update-sources">
+            {update.sources.map((source) => (
+              <a href={source.url} target="_blank" rel="noreferrer" key={source.url}>
+                {source.name} <ExternalLink aria-hidden="true" size={12} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="arcc-update-watch">
+          <span className="signal-section-kicker">Schedule reconciliation</span>
+          <div className="arcc-nonaccrual-list">
+            <div>
+              <span>June holdings</span>
+              <strong>{formatNumber(schedule.current.holding_rows)}</strong>
+              <small>funded and unfunded rows</small>
+            </div>
+            <div>
+              <span>Portfolio cost</span>
+              <strong>{formatMm(schedule.current.amortized_cost_mm, 1)}</strong>
+              <small>ties to filed schedule</small>
+            </div>
+            <div>
+              <span>Portfolio fair value</span>
+              <strong>{formatMm(schedule.current.fair_value_mm, 1)}</strong>
+              <small>ties to filed schedule</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="arcc-update-table-wrap">
+        <div className="signal-section-heading">
+          <div>
+            <span>Largest issuer-level deterioration</span>
+            <h3>Where OCSL&apos;s marks weakened</h3>
+          </div>
+          <small>June vs. March · funded schedule rows</small>
+        </div>
+        <div className="table-wrap">
+          <table className="compact-wide-table">
+            <thead>
+              <tr>
+                <th>Issuer</th>
+                <th className="right">June fair value</th>
+                <th className="right">FV / cost</th>
+                <th className="right">Gap change</th>
+              </tr>
+            </thead>
+            <tbody>
+              {schedule.largest_mark_deterioration.map((row) => (
+                <tr key={row.issuer_match_key}>
+                  <td>{row.issuer}</td>
+                  <td className="right">{formatMm(row.fair_value_mm, 1)}</td>
+                  <td className="right">{formatPct(row.fv_to_cost_pct, 1)}</td>
+                  <td className="right negative">{formatMm(row.mark_gap_change_mm, 1)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Overview({
   selectedFund,
   onOpenTimelineIssuer
@@ -3805,7 +3972,9 @@ function Overview({
   onOpenTimelineIssuer: (issuerMatchKey: string) => void;
 }) {
   const isAllFunds = selectedFund === "All";
-  const visibleLatest = data.latest_by_fund.filter((item) => isAllFunds || item.fund === selectedFund);
+  const visibleLatest = (isAllFunds ? data.latest_by_fund : data.latest_available_by_fund).filter(
+    (item) => isAllFunds || item.fund === selectedFund
+  );
   const visibleChanges = data.change_by_fund.filter((item) => isAllFunds || item.fund === selectedFund);
   const latestTotal = sumBy(visibleLatest, (item) => item.fair_value_mm);
   const latestRows = sumBy(visibleLatest, (item) => item.holding_rows);
@@ -3826,6 +3995,9 @@ function Overview({
         .map((item) => ({ ...item, label: item.investment_category || "Uncategorized" }));
   const concentrationRows = data.issuer_concentration.filter((row) => isAllFunds || row.fund === selectedFund);
   const selectedName = isAllFunds ? "the sixteen-fund verified view" : selectedFund;
+  const selectedPeriodLabel = isAllFunds
+    ? data.meta.latest_period_label
+    : formatDate(visibleLatest[0]?.filing_period_end || data.meta.latest_common_period);
   const overviewNarrative = isAllFunds
     ? data.narrative.overview
     : `${selectedFund}'s latest common-period fair value is ${formatMm(latestTotal)} across ${formatNumber(
@@ -3837,6 +4009,7 @@ function Overview({
   return (
     <div className="grid">
       {selectedFund === "All" || selectedFund === "ARCC" ? <ArccQuarterlyUpdatePanel /> : null}
+      {selectedFund === "All" || selectedFund === "OCSL" ? <OcslQuarterlyUpdatePanel /> : null}
 
       <ResearchSignalBriefing selectedFund={selectedFund} onOpenTimelineIssuer={onOpenTimelineIssuer} />
 
@@ -3844,7 +4017,7 @@ function Overview({
         <MetricCard
           title="Latest fair value"
           value={formatMm(latestTotal)}
-          note={`${isAllFunds ? `across ${funds.length} funds` : `for ${selectedFund}`} at ${data.meta.latest_period_label}.`}
+          note={`${isAllFunds ? `across ${funds.length} funds` : `for ${selectedFund}`} at ${selectedPeriodLabel}.`}
           icon={WalletCards}
           delta={totalChangePct}
         />
@@ -6978,8 +7151,11 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
     direction: "desc"
   });
   const normalizedSearch = searchTerm.trim().toLowerCase();
+  const holdingSourceRows = selectedFund === "All"
+    ? data.holdings_latest
+    : data.holdings_detail_latest_by_fund.filter((row) => row.fund === selectedFund);
   const filtered = useMemo(() => {
-    return data.holdings_latest.filter((row) => {
+    return holdingSourceRows.filter((row) => {
       if (selectedFund !== "All" && row.fund !== selectedFund) return false;
       if (!normalizedSearch) return true;
       const haystack = [
@@ -6998,7 +7174,7 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
         .toLowerCase();
       return haystack.includes(normalizedSearch);
     });
-  }, [selectedFund, normalizedSearch]);
+  }, [holdingSourceRows, selectedFund, normalizedSearch]);
   const sorted = useMemo(() => {
     return filtered
       .map((row, index) => ({ row, index }))
@@ -7020,10 +7196,34 @@ function Holdings({ selectedFund, searchTerm }: { selectedFund: Fund | "All"; se
   }, [filtered, sort]);
   const holdingsDisplayLimit = 120;
   const displayedHoldingCount = Math.min(filtered.length, holdingsDisplayLimit);
-  const visibleAmountFieldRows = data.amount_field_summary_latest.filter((row) => selectedFund === "All" || row.fund === selectedFund);
+  const visibleAmountFieldRows = selectedFund === "All"
+    ? data.amount_field_summary_latest
+    : Array.from(
+        holdingSourceRows
+          .filter((row) => row.exposure_type === "funded")
+          .reduce((groups, row) => {
+            const amountKind = row.amount_kind || "Not stated";
+            const amountCurrency = row.amount_currency || "Not stated";
+            const key = `${amountKind}|${amountCurrency}`;
+            const current = groups.get(key) || {
+              fund: row.fund,
+              amount_kind: amountKind,
+              amount_currency: amountCurrency,
+              fair_value_mm: 0,
+              rows: 0
+            };
+            current.fair_value_mm += row.fair_value_mm;
+            current.rows += 1;
+            groups.set(key, current);
+            return groups;
+          }, new Map<string, DashboardData["amount_field_summary_latest"][number]>())
+          .values()
+      );
   const amountFieldRowsCount = sumBy(visibleAmountFieldRows, (row) => row.rows);
   const amountFieldFairValue = sumBy(visibleAmountFieldRows, (row) => row.fair_value_mm);
-  const selectedLatestFundRows = data.latest_by_fund.filter((row) => selectedFund === "All" || row.fund === selectedFund);
+  const selectedLatestFundRows = (selectedFund === "All" ? data.latest_by_fund : data.latest_available_by_fund).filter(
+    (row) => selectedFund === "All" || row.fund === selectedFund
+  );
   const selectedLatestRows = sumBy(selectedLatestFundRows, (row) => row.holding_rows);
   const selectedLatestFairValue = sumBy(selectedLatestFundRows, (row) => row.fair_value_mm);
   const amountFieldRowGap = Math.max(0, selectedLatestRows - amountFieldRowsCount);

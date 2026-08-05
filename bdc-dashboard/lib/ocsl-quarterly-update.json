@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "fund": "OCSL",
+    "period_end": "2026-06-30",
+    "prior_period_end": "2026-03-31",
+    "filing_date": "2026-08-05",
+    "fiscal_quarter": "Q3 2026",
+    "calendar_quarter": "Q2 2026",
+    "generated_at_utc": "2026-08-05T16:16:48.068196+00:00"
+  },
+  "headline": {
+    "stance": "NAV held steady while the non-accrual burden fell materially.",
+    "summary": "OCSL's June quarter showed lower income and net portfolio runoff, but NAV per share edged up and non-accruals declined from ten investments to six."
+  },
+  "reported": {
+    "total_investment_income_mm": 69.433,
+    "gaap_nii_mm": 32.521,
+    "gaap_nii_per_share": 0.37,
+    "adjusted_nii_mm": 32.24,
+    "adjusted_nii_per_share": 0.37,
+    "nav_per_share": 15.7,
+    "prior_nav_per_share": 15.69,
+    "regular_distribution_per_share": 0.3,
+    "supplemental_distribution_per_share": 0.03,
+    "total_distribution_per_share": 0.33,
+    "non_accrual_fv_pct": 1.8,
+    "prior_non_accrual_fv_pct": 2.6,
+    "non_accrual_cost_pct": 4.2,
+    "prior_non_accrual_cost_pct": 5.9,
+    "non_accrual_count": 6,
+    "prior_non_accrual_count": 10,
+    "new_commitments_mm": 206.4,
+    "repayments_and_exits_mm": 262.8,
+    "new_debt_yield_pct": 10.0
+  },
+  "schedule": {
+    "current": {
+      "holding_rows": 366,
+      "amortized_cost_mm": 2996.697,
+      "fair_value_mm": 2741.814
+    },
+    "prior": {
+      "holding_rows": 371,
+      "amortized_cost_mm": 3067.902,
+      "fair_value_mm": 2766.367
+    },
+    "fair_value_change_mm": -24.553,
+    "mark_gap_change_mm": 46.652,
+    "largest_mark_deterioration": [
+      {
+        "issuer_match_key": "KASEYA",
+        "issuer": "Kaseya Inc.",
+        "fair_value_mm": 10.058,
+        "fv_to_cost_pct": 61.366687004270894,
+        "mark_gap_change_mm": -3.1560000000000006
+      },
+      {
+        "issuer_match_key": "THRASIO",
+        "issuer": "Thrasio, LLC",
+        "fair_value_mm": 5.635,
+        "fv_to_cost_pct": 137.90993636808614,
+        "mark_gap_change_mm": -2.904
+      },
+      {
+        "issuer_match_key": "TELESTREAM 2",
+        "issuer": "Telestream 2 LLC",
+        "fair_value_mm": 18.244,
+        "fv_to_cost_pct": 75.24850484636008,
+        "mark_gap_change_mm": -2.1960000000000015
+      },
+      {
+        "issuer_match_key": "JN",
+        "issuer": "JN Bidco LLC",
+        "fair_value_mm": 17.993,
+        "fv_to_cost_pct": 216.4701636188643,
+        "mark_gap_change_mm": -2.0
+      },
+      {
+        "issuer_match_key": "SIO2 MEDICAL PRODUCTS",
+        "issuer": "SIO2 Medical Products, Inc.",
+        "fair_value_mm": 5.952,
+        "fv_to_cost_pct": 8.614102118791248,
+        "mark_gap_change_mm": -1.8350000000000009
+      }
+    ]
+  },
+  "sources": [
+    {
+      "name": "OCSL fiscal Q3 2026 earnings release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1414932/000119312526333737/d158058dex991.htm"
+    },
+    {
+      "name": "OCSL June 2026 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1414932/000141493226000017/ocsl-20260630.htm"
+    }
+  ]
+}

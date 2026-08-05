@@ -54,6 +54,7 @@ FILINGS = (
     FilingSpec("HTGC", "Hercules Capital, Inc.", 1280784, "2026-03-31", "10-Q", "0001280784-26-000027", "htgc-20260331.htm", 12, 26, 1000.0, 4770.369, 4721.987),
     FilingSpec("HTGC", "Hercules Capital, Inc.", 1280784, "2026-06-30", "10-Q", "0001280784-26-000042", "htgc-20260630.htm", 12, 26, 1000.0, 4603.266, 4583.870),
     FilingSpec("OCSL", "Oaktree Specialty Lending Corporation", 1414932, "2026-03-31", "10-Q", "0001414932-26-000012", "ocsl-20260331.htm", 10, 19, 1000.0, 3067.902, 2766.367),
+    FilingSpec("OCSL", "Oaktree Specialty Lending Corporation", 1414932, "2026-06-30", "10-Q", "0001414932-26-000017", "ocsl-20260630.htm", 10, 19, 1000.0, 2996.697, 2741.814),
     FilingSpec("PSEC", "Prospect Capital Corporation", 1287032, "2026-03-31", "10-Q", "0001287032-26-000164", "psec-20260331.htm", 17, 29, 1000.0, 6192.901, 6302.465),
     FilingSpec("TCPC", "BlackRock TCP Capital Corp.", 1370755, "2026-03-31", "10-Q", "0001193125-26-210632", "tcpc-20260331.htm", 11, 21, 1_000_000.0, 1535.496962, 1388.668517),
 )
@@ -197,6 +198,17 @@ def parse_filing(spec: FilingSpec, source_path: Path) -> tuple[list[dict], dict]
             company, instrument, row_industry = detail_identity(spec.fund, table_index, texts)
             cost_source = fact_value(row, "InvestmentOwnedAtCost")
             fair_value_source = fact_value(row, "InvestmentOwnedAtFairValue")
+
+            # OCSL's June 2026 filing leaves this investment-type cell blank;
+            # the prior-quarter schedule identifies the same security.
+            if (
+                spec.fund == "OCSL"
+                and spec.period == "2026-06-30"
+                and company == "Fairbridge Strategic Capital Funding LLC"
+                and not instrument
+                and cost_source is not None
+            ):
+                instrument = "First Lien Term Loan"
 
             if cost_source is None and fair_value_source is None:
                 if len(meaningful) == 1:
