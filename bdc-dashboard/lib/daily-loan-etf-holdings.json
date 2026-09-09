@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at_utc": "2026-09-08T01:12:09+00:00",
+    "generated_at_utc": "2026-09-09T01:14:40+00:00",
     "fund_count": 2,
     "latest_as_of": "2026-09-04",
     "snapshot_count": 51,
@@ -12,7 +12,7 @@
         "status": "refreshed",
         "as_of": "2026-09-04",
         "records": 706,
-        "checked_at_utc": "2026-09-08T01:12:09+00:00",
+        "checked_at_utc": "2026-09-09T01:14:40+00:00",
         "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-blackstone-senior-loan-etf-srln",
         "message": "Official daily holdings refreshed and archived."
       },
@@ -21,7 +21,7 @@
         "status": "refreshed",
         "as_of": "2026-09-04",
         "records": 165,
-        "checked_at_utc": "2026-09-08T01:12:09+00:00",
+        "checked_at_utc": "2026-09-09T01:14:40+00:00",
         "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-senior-loan-etf.html",
         "message": "Official daily holdings refreshed and archived."
       }
