@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at_utc": "2026-10-06T02:57:53+00:00",
+    "generated_at_utc": "2026-10-07T02:22:52+00:00",
     "fund_count": 2,
     "latest_as_of": "2026-10-05",
-    "snapshot_count": 89,
+    "snapshot_count": 90,
     "schedule": "Weekdays after the US market close; provider business dates are retained verbatim.",
     "methodology": "Official provider rows are normalized without issuer-name matching. Implied mark equals market value divided by par/shares only when both fields are positive and the ratio is plausible.",
     "source_status": [
@@ -12,16 +12,16 @@
         "status": "refreshed",
         "as_of": "2026-10-05",
         "records": 745,
-        "checked_at_utc": "2026-10-06T02:57:53+00:00",
+        "checked_at_utc": "2026-10-07T02:22:52+00:00",
         "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-blackstone-senior-loan-etf-srln",
         "message": "Official daily holdings refreshed and archived."
       },
       {
         "ticker": "BKLN",
         "status": "refreshed",
-        "as_of": "2026-10-02",
-        "records": 169,
-        "checked_at_utc": "2026-10-06T02:57:53+00:00",
+        "as_of": "2026-10-05",
+        "records": 170,
+        "checked_at_utc": "2026-10-07T02:22:52+00:00",
         "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-senior-loan-etf.html",
         "message": "Official daily holdings refreshed and archived."
       }
@@ -32,14 +32,14 @@
     {
       "ticker": "BKLN",
       "name": "Invesco Senior Loan ETF",
-      "as_of": "2026-10-02",
+      "as_of": "2026-10-05",
       "source_page_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-senior-loan-etf.html",
       "source_data_url": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G508/holdings/fund?idType=cusip&productType=ETF",
-      "row_count": 169,
-      "marked_row_count": 167,
-      "total_market_value": 6257234437.98,
-      "total_weight_pct": 99.999994,
-      "median_implied_mark": 99.391,
+      "row_count": 170,
+      "marked_row_count": 168,
+      "total_market_value": 6225083225.73,
+      "total_weight_pct": 99.999999,
+      "median_implied_mark": 99.3625,
       "holdings": [
         {
           "ticker": "IUGXX",
@@ -52,9 +52,9 @@
           "maturity_date": null,
           "next_call_date": null,
           "rating": "NR/NR",
-          "par_or_shares": 147308562.51,
-          "market_value": 147308562.51,
-          "weight_pct": 2.354931,
+          "par_or_shares": 184156526.01,
+          "market_value": 184156526.01,
+          "weight_pct": 2.959818,
           "currency": "USD",
           "implied_mark": 100.0
         },
@@ -67,30 +67,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.29734,
           "maturity_date": "2033-04-07",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 120564915.28,
-          "market_value": 118971649.92,
-          "weight_pct": 1.904064,
+          "market_value": 119040974.75,
+          "weight_pct": 1.916037,
           "currency": "USD",
-          "implied_mark": 98.6785
-        },
-        {
-          "ticker": "WBD",
-          "name": "Discovery Global Holdings Inc",
-          "identifier": null,
-          "figi": null,
-          "cusip": "25472YAB7",
-          "security_type": "Floating Rate Note",
-          "coupon_pct": 6.40094,
-          "maturity_date": "2033-06-30",
-          "next_call_date": "2026-11-01",
-          "rating": "BBB-/Baa3",
-          "par_or_shares": 117904304.51,
-          "market_value": 117936138.67,
-          "weight_pct": 1.885856,
-          "currency": "USD",
-          "implied_mark": 100.027
+          "implied_mark": 98.736
         },
         {
           "ticker": "ULTI",
@@ -99,15 +82,15 @@
           "figi": null,
           "cusip": "89841EAB1",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 6.07267,
+          "coupon_pct": 8.6042,
           "maturity_date": "2031-02-10",
           "next_call_date": "2024-10-28",
           "rating": "B-/B2",
           "par_or_shares": 105678811.7121,
-          "market_value": 102640545.87,
-          "weight_pct": 1.659048,
+          "market_value": 102513731.3,
+          "weight_pct": 1.666463,
           "currency": "USD",
-          "implied_mark": 97.125
+          "implied_mark": 97.005
         },
         {
           "ticker": "EA",
@@ -118,13 +101,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.25092,
           "maturity_date": "2033-08-04",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB/Ba3",
           "par_or_shares": 96153122.51,
-          "market_value": 97092057.75,
-          "weight_pct": 1.555462,
+          "market_value": 96964654.87,
+          "weight_pct": 1.561664,
           "currency": "USD",
-          "implied_mark": 100.9765
+          "implied_mark": 100.844
         },
         {
           "ticker": "SEDGEW",
@@ -138,10 +121,10 @@
           "next_call_date": "2024-07-31",
           "rating": "B+/WR",
           "par_or_shares": 94924900.3625,
-          "market_value": 94598358.7,
-          "weight_pct": 1.512642,
+          "market_value": 94618292.93,
+          "weight_pct": 1.521596,
           "currency": "USD",
-          "implied_mark": 99.656
+          "implied_mark": 99.677
         },
         {
           "ticker": "PERCOR",
@@ -152,13 +135,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.67267,
           "maturity_date": "2028-02-01",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "CCC+/Caa1",
           "par_or_shares": 96794009.196,
-          "market_value": 89696104.5,
-          "weight_pct": 1.456117,
+          "market_value": 89549461.58,
+          "weight_pct": 1.462281,
           "currency": "USD",
-          "implied_mark": 92.667
+          "implied_mark": 92.5155
         },
         {
           "ticker": "DAY",
@@ -167,15 +150,15 @@
           "figi": null,
           "cusip": "23923YAB7",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 6.82267,
+          "coupon_pct": 6.9163,
           "maturity_date": "2033-02-04",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B3",
-          "par_or_shares": 93247220.19,
-          "market_value": 89803134.11,
-          "weight_pct": 1.454454,
+          "par_or_shares": 93252220.19,
+          "market_value": 89750599.32,
+          "weight_pct": 1.461986,
           "currency": "USD",
-          "implied_mark": 96.3065
+          "implied_mark": 96.245
         },
         {
           "ticker": "ATHENA",
@@ -189,10 +172,10 @@
           "next_call_date": "2026-07-25",
           "rating": "B/B2",
           "par_or_shares": 90561487.18,
-          "market_value": 90639370.06,
-          "weight_pct": 1.449406,
+          "market_value": 90596806.16,
+          "weight_pct": 1.457066,
           "currency": "USD",
-          "implied_mark": 100.086
+          "implied_mark": 100.039
         },
         {
           "ticker": "ALIANT",
@@ -203,13 +186,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.40094,
           "maturity_date": "2031-09-19",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B2",
           "par_or_shares": 89669557.44,
-          "market_value": 89247662.18,
-          "weight_pct": 1.426984,
+          "market_value": 89239591.91,
+          "weight_pct": 1.434973,
           "currency": "USD",
-          "implied_mark": 99.5295
+          "implied_mark": 99.5205
         },
         {
           "ticker": "EOCGRO",
@@ -220,13 +203,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.92004,
           "maturity_date": "2033-05-06",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B2",
           "par_or_shares": 86606456.59,
-          "market_value": 85875931.13,
-          "weight_pct": 1.374851,
+          "market_value": 85928328.03,
+          "weight_pct": 1.383403,
           "currency": "USD",
-          "implied_mark": 99.1565
+          "implied_mark": 99.217
         },
         {
           "ticker": "BASSPR",
@@ -237,11 +220,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.15094,
           "maturity_date": "2032-01-23",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/B1",
           "par_or_shares": 82519703.5268,
           "market_value": 82845656.36,
-          "weight_pct": 1.324822,
+          "weight_pct": 1.332493,
           "currency": "USD",
           "implied_mark": 100.395
         },
@@ -254,13 +237,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.90094,
           "maturity_date": "2029-03-01",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B1",
-          "par_or_shares": 87574273.8246,
-          "market_value": 80474627.44,
-          "weight_pct": 1.286965,
+          "par_or_shares": 87574273.8235,
+          "market_value": 80677799.76,
+          "weight_pct": 1.297728,
           "currency": "USD",
-          "implied_mark": 91.893
+          "implied_mark": 92.125
         },
         {
           "ticker": "CITSEC",
@@ -271,13 +254,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.07457,
           "maturity_date": "2033-10-31",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BBB-/Baa3",
           "par_or_shares": 79290445.11,
-          "market_value": 79468848.61,
-          "weight_pct": 1.270697,
+          "market_value": 79463694.73,
+          "weight_pct": 1.277846,
           "currency": "USD",
-          "implied_mark": 100.225
+          "implied_mark": 100.2185
         },
         {
           "ticker": "TKO",
@@ -288,13 +271,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.50683,
           "maturity_date": "2031-11-21",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB/Ba1",
           "par_or_shares": 78422070.4614,
-          "market_value": 78394230.63,
-          "weight_pct": 1.260695,
+          "market_value": 78406386.05,
+          "weight_pct": 1.268009,
           "currency": "USD",
-          "implied_mark": 99.9645
+          "implied_mark": 99.98
         },
         {
           "ticker": "AUTBRA",
@@ -305,13 +288,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.90098,
           "maturity_date": "2033-09-22",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/Ba3",
           "par_or_shares": 78169363.14,
-          "market_value": 77693311.72,
-          "weight_pct": 1.243042,
+          "market_value": 77671033.45,
+          "weight_pct": 1.249627,
           "currency": "USD",
-          "implied_mark": 99.391
+          "implied_mark": 99.3625
         },
         {
           "ticker": "BROPAR",
@@ -325,10 +308,10 @@
           "next_call_date": "2024-12-16",
           "rating": "B/WR",
           "par_or_shares": 77400235.5799,
-          "market_value": 75974523.24,
-          "weight_pct": 1.214864,
+          "market_value": 75969879.22,
+          "weight_pct": 1.221744,
           "currency": "USD",
-          "implied_mark": 98.158
+          "implied_mark": 98.152
         },
         {
           "ticker": "BELRON",
@@ -339,13 +322,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.75769,
           "maturity_date": "2031-10-16",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/Ba3",
           "par_or_shares": 75125037.9751,
-          "market_value": 75242608.66,
-          "weight_pct": 1.214338,
+          "market_value": 75218944.27,
+          "weight_pct": 1.220848,
           "currency": "USD",
-          "implied_mark": 100.1565
+          "implied_mark": 100.125
         },
         {
           "ticker": "ENSHLT",
@@ -356,11 +339,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.82267,
           "maturity_date": "2033-01-31",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 74303750.0,
           "market_value": 74429694.86,
-          "weight_pct": 1.20501,
+          "weight_pct": 1.211949,
           "currency": "USD",
           "implied_mark": 100.1695
         },
@@ -373,13 +356,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.90094,
           "maturity_date": "2032-01-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 75034817.5804,
-          "market_value": 74231945.03,
-          "weight_pct": 1.186957,
+          "market_value": 74240198.86,
+          "weight_pct": 1.193842,
           "currency": "USD",
-          "implied_mark": 98.93
+          "implied_mark": 98.941
         },
         {
           "ticker": "PFPT",
@@ -390,13 +373,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 8.57457,
           "maturity_date": "2030-08-31",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 72199011.91,
-          "market_value": 72605853.34,
-          "weight_pct": 1.160907,
+          "market_value": 72586359.61,
+          "weight_pct": 1.16734,
           "currency": "USD",
-          "implied_mark": 100.5635
+          "implied_mark": 100.5365
         },
         {
           "ticker": "PSKY",
@@ -407,13 +390,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.647,
           "maturity_date": "2033-09-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "NR/N.A.",
           "par_or_shares": 72515304.36,
-          "market_value": 71984492.33,
-          "weight_pct": 1.15042,
+          "market_value": 71816256.83,
+          "weight_pct": 1.153659,
           "currency": "USD",
-          "implied_mark": 99.268
+          "implied_mark": 99.036
         },
         {
           "ticker": "HURVTR",
@@ -422,15 +405,15 @@
           "figi": null,
           "cusip": "44413EAK4",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 6.3908,
+          "coupon_pct": 6.39851,
           "maturity_date": "2030-03-18",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB/Ba2",
           "par_or_shares": 70544193.9262,
-          "market_value": 70494460.27,
-          "weight_pct": 1.128499,
+          "market_value": 70503983.74,
+          "weight_pct": 1.135113,
           "currency": "USD",
-          "implied_mark": 99.9295
+          "implied_mark": 99.943
         },
         {
           "ticker": "CULLHO",
@@ -441,13 +424,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.41252,
           "maturity_date": "2033-06-25",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 70441393.52,
-          "market_value": 70410751.51,
-          "weight_pct": 1.125472,
+          "market_value": 70367077.85,
+          "weight_pct": 1.13122,
           "currency": "USD",
-          "implied_mark": 99.9565
+          "implied_mark": 99.8945
         },
         {
           "ticker": "TDG",
@@ -458,13 +441,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.150936,
           "maturity_date": "2030-03-22",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/Ba3",
           "par_or_shares": 69969331.2637,
-          "market_value": 70025306.73,
-          "weight_pct": 1.119703,
+          "market_value": 70014811.33,
+          "weight_pct": 1.125914,
           "currency": "USD",
-          "implied_mark": 100.08
+          "implied_mark": 100.065
         },
         {
           "ticker": "WHTCAP",
@@ -475,13 +458,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.15094,
           "maturity_date": "2029-10-19",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "NR/B3",
           "par_or_shares": 69870764.3597,
-          "market_value": 69473898.42,
-          "weight_pct": 1.111001,
+          "market_value": 69405774.42,
+          "weight_pct": 1.116352,
           "currency": "USD",
-          "implied_mark": 99.432
+          "implied_mark": 99.3345
         },
         {
           "ticker": "THYELE",
@@ -492,30 +475,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.7043,
           "maturity_date": "2030-04-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B1",
           "par_or_shares": 67839891.9,
-          "market_value": 68175699.36,
-          "weight_pct": 1.103661,
+          "market_value": 68172646.57,
+          "weight_pct": 1.109921,
           "currency": "USD",
-          "implied_mark": 100.495
-        },
-        {
-          "ticker": "BMC",
-          "name": "Boxer Parent Co Inc",
-          "identifier": null,
-          "figi": null,
-          "cusip": "05988HAQ0",
-          "security_type": "Floating Rate Note",
-          "coupon_pct": 6.51407,
-          "maturity_date": "2031-07-30",
-          "next_call_date": "2026-11-01",
-          "rating": "B/B2",
-          "par_or_shares": 72304875.5245,
-          "market_value": 68373297.92,
-          "weight_pct": 1.099761,
-          "currency": "USD",
-          "implied_mark": 94.5625
+          "implied_mark": 100.4905
         },
         {
           "ticker": "PRXL",
@@ -526,13 +492,30 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.40094,
           "maturity_date": "2031-12-09",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B2",
-          "par_or_shares": 68635901.8256,
-          "market_value": 68740228.4,
-          "weight_pct": 1.099191,
+          "par_or_shares": 68635901.8228,
+          "market_value": 68740228.39,
+          "weight_pct": 1.105479,
           "currency": "USD",
           "implied_mark": 100.152
+        },
+        {
+          "ticker": "BMC",
+          "name": "Boxer Parent Co Inc",
+          "identifier": null,
+          "figi": null,
+          "cusip": "05988HAQ0",
+          "security_type": "Floating Rate Note",
+          "coupon_pct": 6.7641,
+          "maturity_date": "2031-07-30",
+          "next_call_date": "2026-11-04",
+          "rating": "B/B2",
+          "par_or_shares": 72307407.1745,
+          "market_value": 68324353.65,
+          "weight_pct": 1.105314,
+          "currency": "USD",
+          "implied_mark": 94.4915
         },
         {
           "ticker": "VCVHHO",
@@ -547,7 +530,7 @@
           "rating": "B/WR",
           "par_or_shares": 70890888.3724,
           "market_value": 68285648.22,
-          "weight_pct": 1.091768,
+          "weight_pct": 1.098102,
           "currency": "USD",
           "implied_mark": 96.325
         },
@@ -562,11 +545,11 @@
           "maturity_date": "2031-09-15",
           "next_call_date": "2025-11-24",
           "rating": "B/WR",
-          "par_or_shares": 69374404.6932,
-          "market_value": 68098262.52,
-          "weight_pct": 1.088933,
+          "par_or_shares": 69384480.3832,
+          "market_value": 68055767.59,
+          "weight_pct": 1.094454,
           "currency": "USD",
-          "implied_mark": 98.1605
+          "implied_mark": 98.085
         },
         {
           "ticker": "QUIKHO",
@@ -577,13 +560,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.9364,
           "maturity_date": "2032-02-10",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB/Ba3",
           "par_or_shares": 65045283.3081,
-          "market_value": 65033575.16,
-          "weight_pct": 1.039892,
+          "market_value": 65004630.01,
+          "weight_pct": 1.045358,
           "currency": "USD",
-          "implied_mark": 99.982
+          "implied_mark": 99.9375
         },
         {
           "ticker": "PROLAM",
@@ -594,13 +577,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.8442,
           "maturity_date": "2033-03-07",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B3",
           "par_or_shares": 63691665.68,
-          "market_value": 63657590.64,
-          "weight_pct": 1.030513,
+          "market_value": 63678608.89,
+          "weight_pct": 1.03688,
           "currency": "USD",
-          "implied_mark": 99.9465
+          "implied_mark": 99.9795
         },
         {
           "ticker": "GCTI",
@@ -611,13 +594,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.15094,
           "maturity_date": "2032-01-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 65369230.2093,
-          "market_value": 64148132.99,
-          "weight_pct": 1.025752,
+          "market_value": 64102701.37,
+          "weight_pct": 1.030858,
           "currency": "USD",
-          "implied_mark": 98.132
+          "implied_mark": 98.0625
         },
         {
           "ticker": "CPIHLB",
@@ -628,13 +611,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.90094,
           "maturity_date": "2031-05-17",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/Ba3",
           "par_or_shares": 64094319.9196,
-          "market_value": 63918381.02,
-          "weight_pct": 1.022047,
+          "market_value": 63912932.99,
+          "weight_pct": 1.027776,
           "currency": "USD",
-          "implied_mark": 99.7255
+          "implied_mark": 99.717
         },
         {
           "ticker": "FLTR",
@@ -645,11 +628,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.82457,
           "maturity_date": "2030-11-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BBB-/Ba1",
           "par_or_shares": 63582356.646,
           "market_value": 62694746.95,
-          "weight_pct": 1.00248,
+          "weight_pct": 1.008185,
           "currency": "USD",
           "implied_mark": 98.604
         },
@@ -662,13 +645,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.15094,
           "maturity_date": "2029-01-27",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 62290762.9823,
-          "market_value": 62349316.3,
-          "weight_pct": 0.997029,
+          "market_value": 62347759.03,
+          "weight_pct": 1.00275,
           "currency": "USD",
-          "implied_mark": 100.094
+          "implied_mark": 100.0915
         },
         {
           "ticker": "HBGCN",
@@ -679,30 +662,30 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.98373,
           "maturity_date": "2030-06-20",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/Ba3",
           "par_or_shares": 60069812.53,
-          "market_value": 60123274.66,
-          "weight_pct": 0.973963,
+          "market_value": 60136490.02,
+          "weight_pct": 0.979711,
           "currency": "USD",
-          "implied_mark": 100.089
+          "implied_mark": 100.111
         },
         {
-          "ticker": "ARGIHC",
-          "name": "IRB Holding Corp",
+          "ticker": "RESPAR",
+          "name": "Resilience Parent LLC",
           "identifier": null,
           "figi": null,
-          "cusip": "44988LAM9",
+          "cusip": "75908HAC1",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 6.40094,
-          "maturity_date": "2030-12-15",
-          "next_call_date": "2026-11-01",
-          "rating": "B+/B2",
-          "par_or_shares": 59918399.9947,
-          "market_value": 59949557.56,
-          "weight_pct": 0.958622,
+          "coupon_pct": 6.57457,
+          "maturity_date": "2033-01-31",
+          "next_call_date": "2026-11-04",
+          "rating": "B/B2",
+          "par_or_shares": 60000000.0,
+          "market_value": 59872500.0,
+          "weight_pct": 0.961794,
           "currency": "USD",
-          "implied_mark": 100.052
+          "implied_mark": 99.7875
         },
         {
           "ticker": "CHAGRO",
@@ -713,13 +696,30 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.65094,
           "maturity_date": "2032-09-08",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B3",
           "par_or_shares": 59927053.6807,
-          "market_value": 59814690.46,
-          "weight_pct": 0.956495,
+          "market_value": 59791618.54,
+          "weight_pct": 0.961633,
           "currency": "USD",
-          "implied_mark": 99.8125
+          "implied_mark": 99.774
+        },
+        {
+          "ticker": "ARGIHC",
+          "name": "IRB Holding Corp",
+          "identifier": null,
+          "figi": null,
+          "cusip": "44988LAM9",
+          "security_type": "Floating Rate Note",
+          "coupon_pct": 6.40094,
+          "maturity_date": "2030-12-15",
+          "next_call_date": "2026-11-04",
+          "rating": "B+/B2",
+          "par_or_shares": 59732768.1847,
+          "market_value": 59754570.65,
+          "weight_pct": 0.960978,
+          "currency": "USD",
+          "implied_mark": 100.0365
         },
         {
           "ticker": "SEE",
@@ -730,11 +730,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.90094,
           "maturity_date": "2033-04-09",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 59588178.27,
           "market_value": 59535144.79,
-          "weight_pct": 0.952004,
+          "weight_pct": 0.957466,
           "currency": "USD",
           "implied_mark": 99.911
         },
@@ -747,13 +747,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 8.86264,
           "maturity_date": "2033-01-28",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B3",
           "par_or_shares": 57772083.56,
-          "market_value": 57338792.93,
-          "weight_pct": 0.936459,
+          "market_value": 57250401.65,
+          "weight_pct": 0.940585,
           "currency": "USD",
-          "implied_mark": 99.25
+          "implied_mark": 99.097
         },
         {
           "ticker": "WECHOL",
@@ -766,11 +766,11 @@
           "maturity_date": "2031-01-27",
           "next_call_date": "2024-11-27",
           "rating": "B+/B1",
-          "par_or_shares": 58433666.9969,
-          "market_value": 58448859.75,
-          "weight_pct": 0.934407,
+          "par_or_shares": 58428564.9561,
+          "market_value": 58440542.81,
+          "weight_pct": 0.939563,
           "currency": "USD",
-          "implied_mark": 100.026
+          "implied_mark": 100.0205
         },
         {
           "ticker": "GRATHO",
@@ -781,13 +781,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.65094,
           "maturity_date": "2031-06-02",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
-          "par_or_shares": 60669489.0122,
-          "market_value": 58416830.88,
-          "weight_pct": 0.934161,
+          "par_or_shares": 60669489.0072,
+          "market_value": 58375575.63,
+          "weight_pct": 0.938887,
           "currency": "USD",
-          "implied_mark": 96.287
+          "implied_mark": 96.219
         },
         {
           "ticker": "SSNC",
@@ -798,13 +798,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.90094,
           "maturity_date": "2031-05-09",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB+/Ba1",
           "par_or_shares": 58070366.6129,
-          "market_value": 58162117.79,
-          "weight_pct": 0.92999,
+          "market_value": 58152245.83,
+          "weight_pct": 0.935109,
           "currency": "USD",
-          "implied_mark": 100.158
+          "implied_mark": 100.141
         },
         {
           "ticker": "SPCHEM",
@@ -813,13 +813,13 @@
           "figi": null,
           "cusip": "N8232NAP2",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 7.4163,
+          "coupon_pct": 7.4121,
           "maturity_date": "2031-07-08",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B2",
           "par_or_shares": 56899668.6386,
           "market_value": 57086584.05,
-          "weight_pct": 0.926027,
+          "weight_pct": 0.931371,
           "currency": "USD",
           "implied_mark": 100.3285
         },
@@ -832,13 +832,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.57457,
           "maturity_date": "2032-04-28",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 56832977.17,
-          "market_value": 57064003.22,
-          "weight_pct": 0.912484,
+          "market_value": 57016547.69,
+          "weight_pct": 0.916952,
           "currency": "USD",
-          "implied_mark": 100.4065
+          "implied_mark": 100.323
         },
         {
           "ticker": "UNSEAM",
@@ -849,13 +849,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.15094,
           "maturity_date": "2032-08-20",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B3",
           "par_or_shares": 56299507.3138,
-          "market_value": 56420551.26,
-          "weight_pct": 0.90224,
+          "market_value": 56425618.21,
+          "weight_pct": 0.90754,
           "currency": "USD",
-          "implied_mark": 100.215
+          "implied_mark": 100.224
         },
         {
           "ticker": "SLH",
@@ -866,13 +866,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 8.08428,
           "maturity_date": "2028-06-02",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "CCC+/B3",
-          "par_or_shares": 58843907.3229,
-          "market_value": 55215003.56,
-          "weight_pct": 0.897334,
+          "par_or_shares": 58854406.0029,
+          "market_value": 55139221.62,
+          "weight_pct": 0.901427,
           "currency": "USD",
-          "implied_mark": 93.833
+          "implied_mark": 93.6875
         },
         {
           "ticker": "COLPLN",
@@ -883,13 +883,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.82457,
           "maturity_date": "2033-01-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "NR/Ba1",
           "par_or_shares": 55330288.28,
-          "market_value": 55009649.26,
-          "weight_pct": 0.879583,
+          "market_value": 55012969.08,
+          "weight_pct": 0.884618,
           "currency": "USD",
-          "implied_mark": 99.4205
+          "implied_mark": 99.4265
         },
         {
           "ticker": "QTS",
@@ -900,13 +900,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.02509,
           "maturity_date": "2033-07-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "NR/Baa3",
           "par_or_shares": 54500000.0,
-          "market_value": 53938105.0,
-          "weight_pct": 0.87056,
+          "market_value": 53903770.0,
+          "weight_pct": 0.87486,
           "currency": "USD",
-          "implied_mark": 98.969
+          "implied_mark": 98.906
         },
         {
           "ticker": "ATLAVI",
@@ -920,10 +920,10 @@
           "next_call_date": null,
           "rating": "B/B2",
           "par_or_shares": 54071311.6589,
-          "market_value": 54165395.74,
-          "weight_pct": 0.866122,
+          "market_value": 54160529.32,
+          "weight_pct": 0.870998,
           "currency": "USD",
-          "implied_mark": 100.174
+          "implied_mark": 100.165
         },
         {
           "ticker": "MORTON",
@@ -934,13 +934,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.49864,
           "maturity_date": "2031-07-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B3",
           "par_or_shares": 53213084.81,
-          "market_value": 52854162.55,
-          "weight_pct": 0.848884,
+          "market_value": 52847244.85,
+          "weight_pct": 0.853655,
           "currency": "USD",
-          "implied_mark": 99.3255
+          "implied_mark": 99.3125
         },
         {
           "ticker": "HLT",
@@ -954,10 +954,10 @@
           "next_call_date": "2024-06-14",
           "rating": "BBB-/Baa1",
           "par_or_shares": 52710079.21,
-          "market_value": 52742495.91,
-          "weight_pct": 0.844042,
+          "market_value": 52740123.96,
+          "weight_pct": 0.848793,
           "currency": "USD",
-          "implied_mark": 100.0615
+          "implied_mark": 100.057
         },
         {
           "ticker": "PRMB",
@@ -968,13 +968,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.82457,
           "maturity_date": "2031-03-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB/Ba3",
           "par_or_shares": 51663409.61,
-          "market_value": 51872388.1,
-          "weight_pct": 0.82947,
+          "market_value": 51887370.49,
+          "weight_pct": 0.834469,
           "currency": "USD",
-          "implied_mark": 100.4045
+          "implied_mark": 100.4335
         },
         {
           "ticker": "SOUVET",
@@ -985,13 +985,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.2751,
           "maturity_date": "2031-12-04",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
-          "par_or_shares": 51414825.71,
-          "market_value": 51404542.75,
-          "weight_pct": 0.822336,
+          "par_or_shares": 51415499.039,
+          "market_value": 51403930.56,
+          "weight_pct": 0.827064,
           "currency": "USD",
-          "implied_mark": 99.98
+          "implied_mark": 99.9775
         },
         {
           "ticker": "ASCENS",
@@ -1005,10 +1005,10 @@
           "next_call_date": "2025-11-25",
           "rating": "B-/WR",
           "par_or_shares": 51560151.2862,
-          "market_value": 51157466.5,
-          "weight_pct": 0.818047,
+          "market_value": 51173450.15,
+          "weight_pct": 0.823005,
           "currency": "USD",
-          "implied_mark": 99.219
+          "implied_mark": 99.25
         },
         {
           "ticker": "EDR",
@@ -1019,13 +1019,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.65094,
           "maturity_date": "2032-01-27",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B2",
           "par_or_shares": 50805972.356,
-          "market_value": 51053651.47,
-          "weight_pct": 0.816299,
+          "market_value": 50990144.01,
+          "weight_pct": 0.819882,
           "currency": "USD",
-          "implied_mark": 100.4875
+          "implied_mark": 100.3625
         },
         {
           "ticker": "HDCINC",
@@ -1036,13 +1036,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.07457,
           "maturity_date": "2032-01-17",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B1",
-          "par_or_shares": 50454443.2401,
-          "market_value": 50580579.35,
-          "weight_pct": 0.808869,
+          "par_or_shares": 50456981.3101,
+          "market_value": 50574041.51,
+          "weight_pct": 0.813447,
           "currency": "USD",
-          "implied_mark": 100.25
+          "implied_mark": 100.232
         },
         {
           "ticker": "CDK",
@@ -1053,11 +1053,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.32457,
           "maturity_date": "2029-07-06",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "CCC/Caa2",
           "par_or_shares": 74285752.8719,
           "market_value": 50514311.95,
-          "weight_pct": 0.808019,
+          "weight_pct": 0.812921,
           "currency": "USD",
           "implied_mark": 68.0
         },
@@ -1072,11 +1072,11 @@
           "maturity_date": "2031-05-30",
           "next_call_date": "2024-12-17",
           "rating": "B-/WR",
-          "par_or_shares": 51269412.5991,
-          "market_value": 50452434.51,
-          "weight_pct": 0.806778,
+          "par_or_shares": 51274501.6531,
+          "market_value": 50467953.74,
+          "weight_pct": 0.811692,
           "currency": "USD",
-          "implied_mark": 98.4065
+          "implied_mark": 98.427
         },
         {
           "ticker": "ALERGR",
@@ -1087,13 +1087,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.65094,
           "maturity_date": "2032-05-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 51211452.0,
-          "market_value": 50042038.49,
-          "weight_pct": 0.800236,
+          "market_value": 50022066.03,
+          "weight_pct": 0.80454,
           "currency": "USD",
-          "implied_mark": 97.7165
+          "implied_mark": 97.6775
         },
         {
           "ticker": "HYPINS",
@@ -1104,13 +1104,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.65094,
           "maturity_date": "2031-02-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B2",
           "par_or_shares": 51555132.3921,
-          "market_value": 49716418.59,
-          "weight_pct": 0.795017,
+          "market_value": 49647592.49,
+          "weight_pct": 0.798495,
           "currency": "USD",
-          "implied_mark": 96.4335
+          "implied_mark": 96.3
         },
         {
           "ticker": "MITCHE",
@@ -1121,30 +1121,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.90094,
           "maturity_date": "2031-06-17",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B3",
-          "par_or_shares": 50466408.5988,
-          "market_value": 49601162.03,
-          "weight_pct": 0.793192,
+          "par_or_shares": 50466408.6032,
+          "market_value": 49574414.83,
+          "weight_pct": 0.797329,
           "currency": "USD",
-          "implied_mark": 98.2855
-        },
-        {
-          "ticker": "BHCCN",
-          "name": "1261229 BC Ltd",
-          "identifier": null,
-          "figi": null,
-          "cusip": "C6903HAB0",
-          "security_type": "Floating Rate Note",
-          "coupon_pct": 10.15094,
-          "maturity_date": "2030-10-08",
-          "next_call_date": "2026-11-01",
-          "rating": "B/Caa1",
-          "par_or_shares": 49315049.66,
-          "market_value": 49191762.04,
-          "weight_pct": 0.786879,
-          "currency": "USD",
-          "implied_mark": 99.75
+          "implied_mark": 98.2325
         },
         {
           "ticker": "RP",
@@ -1155,13 +1138,30 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.33618,
           "maturity_date": "2028-04-24",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B3",
-          "par_or_shares": 49811489.9732,
-          "market_value": 49203291.68,
-          "weight_pct": 0.786859,
+          "par_or_shares": 49811489.9694,
+          "market_value": 49210763.4,
+          "weight_pct": 0.791535,
           "currency": "USD",
-          "implied_mark": 98.779
+          "implied_mark": 98.794
+        },
+        {
+          "ticker": "BHCCN",
+          "name": "1261229 BC Ltd",
+          "identifier": null,
+          "figi": null,
+          "cusip": "C6903HAB0",
+          "security_type": "Floating Rate Note",
+          "coupon_pct": 10.15094,
+          "maturity_date": "2030-10-08",
+          "next_call_date": "2026-11-04",
+          "rating": "B/Caa1",
+          "par_or_shares": 49317574.91,
+          "market_value": 49155073.5,
+          "weight_pct": 0.79106,
+          "currency": "USD",
+          "implied_mark": 99.6705
         },
         {
           "ticker": "FLT",
@@ -1172,30 +1172,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.65094,
           "maturity_date": "2032-11-05",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB+/Ba1",
-          "par_or_shares": 49115972.9521,
-          "market_value": 49100747.0,
-          "weight_pct": 0.785088,
+          "par_or_shares": 49118481.1321,
+          "market_value": 49110867.77,
+          "weight_pct": 0.789692,
           "currency": "USD",
-          "implied_mark": 99.969
-        },
-        {
-          "ticker": "ACRISU",
-          "name": "Acrisure LLC",
-          "identifier": null,
-          "figi": null,
-          "cusip": "00488PAV7",
-          "security_type": "Floating Rate Note",
-          "coupon_pct": 6.90094,
-          "maturity_date": "2030-11-06",
-          "next_call_date": "2026-11-01",
-          "rating": "B/B2",
-          "par_or_shares": 60873503.7099,
-          "market_value": 48927078.6,
-          "weight_pct": 0.782536,
-          "currency": "USD",
-          "implied_mark": 80.375
+          "implied_mark": 99.9845
         },
         {
           "ticker": "ADVGRO",
@@ -1206,13 +1189,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.57457,
           "maturity_date": "2032-08-02",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B1",
-          "par_or_shares": 49024977.63,
-          "market_value": 48593557.83,
-          "weight_pct": 0.777054,
+          "par_or_shares": 49024977.6343,
+          "market_value": 48613658.07,
+          "weight_pct": 0.781836,
           "currency": "USD",
-          "implied_mark": 99.12
+          "implied_mark": 99.161
         },
         {
           "ticker": "CLGX",
@@ -1223,30 +1206,30 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 8.15094,
           "maturity_date": "2031-07-17",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B2",
           "par_or_shares": 51126166.72,
-          "market_value": 48569858.39,
-          "weight_pct": 0.776731,
+          "market_value": 48591331.37,
+          "weight_pct": 0.781603,
           "currency": "USD",
-          "implied_mark": 95.0
+          "implied_mark": 95.042
         },
         {
-          "ticker": "APEGRP",
-          "name": "Apex Group Treasury LLC",
+          "ticker": "ACRISU",
+          "name": "Acrisure LLC",
           "identifier": null,
           "figi": null,
-          "cusip": "G0472CAK1",
+          "cusip": "00488PAV7",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 7.26091,
-          "maturity_date": "2032-02-27",
-          "next_call_date": "2026-11-01",
-          "rating": "B-/B3",
-          "par_or_shares": 49234052.4,
-          "market_value": 47734136.99,
-          "weight_pct": 0.773376,
+          "coupon_pct": 6.90094,
+          "maturity_date": "2030-11-06",
+          "next_call_date": "2026-11-04",
+          "rating": "B/B2",
+          "par_or_shares": 60873503.7088,
+          "market_value": 48440090.58,
+          "weight_pct": 0.779353,
           "currency": "USD",
-          "implied_mark": 96.9535
+          "implied_mark": 79.575
         },
         {
           "ticker": "BLCOCN",
@@ -1257,30 +1240,30 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.65094,
           "maturity_date": "2031-01-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B1",
           "par_or_shares": 48123293.9057,
           "market_value": 48261648.38,
-          "weight_pct": 0.771804,
+          "weight_pct": 0.776304,
           "currency": "USD",
           "implied_mark": 100.2875
         },
         {
-          "ticker": "MSYLN",
-          "name": "Finastra USA Inc",
+          "ticker": "APEGRP",
+          "name": "Apex Group Treasury LLC",
           "identifier": null,
           "figi": null,
-          "cusip": "31772YAD8",
+          "cusip": "G0472CAK1",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 7.74614,
-          "maturity_date": "2032-07-30",
-          "next_call_date": "2026-11-01",
+          "coupon_pct": 7.26091,
+          "maturity_date": "2032-02-27",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B3",
-          "par_or_shares": 49641278.28,
-          "market_value": 47942801.94,
-          "weight_pct": 0.769515,
+          "par_or_shares": 49091687.73,
+          "market_value": 47596109.46,
+          "weight_pct": 0.775697,
           "currency": "USD",
-          "implied_mark": 96.5785
+          "implied_mark": 96.9535
         },
         {
           "ticker": "KASEYA",
@@ -1291,13 +1274,30 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.07267,
           "maturity_date": "2032-03-20",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B2",
-          "par_or_shares": 56662084.4616,
-          "market_value": 47366102.89,
-          "weight_pct": 0.769358,
+          "par_or_shares": 56662084.466,
+          "market_value": 47396417.11,
+          "weight_pct": 0.774368,
           "currency": "USD",
-          "implied_mark": 83.594
+          "implied_mark": 83.6475
+        },
+        {
+          "ticker": "MSYLN",
+          "name": "Finastra USA Inc",
+          "identifier": null,
+          "figi": null,
+          "cusip": "31772YAD8",
+          "security_type": "Floating Rate Note",
+          "coupon_pct": 7.74614,
+          "maturity_date": "2032-07-30",
+          "next_call_date": "2026-11-04",
+          "rating": "B-/B3",
+          "par_or_shares": 49641278.28,
+          "market_value": 47869332.85,
+          "weight_pct": 0.772838,
+          "currency": "USD",
+          "implied_mark": 96.4305
         },
         {
           "ticker": "INET",
@@ -1308,13 +1308,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 8.15094,
           "maturity_date": "2028-05-03",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B1",
-          "par_or_shares": 48555794.8551,
-          "market_value": 47991333.74,
-          "weight_pct": 0.767576,
+          "par_or_shares": 48555794.8567,
+          "market_value": 47961957.49,
+          "weight_pct": 0.771602,
           "currency": "USD",
-          "implied_mark": 98.8375
+          "implied_mark": 98.777
         },
         {
           "ticker": "VSBUYR",
@@ -1325,13 +1325,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.07267,
           "maturity_date": "2031-04-12",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 47843647.93,
-          "market_value": 46677459.01,
-          "weight_pct": 0.754819,
+          "market_value": 46647795.95,
+          "weight_pct": 0.758663,
           "currency": "USD",
-          "implied_mark": 97.5625
+          "implied_mark": 97.5005
         },
         {
           "ticker": "VARBRA",
@@ -1342,13 +1342,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.82457,
           "maturity_date": "2031-08-26",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 46377456.53,
-          "market_value": 46353340.25,
-          "weight_pct": 0.74123,
+          "market_value": 46382326.16,
+          "weight_pct": 0.745959,
           "currency": "USD",
-          "implied_mark": 99.948
+          "implied_mark": 100.0105
         },
         {
           "ticker": "NORD",
@@ -1359,13 +1359,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.01715,
           "maturity_date": "2032-01-09",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 46383149.4856,
-          "market_value": 46226606.36,
-          "weight_pct": 0.739227,
+          "market_value": 46191818.99,
+          "weight_pct": 0.742524,
           "currency": "USD",
-          "implied_mark": 99.6625
+          "implied_mark": 99.5875
         },
         {
           "ticker": "TIBX",
@@ -1376,13 +1376,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.32457,
           "maturity_date": "2032-08-09",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B1",
           "par_or_shares": 48522177.32,
-          "market_value": 46082482.24,
-          "weight_pct": 0.736989,
+          "market_value": 46042208.84,
+          "weight_pct": 0.740674,
           "currency": "USD",
-          "implied_mark": 94.972
+          "implied_mark": 94.889
         },
         {
           "ticker": "ICECR",
@@ -1391,15 +1391,15 @@
           "figi": null,
           "cusip": "G3679YAK8",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 6.2043,
+          "coupon_pct": 6.2208,
           "maturity_date": "2031-09-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/B1",
           "par_or_shares": 45424060.5812,
-          "market_value": 45109271.84,
-          "weight_pct": 0.729764,
+          "market_value": 45099505.67,
+          "weight_pct": 0.733787,
           "currency": "USD",
-          "implied_mark": 99.307
+          "implied_mark": 99.2855
         },
         {
           "ticker": "BCULC",
@@ -1410,13 +1410,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.65094,
           "maturity_date": "2030-09-20",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BBB-/Ba1",
           "par_or_shares": 45590015.6598,
-          "market_value": 45628083.32,
-          "weight_pct": 0.729578,
+          "market_value": 45614406.32,
+          "weight_pct": 0.733502,
           "currency": "USD",
-          "implied_mark": 100.0835
+          "implied_mark": 100.0535
         },
         {
           "ticker": "IMPPAP",
@@ -1427,13 +1427,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.15094,
           "maturity_date": "2030-12-11",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B3",
           "par_or_shares": 46360078.2855,
-          "market_value": 45143126.23,
-          "weight_pct": 0.721963,
+          "market_value": 45374926.62,
+          "weight_pct": 0.729926,
           "currency": "USD",
-          "implied_mark": 97.375
+          "implied_mark": 97.875
         },
         {
           "ticker": "POWSOL",
@@ -1444,13 +1444,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.40094,
           "maturity_date": "2032-01-28",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/B2",
           "par_or_shares": 44513563.63,
-          "market_value": 44602590.76,
-          "weight_pct": 0.713247,
+          "market_value": 44597026.56,
+          "weight_pct": 0.717274,
           "currency": "USD",
-          "implied_mark": 100.2
+          "implied_mark": 100.1875
         },
         {
           "ticker": "CZR",
@@ -1463,11 +1463,11 @@
           "maturity_date": "2031-02-06",
           "next_call_date": "2024-11-25",
           "rating": "BB-/WR",
-          "par_or_shares": 46037798.1516,
-          "market_value": 43937323.61,
-          "weight_pct": 0.702586,
+          "par_or_shares": 46040355.6916,
+          "market_value": 43844000.52,
+          "weight_pct": 0.705108,
           "currency": "USD",
-          "implied_mark": 95.4375
+          "implied_mark": 95.2295
         },
         {
           "ticker": "ROCSOF",
@@ -1481,10 +1481,10 @@
           "next_call_date": "2025-07-16",
           "rating": "B-/WR",
           "par_or_shares": 42931429.7279,
-          "market_value": 42928639.18,
-          "weight_pct": 0.68649,
+          "market_value": 42926707.27,
+          "weight_pct": 0.690433,
           "currency": "USD",
-          "implied_mark": 99.9935
+          "implied_mark": 99.989
         },
         {
           "ticker": "TIBX",
@@ -1495,13 +1495,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.32457,
           "maturity_date": "2031-03-21",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B1",
           "par_or_shares": 43901193.0,
-          "market_value": 41718425.68,
-          "weight_pct": 0.667151,
+          "market_value": 41681768.19,
+          "weight_pct": 0.670439,
           "currency": "USD",
-          "implied_mark": 95.028
+          "implied_mark": 94.9445
         },
         {
           "ticker": "RCM",
@@ -1512,13 +1512,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.90094,
           "maturity_date": "2031-11-19",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
-          "par_or_shares": 41511709.8868,
-          "market_value": 41515030.82,
-          "weight_pct": 0.663872,
+          "par_or_shares": 41511709.724,
+          "market_value": 41523748.12,
+          "weight_pct": 0.667858,
           "currency": "USD",
-          "implied_mark": 100.008
+          "implied_mark": 100.029
         },
         {
           "ticker": "QLIK",
@@ -1529,13 +1529,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.32457,
           "maturity_date": "2030-10-28",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
-          "par_or_shares": 58400858.7064,
-          "market_value": 41035655.38,
-          "weight_pct": 0.656405,
+          "par_or_shares": 58400858.7078,
+          "market_value": 41180781.51,
+          "weight_pct": 0.662697,
           "currency": "USD",
-          "implied_mark": 70.2655
+          "implied_mark": 70.514
         },
         {
           "ticker": "NOVHOL",
@@ -1546,13 +1546,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.15094,
           "maturity_date": "2032-04-01",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B2",
           "par_or_shares": 41262249.5971,
-          "market_value": 40542223.34,
-          "weight_pct": 0.648366,
+          "market_value": 40551301.04,
+          "weight_pct": 0.652303,
           "currency": "USD",
-          "implied_mark": 98.255
+          "implied_mark": 98.277
         },
         {
           "ticker": "HARFRE",
@@ -1563,13 +1563,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.90094,
           "maturity_date": "2031-06-11",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/B1",
           "par_or_shares": 40486051.49,
-          "market_value": 40373095.41,
-          "weight_pct": 0.645604,
+          "market_value": 40386658.23,
+          "weight_pct": 0.649539,
           "currency": "USD",
-          "implied_mark": 99.721
+          "implied_mark": 99.7545
         },
         {
           "ticker": "AIMEGR",
@@ -1582,11 +1582,11 @@
           "maturity_date": "2032-10-01",
           "next_call_date": null,
           "rating": "B+/B1",
-          "par_or_shares": 39831062.9577,
-          "market_value": 39856953.15,
-          "weight_pct": 0.637405,
+          "par_or_shares": 39683828.4609,
+          "market_value": 39705456.15,
+          "weight_pct": 0.638672,
           "currency": "USD",
-          "implied_mark": 100.065
+          "implied_mark": 100.0545
         },
         {
           "ticker": "UNVR",
@@ -1597,11 +1597,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.65094,
           "maturity_date": "2030-08-01",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 38903651.8731,
           "market_value": 39004412.33,
-          "weight_pct": 0.623773,
+          "weight_pct": 0.627421,
           "currency": "USD",
           "implied_mark": 100.259
         },
@@ -1614,13 +1614,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.5421,
           "maturity_date": "2033-07-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 38076091.5,
-          "market_value": 38053626.61,
-          "weight_pct": 0.610336,
+          "market_value": 38057624.6,
+          "weight_pct": 0.613886,
           "currency": "USD",
-          "implied_mark": 99.941
+          "implied_mark": 99.9515
         },
         {
           "ticker": "EDEFIN",
@@ -1631,13 +1631,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.90094,
           "maturity_date": "2031-12-01",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B3",
           "par_or_shares": 26582209.4,
-          "market_value": 26651057.32,
-          "weight_pct": 0.426098,
+          "market_value": 26646272.52,
+          "weight_pct": 0.428398,
           "currency": "USD",
-          "implied_mark": 100.259
+          "implied_mark": 100.241
         },
         {
           "ticker": "APPSYS",
@@ -1650,11 +1650,11 @@
           "maturity_date": "2031-02-24",
           "next_call_date": "2024-08-23",
           "rating": "B-/WR",
-          "par_or_shares": 24770410.7684,
-          "market_value": 24710094.82,
-          "weight_pct": 0.39532,
+          "par_or_shares": 24770410.7658,
+          "market_value": 24702044.43,
+          "weight_pct": 0.397589,
           "currency": "USD",
-          "implied_mark": 99.7565
+          "implied_mark": 99.724
         },
         {
           "ticker": "GWR",
@@ -1665,13 +1665,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.82457,
           "maturity_date": "2031-04-10",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB/Ba3",
           "par_or_shares": 23463017.3554,
-          "market_value": 23417381.79,
-          "weight_pct": 0.37452,
+          "market_value": 23412102.61,
+          "weight_pct": 0.376646,
           "currency": "USD",
-          "implied_mark": 99.8055
+          "implied_mark": 99.783
         },
         {
           "ticker": "TDG",
@@ -1685,10 +1685,10 @@
           "next_call_date": "2024-06-04",
           "rating": "BB-/WR",
           "par_or_shares": 22723734.5263,
-          "market_value": 22768613.9,
-          "weight_pct": 0.364087,
+          "market_value": 22765432.58,
+          "weight_pct": 0.366128,
           "currency": "USD",
-          "implied_mark": 100.1975
+          "implied_mark": 100.1835
         },
         {
           "ticker": "IMPPAP",
@@ -1702,10 +1702,10 @@
           "next_call_date": null,
           "rating": "B/B3",
           "par_or_shares": 21733551.21,
-          "market_value": 21149462.02,
-          "weight_pct": 0.338234,
+          "market_value": 21208359.95,
+          "weight_pct": 0.341162,
           "currency": "USD",
-          "implied_mark": 97.3125
+          "implied_mark": 97.5835
         },
         {
           "ticker": "MEDIND",
@@ -1716,13 +1716,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 3.875,
           "maturity_date": "2029-04-01",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BBB-/Ba1",
           "par_or_shares": 22100000.0,
-          "market_value": 21126846.39,
-          "weight_pct": 0.337714,
+          "market_value": 21118249.71,
+          "weight_pct": 0.339433,
           "currency": "USD",
-          "implied_mark": 95.5966
+          "implied_mark": 95.5577
         },
         {
           "ticker": "CSCHLD",
@@ -1733,13 +1733,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 8.5,
           "maturity_date": "2027-04-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "CCC/Caa2",
           "par_or_shares": 41040512.6611,
-          "market_value": 20191932.23,
-          "weight_pct": 0.323214,
+          "market_value": 20315053.77,
+          "weight_pct": 0.327412,
           "currency": "USD",
-          "implied_mark": 49.2
+          "implied_mark": 49.5
         },
         {
           "ticker": "ALIXPA",
@@ -1750,13 +1750,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.90094,
           "maturity_date": "2032-08-12",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 19711930.19,
-          "market_value": 19638010.45,
-          "weight_pct": 0.314023,
+          "market_value": 19644811.07,
+          "weight_pct": 0.315934,
           "currency": "USD",
-          "implied_mark": 99.625
+          "implied_mark": 99.6595
         },
         {
           "ticker": "HBGCN",
@@ -1767,13 +1767,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 7.25,
           "maturity_date": "2030-06-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/Ba3",
           "par_or_shares": 18900000.0,
-          "market_value": 19076034.6,
-          "weight_pct": 0.311445,
+          "market_value": 19085598.0,
+          "weight_pct": 0.313388,
           "currency": "USD",
-          "implied_mark": 100.9314
+          "implied_mark": 100.982
         },
         {
           "ticker": "MEDIND",
@@ -1784,13 +1784,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.40094,
           "maturity_date": "2033-05-16",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BBB-/Ba1",
           "par_or_shares": 18231993.8656,
-          "market_value": 18131809.06,
-          "weight_pct": 0.289933,
+          "market_value": 18119046.66,
+          "weight_pct": 0.291387,
           "currency": "USD",
-          "implied_mark": 99.4505
+          "implied_mark": 99.3805
         },
         {
           "ticker": "UNSEAM",
@@ -1804,10 +1804,10 @@
           "next_call_date": "2027-02-15",
           "rating": "B/B3",
           "par_or_shares": 17597000.0,
-          "market_value": 17885144.72,
-          "weight_pct": 0.28878,
+          "market_value": 17872195.26,
+          "weight_pct": 0.290245,
           "currency": "USD",
-          "implied_mark": 101.6375
+          "implied_mark": 101.5639
         },
         {
           "ticker": "BECN",
@@ -1818,13 +1818,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.90094,
           "maturity_date": "2033-06-03",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB+/Ba2",
           "par_or_shares": 14830542.23,
-          "market_value": 14681495.28,
-          "weight_pct": 0.234749,
+          "market_value": 14665700.75,
+          "weight_pct": 0.235825,
           "currency": "USD",
-          "implied_mark": 98.995
+          "implied_mark": 98.8885
         },
         {
           "ticker": "BCULC",
@@ -1835,13 +1835,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 3.875,
           "maturity_date": "2028-01-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BBB-/Ba1",
           "par_or_shares": 15000000.0,
-          "market_value": 14638983.0,
-          "weight_pct": 0.234415,
+          "market_value": 14624689.5,
+          "weight_pct": 0.235473,
           "currency": "USD",
-          "implied_mark": 97.5932
+          "implied_mark": 97.4979
         },
         {
           "ticker": "ASCLER",
@@ -1852,13 +1852,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.90094,
           "maturity_date": "2028-12-11",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/B3",
-          "par_or_shares": 12473844.5611,
-          "market_value": 12415404.6,
-          "weight_pct": 0.198623,
+          "par_or_shares": 12473844.56,
+          "market_value": 12409541.89,
+          "weight_pct": 0.199738,
           "currency": "USD",
-          "implied_mark": 99.5315
+          "implied_mark": 99.4845
         },
         {
           "ticker": "CREEPA",
@@ -1869,11 +1869,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.90094,
           "maturity_date": "2033-08-05",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 12243874.6,
           "market_value": 12243874.6,
-          "weight_pct": 0.195788,
+          "weight_pct": 0.196912,
           "currency": "USD",
           "implied_mark": 100.0
         },
@@ -1886,13 +1886,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.40094,
           "maturity_date": "2030-05-06",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/B2",
           "par_or_shares": 10876584.72,
-          "market_value": 10896978.32,
-          "weight_pct": 0.174243,
+          "market_value": 10895618.74,
+          "weight_pct": 0.175214,
           "currency": "USD",
-          "implied_mark": 100.1875
+          "implied_mark": 100.175
         },
         {
           "ticker": "FOCS",
@@ -1906,10 +1906,10 @@
           "next_call_date": "2027-09-15",
           "rating": "B/B3",
           "par_or_shares": 11132000.0,
-          "market_value": 10665680.52,
-          "weight_pct": 0.171051,
+          "market_value": 10631727.92,
+          "weight_pct": 0.171489,
           "currency": "USD",
-          "implied_mark": 95.811
+          "implied_mark": 95.506
         },
         {
           "ticker": "ACRISU",
@@ -1920,13 +1920,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 7.5,
           "maturity_date": "2030-11-06",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 12833000.0,
-          "market_value": 10174497.75,
-          "weight_pct": 0.168497,
+          "market_value": 10093069.29,
+          "weight_pct": 0.168186,
           "currency": "USD",
-          "implied_mark": 79.2839
+          "implied_mark": 78.6493
         },
         {
           "ticker": "CONGNT",
@@ -1935,15 +1935,15 @@
           "figi": null,
           "cusip": "23344MAM0",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 6.91826,
+          "coupon_pct": 6.90094,
           "maturity_date": "2032-07-09",
           "next_call_date": "2026-08-04",
           "rating": "B/B3",
           "par_or_shares": 9974874.37,
-          "market_value": 9987342.96,
-          "weight_pct": 0.159704,
+          "market_value": 9999811.56,
+          "weight_pct": 0.160822,
           "currency": "USD",
-          "implied_mark": 100.125
+          "implied_mark": 100.25
         },
         {
           "ticker": "BCULC",
@@ -1954,13 +1954,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 6.125,
           "maturity_date": "2029-06-15",
-          "next_call_date": "2026-10-12",
+          "next_call_date": "2026-10-15",
           "rating": "BBB-/Ba1",
           "par_or_shares": 9000000.0,
-          "market_value": 8933721.3,
-          "weight_pct": 0.145422,
+          "market_value": 8928070.2,
+          "weight_pct": 0.146155,
           "currency": "USD",
-          "implied_mark": 99.2636
+          "implied_mark": 99.2008
         },
         {
           "ticker": "JHG",
@@ -1971,13 +1971,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.82457,
           "maturity_date": "2033-06-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB/Ba1",
           "par_or_shares": 8500949.76,
-          "market_value": 8515146.35,
-          "weight_pct": 0.136162,
+          "market_value": 8508048.05,
+          "weight_pct": 0.136829,
           "currency": "USD",
-          "implied_mark": 100.167
+          "implied_mark": 100.0835
         },
         {
           "ticker": "TIBX",
@@ -1988,13 +1988,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 9.0,
           "maturity_date": "2029-09-30",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B-/Caa1",
           "par_or_shares": 7750000.0,
-          "market_value": 7685566.5,
-          "weight_pct": 0.122919,
+          "market_value": 7663799.08,
+          "weight_pct": 0.123296,
           "currency": "USD",
-          "implied_mark": 99.1686
+          "implied_mark": 98.8877
         },
         {
           "ticker": "PFPT",
@@ -2005,13 +2005,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.07457,
           "maturity_date": "2028-08-31",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 7456902.0337,
-          "market_value": 7467155.27,
-          "weight_pct": 0.119595,
+          "market_value": 7464060.66,
+          "weight_pct": 0.120241,
           "currency": "USD",
-          "implied_mark": 100.1375
+          "implied_mark": 100.096
         },
         {
           "ticker": "CARRIX",
@@ -2022,13 +2022,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.07457,
           "maturity_date": "2033-07-16",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "NR/Ba1",
           "par_or_shares": 6235236.2417,
-          "market_value": 6235236.24,
-          "weight_pct": 0.099699,
+          "market_value": 6237823.86,
+          "weight_pct": 0.100306,
           "currency": "USD",
-          "implied_mark": 100.0
+          "implied_mark": 100.0415
         },
         {
           "ticker": "OPALBD",
@@ -2042,10 +2042,10 @@
           "next_call_date": "2028-03-31",
           "rating": "B+/B1",
           "par_or_shares": 6225000.0,
-          "market_value": 6121378.03,
-          "weight_pct": 0.097882,
+          "market_value": 6108977.83,
+          "weight_pct": 0.098242,
           "currency": "USD",
-          "implied_mark": 98.3354
+          "implied_mark": 98.1362
         },
         {
           "ticker": "MEDIND",
@@ -2056,13 +2056,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 6.25,
           "maturity_date": "2029-04-01",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BBB-/Ba1",
           "par_or_shares": 6000000.0,
-          "market_value": 6051792.0,
-          "weight_pct": 0.09675,
+          "market_value": 6049818.0,
+          "weight_pct": 0.097267,
           "currency": "USD",
-          "implied_mark": 100.8632
+          "implied_mark": 100.8303
         },
         {
           "ticker": "SSNC",
@@ -2076,10 +2076,10 @@
           "next_call_date": "2027-06-01",
           "rating": "B+/Ba3",
           "par_or_shares": 5500000.0,
-          "market_value": 5390898.7,
-          "weight_pct": 0.08809,
+          "market_value": 5396117.65,
+          "weight_pct": 0.088676,
           "currency": "USD",
-          "implied_mark": 98.0163
+          "implied_mark": 98.1112
         },
         {
           "ticker": "TIBX",
@@ -2093,10 +2093,10 @@
           "next_call_date": "2027-06-30",
           "rating": "B/B1",
           "par_or_shares": 5658000.0,
-          "market_value": 5382183.53,
-          "weight_pct": 0.087952,
+          "market_value": 5390782.84,
+          "weight_pct": 0.088606,
           "currency": "USD",
-          "implied_mark": 95.1252
+          "implied_mark": 95.2772
         },
         {
           "ticker": "NLSN",
@@ -2110,10 +2110,10 @@
           "next_call_date": "2027-11-15",
           "rating": "B/B3",
           "par_or_shares": 5000000.0,
-          "market_value": 5094865.0,
-          "weight_pct": 0.0846,
+          "market_value": 5103748.65,
+          "weight_pct": 0.085248,
           "currency": "USD",
-          "implied_mark": 101.8973
+          "implied_mark": 102.075
         },
         {
           "ticker": "GWR",
@@ -2127,10 +2127,10 @@
           "next_call_date": "2027-04-15",
           "rating": "BB/Ba3",
           "par_or_shares": 5000000.0,
-          "market_value": 4922388.0,
-          "weight_pct": 0.081001,
+          "market_value": 4931990.5,
+          "weight_pct": 0.081614,
           "currency": "USD",
-          "implied_mark": 98.4478
+          "implied_mark": 98.6398
         },
         {
           "ticker": "NOVHOL",
@@ -2141,13 +2141,30 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 6.875,
           "maturity_date": "2030-01-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B2",
           "par_or_shares": 5000000.0,
-          "market_value": 4915506.5,
-          "weight_pct": 0.079751,
+          "market_value": 4909662.5,
+          "weight_pct": 0.080114,
           "currency": "USD",
-          "implied_mark": 98.3101
+          "implied_mark": 98.1932
+        },
+        {
+          "ticker": "UNSEAM",
+          "name": "Allied Universal Holdco LLC/Allied Universal Finance Corp/Atlas Luxco 4 Sarl",
+          "identifier": null,
+          "figi": null,
+          "cusip": "019579AA9",
+          "security_type": "Corporate Bond",
+          "coupon_pct": 4.625,
+          "maturity_date": "2028-06-01",
+          "next_call_date": "2026-11-04",
+          "rating": "B/B3",
+          "par_or_shares": 5000000.0,
+          "market_value": 4879211.5,
+          "weight_pct": 0.079669,
+          "currency": "USD",
+          "implied_mark": 97.5842
         },
         {
           "ticker": "TDG",
@@ -2161,27 +2178,10 @@
           "next_call_date": "2029-09-30",
           "rating": "BB-/Ba3",
           "par_or_shares": 5000000.0,
-          "market_value": 4947634.0,
-          "weight_pct": 0.079144,
+          "market_value": 4948721.25,
+          "weight_pct": 0.079615,
           "currency": "USD",
-          "implied_mark": 98.9527
-        },
-        {
-          "ticker": "UNSEAM",
-          "name": "Allied Universal Holdco LLC/Allied Universal Finance Corp/Atlas Luxco 4 Sarl",
-          "identifier": null,
-          "figi": null,
-          "cusip": "019579AA9",
-          "security_type": "Corporate Bond",
-          "coupon_pct": 4.625,
-          "maturity_date": "2028-06-01",
-          "next_call_date": "2026-11-01",
-          "rating": "B/B3",
-          "par_or_shares": 5000000.0,
-          "market_value": 4868659.0,
-          "weight_pct": 0.079061,
-          "currency": "USD",
-          "implied_mark": 97.3732
+          "implied_mark": 98.9744
         },
         {
           "ticker": "TDG",
@@ -2195,10 +2195,10 @@
           "next_call_date": "2027-09-15",
           "rating": "BB-/Ba3",
           "par_or_shares": 5000000.0,
-          "market_value": 4820333.0,
-          "weight_pct": 0.077275,
+          "market_value": 4814654.8,
+          "weight_pct": 0.077622,
           "currency": "USD",
-          "implied_mark": 96.4067
+          "implied_mark": 96.2931
         },
         {
           "ticker": "ALIANT",
@@ -2212,10 +2212,10 @@
           "next_call_date": "2027-10-01",
           "rating": "B+/B2",
           "par_or_shares": 4811000.0,
-          "market_value": 4716120.34,
-          "weight_pct": 0.075398,
+          "market_value": 4705578.0,
+          "weight_pct": 0.07566,
           "currency": "USD",
-          "implied_mark": 98.0279
+          "implied_mark": 97.8087
         },
         {
           "ticker": "PSKY",
@@ -2229,10 +2229,10 @@
           "next_call_date": "2031-09-15",
           "rating": "BBB-/Ba1",
           "par_or_shares": 4608000.0,
-          "market_value": 4570994.53,
-          "weight_pct": 0.073051,
+          "market_value": 4563050.25,
+          "weight_pct": 0.073316,
           "currency": "USD",
-          "implied_mark": 99.1969
+          "implied_mark": 99.0245
         },
         {
           "ticker": "UNSEAM",
@@ -2243,13 +2243,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 4.625,
           "maturity_date": "2028-06-01",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B3",
           "par_or_shares": 4300000.0,
-          "market_value": 4186815.4,
-          "weight_pct": 0.067988,
+          "market_value": 4196542.43,
+          "weight_pct": 0.068522,
           "currency": "USD",
-          "implied_mark": 97.3678
+          "implied_mark": 97.594
         },
         {
           "ticker": "TDG",
@@ -2263,10 +2263,10 @@
           "next_call_date": "2027-03-01",
           "rating": "BB-/Ba3",
           "par_or_shares": 4000000.0,
-          "market_value": 3977426.4,
-          "weight_pct": 0.06394,
+          "market_value": 3980988.0,
+          "weight_pct": 0.064362,
           "currency": "USD",
-          "implied_mark": 99.4357
+          "implied_mark": 99.5247
         },
         {
           "ticker": "PSKY",
@@ -2280,10 +2280,10 @@
           "next_call_date": "2036-07-15",
           "rating": "BBB-/Ba1",
           "par_or_shares": 3225000.0,
-          "market_value": 3187837.81,
-          "weight_pct": 0.050946,
+          "market_value": 3168884.97,
+          "weight_pct": 0.050916,
           "currency": "USD",
-          "implied_mark": 98.8477
+          "implied_mark": 98.26
         },
         {
           "ticker": "RCM",
@@ -2297,10 +2297,10 @@
           "next_call_date": "2027-11-15",
           "rating": "B/B2",
           "par_or_shares": 3145000.0,
-          "market_value": 3066146.67,
-          "weight_pct": 0.050326,
+          "market_value": 3059531.79,
+          "weight_pct": 0.050508,
           "currency": "USD",
-          "implied_mark": 97.4927
+          "implied_mark": 97.2824
         },
         {
           "ticker": "TDG",
@@ -2311,13 +2311,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 6.875,
           "maturity_date": "2030-12-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/Ba3",
           "par_or_shares": 3000000.0,
-          "market_value": 3025935.0,
-          "weight_pct": 0.04935,
+          "market_value": 3025011.27,
+          "weight_pct": 0.049617,
           "currency": "USD",
-          "implied_mark": 100.8645
+          "implied_mark": 100.8337
         },
         {
           "ticker": "BELRON",
@@ -2328,13 +2328,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 5.75,
           "maturity_date": "2029-10-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB-/Ba3",
           "par_or_shares": 3000000.0,
-          "market_value": 2956562.79,
-          "weight_pct": 0.048538,
+          "market_value": 2949123.6,
+          "weight_pct": 0.048692,
           "currency": "USD",
-          "implied_mark": 98.5521
+          "implied_mark": 98.3041
         },
         {
           "ticker": "RCM",
@@ -2345,13 +2345,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 3.0,
           "maturity_date": "2031-11-19",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
-          "par_or_shares": 3010447.4962,
-          "market_value": 3010688.33,
-          "weight_pct": 0.048115,
+          "par_or_shares": 3010447.4932,
+          "market_value": 3011320.52,
+          "weight_pct": 0.048374,
           "currency": "USD",
-          "implied_mark": 100.008
+          "implied_mark": 100.029
         },
         {
           "ticker": "FOCS",
@@ -2365,10 +2365,10 @@
           "next_call_date": "2028-09-15",
           "rating": "B/B3",
           "par_or_shares": 3000000.0,
-          "market_value": 2923293.3,
-          "weight_pct": 0.04721,
+          "market_value": 2927341.2,
+          "weight_pct": 0.047548,
           "currency": "USD",
-          "implied_mark": 97.4431
+          "implied_mark": 97.578
         },
         {
           "ticker": "BCULC",
@@ -2379,13 +2379,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 5.625,
           "maturity_date": "2029-09-15",
-          "next_call_date": "2026-10-12",
+          "next_call_date": "2026-10-15",
           "rating": "BBB-/Ba1",
           "par_or_shares": 3000000.0,
-          "market_value": 2941671.0,
-          "weight_pct": 0.047146,
+          "market_value": 2937945.12,
+          "weight_pct": 0.047353,
           "currency": "USD",
-          "implied_mark": 98.0557
+          "implied_mark": 97.9315
         },
         {
           "ticker": "ACRISU",
@@ -2396,13 +2396,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 4.25,
           "maturity_date": "2029-02-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B2",
           "par_or_shares": 3282000.0,
-          "market_value": 2841342.6,
-          "weight_pct": 0.045706,
+          "market_value": 2823967.36,
+          "weight_pct": 0.045681,
           "currency": "USD",
-          "implied_mark": 86.5735
+          "implied_mark": 86.0441
         },
         {
           "ticker": "BCULC",
@@ -2413,13 +2413,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 4.0,
           "maturity_date": "2030-10-15",
-          "next_call_date": "2026-10-12",
+          "next_call_date": "2026-10-15",
           "rating": "BB-/B1",
           "par_or_shares": 3000000.0,
-          "market_value": 2753142.6,
-          "weight_pct": 0.044895,
+          "market_value": 2749935.6,
+          "weight_pct": 0.045092,
           "currency": "USD",
-          "implied_mark": 91.7714
+          "implied_mark": 91.6645
         },
         {
           "ticker": "ALIANT",
@@ -2433,10 +2433,10 @@
           "next_call_date": "2027-01-15",
           "rating": "B+/B2",
           "par_or_shares": 2500000.0,
-          "market_value": 2496316.5,
-          "weight_pct": 0.040503,
+          "market_value": 2493209.25,
+          "weight_pct": 0.040685,
           "currency": "USD",
-          "implied_mark": 99.8527
+          "implied_mark": 99.7284
         },
         {
           "ticker": "POWSOL",
@@ -2450,10 +2450,10 @@
           "next_call_date": "2027-02-15",
           "rating": "BB-/B2",
           "par_or_shares": 2430000.0,
-          "market_value": 2444191.2,
-          "weight_pct": 0.039411,
+          "market_value": 2443279.95,
+          "weight_pct": 0.039621,
           "currency": "USD",
-          "implied_mark": 100.584
+          "implied_mark": 100.5465
         },
         {
           "ticker": "UNSEAM",
@@ -2467,10 +2467,10 @@
           "next_call_date": "2027-06-15",
           "rating": "B/B3",
           "par_or_shares": 2406000.0,
-          "market_value": 2402890.97,
-          "weight_pct": 0.039196,
+          "market_value": 2397697.86,
+          "weight_pct": 0.039337,
           "currency": "USD",
-          "implied_mark": 99.8708
+          "implied_mark": 99.6549
         },
         {
           "ticker": "THYELE",
@@ -2481,13 +2481,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 5.25,
           "maturity_date": "2027-07-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B/B1",
           "par_or_shares": 2199348.0,
-          "market_value": 2187224.09,
-          "weight_pct": 0.035356,
+          "market_value": 2187497.69,
+          "weight_pct": 0.035558,
           "currency": "USD",
-          "implied_mark": 99.4487
+          "implied_mark": 99.4612
         },
         {
           "ticker": "ATHENA",
@@ -2501,10 +2501,10 @@
           "next_call_date": "2028-08-15",
           "rating": "B/B2",
           "par_or_shares": 2000000.0,
-          "market_value": 2028340.0,
-          "weight_pct": 0.032835,
+          "market_value": 2029302.0,
+          "weight_pct": 0.03304,
           "currency": "USD",
-          "implied_mark": 101.417
+          "implied_mark": 101.4651
         },
         {
           "ticker": "TDG",
@@ -2515,13 +2515,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 6.375,
           "maturity_date": "2029-03-01",
-          "next_call_date": "2026-10-12",
+          "next_call_date": "2026-10-15",
           "rating": "BB-/Ba3",
           "par_or_shares": 2000000.0,
-          "market_value": 1999710.6,
-          "weight_pct": 0.032139,
+          "market_value": 1999239.6,
+          "weight_pct": 0.032314,
           "currency": "USD",
-          "implied_mark": 99.9855
+          "implied_mark": 99.962
         },
         {
           "ticker": "CZR",
@@ -2532,13 +2532,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 7.0,
           "maturity_date": "2030-02-15",
-          "next_call_date": "2026-10-12",
+          "next_call_date": "2026-10-15",
           "rating": "BB-/B1",
           "par_or_shares": 2000000.0,
-          "market_value": 1966648.8,
-          "weight_pct": 0.031728,
+          "market_value": 1961881.0,
+          "weight_pct": 0.031834,
           "currency": "USD",
-          "implied_mark": 98.3324
+          "implied_mark": 98.094
         },
         {
           "ticker": "TDG",
@@ -2552,10 +2552,10 @@
           "next_call_date": "2028-08-31",
           "rating": "BB-/Ba3",
           "par_or_shares": 2000000.0,
-          "market_value": 1937545.4,
-          "weight_pct": 0.031312,
+          "market_value": 1933222.58,
+          "weight_pct": 0.031421,
           "currency": "USD",
-          "implied_mark": 96.8773
+          "implied_mark": 96.6611
         },
         {
           "ticker": "EA",
@@ -2569,10 +2569,10 @@
           "next_call_date": "2029-07-01",
           "rating": "BB/Ba3",
           "par_or_shares": 1752000.0,
-          "market_value": 1771804.61,
-          "weight_pct": 0.029303,
+          "market_value": 1769919.46,
+          "weight_pct": 0.02944,
           "currency": "USD",
-          "implied_mark": 101.1304
+          "implied_mark": 101.0228
         },
         {
           "ticker": "PATPOW",
@@ -2581,15 +2581,15 @@
           "figi": null,
           "cusip": "70320UAB5",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 5.8168,
+          "coupon_pct": 5.9121,
           "maturity_date": "2033-06-22",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "BB/Ba2",
           "par_or_shares": 1792241.32,
-          "market_value": 1792250.28,
-          "weight_pct": 0.028643,
+          "market_value": 1792017.29,
+          "weight_pct": 0.028787,
           "currency": "USD",
-          "implied_mark": 100.0005
+          "implied_mark": 99.9875
         },
         {
           "ticker": "CDK",
@@ -2600,13 +2600,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 7.25,
           "maturity_date": "2029-06-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "CCC/Caa2",
           "par_or_shares": 2500000.0,
-          "market_value": 1600000.0,
-          "weight_pct": 0.026441,
+          "market_value": 1587500.0,
+          "weight_pct": 0.026401,
           "currency": "USD",
-          "implied_mark": 64.0
+          "implied_mark": 63.5
         },
         {
           "ticker": "AMWINS",
@@ -2617,13 +2617,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 6.375,
           "maturity_date": "2029-02-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 1580000.0,
-          "market_value": 1558041.16,
-          "weight_pct": 0.025114,
+          "market_value": 1558724.19,
+          "weight_pct": 0.025268,
           "currency": "USD",
-          "implied_mark": 98.6102
+          "implied_mark": 98.6534
         },
         {
           "ticker": "ALIANT",
@@ -2634,13 +2634,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 6.75,
           "maturity_date": "2028-04-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B2",
           "par_or_shares": 1500000.0,
-          "market_value": 1498693.5,
-          "weight_pct": 0.024707,
+          "market_value": 1497316.65,
+          "weight_pct": 0.024826,
           "currency": "USD",
-          "implied_mark": 99.9129
+          "implied_mark": 99.8211
         },
         {
           "ticker": "CARRIX",
@@ -2651,13 +2651,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 5.9003,
           "maturity_date": "2033-07-27",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "NR/Ba1",
           "par_or_shares": 1247047.2483,
-          "market_value": 1247047.25,
-          "weight_pct": 0.01993,
+          "market_value": 1247564.77,
+          "weight_pct": 0.020041,
           "currency": "USD",
-          "implied_mark": 100.0
+          "implied_mark": 100.0415
         },
         {
           "ticker": "TIBX",
@@ -2671,10 +2671,10 @@
           "next_call_date": "2028-08-15",
           "rating": "B/B1",
           "par_or_shares": 1383000.0,
-          "market_value": 1218386.35,
-          "weight_pct": 0.019667,
+          "market_value": 1216702.13,
+          "weight_pct": 0.019753,
           "currency": "USD",
-          "implied_mark": 88.0973
+          "implied_mark": 87.9756
         },
         {
           "ticker": "CDK",
@@ -2685,13 +2685,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 8.0,
           "maturity_date": "2029-06-15",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "CCC/Caa2",
           "par_or_shares": 1500000.0,
-          "market_value": 960000.0,
-          "weight_pct": 0.015919,
+          "market_value": 952500.0,
+          "weight_pct": 0.015896,
           "currency": "USD",
-          "implied_mark": 64.0
+          "implied_mark": 63.5
         },
         {
           "ticker": "MORTON",
@@ -2705,10 +2705,10 @@
           "next_call_date": "2028-08-15",
           "rating": "B/B3",
           "par_or_shares": 1000000.0,
-          "market_value": 977966.06,
-          "weight_pct": 0.015776,
+          "market_value": 976695.5,
+          "weight_pct": 0.015846,
           "currency": "USD",
-          "implied_mark": 97.7966
+          "implied_mark": 97.6696
         },
         {
           "ticker": "BCULC",
@@ -2719,13 +2719,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 3.5,
           "maturity_date": "2029-02-15",
-          "next_call_date": "2026-10-12",
+          "next_call_date": "2026-10-15",
           "rating": "BBB-/Ba1",
           "par_or_shares": 1000000.0,
-          "market_value": 942598.0,
-          "weight_pct": 0.015139,
+          "market_value": 942336.1,
+          "weight_pct": 0.015217,
           "currency": "USD",
-          "implied_mark": 94.2598
+          "implied_mark": 94.2336
         },
         {
           "ticker": "CSCHLD",
@@ -2736,13 +2736,13 @@
           "security_type": "Corporate Bond",
           "coupon_pct": 6.5,
           "maturity_date": "2029-02-01",
-          "next_call_date": "2026-10-12",
+          "next_call_date": "2026-10-15",
           "rating": "CCC/Caa2",
           "par_or_shares": 2000000.0,
-          "market_value": 896733.72,
-          "weight_pct": 0.014687,
+          "market_value": 877642.2,
+          "weight_pct": 0.014473,
           "currency": "USD",
-          "implied_mark": 44.8367
+          "implied_mark": 43.8821
         },
         {
           "ticker": "CZR",
@@ -2756,10 +2756,10 @@
           "next_call_date": "2027-02-15",
           "rating": "BB-/B1",
           "par_or_shares": 859000.0,
-          "market_value": 804338.33,
-          "weight_pct": 0.012973,
+          "market_value": 800653.97,
+          "weight_pct": 0.012988,
           "currency": "USD",
-          "implied_mark": 93.6366
+          "implied_mark": 93.2077
         },
         {
           "ticker": "QUIKHO",
@@ -2773,10 +2773,10 @@
           "next_call_date": "2028-03-01",
           "rating": "BB/Ba3",
           "par_or_shares": 810000.0,
-          "market_value": 791101.65,
-          "weight_pct": 0.012716,
+          "market_value": 792223.82,
+          "weight_pct": 0.012807,
           "currency": "USD",
-          "implied_mark": 97.6669
+          "implied_mark": 97.8054
         },
         {
           "ticker": "NOVHOL",
@@ -2790,10 +2790,10 @@
           "next_call_date": "2028-04-15",
           "rating": "B+/B2",
           "par_or_shares": 738000.0,
-          "market_value": 707683.77,
-          "weight_pct": 0.011682,
+          "market_value": 706191.61,
+          "weight_pct": 0.011725,
           "currency": "USD",
-          "implied_mark": 95.8921
+          "implied_mark": 95.6899
         },
         {
           "ticker": "NOVHOL",
@@ -2807,27 +2807,10 @@
           "next_call_date": "2028-10-15",
           "rating": "B+/B2",
           "par_or_shares": 701000.0,
-          "market_value": 701609.24,
-          "weight_pct": 0.01125,
+          "market_value": 701976.42,
+          "weight_pct": 0.011321,
           "currency": "USD",
-          "implied_mark": 100.0869
-        },
-        {
-          "ticker": "ACRISU",
-          "name": "Acrisure LLC / Acrisure Finance Inc",
-          "identifier": null,
-          "figi": null,
-          "cusip": "004961AA6",
-          "security_type": "Corporate Bond",
-          "coupon_pct": 6.75,
-          "maturity_date": "2032-07-01",
-          "next_call_date": "2028-07-01",
-          "rating": "B/B2",
-          "par_or_shares": 685000.0,
-          "market_value": 476749.8,
-          "weight_pct": 0.007808,
-          "currency": "USD",
-          "implied_mark": 69.5985
+          "implied_mark": 100.1393
         },
         {
           "ticker": "ADVGRO",
@@ -2841,10 +2824,44 @@
           "next_call_date": "2028-08-01",
           "rating": "B/B1",
           "par_or_shares": 500000.0,
-          "market_value": 480917.72,
-          "weight_pct": 0.007778,
+          "market_value": 480958.4,
+          "weight_pct": 0.007823,
           "currency": "USD",
-          "implied_mark": 96.1835
+          "implied_mark": 96.1917
+        },
+        {
+          "ticker": "ACRISU",
+          "name": "Acrisure LLC / Acrisure Finance Inc",
+          "identifier": null,
+          "figi": null,
+          "cusip": "004961AA6",
+          "security_type": "Corporate Bond",
+          "coupon_pct": 6.75,
+          "maturity_date": "2032-07-01",
+          "next_call_date": "2028-07-01",
+          "rating": "B/B2",
+          "par_or_shares": 685000.0,
+          "market_value": 466348.54,
+          "weight_pct": 0.007687,
+          "currency": "USD",
+          "implied_mark": 68.0801
+        },
+        {
+          "ticker": "PSKY",
+          "name": "Paramount Skydance Corp",
+          "identifier": null,
+          "figi": null,
+          "cusip": "69932AAS4",
+          "security_type": "Corporate Bond",
+          "coupon_pct": 6.55,
+          "maturity_date": "2029-10-05",
+          "next_call_date": "2029-09-05",
+          "rating": "BBB-/Ba1",
+          "par_or_shares": 232000.0,
+          "market_value": 231652.7,
+          "weight_pct": 0.003722,
+          "currency": "USD",
+          "implied_mark": 99.8503
         },
         {
           "ticker": "EUR",
@@ -2858,10 +2875,10 @@
           "next_call_date": null,
           "rating": "NR/NR",
           "par_or_shares": 78246.96,
-          "market_value": 88254.79,
-          "weight_pct": 0.00141,
+          "market_value": 87707.09,
+          "weight_pct": 0.001409,
           "currency": "USD",
-          "implied_mark": 112.7901
+          "implied_mark": 112.0901
         },
         {
           "ticker": "NVEICN",
@@ -2872,13 +2889,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.40094,
           "maturity_date": "2031-11-17",
-          "next_call_date": "2026-11-01",
+          "next_call_date": "2026-11-04",
           "rating": "B+/B1",
           "par_or_shares": 1256.2772,
-          "market_value": 1223.23,
-          "weight_pct": 4.8e-05,
+          "market_value": 1223.75,
+          "weight_pct": 7.7e-05,
           "currency": "USD",
-          "implied_mark": 97.3694
+          "implied_mark": 97.4108
         },
         {
           "ticker": "USD",
@@ -2891,9 +2908,9 @@
           "maturity_date": null,
           "next_call_date": null,
           "rating": "NR/NR",
-          "par_or_shares": -17975933.92,
-          "market_value": -17975933.92,
-          "weight_pct": -0.287282,
+          "par_or_shares": -30454650.81,
+          "market_value": -30454650.81,
+          "weight_pct": -0.489225,
           "currency": "USD",
           "implied_mark": null
         },
@@ -2909,7 +2926,7 @@
           "next_call_date": null,
           "rating": "NR/NR",
           "par_or_shares": 0.0,
-          "market_value": 21885538.22,
+          "market_value": 25303544.36,
           "weight_pct": null,
           "currency": "USD",
           "implied_mark": null
@@ -16388,6 +16405,15 @@
       "total_weight_pct": 99.999994,
       "sha256": "04edb8d8764ee0859c13f5c144f9a47083e824c225e66a39fa75c13b0e111c44",
       "snapshot_path": "data/loan-etf-holdings/2026-10-02/bkln.json"
+    },
+    {
+      "ticker": "BKLN",
+      "as_of": "2026-10-05",
+      "row_count": 170,
+      "total_market_value": 6225083225.73,
+      "total_weight_pct": 99.999999,
+      "sha256": "fe67db747d7e9a46e62cbe14acba8b05948450c6bfabad841e94eb86054e4fe7",
+      "snapshot_path": "data/loan-etf-holdings/2026-10-05/bkln.json"
     },
     {
       "ticker": "SRLN",
