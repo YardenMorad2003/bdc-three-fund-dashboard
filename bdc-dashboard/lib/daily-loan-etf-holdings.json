@@ -1,27 +1,27 @@
 {
   "meta": {
-    "generated_at_utc": "2026-11-12T03:48:09+00:00",
+    "generated_at_utc": "2026-11-13T03:24:50+00:00",
     "fund_count": 2,
-    "latest_as_of": "2026-11-10",
-    "snapshot_count": 142,
+    "latest_as_of": "2026-11-11",
+    "snapshot_count": 144,
     "schedule": "Weekdays after the US market close; provider business dates are retained verbatim.",
     "methodology": "Official provider rows are normalized without issuer-name matching. Implied mark equals market value divided by par/shares only when both fields are positive and the ratio is plausible.",
     "source_status": [
       {
         "ticker": "SRLN",
         "status": "refreshed",
-        "as_of": "2026-11-10",
+        "as_of": "2026-11-11",
         "records": 657,
-        "checked_at_utc": "2026-11-12T03:48:09+00:00",
+        "checked_at_utc": "2026-11-13T03:24:50+00:00",
         "source_url": "https://www.ssga.com/us/en/individual/etfs/state-street-blackstone-senior-loan-etf-srln",
         "message": "Official daily holdings refreshed and archived."
       },
       {
         "ticker": "BKLN",
         "status": "refreshed",
-        "as_of": "2026-11-10",
+        "as_of": "2026-11-11",
         "records": 172,
-        "checked_at_utc": "2026-11-12T03:48:09+00:00",
+        "checked_at_utc": "2026-11-13T03:24:50+00:00",
         "source_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-senior-loan-etf.html",
         "message": "Official daily holdings refreshed and archived."
       }
@@ -32,14 +32,14 @@
     {
       "ticker": "BKLN",
       "name": "Invesco Senior Loan ETF",
-      "as_of": "2026-11-10",
+      "as_of": "2026-11-11",
       "source_page_url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-senior-loan-etf.html",
       "source_data_url": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G508/holdings/fund?idType=cusip&productType=ETF",
       "row_count": 172,
-      "marked_row_count": 170,
-      "total_market_value": 5918634390.94,
-      "total_weight_pct": 100.000005,
-      "median_implied_mark": 99.875,
+      "marked_row_count": 171,
+      "total_market_value": 5928182858.05,
+      "total_weight_pct": 100.000003,
+      "median_implied_mark": 99.892,
       "holdings": [
         {
           "ticker": "IUGXX",
@@ -54,7 +54,7 @@
           "rating": "NR/NR",
           "par_or_shares": 332208055.08,
           "market_value": 332208055.08,
-          "weight_pct": 5.618309,
+          "weight_pct": 5.609844,
           "currency": "USD",
           "implied_mark": 100.0
         },
@@ -67,11 +67,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.29734,
           "maturity_date": "2033-04-07",
-          "next_call_date": "2026-12-10",
+          "next_call_date": "2026-12-11",
           "rating": "B+/B1",
           "par_or_shares": 104514915.28,
           "market_value": 103959941.08,
-          "weight_pct": 1.772425,
+          "weight_pct": 1.769879,
           "currency": "USD",
           "implied_mark": 99.469
         },
@@ -88,7 +88,7 @@
           "rating": "BBB-/Ba1",
           "par_or_shares": 98564304.36,
           "market_value": 97575704.39,
-          "weight_pct": 1.65708,
+          "weight_pct": 1.654708,
           "currency": "USD",
           "implied_mark": 98.997
         },
@@ -105,7 +105,7 @@
           "rating": "B-/B2",
           "par_or_shares": 96333836.8253,
           "market_value": 94226534.14,
-          "weight_pct": 1.595362,
+          "weight_pct": 1.593068,
           "currency": "USD",
           "implied_mark": 97.8125
         },
@@ -118,11 +118,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 7.56594,
           "maturity_date": "2033-08-04",
-          "next_call_date": "2026-12-10",
+          "next_call_date": "2026-12-11",
           "rating": "BB/Ba3",
           "par_or_shares": 91893226.06,
           "market_value": 92196014.24,
-          "weight_pct": 1.55924,
+          "weight_pct": 1.556876,
           "currency": "USD",
           "implied_mark": 100.3295
         },
@@ -139,7 +139,7 @@
           "rating": "B+/WR",
           "par_or_shares": 85375051.1125,
           "market_value": 85354561.1,
-          "weight_pct": 1.445279,
+          "weight_pct": 1.443205,
           "currency": "USD",
           "implied_mark": 99.976
         },
@@ -156,7 +156,7 @@
           "rating": "B-/B2",
           "par_or_shares": 84651814.77,
           "market_value": 83532294.52,
-          "weight_pct": 1.411922,
+          "weight_pct": 1.409929,
           "currency": "USD",
           "implied_mark": 98.6775
         },
@@ -172,10 +172,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B-/B3",
           "par_or_shares": 84252220.19,
-          "market_value": 81803850.67,
-          "weight_pct": 1.385492,
+          "market_value": 81777732.48,
+          "weight_pct": 1.383098,
           "currency": "USD",
-          "implied_mark": 97.094
+          "implied_mark": 97.063
         },
         {
           "ticker": "ATHENA",
@@ -189,10 +189,10 @@
           "next_call_date": "2026-07-25",
           "rating": "B/B2",
           "par_or_shares": 81553987.18,
-          "market_value": 81778260.64,
-          "weight_pct": 1.385205,
+          "market_value": 81766435.32,
+          "weight_pct": 1.383052,
           "currency": "USD",
-          "implied_mark": 100.275
+          "implied_mark": 100.2605
         },
         {
           "ticker": "ALIANT",
@@ -206,10 +206,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/B2",
           "par_or_shares": 81580139.45,
-          "market_value": 81535678.27,
-          "weight_pct": 1.380713,
+          "market_value": 81534862.47,
+          "weight_pct": 1.378728,
           "currency": "USD",
-          "implied_mark": 99.9455
+          "implied_mark": 99.9445
         },
         {
           "ticker": "PERCOR",
@@ -224,7 +224,7 @@
           "rating": "CCC+/Caa1",
           "par_or_shares": 87828762.9433,
           "market_value": 81417263.25,
-          "weight_pct": 1.379581,
+          "weight_pct": 1.377686,
           "currency": "USD",
           "implied_mark": 92.7
         },
@@ -241,7 +241,7 @@
           "rating": "BB-/B1",
           "par_or_shares": 74524779.6668,
           "market_value": 74888087.97,
-          "weight_pct": 1.268509,
+          "weight_pct": 1.266733,
           "currency": "USD",
           "implied_mark": 100.4875
         },
@@ -257,10 +257,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B-/B1",
           "par_or_shares": 79574273.8203,
-          "market_value": 74083648.93,
-          "weight_pct": 1.254898,
+          "market_value": 73975427.91,
+          "weight_pct": 1.251317,
           "currency": "USD",
-          "implied_mark": 93.1
+          "implied_mark": 92.964
         },
         {
           "ticker": "CITSEC",
@@ -275,7 +275,7 @@
           "rating": "BBB-/Baa3",
           "par_or_shares": 72053863.1,
           "market_value": 72168428.74,
-          "weight_pct": 1.228563,
+          "weight_pct": 1.226786,
           "currency": "USD",
           "implied_mark": 100.159
         },
@@ -286,13 +286,13 @@
           "figi": null,
           "cusip": "90266UAM5",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 5.6825,
+          "coupon_pct": 5.50683,
           "maturity_date": "2031-11-21",
           "next_call_date": "2026-12-10",
           "rating": "BB/Ba1",
           "par_or_shares": 69422070.47,
           "market_value": 69447062.42,
-          "weight_pct": 1.18922,
+          "weight_pct": 1.187481,
           "currency": "USD",
           "implied_mark": 100.036
         },
@@ -309,7 +309,7 @@
           "rating": "BB-/Ba3",
           "par_or_shares": 69169363.14,
           "market_value": 69092239.3,
-          "weight_pct": 1.169739,
+          "weight_pct": 1.16805,
           "currency": "USD",
           "implied_mark": 99.8885
         },
@@ -325,10 +325,10 @@
           "next_call_date": "2024-12-16",
           "rating": "B/WR",
           "par_or_shares": 69400235.5793,
-          "market_value": 68677432.13,
-          "weight_pct": 1.162909,
+          "market_value": 68657653.06,
+          "weight_pct": 1.160911,
           "currency": "USD",
-          "implied_mark": 98.9585
+          "implied_mark": 98.93
         },
         {
           "ticker": "AMWINS",
@@ -342,10 +342,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/B1",
           "par_or_shares": 68039893.7204,
-          "market_value": 67887484.36,
-          "weight_pct": 1.149298,
+          "market_value": 67902793.33,
+          "weight_pct": 1.147894,
           "currency": "USD",
-          "implied_mark": 99.776
+          "implied_mark": 99.7985
         },
         {
           "ticker": "PFPT",
@@ -359,10 +359,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 66199011.91,
-          "market_value": 66273816.79,
-          "weight_pct": 1.129287,
+          "market_value": 66281760.67,
+          "weight_pct": 1.127824,
           "currency": "USD",
-          "implied_mark": 100.113
+          "implied_mark": 100.125
         },
         {
           "ticker": "ENSHLT",
@@ -376,10 +376,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 66303750.0,
-          "market_value": 66610404.84,
-          "weight_pct": 1.128245,
+          "market_value": 66586867.01,
+          "weight_pct": 1.126263,
           "currency": "USD",
-          "implied_mark": 100.4625
+          "implied_mark": 100.427
         },
         {
           "ticker": "BELRON",
@@ -388,13 +388,13 @@
           "figi": null,
           "cusip": "08078UAQ6",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 5.81688,
+          "coupon_pct": 6.06688,
           "maturity_date": "2031-10-16",
-          "next_call_date": "2026-12-10",
+          "next_call_date": "2026-12-11",
           "rating": "BB-/Ba3",
           "par_or_shares": 66125037.94,
           "market_value": 66219596.74,
-          "weight_pct": 1.119193,
+          "weight_pct": 1.117571,
           "currency": "USD",
           "implied_mark": 100.143
         },
@@ -411,7 +411,7 @@
           "rating": "BB/Ba2",
           "par_or_shares": 65096646.0663,
           "market_value": 65008440.11,
-          "weight_pct": 1.101494,
+          "weight_pct": 1.099916,
           "currency": "USD",
           "implied_mark": 99.8645
         },
@@ -428,7 +428,7 @@
           "rating": "B/B2",
           "par_or_shares": 64801229.9745,
           "market_value": 62886677.63,
-          "weight_pct": 1.078342,
+          "weight_pct": 1.076798,
           "currency": "USD",
           "implied_mark": 97.0455
         },
@@ -445,7 +445,7 @@
           "rating": "NR/B3",
           "par_or_shares": 63708243.2897,
           "market_value": 63458825.52,
-          "weight_pct": 1.074803,
+          "weight_pct": 1.073287,
           "currency": "USD",
           "implied_mark": 99.6085
         },
@@ -462,9 +462,26 @@
           "rating": "B/B1",
           "par_or_shares": 61839891.9,
           "market_value": 62065607.51,
-          "weight_pct": 1.07189,
+          "weight_pct": 1.070364,
           "currency": "USD",
           "implied_mark": 100.365
+        },
+        {
+          "ticker": "PRXL",
+          "name": "Parexel International MA Corp",
+          "identifier": null,
+          "figi": null,
+          "cusip": "71911KAF1",
+          "security_type": "Floating Rate Note",
+          "coupon_pct": 6.42987,
+          "maturity_date": "2031-12-09",
+          "next_call_date": "2026-12-10",
+          "rating": "B+/B2",
+          "par_or_shares": 62635901.82,
+          "market_value": 62870786.45,
+          "weight_pct": 1.063142,
+          "currency": "USD",
+          "implied_mark": 100.375
         },
         {
           "ticker": "CULLHO",
@@ -479,26 +496,9 @@
           "rating": "B/B2",
           "par_or_shares": 62441393.52,
           "market_value": 62629966.53,
-          "weight_pct": 1.059939,
+          "weight_pct": 1.058424,
           "currency": "USD",
           "implied_mark": 100.302
-        },
-        {
-          "ticker": "PRXL",
-          "name": "Parexel International MA Corp",
-          "identifier": null,
-          "figi": null,
-          "cusip": "71911KAF1",
-          "security_type": "Floating Rate Note",
-          "coupon_pct": 6.42987,
-          "maturity_date": "2031-12-09",
-          "next_call_date": "2026-12-10",
-          "rating": "B+/B2",
-          "par_or_shares": 61635901.82,
-          "market_value": 61847621.14,
-          "weight_pct": 1.047371,
-          "currency": "USD",
-          "implied_mark": 100.3435
         },
         {
           "ticker": "VCVHHO",
@@ -512,10 +512,10 @@
           "next_call_date": "2024-12-02",
           "rating": "B/WR",
           "par_or_shares": 63895977.4338,
-          "market_value": 61547800.26,
-          "weight_pct": 1.041753,
+          "market_value": 61611696.24,
+          "weight_pct": 1.041359,
           "currency": "USD",
-          "implied_mark": 96.325
+          "implied_mark": 96.425
         },
         {
           "ticker": "FOCS",
@@ -529,10 +529,10 @@
           "next_call_date": "2025-11-24",
           "rating": "B/WR",
           "par_or_shares": 60384480.3832,
-          "market_value": 59672245.44,
-          "weight_pct": 1.010417,
+          "market_value": 59690964.63,
+          "weight_pct": 1.009288,
           "currency": "USD",
-          "implied_mark": 98.8205
+          "implied_mark": 98.8515
         },
         {
           "ticker": "GCTI",
@@ -547,7 +547,7 @@
           "rating": "B/B2",
           "par_or_shares": 59714739.7725,
           "market_value": 58893662.1,
-          "weight_pct": 0.997099,
+          "weight_pct": 0.995661,
           "currency": "USD",
           "implied_mark": 98.625
         },
@@ -563,10 +563,10 @@
           "next_call_date": "2026-12-10",
           "rating": "BB/Ba3",
           "par_or_shares": 59047814.9581,
-          "market_value": 58881890.6,
-          "weight_pct": 0.996926,
+          "market_value": 58887795.38,
+          "weight_pct": 0.995591,
           "currency": "USD",
-          "implied_mark": 99.719
+          "implied_mark": 99.729
         },
         {
           "ticker": "CPIHLB",
@@ -581,7 +581,7 @@
           "rating": "BB-/Ba3",
           "par_or_shares": 58099408.9803,
           "market_value": 58156055.9,
-          "weight_pct": 0.984544,
+          "weight_pct": 0.98312,
           "currency": "USD",
           "implied_mark": 100.0975
         },
@@ -598,7 +598,7 @@
           "rating": "BB+/Ba1",
           "par_or_shares": 57842530.3151,
           "market_value": 57862775.2,
-          "weight_pct": 0.979358,
+          "weight_pct": 0.977922,
           "currency": "USD",
           "implied_mark": 100.035
         },
@@ -609,13 +609,13 @@
           "figi": null,
           "cusip": "74274NAM5",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 7.8442,
+          "coupon_pct": 7.975467,
           "maturity_date": "2033-03-07",
-          "next_call_date": "2026-12-10",
+          "next_call_date": "2026-12-11",
           "rating": "B-/B3",
           "par_or_shares": 56694165.68,
           "market_value": 56701252.45,
-          "weight_pct": 0.964736,
+          "weight_pct": 0.963394,
           "currency": "USD",
           "implied_mark": 100.0125
         },
@@ -631,10 +631,10 @@
           "next_call_date": "2026-12-10",
           "rating": "BBB-/Ba1",
           "par_or_shares": 57587484.846,
-          "market_value": 56099712.18,
-          "weight_pct": 0.955169,
+          "market_value": 56123898.92,
+          "weight_pct": 0.954209,
           "currency": "USD",
-          "implied_mark": 97.4165
+          "implied_mark": 97.4585
         },
         {
           "ticker": "RESPAR",
@@ -645,13 +645,13 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.47862,
           "maturity_date": "2033-01-31",
-          "next_call_date": "2026-12-10",
+          "next_call_date": "2026-12-11",
           "rating": "B/B2",
           "par_or_shares": 57000000.0,
-          "market_value": 56129610.0,
-          "weight_pct": 0.948354,
+          "market_value": 56162955.0,
+          "weight_pct": 0.947389,
           "currency": "USD",
-          "implied_mark": 98.473
+          "implied_mark": 98.5315
         },
         {
           "ticker": "CHAGRO",
@@ -666,7 +666,7 @@
           "rating": "B/B3",
           "par_or_shares": 54924534.8001,
           "market_value": 54995936.7,
-          "weight_pct": 0.931417,
+          "weight_pct": 0.930101,
           "currency": "USD",
           "implied_mark": 100.13
         },
@@ -683,7 +683,7 @@
           "rating": "B+/B1",
           "par_or_shares": 53588178.27,
           "market_value": 53681689.64,
-          "weight_pct": 0.909388,
+          "weight_pct": 0.908122,
           "currency": "USD",
           "implied_mark": 100.1745
         },
@@ -699,10 +699,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/B2",
           "par_or_shares": 53369473.2854,
-          "market_value": 53344389.63,
-          "weight_pct": 0.903355,
+          "market_value": 53351594.51,
+          "weight_pct": 0.902191,
           "currency": "USD",
-          "implied_mark": 99.953
+          "implied_mark": 99.9665
         },
         {
           "ticker": "NUGGET",
@@ -716,10 +716,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 53290762.9823,
-          "market_value": 53307549.57,
-          "weight_pct": 0.901093,
+          "market_value": 53312079.29,
+          "weight_pct": 0.899928,
           "currency": "USD",
-          "implied_mark": 100.0315
+          "implied_mark": 100.04
         },
         {
           "ticker": "WECHOL",
@@ -733,10 +733,10 @@
           "next_call_date": "2024-11-27",
           "rating": "B+/B1",
           "par_or_shares": 52433666.9961,
-          "market_value": 52505501.12,
-          "weight_pct": 0.888459,
+          "market_value": 52512055.33,
+          "weight_pct": 0.887284,
           "currency": "USD",
-          "implied_mark": 100.137
+          "implied_mark": 100.1495
         },
         {
           "ticker": "HBGCN",
@@ -751,7 +751,7 @@
           "rating": "B+/Ba3",
           "par_or_shares": 51956297.2326,
           "market_value": 52103333.55,
-          "weight_pct": 0.883699,
+          "weight_pct": 0.882435,
           "currency": "USD",
           "implied_mark": 100.283
         },
@@ -768,7 +768,7 @@
           "rating": "CCC+/B3",
           "par_or_shares": 54862280.0129,
           "market_value": 52061012.0,
-          "weight_pct": 0.88209,
+          "weight_pct": 0.880875,
           "currency": "USD",
           "implied_mark": 94.894
         },
@@ -784,10 +784,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B3",
           "par_or_shares": 52682153.35,
-          "market_value": 51727289.32,
-          "weight_pct": 0.88066,
+          "market_value": 51716226.07,
+          "weight_pct": 0.879275,
           "currency": "USD",
-          "implied_mark": 98.1875
+          "implied_mark": 98.1665
         },
         {
           "ticker": "GRATHO",
@@ -801,10 +801,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/B2",
           "par_or_shares": 54672014.2522,
-          "market_value": 51977504.03,
-          "weight_pct": 0.880277,
+          "market_value": 51984064.67,
+          "weight_pct": 0.879141,
           "currency": "USD",
-          "implied_mark": 95.0715
+          "implied_mark": 95.0835
         },
         {
           "ticker": "SPCHEM",
@@ -817,9 +817,9 @@
           "maturity_date": "2031-07-08",
           "next_call_date": "2026-12-10",
           "rating": "B+/B2",
-          "par_or_shares": 50489969.6286,
+          "par_or_shares": 50489969.6386,
           "market_value": 50553334.54,
-          "weight_pct": 0.859581,
+          "weight_pct": 0.858373,
           "currency": "USD",
           "implied_mark": 100.1255
         },
@@ -836,7 +836,7 @@
           "rating": "BB-/Ba3",
           "par_or_shares": 50468071.8037,
           "market_value": 50547811.36,
-          "weight_pct": 0.856054,
+          "weight_pct": 0.854833,
           "currency": "USD",
           "implied_mark": 100.158
         },
@@ -847,13 +847,13 @@
           "figi": null,
           "cusip": "19682LAC2",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 5.82457,
+          "coupon_pct": 5.62,
           "maturity_date": "2033-01-30",
           "next_call_date": "2026-12-10",
           "rating": "BB+/Ba1",
           "par_or_shares": 50330288.28,
           "market_value": 50255799.45,
-          "weight_pct": 0.855243,
+          "weight_pct": 0.854,
           "currency": "USD",
           "implied_mark": 99.852
         },
@@ -870,7 +870,7 @@
           "rating": "B+/B1",
           "par_or_shares": 49837989.71,
           "market_value": 50048306.03,
-          "weight_pct": 0.852722,
+          "weight_pct": 0.851505,
           "currency": "USD",
           "implied_mark": 100.422
         },
@@ -887,7 +887,7 @@
           "rating": "B/B2",
           "par_or_shares": 49915556.8089,
           "market_value": 50108730.01,
-          "weight_pct": 0.848548,
+          "weight_pct": 0.847344,
           "currency": "USD",
           "implied_mark": 100.387
         },
@@ -904,7 +904,7 @@
           "rating": "NR/Baa3",
           "par_or_shares": 49870000.0,
           "market_value": 49408702.5,
-          "weight_pct": 0.836569,
+          "weight_pct": 0.835319,
           "currency": "USD",
           "implied_mark": 99.075
         },
@@ -920,10 +920,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 55876041.7756,
-          "market_value": 49093528.44,
-          "weight_pct": 0.831638,
+          "market_value": 49258362.77,
+          "weight_pct": 0.833254,
           "currency": "USD",
-          "implied_mark": 87.8615
+          "implied_mark": 88.1565
         },
         {
           "ticker": "HLT",
@@ -938,7 +938,7 @@
           "rating": "BBB-/Baa1",
           "par_or_shares": 48310079.21,
           "market_value": 48409597.97,
-          "weight_pct": 0.819947,
+          "weight_pct": 0.818752,
           "currency": "USD",
           "implied_mark": 100.206
         },
@@ -955,7 +955,7 @@
           "rating": "B-/WR",
           "par_or_shares": 48560151.2862,
           "market_value": 48398445.98,
-          "weight_pct": 0.819625,
+          "weight_pct": 0.818463,
           "currency": "USD",
           "implied_mark": 99.667
         },
@@ -972,9 +972,26 @@
           "rating": "B/B3",
           "par_or_shares": 48299507.3087,
           "market_value": 48372439.56,
-          "weight_pct": 0.819345,
+          "weight_pct": 0.818187,
           "currency": "USD",
           "implied_mark": 100.151
+        },
+        {
+          "ticker": "RP",
+          "name": "RealPage Inc",
+          "identifier": null,
+          "figi": null,
+          "cusip": "75605VAD4",
+          "security_type": "Floating Rate Note",
+          "coupon_pct": 7.33618,
+          "maturity_date": "2028-04-24",
+          "next_call_date": "2026-12-10",
+          "rating": "B-/B3",
+          "par_or_shares": 49069363.9894,
+          "market_value": 47797731.42,
+          "weight_pct": 0.813668,
+          "currency": "USD",
+          "implied_mark": 97.4085
         },
         {
           "ticker": "PRMB",
@@ -989,26 +1006,9 @@
           "rating": "BB/Ba3",
           "par_or_shares": 47161529.91,
           "market_value": 47414787.33,
-          "weight_pct": 0.807844,
+          "weight_pct": 0.806693,
           "currency": "USD",
           "implied_mark": 100.537
-        },
-        {
-          "ticker": "RP",
-          "name": "RealPage Inc",
-          "identifier": null,
-          "figi": null,
-          "cusip": "75605VAD4",
-          "security_type": "Floating Rate Note",
-          "coupon_pct": 7.33618,
-          "maturity_date": "2028-04-24",
-          "next_call_date": "2026-12-10",
-          "rating": "B-/B3",
-          "par_or_shares": 48069363.9894,
-          "market_value": 46833019.95,
-          "weight_pct": 0.798506,
-          "currency": "USD",
-          "implied_mark": 97.428
         },
         {
           "ticker": "MORTON",
@@ -1022,10 +1022,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B3",
           "par_or_shares": 47213084.81,
-          "market_value": 46403144.34,
-          "weight_pct": 0.79467,
+          "market_value": 46416364.0,
+          "weight_pct": 0.793766,
           "currency": "USD",
-          "implied_mark": 98.2845
+          "implied_mark": 98.3125
         },
         {
           "ticker": "HDCINC",
@@ -1040,7 +1040,7 @@
           "rating": "B/B1",
           "par_or_shares": 46456981.3101,
           "market_value": 46534332.18,
-          "weight_pct": 0.793334,
+          "weight_pct": 0.792217,
           "currency": "USD",
           "implied_mark": 100.1665
         },
@@ -1057,7 +1057,7 @@
           "rating": "B/B2",
           "par_or_shares": 46416837.88,
           "market_value": 46390844.45,
-          "weight_pct": 0.7922,
+          "weight_pct": 0.791053,
           "currency": "USD",
           "implied_mark": 99.944
         },
@@ -1074,7 +1074,7 @@
           "rating": "B-/WR",
           "par_or_shares": 46904501.6545,
           "market_value": 46430531.67,
-          "weight_pct": 0.786292,
+          "weight_pct": 0.785172,
           "currency": "USD",
           "implied_mark": 98.9895
         },
@@ -1091,7 +1091,7 @@
           "rating": "B/B3",
           "par_or_shares": 46468921.1604,
           "market_value": 46062318.1,
-          "weight_pct": 0.780027,
+          "weight_pct": 0.778919,
           "currency": "USD",
           "implied_mark": 99.125
         },
@@ -1108,7 +1108,7 @@
           "rating": "B+/B2",
           "par_or_shares": 45805972.356,
           "market_value": 45954841.77,
-          "weight_pct": 0.778031,
+          "weight_pct": 0.776918,
           "currency": "USD",
           "implied_mark": 100.325
         },
@@ -1125,7 +1125,7 @@
           "rating": "B/Caa1",
           "par_or_shares": 45322625.41,
           "market_value": 45443183.59,
-          "weight_pct": 0.770741,
+          "weight_pct": 0.769744,
           "currency": "USD",
           "implied_mark": 100.266
         },
@@ -1142,7 +1142,7 @@
           "rating": "B/B1",
           "par_or_shares": 45862577.9267,
           "market_value": 45342037.67,
-          "weight_pct": 0.768175,
+          "weight_pct": 0.767109,
           "currency": "USD",
           "implied_mark": 98.865
         },
@@ -1159,7 +1159,7 @@
           "rating": "BB+/Ba1",
           "par_or_shares": 45220989.3121,
           "market_value": 45288142.48,
-          "weight_pct": 0.766612,
+          "weight_pct": 0.765497,
           "currency": "USD",
           "implied_mark": 100.1485
         },
@@ -1175,10 +1175,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 45716477.13,
-          "market_value": 45149364.23,
-          "weight_pct": 0.764592,
+          "market_value": 45151421.47,
+          "weight_pct": 0.763538,
           "currency": "USD",
-          "implied_mark": 98.7595
+          "implied_mark": 98.764
         },
         {
           "ticker": "ADVGRO",
@@ -1192,10 +1192,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B1",
           "par_or_shares": 45027483.9043,
-          "market_value": 44872814.5,
-          "weight_pct": 0.764398,
+          "market_value": 44876641.83,
+          "weight_pct": 0.76337,
           "currency": "USD",
-          "implied_mark": 99.6565
+          "implied_mark": 99.665
         },
         {
           "ticker": "HYPINS",
@@ -1209,10 +1209,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B-/B2",
           "par_or_shares": 46205132.3871,
-          "market_value": 44988320.23,
-          "weight_pct": 0.761789,
+          "market_value": 44988551.25,
+          "weight_pct": 0.760704,
           "currency": "USD",
-          "implied_mark": 97.3665
+          "implied_mark": 97.367
         },
         {
           "ticker": "POWSOL",
@@ -1227,7 +1227,7 @@
           "rating": "BB-/B2",
           "par_or_shares": 44528517.02,
           "market_value": 44616683.48,
-          "weight_pct": 0.755591,
+          "weight_pct": 0.754521,
           "currency": "USD",
           "implied_mark": 100.198
         },
@@ -1244,7 +1244,7 @@
           "rating": "B-/B3",
           "par_or_shares": 44641278.28,
           "market_value": 43322351.71,
-          "weight_pct": 0.742292,
+          "weight_pct": 0.741259,
           "currency": "USD",
           "implied_mark": 97.0455
         },
@@ -1260,10 +1260,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B-/B2",
           "par_or_shares": 45462230.93,
-          "market_value": 43234581.62,
-          "weight_pct": 0.732426,
+          "market_value": 43189119.39,
+          "weight_pct": 0.730641,
           "currency": "USD",
-          "implied_mark": 95.1
+          "implied_mark": 95.0
         },
         {
           "ticker": "KASEYA",
@@ -1278,7 +1278,7 @@
           "rating": "B-/B2",
           "par_or_shares": 51662084.4704,
           "market_value": 43047431.89,
-          "weight_pct": 0.729429,
+          "weight_pct": 0.728427,
           "currency": "USD",
           "implied_mark": 83.325
         },
@@ -1295,7 +1295,7 @@
           "rating": "B-/B3",
           "par_or_shares": 43604345.9755,
           "market_value": 42389528.9,
-          "weight_pct": 0.717057,
+          "weight_pct": 0.716073,
           "currency": "USD",
           "implied_mark": 97.214
         },
@@ -1312,7 +1312,7 @@
           "rating": "B/B1",
           "par_or_shares": 42125800.18,
           "market_value": 42315366.28,
-          "weight_pct": 0.716882,
+          "weight_pct": 0.715879,
           "currency": "USD",
           "implied_mark": 100.45
         },
@@ -1328,10 +1328,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 42846166.82,
-          "market_value": 42149916.61,
-          "weight_pct": 0.713679,
+          "market_value": 42139205.07,
+          "weight_pct": 0.712476,
           "currency": "USD",
-          "implied_mark": 98.375
+          "implied_mark": 98.35
         },
         {
           "ticker": "ROCSOF",
@@ -1345,10 +1345,10 @@
           "next_call_date": "2025-07-16",
           "rating": "B-/WR",
           "par_or_shares": 41941530.7379,
-          "market_value": 41923915.29,
-          "weight_pct": 0.710159,
+          "market_value": 41928528.86,
+          "weight_pct": 0.70924,
           "currency": "USD",
-          "implied_mark": 99.958
+          "implied_mark": 99.969
         },
         {
           "ticker": "TIBX",
@@ -1363,7 +1363,7 @@
           "rating": "B/B2",
           "par_or_shares": 43522177.3,
           "market_value": 41479028.68,
-          "weight_pct": 0.707644,
+          "weight_pct": 0.706653,
           "currency": "USD",
           "implied_mark": 95.3055
         },
@@ -1379,10 +1379,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 41377456.53,
-          "market_value": 41424006.17,
-          "weight_pct": 0.70596,
+          "market_value": 41433522.98,
+          "weight_pct": 0.705116,
           "currency": "USD",
-          "implied_mark": 100.1125
+          "implied_mark": 100.1355
         },
         {
           "ticker": "ICECR",
@@ -1397,7 +1397,7 @@
           "rating": "BB-/B1",
           "par_or_shares": 40871981.81,
           "market_value": 40764897.22,
-          "weight_pct": 0.703295,
+          "weight_pct": 0.702284,
           "currency": "USD",
           "implied_mark": 99.738
         },
@@ -1410,11 +1410,11 @@
           "security_type": "Floating Rate Note",
           "coupon_pct": 6.2906,
           "maturity_date": "2032-01-09",
-          "next_call_date": "2026-12-10",
+          "next_call_date": "2026-12-11",
           "rating": "B/B2",
           "par_or_shares": 41453501.0511,
           "market_value": 41313595.48,
-          "weight_pct": 0.698949,
+          "weight_pct": 0.697851,
           "currency": "USD",
           "implied_mark": 99.6625
         },
@@ -1431,7 +1431,7 @@
           "rating": "BB-/B1",
           "par_or_shares": 40365741.91,
           "market_value": 40426896.01,
-          "weight_pct": 0.684392,
+          "weight_pct": 0.683402,
           "currency": "USD",
           "implied_mark": 100.1515
         },
@@ -1447,10 +1447,10 @@
           "next_call_date": null,
           "rating": "B+/B1",
           "par_or_shares": 39831062.96,
-          "market_value": 39858745.55,
-          "weight_pct": 0.674973,
+          "market_value": 39855160.75,
+          "weight_pct": 0.673953,
           "currency": "USD",
-          "implied_mark": 100.0695
+          "implied_mark": 100.0605
         },
         {
           "ticker": "IMPPAP",
@@ -1465,7 +1465,7 @@
           "rating": "B/B3",
           "par_or_shares": 40377844.7755,
           "market_value": 39658715.36,
-          "weight_pct": 0.671698,
+          "weight_pct": 0.670752,
           "currency": "USD",
           "implied_mark": 98.219
         },
@@ -1481,10 +1481,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 40804014.19,
-          "market_value": 38920500.9,
-          "weight_pct": 0.663729,
+          "market_value": 39040668.72,
+          "weight_pct": 0.66482,
           "currency": "USD",
-          "implied_mark": 95.384
+          "implied_mark": 95.6785
         },
         {
           "ticker": "UNVR",
@@ -1498,10 +1498,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/B1",
           "par_or_shares": 38911266.0831,
-          "market_value": 39026832.54,
-          "weight_pct": 0.661078,
+          "market_value": 39032863.79,
+          "weight_pct": 0.660256,
           "currency": "USD",
-          "implied_mark": 100.297
+          "implied_mark": 100.3125
         },
         {
           "ticker": "QLIK",
@@ -1516,7 +1516,7 @@
           "rating": "B/B3",
           "par_or_shares": 54400858.7085,
           "market_value": 38590609.15,
-          "weight_pct": 0.660025,
+          "weight_pct": 0.65914,
           "currency": "USD",
           "implied_mark": 70.9375
         },
@@ -1533,7 +1533,7 @@
           "rating": "B/B2",
           "par_or_shares": 38076091.5,
           "market_value": 38034969.32,
-          "weight_pct": 0.645971,
+          "weight_pct": 0.645049,
           "currency": "USD",
           "implied_mark": 99.892
         },
@@ -1549,10 +1549,10 @@
           "next_call_date": "2026-12-10",
           "rating": "BBB-/Ba1",
           "par_or_shares": 37590015.6598,
-          "market_value": 37590015.66,
-          "weight_pct": 0.636566,
+          "market_value": 37596781.86,
+          "weight_pct": 0.635773,
           "currency": "USD",
-          "implied_mark": 100.0
+          "implied_mark": 100.018
         },
         {
           "ticker": "CZR",
@@ -1566,10 +1566,10 @@
           "next_call_date": "2024-11-25",
           "rating": "BB-/WR",
           "par_or_shares": 40040355.6916,
-          "market_value": 37162455.13,
-          "weight_pct": 0.629352,
+          "market_value": 37179071.87,
+          "weight_pct": 0.62874,
           "currency": "USD",
-          "implied_mark": 92.8125
+          "implied_mark": 92.854
         },
         {
           "ticker": "NOVHOL",
@@ -1578,15 +1578,15 @@
           "figi": null,
           "cusip": "18972FAE2",
           "security_type": "Floating Rate Note",
-          "coupon_pct": 7.17987,
+          "coupon_pct": 7.164,
           "maturity_date": "2032-04-01",
-          "next_call_date": "2026-12-10",
+          "next_call_date": "2026-12-11",
           "rating": "B+/B2",
           "par_or_shares": 37262249.5996,
-          "market_value": 36994520.34,
-          "weight_pct": 0.626592,
+          "market_value": 36980174.37,
+          "weight_pct": 0.62547,
           "currency": "USD",
-          "implied_mark": 99.2815
+          "implied_mark": 99.243
         },
         {
           "ticker": "TDG",
@@ -1601,7 +1601,7 @@
           "rating": "BB-/WR",
           "par_or_shares": 36902556.8755,
           "market_value": 36991676.55,
-          "weight_pct": 0.626047,
+          "weight_pct": 0.62515,
           "currency": "USD",
           "implied_mark": 100.2415
         },
@@ -1617,10 +1617,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 36852136.8709,
-          "market_value": 36932843.05,
-          "weight_pct": 0.625472,
+          "market_value": 36941134.78,
+          "weight_pct": 0.624721,
           "currency": "USD",
-          "implied_mark": 100.219
+          "implied_mark": 100.2415
         },
         {
           "ticker": "CDK",
@@ -1635,7 +1635,7 @@
           "rating": "CCC/Caa2",
           "par_or_shares": 59285752.8719,
           "market_value": 29939305.2,
-          "weight_pct": 0.51614,
+          "weight_pct": 0.515492,
           "currency": "USD",
           "implied_mark": 50.5
         },
@@ -1652,7 +1652,7 @@
           "rating": "B/B3",
           "par_or_shares": 26582209.4,
           "market_value": 26634177.62,
-          "weight_pct": 0.451193,
+          "weight_pct": 0.450565,
           "currency": "USD",
           "implied_mark": 100.1955
         },
@@ -1668,10 +1668,10 @@
           "next_call_date": "2024-08-23",
           "rating": "B-/WR",
           "par_or_shares": 21770410.768,
-          "market_value": 21666783.61,
-          "weight_pct": 0.369889,
+          "market_value": 21668960.65,
+          "weight_pct": 0.3694,
           "currency": "USD",
-          "implied_mark": 99.524
+          "implied_mark": 99.534
         },
         {
           "ticker": "CSCHLD",
@@ -1685,10 +1685,10 @@
           "next_call_date": "2026-12-10",
           "rating": "CCC/Caa2",
           "par_or_shares": 40930778.6719,
-          "market_value": 21554352.7,
-          "weight_pct": 0.369231,
+          "market_value": 21582594.94,
+          "weight_pct": 0.3693,
           "currency": "USD",
-          "implied_mark": 52.6605
+          "implied_mark": 52.7295
         },
         {
           "ticker": "GWR",
@@ -1703,7 +1703,7 @@
           "rating": "BB/Ba3",
           "par_or_shares": 21475740.0069,
           "market_value": 21466290.68,
-          "weight_pct": 0.365494,
+          "weight_pct": 0.364964,
           "currency": "USD",
           "implied_mark": 99.956
         },
@@ -1720,7 +1720,7 @@
           "rating": "B/B3",
           "par_or_shares": 21738563.74,
           "market_value": 21269880.31,
-          "weight_pct": 0.360281,
+          "weight_pct": 0.359776,
           "currency": "USD",
           "implied_mark": 97.844
         },
@@ -1736,10 +1736,10 @@
           "next_call_date": "2026-12-10",
           "rating": "BBB-/Ba1",
           "par_or_shares": 22100000.0,
-          "market_value": 21207389.84,
-          "weight_pct": 0.359945,
+          "market_value": 21209166.68,
+          "weight_pct": 0.359435,
           "currency": "USD",
-          "implied_mark": 95.961
+          "implied_mark": 95.9691
         },
         {
           "ticker": "HBGCN",
@@ -1753,10 +1753,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/Ba3",
           "par_or_shares": 18900000.0,
-          "market_value": 19182341.81,
-          "weight_pct": 0.333526,
+          "market_value": 19187298.9,
+          "weight_pct": 0.333135,
           "currency": "USD",
-          "implied_mark": 101.4939
+          "implied_mark": 101.5201
         },
         {
           "ticker": "UNSEAM",
@@ -1770,10 +1770,10 @@
           "next_call_date": "2027-02-15",
           "rating": "B/B3",
           "par_or_shares": 17597000.0,
-          "market_value": 17742773.55,
-          "weight_pct": 0.305377,
+          "market_value": 17733851.87,
+          "weight_pct": 0.304798,
           "currency": "USD",
-          "implied_mark": 100.8284
+          "implied_mark": 100.7777
         },
         {
           "ticker": "ALIXPA",
@@ -1788,7 +1788,7 @@
           "rating": "B+/B1",
           "par_or_shares": 16719467.88,
           "market_value": 16714201.25,
-          "weight_pct": 0.282958,
+          "weight_pct": 0.282549,
           "currency": "USD",
           "implied_mark": 99.9685
         },
@@ -1804,10 +1804,10 @@
           "next_call_date": "2026-12-10",
           "rating": "BBB-/Ba1",
           "par_or_shares": 15000000.0,
-          "market_value": 14722321.5,
-          "weight_pct": 0.250292,
+          "market_value": 14721375.0,
+          "weight_pct": 0.2499,
           "currency": "USD",
-          "implied_mark": 98.1488
+          "implied_mark": 98.1425
         },
         {
           "ticker": "BECN",
@@ -1822,7 +1822,7 @@
           "rating": "BB+/Ba2",
           "par_or_shares": 14830542.23,
           "market_value": 14759429.78,
-          "weight_pct": 0.249868,
+          "weight_pct": 0.249506,
           "currency": "USD",
           "implied_mark": 99.5205
         },
@@ -1839,7 +1839,7 @@
           "rating": "B+/B1",
           "par_or_shares": 12248393.16,
           "market_value": 12279014.14,
-          "weight_pct": 0.207942,
+          "weight_pct": 0.207647,
           "currency": "USD",
           "implied_mark": 100.25
         },
@@ -1855,10 +1855,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 12833000.0,
-          "market_value": 11379719.09,
-          "weight_pct": 0.200223,
+          "market_value": 11370035.56,
+          "weight_pct": 0.199782,
           "currency": "USD",
-          "implied_mark": 88.6754
+          "implied_mark": 88.6
         },
         {
           "ticker": "FOCS",
@@ -1872,10 +1872,10 @@
           "next_call_date": "2027-09-15",
           "rating": "B/B3",
           "par_or_shares": 11132000.0,
-          "market_value": 10821862.48,
-          "weight_pct": 0.184843,
+          "market_value": 10822027.23,
+          "weight_pct": 0.184583,
           "currency": "USD",
-          "implied_mark": 97.214
+          "implied_mark": 97.2155
         },
         {
           "ticker": "ASCLER",
@@ -1889,10 +1889,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B-/B3",
           "par_or_shares": 10481439.5,
-          "market_value": 10470800.84,
-          "weight_pct": 0.177341,
+          "market_value": 10474050.09,
+          "weight_pct": 0.177144,
           "currency": "USD",
-          "implied_mark": 99.8985
+          "implied_mark": 99.9295
         },
         {
           "ticker": "MEDIND",
@@ -1907,7 +1907,7 @@
           "rating": "BBB-/Ba1",
           "par_or_shares": 10058757.7543,
           "market_value": 10042764.33,
-          "weight_pct": 0.16999,
+          "weight_pct": 0.16974,
           "currency": "USD",
           "implied_mark": 99.841
         },
@@ -1924,7 +1924,7 @@
           "rating": "B/B3",
           "par_or_shares": 9974874.37,
           "market_value": 9999811.56,
-          "weight_pct": 0.169344,
+          "weight_pct": 0.169104,
           "currency": "USD",
           "implied_mark": 100.25
         },
@@ -1940,10 +1940,10 @@
           "next_call_date": "2026-11-20",
           "rating": "BBB-/Ba1",
           "par_or_shares": 9000000.0,
-          "market_value": 9017622.0,
-          "weight_pct": 0.156152,
+          "market_value": 9017685.0,
+          "weight_pct": 0.155926,
           "currency": "USD",
-          "implied_mark": 100.1958
+          "implied_mark": 100.1965
         },
         {
           "ticker": "JHG",
@@ -1958,7 +1958,7 @@
           "rating": "BB/Ba1",
           "par_or_shares": 8500949.76,
           "market_value": 8562921.68,
-          "weight_pct": 0.145821,
+          "weight_pct": 0.145613,
           "currency": "USD",
           "implied_mark": 100.729
         },
@@ -1974,10 +1974,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B-/Caa1",
           "par_or_shares": 7750000.0,
-          "market_value": 7876387.0,
-          "weight_pct": 0.134438,
+          "market_value": 7873077.75,
+          "weight_pct": 0.134198,
           "currency": "USD",
-          "implied_mark": 101.6308
+          "implied_mark": 101.5881
         },
         {
           "ticker": "TIBX",
@@ -1991,10 +1991,10 @@
           "next_call_date": "2029-11-15",
           "rating": "B/B2",
           "par_or_shares": 7000000.0,
-          "market_value": 7083648.88,
-          "weight_pct": 0.119684,
+          "market_value": 7093465.33,
+          "weight_pct": 0.119657,
           "currency": "USD",
-          "implied_mark": 101.195
+          "implied_mark": 101.3352
         },
         {
           "ticker": "POWSOL",
@@ -2009,7 +2009,7 @@
           "rating": "BB-/B2",
           "par_or_shares": 6876584.72,
           "market_value": 6889478.32,
-          "weight_pct": 0.116797,
+          "weight_pct": 0.116642,
           "currency": "USD",
           "implied_mark": 100.1875
         },
@@ -2026,7 +2026,7 @@
           "rating": "B/B2",
           "par_or_shares": 6456902.0337,
           "market_value": 6464714.89,
-          "weight_pct": 0.110424,
+          "weight_pct": 0.110268,
           "currency": "USD",
           "implied_mark": 100.121
         },
@@ -2042,10 +2042,10 @@
           "next_call_date": "2026-12-10",
           "rating": "NR/Ba1",
           "par_or_shares": 6235236.2417,
-          "market_value": 6250044.93,
-          "weight_pct": 0.106346,
+          "market_value": 6249265.52,
+          "weight_pct": 0.106179,
           "currency": "USD",
-          "implied_mark": 100.2375
+          "implied_mark": 100.225
         },
         {
           "ticker": "OPALBD",
@@ -2059,10 +2059,10 @@
           "next_call_date": "2028-03-31",
           "rating": "B+/B1",
           "par_or_shares": 6225000.0,
-          "market_value": 6184463.42,
-          "weight_pct": 0.10528,
+          "market_value": 6184943.99,
+          "weight_pct": 0.105137,
           "currency": "USD",
-          "implied_mark": 99.3488
+          "implied_mark": 99.3565
         },
         {
           "ticker": "MEDIND",
@@ -2076,10 +2076,10 @@
           "next_call_date": "2026-12-10",
           "rating": "BBB-/Ba1",
           "par_or_shares": 6000000.0,
-          "market_value": 6036288.0,
-          "weight_pct": 0.102702,
+          "market_value": 6044543.94,
+          "weight_pct": 0.102693,
           "currency": "USD",
-          "implied_mark": 100.6048
+          "implied_mark": 100.7424
         },
         {
           "ticker": "SSNC",
@@ -2093,10 +2093,10 @@
           "next_call_date": "2027-06-01",
           "rating": "B+/B1",
           "par_or_shares": 5500000.0,
-          "market_value": 5501061.94,
-          "weight_pct": 0.095635,
+          "market_value": 5501668.7,
+          "weight_pct": 0.095508,
           "currency": "USD",
-          "implied_mark": 100.0193
+          "implied_mark": 100.0303
         },
         {
           "ticker": "TIBX",
@@ -2110,10 +2110,10 @@
           "next_call_date": "2027-06-30",
           "rating": "B/B2",
           "par_or_shares": 5658000.0,
-          "market_value": 5471083.44,
-          "weight_pct": 0.095326,
+          "market_value": 5469258.74,
+          "weight_pct": 0.095163,
           "currency": "USD",
-          "implied_mark": 96.6964
+          "implied_mark": 96.6642
         },
         {
           "ticker": "NLSN",
@@ -2127,10 +2127,10 @@
           "next_call_date": "2027-11-15",
           "rating": "B/B3",
           "par_or_shares": 5000000.0,
-          "market_value": 5113430.0,
-          "weight_pct": 0.090683,
+          "market_value": 5126562.45,
+          "weight_pct": 0.090782,
           "currency": "USD",
-          "implied_mark": 102.2686
+          "implied_mark": 102.5312
         },
         {
           "ticker": "TDG",
@@ -2144,10 +2144,10 @@
           "next_call_date": "2029-09-30",
           "rating": "BB-/Ba3",
           "par_or_shares": 5000000.0,
-          "market_value": 5063235.0,
-          "weight_pct": 0.086233,
+          "market_value": 5061659.55,
+          "weight_pct": 0.086083,
           "currency": "USD",
-          "implied_mark": 101.2647
+          "implied_mark": 101.2332
         },
         {
           "ticker": "GWR",
@@ -2161,10 +2161,10 @@
           "next_call_date": "2027-04-15",
           "rating": "BB/Ba3",
           "par_or_shares": 5000000.0,
-          "market_value": 5035205.0,
-          "weight_pct": 0.085465,
+          "market_value": 5029140.0,
+          "weight_pct": 0.08524,
           "currency": "USD",
-          "implied_mark": 100.7041
+          "implied_mark": 100.5828
         },
         {
           "ticker": "UNSEAM",
@@ -2178,10 +2178,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B3",
           "par_or_shares": 5000000.0,
-          "market_value": 4915744.35,
-          "weight_pct": 0.084795,
+          "market_value": 4917242.0,
+          "weight_pct": 0.084695,
           "currency": "USD",
-          "implied_mark": 98.3149
+          "implied_mark": 98.3448
         },
         {
           "ticker": "NOVHOL",
@@ -2195,10 +2195,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/B2",
           "par_or_shares": 5000000.0,
-          "market_value": 4894103.5,
-          "weight_pct": 0.084568,
+          "market_value": 4893920.0,
+          "weight_pct": 0.084444,
           "currency": "USD",
-          "implied_mark": 97.8821
+          "implied_mark": 97.8784
         },
         {
           "ticker": "TDG",
@@ -2212,10 +2212,10 @@
           "next_call_date": "2027-09-15",
           "rating": "BB-/Ba3",
           "par_or_shares": 5000000.0,
-          "market_value": 4934833.5,
-          "weight_pct": 0.084176,
+          "market_value": 4936065.0,
+          "weight_pct": 0.084075,
           "currency": "USD",
-          "implied_mark": 98.6967
+          "implied_mark": 98.7213
         },
         {
           "ticker": "ALIANT",
@@ -2229,10 +2229,10 @@
           "next_call_date": "2027-10-01",
           "rating": "B+/B2",
           "par_or_shares": 4811000.0,
-          "market_value": 4774001.49,
-          "weight_pct": 0.081256,
+          "market_value": 4774610.08,
+          "weight_pct": 0.08115,
           "currency": "USD",
-          "implied_mark": 99.231
+          "implied_mark": 99.2436
         },
         {
           "ticker": "SKYD",
@@ -2246,10 +2246,10 @@
           "next_call_date": "2031-09-15",
           "rating": "BBB-/Ba1",
           "par_or_shares": 4608000.0,
-          "market_value": 4615505.14,
-          "weight_pct": 0.078542,
+          "market_value": 4605293.58,
+          "weight_pct": 0.078259,
           "currency": "USD",
-          "implied_mark": 100.1629
+          "implied_mark": 99.9413
         },
         {
           "ticker": "UNSEAM",
@@ -2263,10 +2263,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B3",
           "par_or_shares": 4300000.0,
-          "market_value": 4234816.73,
-          "weight_pct": 0.073047,
+          "market_value": 4239801.72,
+          "weight_pct": 0.073023,
           "currency": "USD",
-          "implied_mark": 98.4841
+          "implied_mark": 98.6
         },
         {
           "ticker": "TDG",
@@ -2280,10 +2280,10 @@
           "next_call_date": "2027-03-01",
           "rating": "BB-/Ba3",
           "par_or_shares": 4000000.0,
-          "market_value": 4040166.48,
-          "weight_pct": 0.06914,
+          "market_value": 4040964.0,
+          "weight_pct": 0.069054,
           "currency": "USD",
-          "implied_mark": 101.0042
+          "implied_mark": 101.0241
         },
         {
           "ticker": "SKYD",
@@ -2297,10 +2297,10 @@
           "next_call_date": "2036-07-15",
           "rating": "BBB-/Ba1",
           "par_or_shares": 3225000.0,
-          "market_value": 3224099.52,
-          "weight_pct": 0.054913,
+          "market_value": 3226595.34,
+          "weight_pct": 0.054878,
           "currency": "USD",
-          "implied_mark": 99.9721
+          "implied_mark": 100.0495
         },
         {
           "ticker": "RCM",
@@ -2314,10 +2314,10 @@
           "next_call_date": "2027-11-15",
           "rating": "B/B2",
           "par_or_shares": 3145000.0,
-          "market_value": 3086969.09,
-          "weight_pct": 0.053944,
+          "market_value": 3087480.47,
+          "weight_pct": 0.053875,
           "currency": "USD",
-          "implied_mark": 98.1548
+          "implied_mark": 98.1711
         },
         {
           "ticker": "TDG",
@@ -2331,10 +2331,10 @@
           "next_call_date": "2026-12-10",
           "rating": "BB-/Ba3",
           "par_or_shares": 3000000.0,
-          "market_value": 3053271.0,
-          "weight_pct": 0.053006,
+          "market_value": 3053379.0,
+          "weight_pct": 0.052932,
           "currency": "USD",
-          "implied_mark": 101.7757
+          "implied_mark": 101.7793
         },
         {
           "ticker": "FOCS",
@@ -2348,10 +2348,10 @@
           "next_call_date": "2028-09-15",
           "rating": "B/B3",
           "par_or_shares": 3000000.0,
-          "market_value": 2987360.1,
-          "weight_pct": 0.051389,
+          "market_value": 2987231.4,
+          "weight_pct": 0.051314,
           "currency": "USD",
-          "implied_mark": 99.5787
+          "implied_mark": 99.5744
         },
         {
           "ticker": "BELRON",
@@ -2365,10 +2365,10 @@
           "next_call_date": "2026-12-10",
           "rating": "BB-/Ba3",
           "par_or_shares": 3000000.0,
-          "market_value": 2994683.1,
-          "weight_pct": 0.050814,
+          "market_value": 3002909.7,
+          "weight_pct": 0.050879,
           "currency": "USD",
-          "implied_mark": 99.8228
+          "implied_mark": 100.097
         },
         {
           "ticker": "BCULC",
@@ -2382,10 +2382,10 @@
           "next_call_date": "2026-11-20",
           "rating": "BBB-/Ba1",
           "par_or_shares": 3000000.0,
-          "market_value": 2969264.4,
-          "weight_pct": 0.050617,
+          "market_value": 2969275.2,
+          "weight_pct": 0.050544,
           "currency": "USD",
-          "implied_mark": 98.9755
+          "implied_mark": 98.9758
         },
         {
           "ticker": "ACRISU",
@@ -2399,10 +2399,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 3282000.0,
-          "market_value": 2908690.22,
-          "weight_pct": 0.049708,
+          "market_value": 2907896.64,
+          "weight_pct": 0.049621,
           "currency": "USD",
-          "implied_mark": 88.6255
+          "implied_mark": 88.6014
         },
         {
           "ticker": "BCULC",
@@ -2416,10 +2416,10 @@
           "next_call_date": "2026-11-20",
           "rating": "BB-/B1",
           "par_or_shares": 3000000.0,
-          "market_value": 2793512.61,
-          "weight_pct": 0.047349,
+          "market_value": 2793882.9,
+          "weight_pct": 0.047285,
           "currency": "USD",
-          "implied_mark": 93.1171
+          "implied_mark": 93.1294
         },
         {
           "ticker": "RCM",
@@ -2433,10 +2433,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B2",
           "par_or_shares": 2672381.2322,
-          "market_value": 2678233.75,
-          "weight_pct": 0.045251,
+          "market_value": 2678835.04,
+          "weight_pct": 0.045188,
           "currency": "USD",
-          "implied_mark": 100.219
+          "implied_mark": 100.2415
         },
         {
           "ticker": "ALIANT",
@@ -2450,10 +2450,10 @@
           "next_call_date": "2027-01-15",
           "rating": "B+/B2",
           "par_or_shares": 2500000.0,
-          "market_value": 2515797.5,
-          "weight_pct": 0.043463,
+          "market_value": 2518562.5,
+          "weight_pct": 0.043447,
           "currency": "USD",
-          "implied_mark": 100.6319
+          "implied_mark": 100.7425
         },
         {
           "ticker": "POWSOL",
@@ -2467,10 +2467,27 @@
           "next_call_date": "2027-02-15",
           "rating": "BB-/B2",
           "par_or_shares": 2430000.0,
-          "market_value": 2470969.8,
-          "weight_pct": 0.042412,
+          "market_value": 2471127.68,
+          "weight_pct": 0.042354,
           "currency": "USD",
-          "implied_mark": 101.686
+          "implied_mark": 101.6925
+        },
+        {
+          "ticker": "USD",
+          "name": "CASH & EQUIVALENTS",
+          "identifier": null,
+          "figi": null,
+          "cusip": "CASHUSD00",
+          "security_type": "Currency",
+          "coupon_pct": 0.0,
+          "maturity_date": null,
+          "next_call_date": null,
+          "rating": "NR/NR",
+          "par_or_shares": 2483987.52,
+          "market_value": 2483987.52,
+          "weight_pct": 0.041901,
+          "currency": "USD",
+          "implied_mark": 100.0
         },
         {
           "ticker": "UNSEAM",
@@ -2484,10 +2501,10 @@
           "next_call_date": "2027-06-15",
           "rating": "B/B3",
           "par_or_shares": 2406000.0,
-          "market_value": 2373195.63,
-          "weight_pct": 0.041235,
+          "market_value": 2373231.48,
+          "weight_pct": 0.041177,
           "currency": "USD",
-          "implied_mark": 98.6366
+          "implied_mark": 98.638
         },
         {
           "ticker": "THYELE",
@@ -2501,10 +2518,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B/B1",
           "par_or_shares": 2199348.0,
-          "market_value": 2196277.93,
-          "weight_pct": 0.037739,
+          "market_value": 2199179.97,
+          "weight_pct": 0.037732,
           "currency": "USD",
-          "implied_mark": 99.8604
+          "implied_mark": 99.9924
         },
         {
           "ticker": "ATHENA",
@@ -2518,10 +2535,10 @@
           "next_call_date": "2028-08-15",
           "rating": "B/B2",
           "par_or_shares": 2000000.0,
-          "market_value": 2058674.0,
-          "weight_pct": 0.035495,
+          "market_value": 2058422.0,
+          "weight_pct": 0.03544,
           "currency": "USD",
-          "implied_mark": 102.9337
+          "implied_mark": 102.9211
         },
         {
           "ticker": "TDG",
@@ -2535,10 +2552,10 @@
           "next_call_date": "2026-11-20",
           "rating": "BB-/Ba3",
           "par_or_shares": 2000000.0,
-          "market_value": 2011768.0,
-          "weight_pct": 0.034413,
+          "market_value": 2012160.0,
+          "weight_pct": 0.03437,
           "currency": "USD",
-          "implied_mark": 100.5884
+          "implied_mark": 100.608
         },
         {
           "ticker": "TDG",
@@ -2552,10 +2569,10 @@
           "next_call_date": "2028-08-31",
           "rating": "BB-/Ba3",
           "par_or_shares": 2000000.0,
-          "market_value": 1993976.4,
-          "weight_pct": 0.034281,
+          "market_value": 1995191.8,
+          "weight_pct": 0.034252,
           "currency": "USD",
-          "implied_mark": 99.6988
+          "implied_mark": 99.7596
         },
         {
           "ticker": "CZR",
@@ -2569,10 +2586,10 @@
           "next_call_date": "2026-11-20",
           "rating": "BB-/B1",
           "par_or_shares": 2000000.0,
-          "market_value": 1964945.4,
-          "weight_pct": 0.033765,
+          "market_value": 1965197.2,
+          "weight_pct": 0.033721,
           "currency": "USD",
-          "implied_mark": 98.2473
+          "implied_mark": 98.2599
         },
         {
           "ticker": "EA",
@@ -2586,10 +2603,10 @@
           "next_call_date": "2029-07-01",
           "rating": "BB/Ba3",
           "par_or_shares": 1752000.0,
-          "market_value": 1755937.62,
-          "weight_pct": 0.030938,
+          "market_value": 1758023.38,
+          "weight_pct": 0.03093,
           "currency": "USD",
-          "implied_mark": 100.2248
+          "implied_mark": 100.3438
         },
         {
           "ticker": "PATPOW",
@@ -2604,7 +2621,7 @@
           "rating": "BB/Ba2",
           "par_or_shares": 1792241.32,
           "market_value": 1790001.02,
-          "weight_pct": 0.030243,
+          "weight_pct": 0.030195,
           "currency": "USD",
           "implied_mark": 99.875
         },
@@ -2620,10 +2637,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/B1",
           "par_or_shares": 1580000.0,
-          "market_value": 1580873.27,
-          "weight_pct": 0.027117,
+          "market_value": 1581779.08,
+          "weight_pct": 0.027093,
           "currency": "USD",
-          "implied_mark": 100.0553
+          "implied_mark": 100.1126
         },
         {
           "ticker": "ALIANT",
@@ -2637,10 +2654,10 @@
           "next_call_date": "2026-12-10",
           "rating": "B+/B2",
           "par_or_shares": 1500000.0,
-          "market_value": 1503600.0,
-          "weight_pct": 0.025531,
+          "market_value": 1503220.5,
+          "weight_pct": 0.025489,
           "currency": "USD",
-          "implied_mark": 100.24
+          "implied_mark": 100.2147
         },
         {
           "ticker": "CDK",
@@ -2655,7 +2672,7 @@
           "rating": "CCC/Caa2",
           "par_or_shares": 2500000.0,
           "market_value": 1350000.0,
-          "weight_pct": 0.024056,
+          "weight_pct": 0.024026,
           "currency": "USD",
           "implied_mark": 54.0
         },
@@ -2671,10 +2688,10 @@
           "next_call_date": "2028-08-15",
           "rating": "B/B2",
           "par_or_shares": 1383000.0,
-          "market_value": 1233227.74,
-          "weight_pct": 0.021207,
+          "market_value": 1233458.56,
+          "weight_pct": 0.02118,
           "currency": "USD",
-          "implied_mark": 89.1705
+          "implied_mark": 89.1872
         },
         {
           "ticker": "CARRIX",
@@ -2688,10 +2705,10 @@
           "next_call_date": "2026-12-10",
           "rating": "NR/Ba1",
           "par_or_shares": 1247047.2483,
-          "market_value": 1250008.99,
-          "weight_pct": 0.02112,
+          "market_value": 1249853.1,
+          "weight_pct": 0.021083,
           "currency": "USD",
-          "implied_mark": 100.2375
+          "implied_mark": 100.225
         },
         {
           "ticker": "TKO",
@@ -2705,10 +2722,10 @@
           "next_call_date": "2028-11-15",
           "rating": "BB/Ba1",
           "par_or_shares": 1000000.0,
-          "market_value": 1008261.22,
-          "weight_pct": 0.017035,
+          "market_value": 1008088.35,
+          "weight_pct": 0.017005,
           "currency": "USD",
-          "implied_mark": 100.8261
+          "implied_mark": 100.8088
         },
         {
           "ticker": "CSCHLD",
@@ -2722,10 +2739,10 @@
           "next_call_date": "2026-11-20",
           "rating": "CCC/Caa2",
           "par_or_shares": 2000000.0,
-          "market_value": 960992.0,
-          "weight_pct": 0.016846,
+          "market_value": 959323.8,
+          "weight_pct": 0.016796,
           "currency": "USD",
-          "implied_mark": 48.0496
+          "implied_mark": 47.9662
         },
         {
           "ticker": "MORTON",
@@ -2739,10 +2756,10 @@
           "next_call_date": "2028-08-15",
           "rating": "B/B3",
           "par_or_shares": 1000000.0,
-          "market_value": 977897.3,
-          "weight_pct": 0.016796,
+          "market_value": 978168.5,
+          "weight_pct": 0.016777,
           "currency": "USD",
-          "implied_mark": 97.7897
+          "implied_mark": 97.8169
         },
         {
           "ticker": "BCULC",
@@ -2756,10 +2773,10 @@
           "next_call_date": "2026-11-20",
           "rating": "BBB-/Ba1",
           "par_or_shares": 1000000.0,
-          "market_value": 949893.8,
-          "weight_pct": 0.016191,
+          "market_value": 950058.4,
+          "weight_pct": 0.016169,
           "currency": "USD",
-          "implied_mark": 94.9894
+          "implied_mark": 95.0058
         },
         {
           "ticker": "CDK",
@@ -2774,7 +2791,7 @@
           "rating": "CCC/Caa2",
           "par_or_shares": 1500000.0,
           "market_value": 810000.0,
-          "weight_pct": 0.014511,
+          "weight_pct": 0.014493,
           "currency": "USD",
           "implied_mark": 54.0
         },
@@ -2790,10 +2807,10 @@
           "next_call_date": "2028-03-01",
           "rating": "BB/Ba3",
           "par_or_shares": 810000.0,
-          "market_value": 805103.71,
-          "weight_pct": 0.013774,
+          "market_value": 805232.91,
+          "weight_pct": 0.013756,
           "currency": "USD",
-          "implied_mark": 99.3955
+          "implied_mark": 99.4115
         },
         {
           "ticker": "CZR",
@@ -2807,10 +2824,10 @@
           "next_call_date": "2027-02-15",
           "rating": "BB-/B1",
           "par_or_shares": 859000.0,
-          "market_value": 800194.15,
-          "weight_pct": 0.013746,
+          "market_value": 799772.29,
+          "weight_pct": 0.013719,
           "currency": "USD",
-          "implied_mark": 93.1542
+          "implied_mark": 93.105
         },
         {
           "ticker": "NOVHOL",
@@ -2824,10 +2841,10 @@
           "next_call_date": "2028-04-15",
           "rating": "B+/B2",
           "par_or_shares": 738000.0,
-          "market_value": 702607.14,
-          "weight_pct": 0.011934,
+          "market_value": 702471.94,
+          "weight_pct": 0.011914,
           "currency": "USD",
-          "implied_mark": 95.2042
+          "implied_mark": 95.1859
         },
         {
           "ticker": "NOVHOL",
@@ -2841,10 +2858,10 @@
           "next_call_date": "2028-10-15",
           "rating": "B+/B2",
           "par_or_shares": 701000.0,
-          "market_value": 696428.01,
-          "weight_pct": 0.011906,
+          "market_value": 695546.31,
+          "weight_pct": 0.011874,
           "currency": "USD",
-          "implied_mark": 99.3478
+          "implied_mark": 99.222
         },
         {
           "ticker": "ACRISU",
@@ -2858,10 +2875,10 @@
           "next_call_date": "2028-07-01",
           "rating": "B/B2",
           "par_or_shares": 685000.0,
-          "market_value": 553175.89,
-          "weight_pct": 0.009629,
+          "market_value": 552814.11,
+          "weight_pct": 0.009609,
           "currency": "USD",
-          "implied_mark": 80.7556
+          "implied_mark": 80.7028
         },
         {
           "ticker": "ADVGRO",
@@ -2875,10 +2892,10 @@
           "next_call_date": "2028-08-01",
           "rating": "B/B1",
           "par_or_shares": 500000.0,
-          "market_value": 490189.55,
-          "weight_pct": 0.00844,
+          "market_value": 492457.15,
+          "weight_pct": 0.008466,
           "currency": "USD",
-          "implied_mark": 98.0379
+          "implied_mark": 98.4914
         },
         {
           "ticker": "AMWINS",
@@ -2892,10 +2909,10 @@
           "next_call_date": "2029-11-01",
           "rating": "B+/B1",
           "par_or_shares": 366000.0,
-          "market_value": 374190.35,
-          "weight_pct": 0.006331,
+          "market_value": 373946.54,
+          "weight_pct": 0.006318,
           "currency": "USD",
-          "implied_mark": 102.2378
+          "implied_mark": 102.1712
         },
         {
           "ticker": "SKYD",
@@ -2909,10 +2926,10 @@
           "next_call_date": "2029-09-05",
           "rating": "BBB-/Ba1",
           "par_or_shares": 232000.0,
-          "market_value": 233841.97,
-          "weight_pct": 0.003977,
+          "market_value": 233435.93,
+          "weight_pct": 0.003964,
           "currency": "USD",
-          "implied_mark": 100.794
+          "implied_mark": 100.6189
         },
         {
           "ticker": "EUR",
@@ -2926,27 +2943,10 @@
           "next_call_date": null,
           "rating": "NR/NR",
           "par_or_shares": 78247.26,
-          "market_value": 87320.08,
-          "weight_pct": 0.001475,
+          "market_value": 86827.13,
+          "weight_pct": 0.001465,
           "currency": "USD",
-          "implied_mark": 111.5951
-        },
-        {
-          "ticker": "USD",
-          "name": "CASH & EQUIVALENTS",
-          "identifier": null,
-          "figi": null,
-          "cusip": "CASHUSD00",
-          "security_type": "Currency",
-          "coupon_pct": 0.0,
-          "maturity_date": null,
-          "next_call_date": null,
-          "rating": "NR/NR",
-          "par_or_shares": -3659003.08,
-          "market_value": -3659003.08,
-          "weight_pct": -0.061822,
-          "currency": "USD",
-          "implied_mark": null
+          "implied_mark": 110.9651
         },
         {
           "ticker": "USDPDV",
@@ -2960,7 +2960,7 @@
           "next_call_date": null,
           "rating": "NR/NR",
           "par_or_shares": 0.0,
-          "market_value": 28328816.83,
+          "market_value": 29413406.78,
           "weight_pct": null,
           "currency": "USD",
           "implied_mark": null
@@ -2970,13 +2970,13 @@
     {
       "ticker": "SRLN",
       "name": "State Street Blackstone Senior Loan ETF",
-      "as_of": "2026-11-10",
+      "as_of": "2026-11-11",
       "source_page_url": "https://www.ssga.com/us/en/individual/etfs/state-street-blackstone-senior-loan-etf-srln",
       "source_data_url": "https://www.ssga.com/library-content/products/fund-data/etfs/us/holdings-daily-us-en-srln.xlsx",
       "row_count": 657,
       "marked_row_count": 654,
-      "total_market_value": 5082031285.08,
-      "total_weight_pct": 100.000005,
+      "total_market_value": 5082054631.29,
+      "total_weight_pct": 100.000007,
       "median_implied_mark": 99.3837,
       "holdings": [
         {
@@ -2992,7 +2992,7 @@
           "rating": null,
           "par_or_shares": 109322930.51,
           "market_value": 108226421.52,
-          "weight_pct": 2.12959,
+          "weight_pct": 2.12958,
           "currency": "USD",
           "implied_mark": 98.997
         },
@@ -3008,27 +3008,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 106019564.49,
-          "market_value": 102938635.95,
-          "weight_pct": 2.025541,
+          "market_value": 102905769.88,
+          "weight_pct": 2.024885,
           "currency": "USD",
-          "implied_mark": 97.094
-        },
-        {
-          "ticker": null,
-          "name": "McAfee Corp 03/01/2029",
-          "identifier": "LX256336",
-          "figi": "BBG01R78PBY5",
-          "cusip": null,
-          "security_type": "Senior loan / fund holding",
-          "coupon_pct": 6.9298,
-          "maturity_date": "2029-03-01",
-          "next_call_date": null,
-          "rating": null,
-          "par_or_shares": 105219237.61,
-          "market_value": 97959110.21,
-          "weight_pct": 1.927558,
-          "currency": "USD",
-          "implied_mark": 93.1
+          "implied_mark": 97.063
         },
         {
           "ticker": null,
@@ -3043,9 +3026,26 @@
           "rating": null,
           "par_or_shares": 100927819.97,
           "market_value": 97945907.53,
-          "weight_pct": 1.927298,
+          "weight_pct": 1.92729,
           "currency": "USD",
           "implied_mark": 97.0455
+        },
+        {
+          "ticker": null,
+          "name": "McAfee Corp 03/01/2029",
+          "identifier": "LX256336",
+          "figi": "BBG01R78PBY5",
+          "cusip": null,
+          "security_type": "Senior loan / fund holding",
+          "coupon_pct": 6.9298,
+          "maturity_date": "2029-03-01",
+          "next_call_date": null,
+          "rating": null,
+          "par_or_shares": 105219237.61,
+          "market_value": 97816012.05,
+          "weight_pct": 1.924734,
+          "currency": "USD",
+          "implied_mark": 92.964
         },
         {
           "ticker": null,
@@ -3059,10 +3059,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 90773012.63,
-          "market_value": 90734887.96,
-          "weight_pct": 1.785406,
+          "market_value": 90744873.0,
+          "weight_pct": 1.785594,
           "currency": "USD",
-          "implied_mark": 99.958
+          "implied_mark": 99.969
         },
         {
           "ticker": null,
@@ -3077,7 +3077,7 @@
           "rating": null,
           "par_or_shares": 90005971.75,
           "market_value": 90302541.43,
-          "weight_pct": 1.776899,
+          "weight_pct": 1.77689,
           "currency": "USD",
           "implied_mark": 100.3295
         },
@@ -3094,7 +3094,7 @@
           "rating": null,
           "par_or_shares": 92129485.55,
           "market_value": 90114153.05,
-          "weight_pct": 1.773192,
+          "weight_pct": 1.773183,
           "currency": "USD",
           "implied_mark": 97.8125
         },
@@ -3111,7 +3111,7 @@
           "rating": null,
           "par_or_shares": 90523906.82,
           "market_value": 90043224.87,
-          "weight_pct": 1.771796,
+          "weight_pct": 1.771788,
           "currency": "USD",
           "implied_mark": 99.469
         },
@@ -3127,10 +3127,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 89730951.45,
-          "market_value": 88104577.95,
-          "weight_pct": 1.733649,
+          "market_value": 88085734.46,
+          "weight_pct": 1.73327,
           "currency": "USD",
-          "implied_mark": 98.1875
+          "implied_mark": 98.1665
         },
         {
           "ticker": null,
@@ -3145,7 +3145,7 @@
           "rating": null,
           "par_or_shares": 82069300.55,
           "market_value": 82212511.48,
-          "weight_pct": 1.61771,
+          "weight_pct": 1.617702,
           "currency": "USD",
           "implied_mark": 100.1745
         },
@@ -3161,10 +3161,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 80069943.02,
-          "market_value": 80290135.36,
-          "weight_pct": 1.579883,
+          "market_value": 80278525.22,
+          "weight_pct": 1.579647,
           "currency": "USD",
-          "implied_mark": 100.275
+          "implied_mark": 100.2605
         },
         {
           "ticker": null,
@@ -3179,7 +3179,7 @@
           "rating": null,
           "par_or_shares": 78244522.21,
           "market_value": 78254302.78,
-          "weight_pct": 1.539823,
+          "weight_pct": 1.539816,
           "currency": "USD",
           "implied_mark": 100.0125
         },
@@ -3196,7 +3196,7 @@
           "rating": null,
           "par_or_shares": 72140685.26,
           "market_value": 72254667.54,
-          "weight_pct": 1.421767,
+          "weight_pct": 1.421761,
           "currency": "USD",
           "implied_mark": 100.158
         },
@@ -3212,10 +3212,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 66601720.17,
-          "market_value": 66909753.13,
-          "weight_pct": 1.316595,
+          "market_value": 66886109.52,
+          "weight_pct": 1.316123,
           "currency": "USD",
-          "implied_mark": 100.4625
+          "implied_mark": 100.427
         },
         {
           "ticker": null,
@@ -3229,10 +3229,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 66394287.0,
-          "market_value": 65611166.38,
-          "weight_pct": 1.291042,
+          "market_value": 65631748.61,
+          "weight_pct": 1.291441,
           "currency": "USD",
-          "implied_mark": 98.8205
+          "implied_mark": 98.8515
         },
         {
           "ticker": null,
@@ -3246,10 +3246,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 62227120.64,
-          "market_value": 62193206.86,
-          "weight_pct": 1.223786,
+          "market_value": 62192584.59,
+          "weight_pct": 1.223769,
           "currency": "USD",
-          "implied_mark": 99.9455
+          "implied_mark": 99.9445
         },
         {
           "ticker": null,
@@ -3264,7 +3264,7 @@
           "rating": null,
           "par_or_shares": 63144419.12,
           "market_value": 61385215.6,
-          "weight_pct": 1.207887,
+          "weight_pct": 1.207882,
           "currency": "USD",
           "implied_mark": 97.214
         },
@@ -3280,10 +3280,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 61723737.8,
-          "market_value": 59455390.44,
-          "weight_pct": 1.169914,
+          "market_value": 59517114.17,
+          "weight_pct": 1.171123,
           "currency": "USD",
-          "implied_mark": 96.325
+          "implied_mark": 96.425
         },
         {
           "ticker": null,
@@ -3297,10 +3297,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 60790471.72,
-          "market_value": 59189554.65,
-          "weight_pct": 1.164683,
+          "market_value": 59189858.6,
+          "weight_pct": 1.164684,
           "currency": "USD",
-          "implied_mark": 97.3665
+          "implied_mark": 97.367
         },
         {
           "ticker": null,
@@ -3315,7 +3315,7 @@
           "rating": null,
           "par_or_shares": 61736596.61,
           "market_value": 59042720.22,
-          "weight_pct": 1.161794,
+          "weight_pct": 1.161788,
           "currency": "USD",
           "implied_mark": 95.6365
         },
@@ -3332,7 +3332,7 @@
           "rating": null,
           "par_or_shares": 56853836.85,
           "market_value": 57130999.3,
-          "weight_pct": 1.124176,
+          "weight_pct": 1.124171,
           "currency": "USD",
           "implied_mark": 100.4875
         },
@@ -3349,7 +3349,7 @@
           "rating": null,
           "par_or_shares": 59240664.4,
           "market_value": 56459611.41,
-          "weight_pct": 1.110965,
+          "weight_pct": 1.11096,
           "currency": "USD",
           "implied_mark": 95.3055
         },
@@ -3366,7 +3366,7 @@
           "rating": null,
           "par_or_shares": 55983485.19,
           "market_value": 56156754.08,
-          "weight_pct": 1.105006,
+          "weight_pct": 1.105001,
           "currency": "USD",
           "implied_mark": 100.3095
         },
@@ -3382,10 +3382,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 55739157.18,
-          "market_value": 55777895.89,
-          "weight_pct": 1.097551,
+          "market_value": 55772879.37,
+          "weight_pct": 1.097447,
           "currency": "USD",
-          "implied_mark": 100.0695
+          "implied_mark": 100.0605
         },
         {
           "ticker": null,
@@ -3400,7 +3400,7 @@
           "rating": null,
           "par_or_shares": 57294329.05,
           "market_value": 55601568.1,
-          "weight_pct": 1.094082,
+          "weight_pct": 1.094077,
           "currency": "USD",
           "implied_mark": 97.0455
         },
@@ -3416,10 +3416,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 58380681.22,
-          "market_value": 55520027.84,
-          "weight_pct": 1.092477,
+          "market_value": 55461647.16,
+          "weight_pct": 1.091323,
           "currency": "USD",
-          "implied_mark": 95.1
+          "implied_mark": 95.0
         },
         {
           "ticker": null,
@@ -3433,10 +3433,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 52018781.56,
-          "market_value": 52132702.69,
-          "weight_pct": 1.025824,
+          "market_value": 52144406.92,
+          "weight_pct": 1.02605,
           "currency": "USD",
-          "implied_mark": 100.219
+          "implied_mark": 100.2415
         },
         {
           "ticker": null,
@@ -3451,7 +3451,7 @@
           "rating": null,
           "par_or_shares": 50798306.36,
           "market_value": 51015215.13,
-          "weight_pct": 1.003835,
+          "weight_pct": 1.003831,
           "currency": "USD",
           "implied_mark": 100.427
         },
@@ -3468,7 +3468,7 @@
           "rating": null,
           "par_or_shares": 50669314.97,
           "market_value": 49999213.28,
-          "weight_pct": 0.983843,
+          "weight_pct": 0.983839,
           "currency": "USD",
           "implied_mark": 98.6775
         },
@@ -3485,7 +3485,7 @@
           "rating": null,
           "par_or_shares": 50191196.36,
           "market_value": 49752023.39,
-          "weight_pct": 0.978979,
+          "weight_pct": 0.978975,
           "currency": "USD",
           "implied_mark": 99.125
         },
@@ -3501,10 +3501,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 50986756.39,
-          "market_value": 48473874.1,
-          "weight_pct": 0.953829,
+          "market_value": 48479992.51,
+          "weight_pct": 0.953945,
           "currency": "USD",
-          "implied_mark": 95.0715
+          "implied_mark": 95.0835
         },
         {
           "ticker": null,
@@ -3519,7 +3519,7 @@
           "rating": null,
           "par_or_shares": 52201961.44,
           "market_value": 48391218.25,
-          "weight_pct": 0.952202,
+          "weight_pct": 0.952198,
           "currency": "USD",
           "implied_mark": 92.7
         },
@@ -3535,10 +3535,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 48192918.48,
-          "market_value": 45968333.36,
-          "weight_pct": 0.904527,
+          "market_value": 46110261.51,
+          "weight_pct": 0.907315,
           "currency": "USD",
-          "implied_mark": 95.384
+          "implied_mark": 95.6785
         },
         {
           "ticker": null,
@@ -3553,7 +3553,7 @@
           "rating": null,
           "par_or_shares": 45617453.64,
           "market_value": 45689985.39,
-          "weight_pct": 0.89905,
+          "weight_pct": 0.899046,
           "currency": "USD",
           "implied_mark": 100.159
         },
@@ -3570,7 +3570,7 @@
           "rating": null,
           "par_or_shares": 44051154.94,
           "market_value": 44117672.18,
-          "weight_pct": 0.868111,
+          "weight_pct": 0.868107,
           "currency": "USD",
           "implied_mark": 100.151
         },
@@ -3586,10 +3586,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 43628911.66,
-          "market_value": 42880457.68,
-          "weight_pct": 0.843766,
+          "market_value": 42892673.78,
+          "weight_pct": 0.844003,
           "currency": "USD",
-          "implied_mark": 98.2845
+          "implied_mark": 98.3125
         },
         {
           "ticker": null,
@@ -3604,7 +3604,7 @@
           "rating": null,
           "par_or_shares": 42312745.32,
           "market_value": 42440529.81,
-          "weight_pct": 0.83511,
+          "weight_pct": 0.835106,
           "currency": "USD",
           "implied_mark": 100.302
         },
@@ -3621,7 +3621,7 @@
           "rating": null,
           "par_or_shares": 42718289.49,
           "market_value": 41116353.63,
-          "weight_pct": 0.809054,
+          "weight_pct": 0.80905,
           "currency": "USD",
           "implied_mark": 96.25
         },
@@ -3637,10 +3637,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 39643193.93,
-          "market_value": 39154789.78,
-          "weight_pct": 0.770456,
+          "market_value": 39175800.67,
+          "weight_pct": 0.770865,
           "currency": "USD",
-          "implied_mark": 98.768
+          "implied_mark": 98.821
         },
         {
           "ticker": null,
@@ -3655,7 +3655,7 @@
           "rating": null,
           "par_or_shares": 38251185.36,
           "market_value": 38343561.97,
-          "weight_pct": 0.754493,
+          "weight_pct": 0.754489,
           "currency": "USD",
           "implied_mark": 100.2415
         },
@@ -3672,7 +3672,7 @@
           "rating": null,
           "par_or_shares": 39044003.76,
           "market_value": 38067903.67,
-          "weight_pct": 0.749069,
+          "weight_pct": 0.749065,
           "currency": "USD",
           "implied_mark": 97.5
         },
@@ -3687,11 +3687,11 @@
           "maturity_date": "2031-01-27",
           "next_call_date": null,
           "rating": null,
-          "par_or_shares": 37876223.78,
-          "market_value": 37928114.21,
-          "weight_pct": 0.746318,
+          "par_or_shares": 37788673.62,
+          "market_value": 37845167.69,
+          "weight_pct": 0.744682,
           "currency": "USD",
-          "implied_mark": 100.137
+          "implied_mark": 100.1495
         },
         {
           "ticker": null,
@@ -3706,7 +3706,7 @@
           "rating": null,
           "par_or_shares": 41344032.69,
           "market_value": 37806223.81,
-          "weight_pct": 0.74392,
+          "weight_pct": 0.743916,
           "currency": "USD",
           "implied_mark": 91.443
         },
@@ -3723,7 +3723,7 @@
           "rating": null,
           "par_or_shares": 36609284.54,
           "market_value": 36661635.82,
-          "weight_pct": 0.721397,
+          "weight_pct": 0.721394,
           "currency": "USD",
           "implied_mark": 100.143
         },
@@ -3739,10 +3739,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 36115096.32,
-          "market_value": 35738957.59,
-          "weight_pct": 0.703242,
+          "market_value": 35728664.79,
+          "weight_pct": 0.703036,
           "currency": "USD",
-          "implied_mark": 98.9585
+          "implied_mark": 98.93
         },
         {
           "ticker": null,
@@ -3757,7 +3757,7 @@
           "rating": null,
           "par_or_shares": 35436000.0,
           "market_value": 35426077.92,
-          "weight_pct": 0.697085,
+          "weight_pct": 0.697082,
           "currency": "USD",
           "implied_mark": 99.972
         },
@@ -3774,7 +3774,7 @@
           "rating": null,
           "par_or_shares": 34720671.48,
           "market_value": 34449503.04,
-          "weight_pct": 0.677869,
+          "weight_pct": 0.677866,
           "currency": "USD",
           "implied_mark": 99.219
         },
@@ -3791,7 +3791,7 @@
           "rating": null,
           "par_or_shares": 34288977.24,
           "market_value": 34266175.07,
-          "weight_pct": 0.674261,
+          "weight_pct": 0.674258,
           "currency": "USD",
           "implied_mark": 99.9335
         },
@@ -3808,7 +3808,7 @@
           "rating": null,
           "par_or_shares": 33248112.79,
           "market_value": 33313944.05,
-          "weight_pct": 0.655524,
+          "weight_pct": 0.655521,
           "currency": "USD",
           "implied_mark": 100.198
         },
@@ -3823,11 +3823,11 @@
           "maturity_date": "2029-04-26",
           "next_call_date": null,
           "rating": null,
-          "par_or_shares": 33741753.41,
-          "market_value": 33090368.86042,
-          "weight_pct": 0.651125,
+          "par_or_shares": 33741753.42,
+          "market_value": 33088175.66,
+          "weight_pct": 0.651079,
           "currency": "USD",
-          "implied_mark": 98.0695
+          "implied_mark": 98.063
         },
         {
           "ticker": null,
@@ -3842,7 +3842,7 @@
           "rating": null,
           "par_or_shares": 33469268.66,
           "market_value": 32744156.95,
-          "weight_pct": 0.644312,
+          "weight_pct": 0.644309,
           "currency": "USD",
           "implied_mark": 97.8335
         },
@@ -3859,7 +3859,7 @@
           "rating": null,
           "par_or_shares": 32413310.18,
           "market_value": 32505039.85,
-          "weight_pct": 0.639607,
+          "weight_pct": 0.639604,
           "currency": "USD",
           "implied_mark": 100.283
         },
@@ -3875,10 +3875,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 33007137.88,
-          "market_value": 32154398.47,
-          "weight_pct": 0.632708,
+          "market_value": 32168261.47,
+          "weight_pct": 0.632977,
           "currency": "USD",
-          "implied_mark": 97.4165
+          "implied_mark": 97.4585
         },
         {
           "ticker": null,
@@ -3893,7 +3893,7 @@
           "rating": null,
           "par_or_shares": 29232891.65,
           "market_value": 29200296.98,
-          "weight_pct": 0.574579,
+          "weight_pct": 0.574577,
           "currency": "USD",
           "implied_mark": 99.8885
         },
@@ -3910,7 +3910,7 @@
           "rating": null,
           "par_or_shares": 993581.0,
           "market_value": 28379157.3125,
-          "weight_pct": 0.558422,
+          "weight_pct": 0.558419,
           "currency": "USD",
           "implied_mark": null
         },
@@ -3927,7 +3927,7 @@
           "rating": null,
           "par_or_shares": 28104164.32,
           "market_value": 28146742.13,
-          "weight_pct": 0.553848,
+          "weight_pct": 0.553846,
           "currency": "USD",
           "implied_mark": 100.1515
         },
@@ -3943,10 +3943,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 27968155.38,
-          "market_value": 28017659.02,
-          "weight_pct": 0.551308,
+          "market_value": 28024091.69,
+          "weight_pct": 0.551432,
           "currency": "USD",
-          "implied_mark": 100.177
+          "implied_mark": 100.2
         },
         {
           "ticker": null,
@@ -3960,10 +3960,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 27718620.69,
-          "market_value": 27712661.19,
-          "weight_pct": 0.545307,
+          "market_value": 27713908.52,
+          "weight_pct": 0.545329,
           "currency": "USD",
-          "implied_mark": 99.9785
+          "implied_mark": 99.983
         },
         {
           "ticker": null,
@@ -3977,10 +3977,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 27657428.47,
-          "market_value": 27700574.06,
-          "weight_pct": 0.545069,
+          "market_value": 27701265.49,
+          "weight_pct": 0.54508,
           "currency": "USD",
-          "implied_mark": 100.156
+          "implied_mark": 100.1585
         },
         {
           "ticker": null,
@@ -3995,7 +3995,7 @@
           "rating": null,
           "par_or_shares": 30187641.24,
           "market_value": 27589240.02,
-          "weight_pct": 0.542878,
+          "weight_pct": 0.542876,
           "currency": "USD",
           "implied_mark": 91.3925
         },
@@ -4012,7 +4012,7 @@
           "rating": null,
           "par_or_shares": 27860333.84,
           "market_value": 27578805.17,
-          "weight_pct": 0.542673,
+          "weight_pct": 0.54267,
           "currency": "USD",
           "implied_mark": 98.9895
         },
@@ -4029,7 +4029,7 @@
           "rating": null,
           "par_or_shares": 28015310.32,
           "market_value": 26941483.48,
-          "weight_pct": 0.530132,
+          "weight_pct": 0.53013,
           "currency": "USD",
           "implied_mark": 96.167
         },
@@ -4046,7 +4046,7 @@
           "rating": null,
           "par_or_shares": 29190900.58,
           "market_value": 26805420.18,
-          "weight_pct": 0.527455,
+          "weight_pct": 0.527452,
           "currency": "USD",
           "implied_mark": 91.828
         },
@@ -4063,7 +4063,7 @@
           "rating": null,
           "par_or_shares": 26672525.22,
           "market_value": 26682127.33,
-          "weight_pct": 0.525029,
+          "weight_pct": 0.525026,
           "currency": "USD",
           "implied_mark": 100.036
         },
@@ -4080,7 +4080,7 @@
           "rating": null,
           "par_or_shares": 26863467.63,
           "market_value": 26564074.28,
-          "weight_pct": 0.522706,
+          "weight_pct": 0.522703,
           "currency": "USD",
           "implied_mark": 98.8855
         },
@@ -4097,7 +4097,7 @@
           "rating": null,
           "par_or_shares": 24988028.33,
           "market_value": 25051872.74,
-          "weight_pct": 0.49295,
+          "weight_pct": 0.492948,
           "currency": "USD",
           "implied_mark": 100.2555
         },
@@ -4114,7 +4114,7 @@
           "rating": null,
           "par_or_shares": 24810275.42,
           "market_value": 24272760.8,
-          "weight_pct": 0.477619,
+          "weight_pct": 0.477617,
           "currency": "USD",
           "implied_mark": 97.8335
         },
@@ -4130,10 +4130,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 24020991.24,
-          "market_value": 23938479.14,
-          "weight_pct": 0.471042,
+          "market_value": 23940520.92,
+          "weight_pct": 0.47108,
           "currency": "USD",
-          "implied_mark": 99.6565
+          "implied_mark": 99.665
         },
         {
           "ticker": null,
@@ -4148,7 +4148,7 @@
           "rating": null,
           "par_or_shares": 23559951.16,
           "market_value": 23582922.11,
-          "weight_pct": 0.464045,
+          "weight_pct": 0.464043,
           "currency": "USD",
           "implied_mark": 100.0975
         },
@@ -4165,7 +4165,7 @@
           "rating": null,
           "par_or_shares": 23307104.2,
           "market_value": 23281932.53,
-          "weight_pct": 0.458123,
+          "weight_pct": 0.45812,
           "currency": "USD",
           "implied_mark": 99.892
         },
@@ -4181,10 +4181,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 32399763.53,
-          "market_value": 22166784.22,
-          "weight_pct": 0.43618,
+          "market_value": 22180392.12,
+          "weight_pct": 0.436445,
           "currency": "USD",
-          "implied_mark": 68.4165
+          "implied_mark": 68.4585
         },
         {
           "ticker": null,
@@ -4199,7 +4199,7 @@
           "rating": null,
           "par_or_shares": 30310186.36,
           "market_value": 21501288.45,
-          "weight_pct": 0.423085,
+          "weight_pct": 0.423083,
           "currency": "USD",
           "implied_mark": 70.9375
         },
@@ -4216,7 +4216,7 @@
           "rating": null,
           "par_or_shares": 21447028.11,
           "market_value": 21417967.39,
-          "weight_pct": 0.421445,
+          "weight_pct": 0.421443,
           "currency": "USD",
           "implied_mark": 99.8645
         },
@@ -4233,7 +4233,7 @@
           "rating": null,
           "par_or_shares": 22061899.86,
           "market_value": 21341799.45,
-          "weight_pct": 0.419946,
+          "weight_pct": 0.419944,
           "currency": "USD",
           "implied_mark": 96.736
         },
@@ -4250,7 +4250,7 @@
           "rating": null,
           "par_or_shares": 20936823.51,
           "market_value": 20981314.26,
-          "weight_pct": 0.412853,
+          "weight_pct": 0.412851,
           "currency": "USD",
           "implied_mark": 100.2125
         },
@@ -4267,7 +4267,7 @@
           "rating": null,
           "par_or_shares": 20676080.31,
           "market_value": 20614775.73,
-          "weight_pct": 0.40564,
+          "weight_pct": 0.405639,
           "currency": "USD",
           "implied_mark": 99.7035
         },
@@ -4284,7 +4284,7 @@
           "rating": null,
           "par_or_shares": 20179353.13,
           "market_value": 20224857.57,
-          "weight_pct": 0.397968,
+          "weight_pct": 0.397966,
           "currency": "USD",
           "implied_mark": 100.2255
         },
@@ -4301,7 +4301,7 @@
           "rating": null,
           "par_or_shares": 26846543.0,
           "market_value": 20102691.4,
-          "weight_pct": 0.395564,
+          "weight_pct": 0.395562,
           "currency": "USD",
           "implied_mark": 74.88
         },
@@ -4318,7 +4318,7 @@
           "rating": null,
           "par_or_shares": 19846573.16,
           "market_value": 19919013.15,
-          "weight_pct": 0.39195,
+          "weight_pct": 0.391948,
           "currency": "USD",
           "implied_mark": 100.365
         },
@@ -4335,7 +4335,7 @@
           "rating": null,
           "par_or_shares": 19784931.67,
           "market_value": 19519022.19,
-          "weight_pct": 0.384079,
+          "weight_pct": 0.384077,
           "currency": "USD",
           "implied_mark": 98.656
         },
@@ -4352,7 +4352,7 @@
           "rating": null,
           "par_or_shares": 19495601.36,
           "market_value": 19444522.88,
-          "weight_pct": 0.382613,
+          "weight_pct": 0.382611,
           "currency": "USD",
           "implied_mark": 99.738
         },
@@ -4369,7 +4369,7 @@
           "rating": null,
           "par_or_shares": 18795158.82,
           "market_value": 18732570.94,
-          "weight_pct": 0.368604,
+          "weight_pct": 0.368602,
           "currency": "USD",
           "implied_mark": 99.667
         },
@@ -4386,7 +4386,7 @@
           "rating": null,
           "par_or_shares": 18443953.07,
           "market_value": 18486558.6,
-          "weight_pct": 0.363763,
+          "weight_pct": 0.363762,
           "currency": "USD",
           "implied_mark": 100.231
         },
@@ -4403,7 +4403,7 @@
           "rating": null,
           "par_or_shares": 18289065.95,
           "market_value": 18324821.07,
-          "weight_pct": 0.360581,
+          "weight_pct": 0.360579,
           "currency": "USD",
           "implied_mark": 100.1955
         },
@@ -4419,10 +4419,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 17426052.38,
-          "market_value": 17434765.41,
-          "weight_pct": 0.343067,
+          "market_value": 17439121.92,
+          "weight_pct": 0.343151,
           "currency": "USD",
-          "implied_mark": 100.05
+          "implied_mark": 100.075
         },
         {
           "ticker": null,
@@ -4436,10 +4436,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 16633762.33,
-          "market_value": 16427420.51,
-          "weight_pct": 0.323245,
+          "market_value": 16428169.03,
+          "weight_pct": 0.323258,
           "currency": "USD",
-          "implied_mark": 98.7595
+          "implied_mark": 98.764
         },
         {
           "ticker": null,
@@ -4454,7 +4454,7 @@
           "rating": null,
           "par_or_shares": 16821190.91,
           "market_value": 16186863.8,
-          "weight_pct": 0.318512,
+          "weight_pct": 0.31851,
           "currency": "USD",
           "implied_mark": 96.229
         },
@@ -4471,7 +4471,7 @@
           "rating": null,
           "par_or_shares": 15094273.49,
           "market_value": 15204310.74,
-          "weight_pct": 0.299178,
+          "weight_pct": 0.299176,
           "currency": "USD",
           "implied_mark": 100.729
         },
@@ -4488,7 +4488,7 @@
           "rating": null,
           "par_or_shares": 14506183.02,
           "market_value": 14483553.37,
-          "weight_pct": 0.284995,
+          "weight_pct": 0.284994,
           "currency": "USD",
           "implied_mark": 99.844
         },
@@ -4505,7 +4505,7 @@
           "rating": null,
           "par_or_shares": 13756583.63,
           "market_value": 13777218.51,
-          "weight_pct": 0.271097,
+          "weight_pct": 0.271095,
           "currency": "USD",
           "implied_mark": 100.15
         },
@@ -4522,7 +4522,7 @@
           "rating": null,
           "par_or_shares": 13788191.58,
           "market_value": 13717320.28,
-          "weight_pct": 0.269918,
+          "weight_pct": 0.269917,
           "currency": "USD",
           "implied_mark": 99.486
         },
@@ -4539,7 +4539,7 @@
           "rating": null,
           "par_or_shares": 13867836.0,
           "market_value": 13711822.85,
-          "weight_pct": 0.26981,
+          "weight_pct": 0.269809,
           "currency": "USD",
           "implied_mark": 98.875
         },
@@ -4556,7 +4556,7 @@
           "rating": null,
           "par_or_shares": 42087626.57,
           "market_value": 13502973.23,
-          "weight_pct": 0.2657,
+          "weight_pct": 0.265699,
           "currency": "USD",
           "implied_mark": 32.083
         },
@@ -4572,10 +4572,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 13483754.07,
-          "market_value": 13085578.81,
-          "weight_pct": 0.257487,
+          "market_value": 13083421.41,
+          "weight_pct": 0.257444,
           "currency": "USD",
-          "implied_mark": 97.047
+          "implied_mark": 97.031
         },
         {
           "ticker": null,
@@ -4590,7 +4590,7 @@
           "rating": null,
           "par_or_shares": 13169843.62,
           "market_value": 13020365.89,
-          "weight_pct": 0.256204,
+          "weight_pct": 0.256203,
           "currency": "USD",
           "implied_mark": 98.865
         },
@@ -4607,7 +4607,7 @@
           "rating": null,
           "par_or_shares": 13955785.43,
           "market_value": 12916079.42,
-          "weight_pct": 0.254152,
+          "weight_pct": 0.254151,
           "currency": "USD",
           "implied_mark": 92.55
         },
@@ -4624,7 +4624,7 @@
           "rating": null,
           "par_or_shares": 12204925.3,
           "market_value": 11880762.48,
-          "weight_pct": 0.23378,
+          "weight_pct": 0.233779,
           "currency": "USD",
           "implied_mark": 97.344
         },
@@ -4641,7 +4641,7 @@
           "rating": null,
           "par_or_shares": 12054950.86,
           "market_value": 11840252.19,
-          "weight_pct": 0.232983,
+          "weight_pct": 0.232982,
           "currency": "USD",
           "implied_mark": 98.219
         },
@@ -4658,7 +4658,7 @@
           "rating": null,
           "par_or_shares": 11587579.98,
           "market_value": 11595053.97,
-          "weight_pct": 0.228158,
+          "weight_pct": 0.228157,
           "currency": "USD",
           "implied_mark": 100.0645
         },
@@ -4675,7 +4675,7 @@
           "rating": null,
           "par_or_shares": 11753854.29,
           "market_value": 11570200.32,
-          "weight_pct": 0.227669,
+          "weight_pct": 0.227668,
           "currency": "USD",
           "implied_mark": 98.4375
         },
@@ -4691,10 +4691,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 11433422.34,
-          "market_value": 11478069.85,
-          "weight_pct": 0.225856,
+          "market_value": 11481671.38,
+          "weight_pct": 0.225926,
           "currency": "USD",
-          "implied_mark": 100.3905
+          "implied_mark": 100.422
         },
         {
           "ticker": null,
@@ -4709,7 +4709,7 @@
           "rating": null,
           "par_or_shares": 11340909.09,
           "market_value": 11050298.29,
-          "weight_pct": 0.217439,
+          "weight_pct": 0.217438,
           "currency": "USD",
           "implied_mark": 97.4375
         },
@@ -4725,10 +4725,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 10960962.2,
-          "market_value": 10909993.73,
-          "weight_pct": 0.214678,
+          "market_value": 10911528.26,
+          "weight_pct": 0.214707,
           "currency": "USD",
-          "implied_mark": 99.535
+          "implied_mark": 99.549
         },
         {
           "ticker": null,
@@ -4742,10 +4742,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 10900242.02,
-          "market_value": 10900242.02,
-          "weight_pct": 0.214486,
+          "market_value": 10902204.06,
+          "weight_pct": 0.214524,
           "currency": "USD",
-          "implied_mark": 100.0
+          "implied_mark": 100.018
         },
         {
           "ticker": null,
@@ -4760,7 +4760,7 @@
           "rating": null,
           "par_or_shares": 12554730.84,
           "market_value": 10859842.18,
-          "weight_pct": 0.213691,
+          "weight_pct": 0.21369,
           "currency": "USD",
           "implied_mark": 86.5
         },
@@ -4777,7 +4777,7 @@
           "rating": null,
           "par_or_shares": 10667052.28,
           "market_value": 10724334.35,
-          "weight_pct": 0.211025,
+          "weight_pct": 0.211024,
           "currency": "USD",
           "implied_mark": 100.537
         },
@@ -4794,7 +4794,7 @@
           "rating": null,
           "par_or_shares": 10587143.08,
           "market_value": 10372435.82,
-          "weight_pct": 0.2041,
+          "weight_pct": 0.204099,
           "currency": "USD",
           "implied_mark": 97.972
         },
@@ -4811,7 +4811,7 @@
           "rating": null,
           "par_or_shares": 11434182.16,
           "market_value": 10119251.21,
-          "weight_pct": 0.199118,
+          "weight_pct": 0.199117,
           "currency": "USD",
           "implied_mark": 88.5
         },
@@ -4828,7 +4828,7 @@
           "rating": null,
           "par_or_shares": 10200129.41,
           "market_value": 10066252.71,
-          "weight_pct": 0.198075,
+          "weight_pct": 0.198074,
           "currency": "USD",
           "implied_mark": 98.6875
         },
@@ -4845,7 +4845,7 @@
           "rating": null,
           "par_or_shares": 9805507.33,
           "market_value": 9591011.86,
-          "weight_pct": 0.188724,
+          "weight_pct": 0.188723,
           "currency": "USD",
           "implied_mark": 97.8125
         },
@@ -4861,10 +4861,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 9366544.62,
-          "market_value": 9404619.62,
-          "weight_pct": 0.185056,
+          "market_value": 9407570.09,
+          "weight_pct": 0.185114,
           "currency": "USD",
-          "implied_mark": 100.4065
+          "implied_mark": 100.438
         },
         {
           "ticker": null,
@@ -4879,7 +4879,7 @@
           "rating": null,
           "par_or_shares": 9257075.71,
           "market_value": 9270961.32,
-          "weight_pct": 0.182426,
+          "weight_pct": 0.182425,
           "currency": "USD",
           "implied_mark": 100.15
         },
@@ -4896,7 +4896,7 @@
           "rating": null,
           "par_or_shares": 9203302.6,
           "market_value": 9237814.98,
-          "weight_pct": 0.181774,
+          "weight_pct": 0.181773,
           "currency": "USD",
           "implied_mark": 100.375
         },
@@ -4913,7 +4913,7 @@
           "rating": null,
           "par_or_shares": 9166216.22,
           "market_value": 9215897.11,
-          "weight_pct": 0.181343,
+          "weight_pct": 0.181342,
           "currency": "USD",
           "implied_mark": 100.542
         },
@@ -4930,7 +4930,7 @@
           "rating": null,
           "par_or_shares": 9334584.33,
           "market_value": 9180937.07,
-          "weight_pct": 0.180655,
+          "weight_pct": 0.180654,
           "currency": "USD",
           "implied_mark": 98.354
         },
@@ -4946,10 +4946,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 9310972.69,
-          "market_value": 9159669.38,
-          "weight_pct": 0.180236,
+          "market_value": 9157341.64,
+          "weight_pct": 0.18019,
           "currency": "USD",
-          "implied_mark": 98.375
+          "implied_mark": 98.35
         },
         {
           "ticker": null,
@@ -4964,7 +4964,7 @@
           "rating": null,
           "par_or_shares": 9140975.72,
           "market_value": 9135856.77,
-          "weight_pct": 0.179768,
+          "weight_pct": 0.179767,
           "currency": "USD",
           "implied_mark": 99.944
         },
@@ -4981,7 +4981,7 @@
           "rating": null,
           "par_or_shares": 10104970.32,
           "market_value": 9062945.78,
-          "weight_pct": 0.178333,
+          "weight_pct": 0.178332,
           "currency": "USD",
           "implied_mark": 89.688
         },
@@ -5015,7 +5015,7 @@
           "rating": null,
           "par_or_shares": 9250000.0,
           "market_value": 8962325.0,
-          "weight_pct": 0.176353,
+          "weight_pct": 0.176352,
           "currency": "USD",
           "implied_mark": 96.89
         },
@@ -5032,7 +5032,7 @@
           "rating": null,
           "par_or_shares": 9048945.27,
           "market_value": 8916016.26,
-          "weight_pct": 0.175442,
+          "weight_pct": 0.175441,
           "currency": "USD",
           "implied_mark": 98.531
         },
@@ -5049,7 +5049,7 @@
           "rating": null,
           "par_or_shares": 18288720.79,
           "market_value": 8748043.82,
-          "weight_pct": 0.172137,
+          "weight_pct": 0.172136,
           "currency": "USD",
           "implied_mark": 47.833
         },
@@ -5066,7 +5066,7 @@
           "rating": null,
           "par_or_shares": 8543741.01,
           "market_value": 8533061.33,
-          "weight_pct": 0.167907,
+          "weight_pct": 0.167906,
           "currency": "USD",
           "implied_mark": 99.875
         },
@@ -5083,7 +5083,7 @@
           "rating": null,
           "par_or_shares": 8160506.82,
           "market_value": 8164587.07,
-          "weight_pct": 0.160656,
+          "weight_pct": 0.160655,
           "currency": "USD",
           "implied_mark": 100.05
         },
@@ -5100,7 +5100,7 @@
           "rating": null,
           "par_or_shares": 8000000.0,
           "market_value": 8009800.0,
-          "weight_pct": 0.15761,
+          "weight_pct": 0.157609,
           "currency": "USD",
           "implied_mark": 100.1225
         },
@@ -5117,7 +5117,7 @@
           "rating": null,
           "par_or_shares": 8000000.0,
           "market_value": 7971056.0,
-          "weight_pct": 0.156848,
+          "weight_pct": 0.156847,
           "currency": "USD",
           "implied_mark": 99.6382
         },
@@ -5133,10 +5133,27 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 7835237.14,
-          "market_value": 7858899.56,
-          "weight_pct": 0.154641,
+          "market_value": 7857293.33,
+          "weight_pct": 0.154609,
           "currency": "USD",
-          "implied_mark": 100.302
+          "implied_mark": 100.2815
+        },
+        {
+          "ticker": null,
+          "name": "CRC Insurance Group LLC aka Truist Insurance/CRC Group/TIH Insurance 05/06/2031",
+          "identifier": "LX255416",
+          "figi": "BBG01R3B49Z9",
+          "cusip": null,
+          "security_type": "Senior loan / fund holding",
+          "coupon_pct": 6.8244,
+          "maturity_date": "2031-05-06",
+          "next_call_date": null,
+          "rating": null,
+          "par_or_shares": 8079365.99,
+          "market_value": 7816786.6,
+          "weight_pct": 0.153812,
+          "currency": "USD",
+          "implied_mark": 96.75
         },
         {
           "ticker": null,
@@ -5151,26 +5168,9 @@
           "rating": null,
           "par_or_shares": 7845061.81,
           "market_value": 7803365.31,
-          "weight_pct": 0.153548,
-          "currency": "USD",
-          "implied_mark": 99.4685
-        },
-        {
-          "ticker": null,
-          "name": "CRC Insurance Group LLC aka Truist Insurance/CRC Group/TIH Insurance 05/06/2031",
-          "identifier": "LX255416",
-          "figi": "BBG01R3B49Z9",
-          "cusip": null,
-          "security_type": "Senior loan / fund holding",
-          "coupon_pct": 6.8244,
-          "maturity_date": "2031-05-06",
-          "next_call_date": null,
-          "rating": null,
-          "par_or_shares": 8079365.99,
-          "market_value": 7803294.05,
           "weight_pct": 0.153547,
           "currency": "USD",
-          "implied_mark": 96.583
+          "implied_mark": 99.4685
         },
         {
           "ticker": null,
@@ -5184,10 +5184,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 7642168.31,
-          "market_value": 7654586.83,
-          "weight_pct": 0.150621,
+          "market_value": 7655542.1,
+          "weight_pct": 0.150639,
           "currency": "USD",
-          "implied_mark": 100.1625
+          "implied_mark": 100.175
         },
         {
           "ticker": null,
@@ -5201,10 +5201,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 7629913.71,
-          "market_value": 7620414.47,
-          "weight_pct": 0.149948,
+          "market_value": 7615607.62,
+          "weight_pct": 0.149853,
           "currency": "USD",
-          "implied_mark": 99.8755
+          "implied_mark": 99.8125
         },
         {
           "ticker": null,
@@ -5219,7 +5219,7 @@
           "rating": null,
           "par_or_shares": 8116887.73,
           "market_value": 7546189.35,
-          "weight_pct": 0.148488,
+          "weight_pct": 0.148487,
           "currency": "USD",
           "implied_mark": 92.969
         },
@@ -5235,10 +5235,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 7462826.86,
-          "market_value": 7473088.25,
-          "weight_pct": 0.147049,
+          "market_value": 7474953.95,
+          "weight_pct": 0.147085,
           "currency": "USD",
-          "implied_mark": 100.1375
+          "implied_mark": 100.1625
         },
         {
           "ticker": null,
@@ -5253,7 +5253,7 @@
           "rating": null,
           "par_or_shares": 7259235.75,
           "market_value": 7257275.76,
-          "weight_pct": 0.142803,
+          "weight_pct": 0.142802,
           "currency": "USD",
           "implied_mark": 99.973
         },
@@ -5287,7 +5287,7 @@
           "rating": null,
           "par_or_shares": 7202375.25,
           "market_value": 7102694.38,
-          "weight_pct": 0.139761,
+          "weight_pct": 0.13976,
           "currency": "USD",
           "implied_mark": 98.616
         },
@@ -5304,7 +5304,7 @@
           "rating": null,
           "par_or_shares": 7054698.65,
           "market_value": 7013534.48,
-          "weight_pct": 0.138007,
+          "weight_pct": 0.138006,
           "currency": "USD",
           "implied_mark": 99.4165
         },
@@ -5355,7 +5355,7 @@
           "rating": null,
           "par_or_shares": 6681755.68,
           "market_value": 6717269.21,
-          "weight_pct": 0.132177,
+          "weight_pct": 0.132176,
           "currency": "USD",
           "implied_mark": 100.5315
         },
@@ -5388,10 +5388,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 6393810.85,
-          "market_value": 6390805.76,
-          "weight_pct": 0.125753,
+          "market_value": 6391668.92,
+          "weight_pct": 0.125769,
           "currency": "USD",
-          "implied_mark": 99.953
+          "implied_mark": 99.9665
         },
         {
           "ticker": null,
@@ -5439,10 +5439,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 6274622.21,
-          "market_value": 6296175.54,
-          "weight_pct": 0.123891,
+          "market_value": 6298152.04,
+          "weight_pct": 0.123929,
           "currency": "USD",
-          "implied_mark": 100.3435
+          "implied_mark": 100.375
         },
         {
           "ticker": null,
@@ -5491,7 +5491,7 @@
           "rating": null,
           "par_or_shares": 6211371.09,
           "market_value": 6246962.25,
-          "weight_pct": 0.122923,
+          "weight_pct": 0.122922,
           "currency": "USD",
           "implied_mark": 100.573
         },
@@ -5507,10 +5507,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 6165937.34,
-          "market_value": 6187148.16,
-          "weight_pct": 0.121746,
+          "market_value": 6185205.89,
+          "weight_pct": 0.121707,
           "currency": "USD",
-          "implied_mark": 100.344
+          "implied_mark": 100.3125
         },
         {
           "ticker": null,
@@ -5524,10 +5524,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 6160409.43,
-          "market_value": 6146610.11,
-          "weight_pct": 0.120948,
+          "market_value": 6147996.2,
+          "weight_pct": 0.120975,
           "currency": "USD",
-          "implied_mark": 99.776
+          "implied_mark": 99.7985
         },
         {
           "ticker": null,
@@ -5559,7 +5559,7 @@
           "rating": null,
           "par_or_shares": 6000000.0,
           "market_value": 6011616.0,
-          "weight_pct": 0.118292,
+          "weight_pct": 0.118291,
           "currency": "USD",
           "implied_mark": 100.1936
         },
@@ -5576,7 +5576,7 @@
           "rating": null,
           "par_or_shares": 6000000.0,
           "market_value": 5991498.0,
-          "weight_pct": 0.117896,
+          "weight_pct": 0.117895,
           "currency": "USD",
           "implied_mark": 99.8583
         },
@@ -5593,7 +5593,7 @@
           "rating": null,
           "par_or_shares": 5952996.84,
           "market_value": 5969129.46,
-          "weight_pct": 0.117456,
+          "weight_pct": 0.117455,
           "currency": "USD",
           "implied_mark": 100.271
         },
@@ -5610,7 +5610,7 @@
           "rating": null,
           "par_or_shares": 5902083.46,
           "market_value": 5932892.34,
-          "weight_pct": 0.116743,
+          "weight_pct": 0.116742,
           "currency": "USD",
           "implied_mark": 100.522
         },
@@ -5644,7 +5644,7 @@
           "rating": null,
           "par_or_shares": 5693941.19,
           "market_value": 5708176.04,
-          "weight_pct": 0.112321,
+          "weight_pct": 0.11232,
           "currency": "USD",
           "implied_mark": 100.25
         },
@@ -5728,10 +5728,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 5435495.07,
-          "market_value": 5409241.63,
-          "weight_pct": 0.106439,
+          "market_value": 5409540.58,
+          "weight_pct": 0.106444,
           "currency": "USD",
-          "implied_mark": 99.517
+          "implied_mark": 99.5225
         },
         {
           "ticker": null,
@@ -5745,10 +5745,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 5385143.04,
-          "market_value": 5400436.85,
-          "weight_pct": 0.106265,
+          "market_value": 5401056.14,
+          "weight_pct": 0.106277,
           "currency": "USD",
-          "implied_mark": 100.284
+          "implied_mark": 100.2955
         },
         {
           "ticker": null,
@@ -5763,7 +5763,7 @@
           "rating": null,
           "par_or_shares": 5300000.0,
           "market_value": 5283564.7,
-          "weight_pct": 0.103966,
+          "weight_pct": 0.103965,
           "currency": "USD",
           "implied_mark": 99.6899
         },
@@ -5797,7 +5797,7 @@
           "rating": null,
           "par_or_shares": 5000000.0,
           "market_value": 5011730.0,
-          "weight_pct": 0.098617,
+          "weight_pct": 0.098616,
           "currency": "USD",
           "implied_mark": 100.2346
         },
@@ -5865,7 +5865,7 @@
           "rating": null,
           "par_or_shares": 5000000.0,
           "market_value": 4999485.0,
-          "weight_pct": 0.098376,
+          "weight_pct": 0.098375,
           "currency": "USD",
           "implied_mark": 99.9897
         },
@@ -5882,7 +5882,7 @@
           "rating": null,
           "par_or_shares": 5000000.0,
           "market_value": 4996330.0,
-          "weight_pct": 0.098314,
+          "weight_pct": 0.098313,
           "currency": "USD",
           "implied_mark": 99.9266
         },
@@ -5933,7 +5933,7 @@
           "rating": null,
           "par_or_shares": 5046285.35,
           "market_value": 4971373.24,
-          "weight_pct": 0.097823,
+          "weight_pct": 0.097822,
           "currency": "USD",
           "implied_mark": 98.5155
         },
@@ -5967,7 +5967,7 @@
           "rating": null,
           "par_or_shares": 5000000.0,
           "market_value": 4967715.0,
-          "weight_pct": 0.097751,
+          "weight_pct": 0.09775,
           "currency": "USD",
           "implied_mark": 99.3543
         },
@@ -6000,10 +6000,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 5977809.84,
-          "market_value": 4876906.49,
-          "weight_pct": 0.095964,
+          "market_value": 4895826.26,
+          "weight_pct": 0.096336,
           "currency": "USD",
-          "implied_mark": 81.5835
+          "implied_mark": 81.9
         },
         {
           "ticker": null,
@@ -6018,7 +6018,7 @@
           "rating": null,
           "par_or_shares": 4778405.17,
           "market_value": 4787364.68,
-          "weight_pct": 0.094202,
+          "weight_pct": 0.094201,
           "currency": "USD",
           "implied_mark": 100.1875
         },
@@ -6052,7 +6052,7 @@
           "rating": null,
           "par_or_shares": 5000000.0,
           "market_value": 4724490.0,
-          "weight_pct": 0.092965,
+          "weight_pct": 0.092964,
           "currency": "USD",
           "implied_mark": 94.4898
         },
@@ -6069,7 +6069,7 @@
           "rating": null,
           "par_or_shares": 4696499.64,
           "market_value": 4710166.45,
-          "weight_pct": 0.092683,
+          "weight_pct": 0.092682,
           "currency": "USD",
           "implied_mark": 100.291
         },
@@ -6102,10 +6102,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 4712155.54,
-          "market_value": 4576681.07,
-          "weight_pct": 0.090056,
+          "market_value": 4575832.88,
+          "weight_pct": 0.090039,
           "currency": "USD",
-          "implied_mark": 97.125
+          "implied_mark": 97.107
         },
         {
           "ticker": null,
@@ -6119,10 +6119,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 4467987.69,
-          "market_value": 4483089.49,
-          "weight_pct": 0.088215,
+          "market_value": 4483625.65,
+          "weight_pct": 0.088225,
           "currency": "USD",
-          "implied_mark": 100.338
+          "implied_mark": 100.35
         },
         {
           "ticker": null,
@@ -6136,10 +6136,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 4737207.63,
-          "market_value": 4463349.66,
-          "weight_pct": 0.087826,
+          "market_value": 4457428.15,
+          "weight_pct": 0.087709,
           "currency": "USD",
-          "implied_mark": 94.219
+          "implied_mark": 94.094
         },
         {
           "ticker": null,
@@ -6170,10 +6170,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 4357393.57,
-          "market_value": 4366151.93,
-          "weight_pct": 0.085914,
+          "market_value": 4366544.1,
+          "weight_pct": 0.085921,
           "currency": "USD",
-          "implied_mark": 100.201
+          "implied_mark": 100.21
         },
         {
           "ticker": null,
@@ -6187,10 +6187,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 4542309.14,
-          "market_value": 4308584.62,
-          "weight_pct": 0.084781,
+          "market_value": 4310469.68,
+          "weight_pct": 0.084817,
           "currency": "USD",
-          "implied_mark": 94.8545
+          "implied_mark": 94.896
         },
         {
           "ticker": null,
@@ -6204,10 +6204,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 4116958.62,
-          "market_value": 4129021.31,
-          "weight_pct": 0.081247,
+          "market_value": 4128527.27,
+          "weight_pct": 0.081237,
           "currency": "USD",
-          "implied_mark": 100.293
+          "implied_mark": 100.281
         },
         {
           "ticker": null,
@@ -6290,7 +6290,7 @@
           "rating": null,
           "par_or_shares": 3863652.03,
           "market_value": 3876208.9,
-          "weight_pct": 0.076273,
+          "weight_pct": 0.076272,
           "currency": "USD",
           "implied_mark": 100.325
         },
@@ -6305,11 +6305,11 @@
           "maturity_date": "2031-10-31",
           "next_call_date": null,
           "rating": null,
-          "par_or_shares": 3827819.34,
-          "market_value": 3832087.358564,
-          "weight_pct": 0.075405,
+          "par_or_shares": 3827819.24,
+          "market_value": 3831226.0,
+          "weight_pct": 0.075387,
           "currency": "USD",
-          "implied_mark": 100.1115
+          "implied_mark": 100.089
         },
         {
           "ticker": null,
@@ -6324,7 +6324,7 @@
           "rating": null,
           "par_or_shares": 4000000.0,
           "market_value": 3816640.0,
-          "weight_pct": 0.075101,
+          "weight_pct": 0.0751,
           "currency": "USD",
           "implied_mark": 95.416
         },
@@ -6340,10 +6340,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 3811613.2,
-          "market_value": 3813080.67,
-          "weight_pct": 0.075031,
+          "market_value": 3812966.32,
+          "weight_pct": 0.075028,
           "currency": "USD",
-          "implied_mark": 100.0385
+          "implied_mark": 100.0355
         },
         {
           "ticker": null,
@@ -6392,7 +6392,7 @@
           "rating": null,
           "par_or_shares": 280942.0,
           "market_value": 3546892.75,
-          "weight_pct": 0.069793,
+          "weight_pct": 0.069792,
           "currency": "USD",
           "implied_mark": null
         },
@@ -6408,10 +6408,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 3523328.89,
-          "market_value": 3532137.21,
-          "weight_pct": 0.069502,
+          "market_value": 3532965.19,
+          "weight_pct": 0.069518,
           "currency": "USD",
-          "implied_mark": 100.25
+          "implied_mark": 100.2735
         },
         {
           "ticker": null,
@@ -6528,7 +6528,7 @@
           "rating": null,
           "par_or_shares": 3454145.71,
           "market_value": 3435441.51,
-          "weight_pct": 0.0676,
+          "weight_pct": 0.067599,
           "currency": "USD",
           "implied_mark": 99.4585
         },
@@ -6544,10 +6544,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 3416763.81,
-          "market_value": 3424246.52,
-          "weight_pct": 0.067379,
+          "market_value": 3425015.29,
+          "weight_pct": 0.067394,
           "currency": "USD",
-          "implied_mark": 100.219
+          "implied_mark": 100.2415
         },
         {
           "ticker": null,
@@ -6561,7 +6561,7 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 3328970.66,
-          "market_value": 3335894.918973,
+          "market_value": 3335894.92,
           "weight_pct": 0.065641,
           "currency": "USD",
           "implied_mark": 100.208
@@ -6578,10 +6578,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 3319829.79,
-          "market_value": 3329058.92,
-          "weight_pct": 0.065506,
+          "market_value": 3328826.53,
+          "weight_pct": 0.065502,
           "currency": "USD",
-          "implied_mark": 100.278
+          "implied_mark": 100.271
         },
         {
           "ticker": null,
@@ -6647,7 +6647,7 @@
           "rating": null,
           "par_or_shares": 3000000.0,
           "market_value": 3002340.0,
-          "weight_pct": 0.059078,
+          "weight_pct": 0.059077,
           "currency": "USD",
           "implied_mark": 100.078
         },
@@ -6698,7 +6698,7 @@
           "rating": null,
           "par_or_shares": 3000000.0,
           "market_value": 2999340.0,
-          "weight_pct": 0.059019,
+          "weight_pct": 0.059018,
           "currency": "USD",
           "implied_mark": 99.978
         },
@@ -6749,7 +6749,7 @@
           "rating": null,
           "par_or_shares": 3000000.0,
           "market_value": 2997768.0,
-          "weight_pct": 0.058988,
+          "weight_pct": 0.058987,
           "currency": "USD",
           "implied_mark": 99.9256
         },
@@ -6783,7 +6783,7 @@
           "rating": null,
           "par_or_shares": 3000000.0,
           "market_value": 2996454.0,
-          "weight_pct": 0.058962,
+          "weight_pct": 0.058961,
           "currency": "USD",
           "implied_mark": 99.8818
         },
@@ -6800,7 +6800,7 @@
           "rating": null,
           "par_or_shares": 3000000.0,
           "market_value": 2996301.0,
-          "weight_pct": 0.058959,
+          "weight_pct": 0.058958,
           "currency": "USD",
           "implied_mark": 99.8767
         },
@@ -6851,7 +6851,7 @@
           "rating": null,
           "par_or_shares": 3000000.0,
           "market_value": 2981511.0,
-          "weight_pct": 0.058668,
+          "weight_pct": 0.058667,
           "currency": "USD",
           "implied_mark": 99.3837
         },
@@ -7078,6 +7078,23 @@
         },
         {
           "ticker": null,
+          "name": "Scientific Games Holdings LP/Scientific Games US FinCo Inc 6.625% 03/01/2030",
+          "identifier": "US80874DAA46",
+          "figi": "BBG01505H0Z8",
+          "cusip": null,
+          "security_type": "Senior loan / fund holding",
+          "coupon_pct": 6.625,
+          "maturity_date": "2030-03-01",
+          "next_call_date": null,
+          "rating": null,
+          "par_or_shares": 10000000.0,
+          "market_value": 2564300.0,
+          "weight_pct": 0.050458,
+          "currency": "USD",
+          "implied_mark": 25.643
+        },
+        {
+          "ticker": null,
           "name": "Eldridge CLO 2025-1 Ltd",
           "identifier": "US284915AA36",
           "figi": "BBG01XHBTSN5",
@@ -7109,23 +7126,6 @@
           "weight_pct": 0.049725,
           "currency": "USD",
           "implied_mark": 100.125
-        },
-        {
-          "ticker": null,
-          "name": "Scientific Games Holdings LP/Scientific Games US FinCo Inc 6.625% 03/01/2030",
-          "identifier": "US80874DAA46",
-          "figi": "BBG01505H0Z8",
-          "cusip": null,
-          "security_type": "Senior loan / fund holding",
-          "coupon_pct": 6.625,
-          "maturity_date": "2030-03-01",
-          "next_call_date": null,
-          "rating": null,
-          "par_or_shares": 10000000.0,
-          "market_value": 2519100.0,
-          "weight_pct": 0.049569,
-          "currency": "USD",
-          "implied_mark": 25.191
         },
         {
           "ticker": null,
@@ -7191,7 +7191,7 @@
           "rating": null,
           "par_or_shares": 2446898.0,
           "market_value": 2456073.87,
-          "weight_pct": 0.048329,
+          "weight_pct": 0.048328,
           "currency": "USD",
           "implied_mark": 100.375
         },
@@ -7208,7 +7208,7 @@
           "rating": null,
           "par_or_shares": 2444955.1,
           "market_value": 2445810.83,
-          "weight_pct": 0.048127,
+          "weight_pct": 0.048126,
           "currency": "USD",
           "implied_mark": 100.035
         },
@@ -7225,7 +7225,7 @@
           "rating": null,
           "par_or_shares": 2443319.0,
           "market_value": 2440264.85,
-          "weight_pct": 0.048018,
+          "weight_pct": 0.048017,
           "currency": "USD",
           "implied_mark": 99.875
         },
@@ -7310,7 +7310,7 @@
           "rating": null,
           "par_or_shares": 2500000.0,
           "market_value": 2334562.5,
-          "weight_pct": 0.045938,
+          "weight_pct": 0.045937,
           "currency": "USD",
           "implied_mark": 93.3825
         },
@@ -7360,10 +7360,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 2227775.92,
-          "market_value": 2204016.69,
-          "weight_pct": 0.043369,
+          "market_value": 2204116.94,
+          "weight_pct": 0.043371,
           "currency": "USD",
-          "implied_mark": 98.9335
+          "implied_mark": 98.938
         },
         {
           "ticker": null,
@@ -7412,7 +7412,7 @@
           "rating": null,
           "par_or_shares": 2206090.14,
           "market_value": 2183830.69,
-          "weight_pct": 0.042972,
+          "weight_pct": 0.042971,
           "currency": "USD",
           "implied_mark": 98.991
         },
@@ -7496,10 +7496,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 2116440.68,
-          "market_value": 2061550.79,
-          "weight_pct": 0.040565,
+          "market_value": 2062206.89,
+          "weight_pct": 0.040578,
           "currency": "USD",
-          "implied_mark": 97.4065
+          "implied_mark": 97.4375
         },
         {
           "ticker": null,
@@ -7752,7 +7752,7 @@
           "rating": null,
           "par_or_shares": 1934704.69,
           "market_value": 1935110.98,
-          "weight_pct": 0.038078,
+          "weight_pct": 0.038077,
           "currency": "USD",
           "implied_mark": 100.021
         },
@@ -7769,7 +7769,7 @@
           "rating": null,
           "par_or_shares": 1947000.0,
           "market_value": 1931151.42,
-          "weight_pct": 0.038,
+          "weight_pct": 0.037999,
           "currency": "USD",
           "implied_mark": 99.186
         },
@@ -7802,10 +7802,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 1919694.4,
-          "market_value": 1919032.11,
-          "weight_pct": 0.037761,
+          "market_value": 1919560.02,
+          "weight_pct": 0.037771,
           "currency": "USD",
-          "implied_mark": 99.9655
+          "implied_mark": 99.993
         },
         {
           "ticker": null,
@@ -7871,7 +7871,7 @@
           "rating": null,
           "par_or_shares": 2000000.0,
           "market_value": 1905640.0,
-          "weight_pct": 0.037498,
+          "weight_pct": 0.037497,
           "currency": "USD",
           "implied_mark": 95.282
         },
@@ -7904,10 +7904,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 1859983.61,
-          "market_value": 1863080.48,
-          "weight_pct": 0.03666,
+          "market_value": 1863471.08,
+          "weight_pct": 0.036668,
           "currency": "USD",
-          "implied_mark": 100.1665
+          "implied_mark": 100.1875
         },
         {
           "ticker": null,
@@ -7938,10 +7938,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 1831642.05,
-          "market_value": 1835406.07,
-          "weight_pct": 0.036116,
+          "market_value": 1835735.77,
+          "weight_pct": 0.036122,
           "currency": "USD",
-          "implied_mark": 100.2055
+          "implied_mark": 100.2235
         },
         {
           "ticker": null,
@@ -7989,10 +7989,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 1746781.33,
-          "market_value": 1749619.85,
-          "weight_pct": 0.034428,
+          "market_value": 1749838.2,
+          "weight_pct": 0.034432,
           "currency": "USD",
-          "implied_mark": 100.1625
+          "implied_mark": 100.175
         },
         {
           "ticker": null,
@@ -8058,7 +8058,7 @@
           "rating": null,
           "par_or_shares": 1672439.16,
           "market_value": 1605541.59,
-          "weight_pct": 0.031593,
+          "weight_pct": 0.031592,
           "currency": "USD",
           "implied_mark": 96.0
         },
@@ -8074,10 +8074,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 1591912.46,
-          "market_value": 1585114.99,
-          "weight_pct": 0.031191,
+          "market_value": 1585075.2,
+          "weight_pct": 0.03119,
           "currency": "USD",
-          "implied_mark": 99.573
+          "implied_mark": 99.5705
         },
         {
           "ticker": null,
@@ -8160,7 +8160,7 @@
           "rating": null,
           "par_or_shares": 1500000.0,
           "market_value": 1502224.5,
-          "weight_pct": 0.02956,
+          "weight_pct": 0.029559,
           "currency": "USD",
           "implied_mark": 100.1483
         },
@@ -8296,7 +8296,7 @@
           "rating": null,
           "par_or_shares": 1458746.63,
           "market_value": 1463553.2,
-          "weight_pct": 0.028799,
+          "weight_pct": 0.028798,
           "currency": "USD",
           "implied_mark": 100.3295
         },
@@ -8328,11 +8328,11 @@
           "maturity_date": "2031-10-31",
           "next_call_date": null,
           "rating": null,
-          "par_or_shares": 1448725.19,
-          "market_value": 1450340.518587,
-          "weight_pct": 0.028539,
+          "par_or_shares": 1448725.2,
+          "market_value": 1450014.57,
+          "weight_pct": 0.028532,
           "currency": "USD",
-          "implied_mark": 100.1115
+          "implied_mark": 100.089
         },
         {
           "ticker": null,
@@ -8551,7 +8551,7 @@
           "rating": null,
           "par_or_shares": 1370000.0,
           "market_value": 1293301.92,
-          "weight_pct": 0.025449,
+          "weight_pct": 0.025448,
           "currency": "USD",
           "implied_mark": 94.4016
         },
@@ -8686,10 +8686,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 1155425.36,
-          "market_value": 1153773.1,
-          "weight_pct": 0.022703,
+          "market_value": 1153877.09,
+          "weight_pct": 0.022705,
           "currency": "USD",
-          "implied_mark": 99.857
+          "implied_mark": 99.866
         },
         {
           "ticker": null,
@@ -8908,7 +8908,7 @@
           "rating": null,
           "par_or_shares": 1036000.0,
           "market_value": 1041439.0,
-          "weight_pct": 0.020493,
+          "weight_pct": 0.020492,
           "currency": "USD",
           "implied_mark": 100.525
         },
@@ -8925,7 +8925,7 @@
           "rating": null,
           "par_or_shares": 1034274.0,
           "market_value": 1037118.25,
-          "weight_pct": 0.020408,
+          "weight_pct": 0.020407,
           "currency": "USD",
           "implied_mark": 100.275
         },
@@ -9129,7 +9129,7 @@
           "rating": null,
           "par_or_shares": 1000000.0,
           "market_value": 995851.0,
-          "weight_pct": 0.019596,
+          "weight_pct": 0.019595,
           "currency": "USD",
           "implied_mark": 99.5851
         },
@@ -9214,7 +9214,7 @@
           "rating": null,
           "par_or_shares": 1000000.0,
           "market_value": 974812.0,
-          "weight_pct": 0.019182,
+          "weight_pct": 0.019181,
           "currency": "USD",
           "implied_mark": 97.4812
         },
@@ -9315,10 +9315,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 943013.42,
-          "market_value": 942292.01,
-          "weight_pct": 0.018542,
+          "market_value": 942424.04,
+          "weight_pct": 0.018544,
           "currency": "USD",
-          "implied_mark": 99.9235
+          "implied_mark": 99.9375
         },
         {
           "ticker": null,
@@ -9570,10 +9570,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 864204.69,
-          "market_value": 861063.31,
-          "weight_pct": 0.016943,
+          "market_value": 861158.37,
+          "weight_pct": 0.016945,
           "currency": "USD",
-          "implied_mark": 99.6365
+          "implied_mark": 99.6475
         },
         {
           "ticker": null,
@@ -9859,10 +9859,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 698523.66,
-          "market_value": 699197.74,
-          "weight_pct": 0.013758,
+          "market_value": 699278.07,
+          "weight_pct": 0.01376,
           "currency": "USD",
-          "implied_mark": 100.0965
+          "implied_mark": 100.108
         },
         {
           "ticker": null,
@@ -9945,7 +9945,7 @@
           "rating": null,
           "par_or_shares": 707000.0,
           "market_value": 680918.77,
-          "weight_pct": 0.013399,
+          "weight_pct": 0.013398,
           "currency": "USD",
           "implied_mark": 96.311
         },
@@ -10165,10 +10165,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 605073.87,
-          "market_value": 605164.63,
-          "weight_pct": 0.011908,
+          "market_value": 605231.19,
+          "weight_pct": 0.011909,
           "currency": "USD",
-          "implied_mark": 100.015
+          "implied_mark": 100.026
         },
         {
           "ticker": null,
@@ -10234,7 +10234,7 @@
           "rating": null,
           "par_or_shares": 750000.0,
           "market_value": 596707.5,
-          "weight_pct": 0.011742,
+          "weight_pct": 0.011741,
           "currency": "USD",
           "implied_mark": 79.561
         },
@@ -10862,10 +10862,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 445792.04,
-          "market_value": 446585.55,
+          "market_value": 446607.84,
           "weight_pct": 0.008788,
           "currency": "USD",
-          "implied_mark": 100.178
+          "implied_mark": 100.183
         },
         {
           "ticker": null,
@@ -11016,7 +11016,7 @@
           "rating": null,
           "par_or_shares": 412000.0,
           "market_value": 402981.32,
-          "weight_pct": 0.00793,
+          "weight_pct": 0.007929,
           "currency": "USD",
           "implied_mark": 97.811
         },
@@ -11441,7 +11441,7 @@
           "rating": null,
           "par_or_shares": 339000.0,
           "market_value": 339606.81,
-          "weight_pct": 0.006683,
+          "weight_pct": 0.006682,
           "currency": "USD",
           "implied_mark": 100.179
         },
@@ -11508,10 +11508,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 639000.0,
-          "market_value": 318803.49,
-          "weight_pct": 0.006273,
+          "market_value": 319327.47,
+          "weight_pct": 0.006283,
           "currency": "USD",
-          "implied_mark": 49.891
+          "implied_mark": 49.973
         },
         {
           "ticker": null,
@@ -11558,9 +11558,9 @@
           "maturity_date": "2030-06-23",
           "next_call_date": null,
           "rating": null,
-          "par_or_shares": 311994.33,
-          "market_value": 313593.3,
-          "weight_pct": 0.006171,
+          "par_or_shares": 314352.79,
+          "market_value": 315963.85,
+          "weight_pct": 0.006217,
           "currency": "USD",
           "implied_mark": 100.5125
         },
@@ -11593,10 +11593,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 330000.0,
-          "market_value": 312725.622,
-          "weight_pct": 0.006154,
+          "market_value": 312906.0,
+          "weight_pct": 0.006157,
           "currency": "USD",
-          "implied_mark": 94.7653
+          "implied_mark": 94.82
         },
         {
           "ticker": null,
@@ -11746,7 +11746,7 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 293251.08,
-          "market_value": 294045.790427,
+          "market_value": 294045.79,
           "weight_pct": 0.005786,
           "currency": "USD",
           "implied_mark": 100.271
@@ -11865,27 +11865,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 275969.96,
-          "market_value": 276033.43,
-          "weight_pct": 0.005432,
+          "market_value": 276083.11,
+          "weight_pct": 0.005433,
           "currency": "USD",
-          "implied_mark": 100.023
-        },
-        {
-          "ticker": null,
-          "name": "Nordstrom Inc 4.25% 08/01/2031",
-          "identifier": "US655664AY65",
-          "figi": "BBG011LS0Y42",
-          "cusip": null,
-          "security_type": "Senior loan / fund holding",
-          "coupon_pct": 4.25,
-          "maturity_date": "2031-08-01",
-          "next_call_date": null,
-          "rating": null,
-          "par_or_shares": 300000.0,
-          "market_value": 273832.56,
-          "weight_pct": 0.005388,
-          "currency": "USD",
-          "implied_mark": 91.2775
+          "implied_mark": 100.041
         },
         {
           "ticker": null,
@@ -11903,6 +11886,23 @@
           "weight_pct": 0.005387,
           "currency": "USD",
           "implied_mark": 97.077
+        },
+        {
+          "ticker": null,
+          "name": "Nordstrom Inc 4.25% 08/01/2031",
+          "identifier": "US655664AY65",
+          "figi": "BBG011LS0Y42",
+          "cusip": null,
+          "security_type": "Senior loan / fund holding",
+          "coupon_pct": 4.25,
+          "maturity_date": "2031-08-01",
+          "next_call_date": null,
+          "rating": null,
+          "par_or_shares": 300000.0,
+          "market_value": 273483.0,
+          "weight_pct": 0.005381,
+          "currency": "USD",
+          "implied_mark": 91.161
         },
         {
           "ticker": null,
@@ -11950,10 +11950,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 274649.92,
-          "market_value": 267526.87,
-          "weight_pct": 0.005264,
+          "market_value": 267612.02,
+          "weight_pct": 0.005266,
           "currency": "USD",
-          "implied_mark": 97.4065
+          "implied_mark": 97.4375
         },
         {
           "ticker": null,
@@ -12019,7 +12019,7 @@
           "rating": null,
           "par_or_shares": 256000.0,
           "market_value": 261496.32,
-          "weight_pct": 0.005146,
+          "weight_pct": 0.005145,
           "currency": "USD",
           "implied_mark": 102.147
         },
@@ -12137,10 +12137,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 235814.62,
-          "market_value": 232802.09,
-          "weight_pct": 0.004581,
+          "market_value": 232745.49,
+          "weight_pct": 0.00458,
           "currency": "USD",
-          "implied_mark": 98.7225
+          "implied_mark": 98.6985
         },
         {
           "ticker": null,
@@ -12256,10 +12256,10 @@
           "next_call_date": null,
           "rating": null,
           "par_or_shares": 221252.81,
-          "market_value": 221368.97,
-          "weight_pct": 0.004356,
+          "market_value": 221423.17,
+          "weight_pct": 0.004357,
           "currency": "USD",
-          "implied_mark": 100.0525
+          "implied_mark": 100.077
         },
         {
           "ticker": null,
@@ -12399,6 +12399,23 @@
         },
         {
           "ticker": null,
+          "name": "Neptune Bidco US Inc aka Nielsen/Nielsen Holdings 10.5% 12/01/2033",
+          "identifier": "US640695AE23",
+          "figi": "BBG026N3RT63",
+          "cusip": null,
+          "security_type": "Senior loan / fund holding",
+          "coupon_pct": 10.5,
+          "maturity_date": "2033-12-01",
+          "next_call_date": null,
+          "rating": null,
+          "par_or_shares": 205000.0,
+          "market_value": 206281.25,
+          "weight_pct": 0.004059,
+          "currency": "USD",
+          "implied_mark": 100.625
+        },
+        {
+          "ticker": null,
           "name": "Caturus Energy LLC aka Kimmeridge 7.125% 05/15/2031",
           "identifier": "US149482AA91",
           "figi": "BBG021LR5SQ7",
@@ -12413,23 +12430,6 @@
           "weight_pct": 0.004053,
           "currency": "USD",
           "implied_mark": 98.093
-        },
-        {
-          "ticker": null,
-          "name": "Neptune Bidco US Inc aka Nielsen/Nielsen Holdings 10.5% 12/01/2033",
-          "identifier": "US640695AE23",
-          "figi": "BBG026N3RT63",
-          "cusip": null,
-          "security_type": "Senior loan / fund holding",
-          "coupon_pct": 10.5,
-          "maturity_date": "2033-12-01",
-          "next_call_date": null,
-          "rating": null,
-          "par_or_shares": 205000.0,
-          "market_value": 205000.0,
-          "weight_pct": 0.004034,
-          "currency": "USD",
-          "implied_mark": 100.0
         },
         {
           "ticker": null,
@@ -13606,23 +13606,6 @@
         },
         {
           "ticker": null,
-          "name": "Peloton Interactive Inc 8.625% 02/15/2032",
-          "identifier": "US70614WAE03",
-          "figi": "BBG026MGQPY3",
-          "cusip": null,
-          "security_type": "Senior loan / fund holding",
-          "coupon_pct": 8.625,
-          "maturity_date": "2032-02-15",
-          "next_call_date": null,
-          "rating": null,
-          "par_or_shares": 63000.0,
-          "market_value": 64149.75,
-          "weight_pct": 0.001262,
-          "currency": "USD",
-          "implied_mark": 101.825
-        },
-        {
-          "ticker": null,
           "name": "Owens-Brockway Glass Container Inc. 7.25% 05/15/2031",
           "identifier": "US69073TAU79",
           "figi": "BBG01GM4JNZ1",
@@ -13637,6 +13620,23 @@
           "weight_pct": 0.001257,
           "currency": "USD",
           "implied_mark": 77.92
+        },
+        {
+          "ticker": null,
+          "name": "Peloton Interactive Inc 8.625% 02/15/2032",
+          "identifier": "US70614WAE03",
+          "figi": "BBG026MGQPY3",
+          "cusip": null,
+          "security_type": "Senior loan / fund holding",
+          "coupon_pct": 8.625,
+          "maturity_date": "2032-02-15",
+          "next_call_date": null,
+          "rating": null,
+          "par_or_shares": 63000.0,
+          "market_value": 63227.43,
+          "weight_pct": 0.001244,
+          "currency": "USD",
+          "implied_mark": 100.361
         },
         {
           "ticker": null,
@@ -13702,7 +13702,7 @@
           "rating": null,
           "par_or_shares": 60000.0,
           "market_value": 57655.8,
-          "weight_pct": 0.001135,
+          "weight_pct": 0.001134,
           "currency": "USD",
           "implied_mark": 96.093
         },
@@ -15429,6 +15429,24 @@
       "total_weight_pct": 100.000005,
       "sha256": "e530dda579133c65aa485d8624f61bce09012eb294bb743bb87b91edefe71707",
       "snapshot_path": "data/loan-etf-holdings/2026-11-10/srln.json"
+    },
+    {
+      "ticker": "BKLN",
+      "as_of": "2026-11-11",
+      "row_count": 172,
+      "total_market_value": 5928182858.05,
+      "total_weight_pct": 100.000003,
+      "sha256": "ff16bf123db271b3a62a93602f050ea77c0962dc689a1ceb1e292da15cab0700",
+      "snapshot_path": "data/loan-etf-holdings/2026-11-11/bkln.json"
+    },
+    {
+      "ticker": "SRLN",
+      "as_of": "2026-11-11",
+      "row_count": 657,
+      "total_market_value": 5082054631.29,
+      "total_weight_pct": 100.000007,
+      "sha256": "819fc458908bfdad5e3355438e4837f4251f035a993ca2dfee7b83f2792973e0",
+      "snapshot_path": "data/loan-etf-holdings/2026-11-11/srln.json"
     }
   ],
   "limitations": [
